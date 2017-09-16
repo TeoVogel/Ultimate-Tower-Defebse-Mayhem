@@ -13,20 +13,13 @@ import javax.swing.border.EmptyBorder;
 public class _GUI extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		_GUI frame = new _GUI();
-		frame.setVisible(true);
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
 	public _GUI() {		
 		getContentPane().setLayout(null);
+		this.setVisible(true);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
