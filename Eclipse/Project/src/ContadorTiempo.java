@@ -1,7 +1,4 @@
 
-
-import juego.Juego;
-
 public class ContadorTiempo extends Thread {
 
 	private _Juego elJuego;
