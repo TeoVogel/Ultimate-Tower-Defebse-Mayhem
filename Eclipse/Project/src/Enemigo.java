@@ -1,17 +1,18 @@
-
+package tmp;
 
 import javax.swing.ImageIcon;
 
-public class Enemigo extends Ente{
+public class Enemigo extends Ente {
+	
 	private int velocidad;
 	
 	public Enemigo(int v, int x, int y) {
 		super(x, y);
 		velocidad=v;
-		this.image[0] = new ImageIcon(this.getClass().getResource("/BattleCity/up2.png"));
-		this.image[1] = new ImageIcon("C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/gui/e2.gif");
-		this.image[2] = new ImageIcon("C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/gui/e2.gif");
-		this.image[3] = new ImageIcon("C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/gui/e2.gif");
+		this.image[0] = new ImageIcon("C:/Users/teo/Documents/TDP/tmp/tmp/src/tmp/e2.gif");
+		this.image[1] = new ImageIcon("C:/Users/teo/Documents/TDP/tmp/tmp/src/tmp/e2.gif");
+		this.image[2] = new ImageIcon("C:/Users/teo/Documents/TDP/tmp/tmp/src/tmp/e2.gif");
+		this.image[3] = new ImageIcon("C:/Users/teo/Documents/TDP/tmp/tmp/src/tmp/e2.gif");
 	}
 	
 	public void mover(int dir){	

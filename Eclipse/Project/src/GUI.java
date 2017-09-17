@@ -1,32 +1,36 @@
-
+package tmp;
 
 import java.awt.EventQueue;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class _GUI extends JFrame {
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class GUI extends JFrame {
+	
+	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
-	
+	private Juego juego;
+
 	/**
 	 * Create the frame.
 	 */
-	public _GUI() {		
-		getContentPane().setLayout(null);
-		this.setVisible(true);
+	public GUI() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		this.setVisible(true);
 		
 		addMouseListener(new MouseAdapter() {
 			@Override
@@ -38,8 +42,13 @@ public class _GUI extends JFrame {
             public void mouseReleased(MouseEvent e) {
             }
 		});
+		
+		//j = new Juego(this);
 	}
 	
-	
-	
+	protected void mover(KeyEvent key){
+		juego.mover(key.getKeyCode());
+		
+		this.repaint();
+	}
 }

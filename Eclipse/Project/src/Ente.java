@@ -1,3 +1,5 @@
+package tmp;
+
 import java.awt.Point;
 
 import javax.swing.Icon;

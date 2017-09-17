@@ -1,20 +1,21 @@
+package tmp;
 
 public class ContadorTiempo extends Thread {
 
-	private _Juego elJuego;
+	private Juego juego;
 
-	ContadorTiempo(_Juego j) {
-		this.elJuego = j;
+	ContadorTiempo(Juego j) {
+		juego = j;
 	}
 
 	public void run() {
 		while(true){
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(250);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			elJuego.mover();
+			juego.mover();
 		}
 	}
 }
