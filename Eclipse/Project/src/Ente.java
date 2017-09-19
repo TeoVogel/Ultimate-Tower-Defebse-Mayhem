@@ -7,8 +7,8 @@ public abstract class Ente {
 	
 	protected JLabel grafico;
 	protected Icon image[];
-	protected final int width = 77;
-	protected final int height = 100;
+	protected final int width = 100;
+	protected final int height = 160;
 		
 	protected Point pos;
 	
@@ -22,18 +22,18 @@ public abstract class Ente {
 	}
 	
 	protected void cambiarGrafico(int dir){
-		if(this.grafico != null){
-			this.grafico.setIcon(this.image[dir]);
-			this.grafico.setBounds(this.pos.x, this.pos.y, width, height);
+		if(grafico != null){
+			grafico.setIcon(image[dir]);
+			grafico.setBounds(pos.x, pos.y, width, height);
 		}
 	}
 	
 	public JLabel getGrafico(){
-		if(this.grafico == null){
-			this.grafico = new JLabel(image[0]);
-			this.grafico.setBounds(this.pos.x, this.pos.y, width, height);
+		if(grafico == null){
+			grafico = new JLabel(image[0]);
+			grafico.setBounds(pos.x, pos.y, width, height);
 		}
 		
-		return this.grafico;
+		return grafico;
 	}
 }
