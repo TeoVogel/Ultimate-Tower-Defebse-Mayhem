@@ -1,5 +1,3 @@
-package tmp;
-
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

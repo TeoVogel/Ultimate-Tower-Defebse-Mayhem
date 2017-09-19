@@ -1,5 +1,3 @@
-package tmp;
-
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
