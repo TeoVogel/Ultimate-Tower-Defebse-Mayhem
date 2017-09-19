@@ -13,22 +13,9 @@ public class Enemigo extends Ente {
 		this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 	}
 	
-	public void mover(int dir){	
-		switch (dir) {
-			case 0 : //Arriba
-				pos.setLocation(pos.x, pos.y - velocidad);
-				break;
-			case 1 : //Abajo
-				pos.setLocation(pos.x, pos.y + velocidad);
-				break;
-			case 2 : //Izquierda
-				pos.setLocation(pos.x - velocidad, pos.y);
-				break;
-			case 3 : //Derecha
-				pos.setLocation(pos.x + velocidad, pos.y);
-				break;
-		}
-		cambiarGrafico(dir);
+	public void mover(){	
+		pos.setLocation(pos.x - velocidad, pos.y);
+		cambiarGrafico(2);
 	}
 	
 	public int getVelocidad() {

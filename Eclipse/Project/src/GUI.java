@@ -41,12 +41,6 @@ public class GUI extends JFrame {
             }
 		});
 		
-		//j = new Juego(this);
 	}
-	
-	protected void mover(KeyEvent key){
-		juego.mover(key.getKeyCode());
-		
-		this.repaint();
-	}
+
 }
