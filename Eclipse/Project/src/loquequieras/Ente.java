@@ -13,5 +13,15 @@ public abstract class Ente {
 	public Celda getCelda() {
 		return celda;
 	}
-
+	
+	public abstract void accept(Visitor v) {}
+	
+	public void quitarVida(int cant) {
+		vida -= cant;
+		if (vida <= 0) {
+			celda.setEnte(null);
+			celda = null;
+		}
+	}
+	
 }
