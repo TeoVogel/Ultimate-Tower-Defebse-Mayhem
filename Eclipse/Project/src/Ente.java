@@ -30,7 +30,7 @@ public abstract class Ente {
 	
 	public JLabel getGrafico(){
 		if(grafico == null){
-			grafico = new JLabel(image[0]);
+			grafico = new JLabel(image[2]);
 			grafico.setBounds(pos.x, pos.y, width, height);
 		}
 		

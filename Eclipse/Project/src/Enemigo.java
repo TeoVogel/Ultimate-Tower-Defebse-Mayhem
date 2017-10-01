@@ -9,8 +9,9 @@ public class Enemigo extends Ente {
 		velocidad=v;
 		//this.image[0] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 		//this.image[1] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
-		this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
+		this.image[2] = new ImageIcon("C://Users//teo//Documents//TDP//Ultimate-Tower-Defense-Mayhem//Eclipse//Project//src//graficos/e2.gif");
 		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
+		cambiarGrafico(2);
 	}
 	
 	public void mover(){	
