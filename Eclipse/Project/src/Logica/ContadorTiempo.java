@@ -1,3 +1,4 @@
+package Logica;
 public class ContadorTiempo extends Thread {
 
 	private Juego juego;
@@ -13,7 +14,7 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			juego.mover();
+			juego.getMapa().mover();
 		}
 	}
 }

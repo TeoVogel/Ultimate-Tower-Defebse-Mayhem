@@ -1,10 +1,14 @@
+package Logica.Acciones;
 
-public class SpawnearEnemigo implements Accion {
+import Logica.Enemigo;
+import Logica.Juego;
+
+public class AccionSpawnearEnemigo implements Accion {
 
 	private Enemigo enemigo;
 	private Juego juego;	
 	
-	public SpawnearEnemigo (Enemigo e, Juego j) {
+	public AccionSpawnearEnemigo (Enemigo e, Juego j) {
 		enemigo = e;
 		juego = j;
 	}

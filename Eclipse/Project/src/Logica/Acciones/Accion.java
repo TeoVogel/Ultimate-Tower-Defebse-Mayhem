@@ -1,3 +1,4 @@
+package Logica.Acciones;
 
 public interface Accion {
 

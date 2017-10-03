@@ -1,15 +1,18 @@
+package Logica;
 import javax.swing.ImageIcon;
 
 public class Enemigo extends Ente {
 	
 	private int velocidad;
+	private final int puntos = 100;
 	
 	public Enemigo(int v, int x, int y) {
-		super(x, y);
+		super(x, y, 10);
 		velocidad=v;
+		
 		//this.image[0] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 		//this.image[1] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
-		this.image[2] = new ImageIcon("C://Users//teo//Documents//TDP//Ultimate-Tower-Defense-Mayhem//Eclipse//Project//src//graficos/e2.gif");
+		this.image[2] = new ImageIcon("C://Users//teo//Documents//TDP//Ultimate-Tower-Defense-Mayhem//Eclipse//Project//src//Grafica/e2.gif");
 		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 		cambiarGrafico(2);
 	}
@@ -22,4 +25,10 @@ public class Enemigo extends Ente {
 	public int getVelocidad() {
 		return velocidad;
 	}
+	
+	public int getPuntos () {
+		return puntos;
+	}
+	
+	
 }

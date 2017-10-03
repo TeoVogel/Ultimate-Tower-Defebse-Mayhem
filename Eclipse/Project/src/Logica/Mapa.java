@@ -1,3 +1,4 @@
+package Logica;
 
 
 import java.awt.Point;
@@ -29,7 +30,6 @@ public class Mapa extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
-		//contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		this.setVisible(true);
@@ -39,14 +39,13 @@ public class Mapa extends JFrame {
             public void mousePressed(MouseEvent e) {
 				if (juego.getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
-					    fila = e.getY()/100;
+					    fila    = e.getY()/100;
 					juego.getMercado().getPlaceHolderContent().ejecutar(fila, columna);
 				}
             }
 			
             @Override
-            public void mouseReleased(MouseEvent e) {
-            }
+            public void mouseReleased(MouseEvent e) {}
 		});
 	}
 	
@@ -60,10 +59,24 @@ public class Mapa extends JFrame {
 		add(e.getGrafico());
 	}
 	
-	public void addEnemigoRandom (Enemigo e) {
-		enemigos.add(e);
-		add(e.getGrafico());
+	public void mover(){
+		List<Integer> enemigosMuertos = new ArrayList<Integer>();
+		for (int i=0; i<enemigos.size(); i++) {
+			Enemigo e = enemigos.get(i);
+			if (e.getVida() <= 0) {
+				juego.sumarPuntos(e.getPuntos());
+				enemigosMuertos.add(i);
+			}
+			e.mover();
+		}
+		for (Integer i : enemigosMuertos) {
+			enemigos.remove((int) i);
+			System.out.println("Removido");
+		}
+		System.out.println(enemigos.size() + "      " + juego.getPuntos());
 	}
+	
+	
 	
 	/*public void ataqueEnemigo() {
 		for (Enemigo e: enemigos) {

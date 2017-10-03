@@ -1,7 +1,15 @@
+package Logica;
+
+import Logica.Acciones.Accion;
 
 public class Mercado {
 
 	private Accion accionPlaceHolder;
+	private int monedas;
+	
+	public void sumarMonedas (int m) {
+		monedas += m;
+	}
 
 	public void addToPlaceHolder(Accion a) {
 		accionPlaceHolder = a;
