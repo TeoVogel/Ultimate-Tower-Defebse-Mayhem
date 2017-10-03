@@ -12,7 +12,7 @@ public class Enemigo extends Ente {
 		
 		//this.image[0] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 		//this.image[1] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
-		this.image[2] = new ImageIcon("C://Users//teo//Documents//TDP//Ultimate-Tower-Defense-Mayhem//Eclipse//Project//src//Grafica/e2.gif");
+		this.image[2] = new ImageIcon("C:/Users/Franco/Google Drive/Tower Defence/Gifs/e5.gif");
 		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
 		cambiarGrafico(2);
 	}

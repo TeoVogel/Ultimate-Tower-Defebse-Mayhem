@@ -2,8 +2,8 @@ package loquequieras;
 
 public abstract class Ente {
 	protected int vida;
-	protected JLabel grafico;
-	protected Icon[] imagen;
+//	protected JLabel grafico;
+//	protected Icon[] imagen;
 	protected Celda celda;
 	
 	public int getVida(){
@@ -14,7 +14,7 @@ public abstract class Ente {
 		return celda;
 	}
 	
-	public abstract void accept(Visitor v) {}
+	public abstract void accept(Visitor v);
 	
 	public void quitarVida(int cant) {
 		vida -= cant;
