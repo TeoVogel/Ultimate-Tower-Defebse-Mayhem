@@ -3,7 +3,7 @@ package loquequieras;
 public abstract class Personaje extends Ente{
 	protected int ataque;
 	protected int rango;
-	protected int cadencia;
+	protected int cadencia, cad;
 	protected EfectoPersonaje efecto;
 	
 	public int getAtaque() {

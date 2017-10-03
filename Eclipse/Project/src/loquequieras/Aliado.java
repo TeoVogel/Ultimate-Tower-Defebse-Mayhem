@@ -8,7 +8,10 @@ public abstract class Aliado extends Personaje{
 	}
 	
 	public void atacar() {
-		Visitor v = new AtaqueAliado(celda);
-		accept(v);
+		if (cad == cadencia) {
+			cad--;
+			Visitor v = new AtaqueAliado(celda);
+			accept(v);
+		} else cad = (cad-1)%(cadencia+1);
 	}
 }
