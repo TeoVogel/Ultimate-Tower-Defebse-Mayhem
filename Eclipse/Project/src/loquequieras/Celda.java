@@ -14,6 +14,14 @@ public class Celda {
 		return siguiente;
 	}
 	
+	public void setAnterior(Celda c) {
+		anterior = c;
+	}
+	
+	public void setSiguiente(Celda c) {
+		siguiente = c;
+	}
+	
 	public Ente getEnte() {
 		return ente;
 	}

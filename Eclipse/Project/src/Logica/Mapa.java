@@ -27,6 +27,24 @@ public class Mapa extends JFrame {
 		enemigos = new ArrayList<Enemigo>();
 		juego = j;
 		
+		// Crea grilla y setea todas las celdas con anterior y siguiente
+		Celda[][] grilla = new Celda[6][10];
+		for (int i = 0; i < 6; i++)
+			for (int ii = 0; ii < 10; ii++)
+				grilla[i][ii] = new Celda();
+		
+		for (int i = 0; i < 6; i++)
+			grilla[i][0].setSiguiente(grilla[i][1]);
+		
+		for (int i = 0; i < 6; i++)
+			grilla[i][5].setAnterior(grilla[i][4]);
+			
+		for (int i = 0; i < 6; i++)
+			for (int ii = 1; ii < 9; ii++) {
+				grilla[i][ii].setSiguiente(grilla[i][ii+1]);
+				grilla[i][ii].setAnterior(grilla[i][ii-1]);
+			}
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
