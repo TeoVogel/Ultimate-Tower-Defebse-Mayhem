@@ -1,12 +1,13 @@
 package Logica.Acciones;
 import Logica.Juego;
+import loquequieras.Aliado;
 
 public class AccionVenderAliado implements Accion {
 
 	private Aliado aliado;
 	private Juego juego;	
 	
-	public AccionSpawnearAliado (Aliado a, Juego j) {
+	public AccionVenderAliado (Aliado a, Juego j) {
 		aliado = a;
 		juego = j;
 	}

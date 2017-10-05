@@ -1,4 +1,5 @@
 package Logica;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
+import Logica.Acciones.AccionSpawnearAliado;
 import Logica.Acciones.AccionSpawnearEnemigo;
 
 
@@ -46,27 +48,26 @@ public class Juego {
 	private void createMarket () {
 		mercado = new Mercado();
 		
-		JButton button = new JButton("SpawE");
-		button.setLocation(0,0);
-		button.setBounds(0, 0, 100, 50);
-		mapa.add(button);
-		button.addActionListener(new ActionListener() {
+		JButton buttonE = new JButton("SpawE");
+		buttonE.setBounds(0, 0, 100, 50);
+		mapa.add(buttonE);
+		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
 			}			
 		});
 		
-		/*JButton button2 = new JButton("SpawE");
-		button2.setLocation(0,0);
-		button2.setBounds(0, 0, 100, 50);
-		mapa.add(button2);
-		button2.addActionListener(new ActionListener() {
+		JButton buttonA = new JButton("SpawA");
+		buttonA.setBounds(0, 0, 100, 50);
+		mapa.add(buttonA);
+		buttonA.setLocation(100,0);
+		buttonA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mercado.addToPlaceHolder(new AccionSpawnearAliado(crearAliado(), getThis()));
 			}			
-		});*/
+		});
 	}
 	
 	public Mercado getMercado () {
@@ -97,7 +98,10 @@ public class Juego {
 		return new Enemigo(velocidad, 0, 0);
 	}
 	
-	//private Aliado crearAliado () {}
+	private Aliado crearAliado () {
+		Random r = new Random();
+		return new Aliado(0, 0, 0);
+	}
 	
 	//TODO esto es horrible
 	public Juego getThis() { return this; }
