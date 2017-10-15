@@ -49,4 +49,8 @@ public abstract class Grafico {
 		return grafico;
 	}
 	
+	public void mover () {
+		//sobreescribir en AtacarEnemigo
+	}
+	
 }
