@@ -8,8 +8,9 @@ public abstract class Ente {
 //	protected Icon[] imagen;
 	protected Celda celda;
 	
-	public Ente(int v) {
+	public Ente(int v, Celda c) {
 		vida = v;
+		celda = c;
 	}
 	
 	public int getVida(){
