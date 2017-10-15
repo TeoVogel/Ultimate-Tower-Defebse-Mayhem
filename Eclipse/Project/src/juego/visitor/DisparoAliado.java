@@ -1,17 +1,17 @@
-package vistor;
+package juego.visitor;
 
-import ente.Aliado;
-import ente.Celda;
-import ente.Enemigo;
-import ente.Ente;
-import ente.Obstaculo;
+import juego.ente.Aliado;
+import juego.ente.Celda;
+import juego.ente.Enemigo;
+import juego.ente.Ente;
+import juego.ente.Obstaculo;
 
 //Ataques que realizan los aliados
-public class AtaqueAliado implements Visitor{
+public class DisparoAliado implements Visitor{
 	protected int ataque, rango;
 	protected Celda celda;
 	
-	public AtaqueAliado(Celda c) {
+	public DisparoAliado(Celda c) {
 		Aliado a = (Aliado) c.getEnte();
 		ataque = a.getAtaque();
 		rango = a.getRango();

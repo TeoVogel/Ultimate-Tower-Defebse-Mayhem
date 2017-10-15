@@ -1,4 +1,4 @@
-package Logica.Acciones;
+package juego.acciones;
 
 public interface Accion {
 

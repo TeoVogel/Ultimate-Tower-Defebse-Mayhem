@@ -1,4 +1,4 @@
-package tmp;
+package juego;
 
 
 import java.awt.Point;
@@ -11,7 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import ente.Celda;
+import juego.ente.Aliado;
+import juego.ente.Celda;
+import juego.ente.Enemigo;
 
 public class Mapa extends JFrame {
 
@@ -32,18 +34,18 @@ public class Mapa extends JFrame {
 		Celda[][] grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
 			for (int ii = 0; ii < 10; ii++)
-				grilla[i][ii] = new Celda();
+				grilla[i][ii] = new Celda(i, ii);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][0].setSiguiente(grilla[i][1]);
+			grilla[i][0].setDer(grilla[i][1]);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][5].setAnterior(grilla[i][4]);
+			grilla[i][5].setIzq(grilla[i][4]);
 			
 		for (int i = 0; i < 6; i++)
 			for (int ii = 1; ii < 9; ii++) {
-				grilla[i][ii].setSiguiente(grilla[i][ii+1]);
-				grilla[i][ii].setAnterior(grilla[i][ii-1]);
+				grilla[i][ii].setDer(grilla[i][ii+1]);
+				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,15 +75,13 @@ public class Mapa extends JFrame {
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		e.getPos().setLocation((new Point(columna*100, fila*100)));
 		enemigos.add(e);
 		add(e.getGrafico());
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {
-		a.getPos().setLocation((new Point(columna*100, fila*100)));
 		aliados.add(a);
-		add(a.getGrafico());
+		//add(a.getGrafico());
 	}
 	
 	public void mover(){
@@ -89,7 +89,7 @@ public class Mapa extends JFrame {
 		for (int i=0; i<enemigos.size(); i++) {
 			Enemigo e = enemigos.get(i);
 			if (e.getVida() <= 0) {
-				juego.sumarPuntos(e.getPuntos());
+				//juego.sumarPuntos(e.getPuntos());
 				enemigosMuertos.add(i);
 			}
 			e.mover();
@@ -102,20 +102,9 @@ public class Mapa extends JFrame {
 	}
 	
 	
-	
-	/*public void ataqueEnemigo() {
-		for (Enemigo e: enemigos) {
-			int fil = e.getCelda().getFila();
-			int col = e.getCelda().getColumna();
-			int r = e.getRango();
-			AtaqueEnemigo v = new AtaqueEnemigo(e.getAtaque());
-			boolean ataco = false;
-			
-			for (i = col-1; i >= col-r && !ataco; i--)
-				ataco = grilla[fil][i].accept(v);
-			
-		}
-		
-	}*/
+	// TODO: elimnar esto, es solo para testear
+	public Celda getCelda(int f, int c) {
+		return grilla[c][f];
+	}
 	
 }

@@ -1,7 +1,7 @@
-package Logica.Acciones;
+package juego.acciones;
 
-import logica.Aliado;
-import logica.Juego;
+import juego.ente.Aliado;
+import juego.Juego;
 
 public class AccionSpawnearAliado implements Accion {
 

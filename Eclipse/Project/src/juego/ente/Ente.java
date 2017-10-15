@@ -1,12 +1,17 @@
-package ente;
+package juego.ente;
 
-import vistor.Visitor;
+import grafica.Grafico;
+import juego.visitor.Visitor;
 
 public abstract class Ente {
 	protected int vida;
-//	protected JLabel grafico;
-//	protected Icon[] imagen;
+	protected Grafico grafico;
 	protected Celda celda;
+	
+	public Ente(int v, Celda c) {
+		vida = v;
+		celda = c;
+	}
 	
 	public int getVida(){
 		return vida;

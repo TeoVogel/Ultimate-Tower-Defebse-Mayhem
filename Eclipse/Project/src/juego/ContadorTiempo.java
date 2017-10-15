@@ -1,4 +1,4 @@
-package tmp;
+package juego;
 public class ContadorTiempo extends Thread {
 
 	private Juego juego;

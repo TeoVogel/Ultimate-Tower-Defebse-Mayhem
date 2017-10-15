@@ -1,4 +1,4 @@
-package tmp;
+package juego;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +10,9 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
-import logica.acciones.AccionSpawnearAliado;
-import logica.acciones.AccionSpawnearEnemigo;
+import juego.acciones.AccionSpawnearAliado;
+import juego.acciones.AccionSpawnearEnemigo;
+import juego.ente.Enemigo;
 
 
 public class Juego {
@@ -57,17 +58,6 @@ public class Juego {
 				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
 			}			
 		});
-		
-		JButton buttonA = new JButton("SpawA");
-		buttonA.setBounds(0, 0, 100, 50);
-		mapa.add(buttonA);
-		buttonA.setLocation(100,0);
-		buttonA.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearAliado(crearAliado(), getThis()));
-			}			
-		});
 	}
 	
 	public Mercado getMercado () {
@@ -95,12 +85,7 @@ public class Juego {
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
 		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo(velocidad, 0, 0);
-	}
-	
-	private Aliado crearAliado () {
-		Random r = new Random();
-		return new Aliado(0, 0, 0);
+		return new Enemigo(1, mapa.getCelda(r.nextInt(5), r.nextInt(5)), 1, 1, 1, velocidad);
 	}
 	
 	//TODO esto es horrible

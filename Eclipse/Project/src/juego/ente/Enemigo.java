@@ -1,11 +1,25 @@
-package ente;
+package juego.ente;
 
-import vistor.AtaqueEnemigo;
-import vistor.Visitor;
+import javax.swing.JLabel;
 
-public abstract class Enemigo extends Personaje{
+import grafica.GraficoEnemigo;
+import juego.visitor.DisparoEnemigo;
+import juego.visitor.Visitor;
+
+public abstract class Enemigo extends Personaje {
 	protected int velocidad;
 	private int vel;
+	
+	public Enemigo (int v, Celda cel, int a, int c, int rango, int velocidad) {
+		super(v, cel, a, c);
+		this.velocidad = velocidad;
+		v = new DisparoAliado(this);
+		grafico = new GraficoEnemigo(this);
+	}
+	
+	public JLabel getGrafico () {
+		return grafico.getGrafico();
+	}
 	
 	public void accept(Visitor v) {
 		v.visit(this);
