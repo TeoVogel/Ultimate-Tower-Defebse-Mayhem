@@ -1,4 +1,4 @@
-package vistor;
+package visitor;
 
 import ente.Aliado;
 import ente.Celda;

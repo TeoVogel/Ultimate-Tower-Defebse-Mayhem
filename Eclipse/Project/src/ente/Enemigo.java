@@ -1,7 +1,7 @@
 package ente;
 
-import vistor.AtaqueEnemigo;
-import vistor.Visitor;
+import visitor.AtaqueEnemigo;
+import visitor.Visitor;
 
 public abstract class Enemigo extends Personaje{
 	protected int velocidad;

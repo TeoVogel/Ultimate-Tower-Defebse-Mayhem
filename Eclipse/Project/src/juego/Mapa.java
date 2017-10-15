@@ -1,4 +1,4 @@
-package tmp;
+package juego;
 
 
 import java.awt.Point;
@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import ente.Celda;
+import tmp.Aliado;
+import tmp.Enemigo;
 
 public class Mapa extends JFrame {
 

@@ -1,7 +1,7 @@
 package ente;
 
-import vistor.AtaqueAliado;
-import vistor.Visitor;
+import visitor.AtaqueAliado;
+import visitor.Visitor;
 
 public abstract class Aliado extends Personaje{
 	

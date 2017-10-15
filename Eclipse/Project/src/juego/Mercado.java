@@ -1,4 +1,4 @@
-package tmp;
+package juego;
 
 import logica.acciones.Accion;
 

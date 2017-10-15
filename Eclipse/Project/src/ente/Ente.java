@@ -1,12 +1,14 @@
 package ente;
 
-import vistor.Visitor;
+import visitor.Visitor;
 
 public abstract class Ente {
 	protected int vida;
 //	protected JLabel grafico;
 //	protected Icon[] imagen;
 	protected Celda celda;
+	
+	//public 
 	
 	public int getVida(){
 		return vida;
