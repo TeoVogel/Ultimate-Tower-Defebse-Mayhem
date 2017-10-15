@@ -13,11 +13,11 @@ public abstract class Enemigo extends Personaje {
 	public Enemigo (int v, Celda cel, int a, int c, int r, int velocidad) {
 		super(v, cel, a, c, r);
 		this.velocidad = velocidad;
-		grafico = new GraficoEnemigo(this);
+		grafica = new GraficoEnemigo(this);
 	}
 	
 	public JLabel getGrafico () {
-		return grafico.getGrafico();
+		return grafica.getGrafico();
 	}
 	
 	public void accept(Visitor v) {
@@ -44,6 +44,7 @@ public abstract class Enemigo extends Personaje {
 					celda = izq;
 				}
 		} else vel = (vel+1)%(velocidad);
+		grafica.mover();
 	}	
 	
 	public int getVelocidad() {

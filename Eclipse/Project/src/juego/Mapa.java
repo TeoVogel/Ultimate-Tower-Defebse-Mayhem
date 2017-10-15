@@ -31,7 +31,7 @@ public class Mapa extends JFrame {
 		juego = j;
 		
 		// Crea grilla y setea todas las celdas con anterior y siguiente
-		Celda[][] grilla = new Celda[6][10];
+		grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
 			for (int ii = 0; ii < 10; ii++)
 				grilla[i][ii] = new Celda(i, ii);
@@ -47,6 +47,12 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setDer(grilla[i][ii+1]);
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
+		
+		if (grilla != null) 
+			System.out.println("grilla nulla");
+		if (grilla[0][0] != null)
+			System.out.println("cedlda nulla");
+			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
@@ -104,7 +110,7 @@ public class Mapa extends JFrame {
 	
 	// TODO: elimnar esto, es solo para testear
 	public Celda getCelda(int f, int c) {
-		return grilla[c][f];
+		return grilla[f][c];
 	}
 	
 }

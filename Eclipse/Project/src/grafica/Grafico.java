@@ -16,8 +16,10 @@ public abstract class Grafico {
 	protected Point pos;
 	
 	protected Grafico(int x, int y) {
-		
 		pos = new Point(x, y);
+	}
+
+	protected void initGrafico () {
 		grafico = new JLabel(image[0]);
 		grafico.setBounds(pos.x, pos.y, width, height);
 		

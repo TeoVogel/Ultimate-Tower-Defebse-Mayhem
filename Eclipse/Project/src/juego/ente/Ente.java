@@ -5,7 +5,7 @@ import juego.visitor.Visitor;
 
 public abstract class Ente {
 	protected int vida;
-	protected Grafico grafico;
+	protected Grafico grafica;
 	protected Celda celda;
 	
 	public Ente(int v, Celda c) {
