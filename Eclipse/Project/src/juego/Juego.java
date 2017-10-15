@@ -39,7 +39,7 @@ public class Juego {
 			Random r = new Random();
 			int columnaOffset = r.nextInt(3);
 			int fila = r.nextInt(5);
-			mapa.addEnemigo(crearEnemigo(), fila, 10 + columnaOffset);
+			//mapa.addEnemigo(crearEnemigo(), fila, 10 + columnaOffset);
 		}
 			
 		
@@ -86,7 +86,7 @@ public class Juego {
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
 		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo1(mapa.getCelda(r.nextInt(5), r.nextInt(5)));
+		return new Enemigo1(mapa.getCelda(2, 2));
 	}
 	
 	//TODO esto es horrible
