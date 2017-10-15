@@ -8,7 +8,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Enemigo;
+import ente.Enemigo;
 
 public class GraficoEnemigo extends Grafico {
 	
@@ -28,11 +28,11 @@ public class GraficoEnemigo extends Grafico {
 	}
 	
 	private static int calcularX (Enemigo e) {
-		return e.getCelda().getFila() * 100;
+		return e.getCelda().fila * 100;
 	}
 	
 	private static int calcularY (Enemigo e) {
-		return e.getCelda().getColumna() * 100;
+		return e.getCelda().columna * 100;
 	}
 	
 	public void mover () {

@@ -1,10 +1,17 @@
 package ente;
 
 public class Celda {
-	private int fila, columna;
+	
+	public final int fila, columna;
+	
 	private EfectoCelda efecto;
 	private Ente ente;
 	private Celda izq, der;
+	
+	public Celda (int f, int c) {
+		fila = f;
+		columna = c;
+	}
 	
 	public Celda getIzq() {
 		return izq;
