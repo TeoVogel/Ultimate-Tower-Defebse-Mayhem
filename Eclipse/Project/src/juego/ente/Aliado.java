@@ -5,8 +5,8 @@ import juego.visitor.Visitor;
 
 public abstract class Aliado extends Personaje{
 	
-	public Aliado(int v, Celda cell, int a, int c, int r) {
-		super(v, cell, a, c, r);
+	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango) {
+		super(vida, celda, ataque, cadencia, rango);
 		v = new DisparoAliado(this);
 	}
 
@@ -17,7 +17,7 @@ public abstract class Aliado extends Personaje{
 	public void atacar() {
 		if (cad == cadencia) {
 			cad--;
-			Visitor v = new DisparoAliado(celda);
+			v.reset();
 			accept(v);
 		} else cad = (cad-1)%(cadencia+1);
 	}

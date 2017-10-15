@@ -10,9 +10,10 @@ public abstract class Enemigo extends Personaje {
 	protected int velocidad;
 	private int vel;
 	
-	public Enemigo (int v, Celda cel, int a, int c, int r, int velocidad) {
-		super(v, cel, a, c, r);
+	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
+		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
+		v = new DisparoEnemigo(this);
 		grafico = new GraficoEnemigo(this);
 	}
 	
@@ -27,7 +28,7 @@ public abstract class Enemigo extends Personaje {
 	public void atacar() {
 		if (cad == cadencia) {
 			cad--;
-			//Visitor v = new DisparoEnemigo(celda);
+			v.reset();
 			accept(v);
 		} else cad = (cad+1)%(cadencia);
 	}
