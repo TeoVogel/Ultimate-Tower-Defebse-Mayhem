@@ -10,10 +10,9 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
-import logica.acciones.AccionSpawnearAliado;
-import logica.acciones.AccionSpawnearEnemigo;
-import tmp.Aliado;
-import tmp.Enemigo;
+import juego.acciones.AccionSpawnearAliado;
+import juego.acciones.AccionSpawnearEnemigo;
+import juego.ente.Enemigo;
 
 
 public class Juego {
@@ -97,7 +96,7 @@ public class Juego {
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
 		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo(velocidad, 0, 0);
+		return new Enemigo(1, mapa.getCelda(r.nextInt(5), r.nextInt(5)), 1, 1, velocidad);
 	}
 	
 	private Aliado crearAliado () {

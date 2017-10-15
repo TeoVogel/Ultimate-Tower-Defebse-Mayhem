@@ -81,7 +81,7 @@ public class Mapa extends JFrame {
 	
 	public void addAliado (Aliado a, int fila, int columna) {
 		aliados.add(a);
-		add(a.getGrafico());
+		//add(a.getGrafico());
 	}
 	
 	public void mover(){
@@ -89,7 +89,7 @@ public class Mapa extends JFrame {
 		for (int i=0; i<enemigos.size(); i++) {
 			Enemigo e = enemigos.get(i);
 			if (e.getVida() <= 0) {
-				juego.sumarPuntos(e.getPuntos());
+				//juego.sumarPuntos(e.getPuntos());
 				enemigosMuertos.add(i);
 			}
 			e.mover();
@@ -99,6 +99,12 @@ public class Mapa extends JFrame {
 			System.out.println("Removido");
 		}
 		System.out.println(enemigos.size() + "      " + juego.getPuntos());
+	}
+	
+	
+	// TODO: elimnar esto, es solo para testear
+	public Celda getCelda(int f, int c) {
+		return grilla[c][f];
 	}
 	
 	
