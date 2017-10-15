@@ -8,9 +8,9 @@ public abstract class Enemigo extends Personaje {
 	protected int velocidad;
 	private int vel;
 	
-	public Enemigo (int v, Celda cel, int a, int c, int rango, int v) {
+	public Enemigo (int v, Celda cel, int a, int c, int rango, int velocidad) {
 		super(v, cel, a, c);
-		velocidad = v;
+		this.velocidad = velocidad;
 		grafico = new GraficoEnemigo(this);
 	}
 	
