@@ -8,7 +8,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Logica.Enemigo;
+import tmp.Enemigo;
 
 public class GraficoEnemigo extends Grafico {
 	
