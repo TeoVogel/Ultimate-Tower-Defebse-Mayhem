@@ -1,6 +1,6 @@
-package ente;
+package juego.ente;
 
-import visitor.Visitor;
+import juego.visitor.Visitor;
 
 public abstract class Ente {
 	protected int vida;

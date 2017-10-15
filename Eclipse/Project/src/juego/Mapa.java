@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import ente.Celda;
+import juego.ente.Celda;
 import tmp.Aliado;
 import tmp.Enemigo;
 

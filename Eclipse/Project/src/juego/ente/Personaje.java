@@ -1,5 +1,5 @@
-package ente;
-import visitor.*;
+package juego.ente;
+import juego.visitor.*;
 
 public abstract class Personaje extends Ente{
 	protected int ataque;

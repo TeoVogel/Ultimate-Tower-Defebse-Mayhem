@@ -1,10 +1,10 @@
-package visitor;
+package juego.visitor;
 
-import ente.Aliado;
-import ente.Celda;
-import ente.Enemigo;
-import ente.Ente;
-import ente.Obstaculo;
+import juego.ente.Aliado;
+import juego.ente.Celda;
+import juego.ente.Enemigo;
+import juego.ente.Ente;
+import juego.ente.Obstaculo;
 
 //Ataques que realizan los enemigos
 public class AtaqueEnemigo implements Visitor{

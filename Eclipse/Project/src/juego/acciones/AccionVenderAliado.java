@@ -1,6 +1,6 @@
-package Logica.Acciones;
-import ente.Aliado;
-import logica.Juego;
+package juego.acciones;
+import juego.ente.Aliado;
+import juego.Juego;
 
 public class AccionVenderAliado implements Accion {
 

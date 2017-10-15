@@ -1,7 +1,7 @@
-package Logica.Acciones;
+package juego.acciones;
 
-import logica.Enemigo;
-import logica.Juego;
+import juego.ente.Enemigo;
+import juego.Juego;
 
 public class AccionSpawnearEnemigo implements Accion {
 

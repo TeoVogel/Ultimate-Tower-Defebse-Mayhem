@@ -1,8 +1,8 @@
-package visitor;
+package juego.visitor;
 
-import ente.Aliado;
-import ente.Enemigo;
-import ente.Obstaculo;
+import juego.ente.Aliado;
+import juego.ente.Enemigo;
+import juego.ente.Obstaculo;
 
 public interface Visitor {
 	public void visit(Aliado a);

@@ -1,7 +1,7 @@
-package ente;
+package juego.ente;
 
-import visitor.AtaqueAliado;
-import visitor.Visitor;
+import juego.visitor.AtaqueAliado;
+import juego.visitor.Visitor;
 
 public abstract class Aliado extends Personaje{
 	
