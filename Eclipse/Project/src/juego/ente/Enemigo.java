@@ -7,6 +7,11 @@ public abstract class Enemigo extends Personaje{
 	protected int velocidad;
 	private int vel;
 	
+	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int v) {
+		super(vida, celda, ataque, cadencia)
+		velocidad = v;
+	}
+	
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
