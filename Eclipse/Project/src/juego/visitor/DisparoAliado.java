@@ -15,9 +15,12 @@ public class DisparoAliado implements Visitor{
 	
 	public DisparoAliado(Aliado a) {
 		aliado = a;
-		ataque = a.getAtaque();
-		rango = a.getRango();
-		celda = a.getCelda();
+	}
+	
+	public void reset() {
+		ataque = aliado.getAtaque();
+		rango = aliado.getRango();
+		celda = aliado.getCelda();
 	}
 	
 	public void visit(Enemigo e) {
