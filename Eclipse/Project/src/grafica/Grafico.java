@@ -16,7 +16,20 @@ public abstract class Grafico {
 	protected Point pos;
 	
 	protected Grafico(int x, int y) {
-		this.pos = new Point(x, y);
+		
+		pos = new Point(x, y);
+		grafico = new JLabel(image[0]);
+		grafico.setBounds(pos.x, pos.y, width, height);
+		
+		grafico.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				grafico.setVisible(false);
+				grafico.getParent().remove(grafico);
+			}
+			
+		});
 	}
 	
 	public Point getPos() {
@@ -30,27 +43,12 @@ public abstract class Grafico {
 		}
 	}
 	
-	public JLabel getGrafico(){
-		if (grafico == null) {
-			grafico = new JLabel(image[2]);
-			grafico.setBounds(pos.x, pos.y, width, height);
-			
-			grafico.addMouseListener(new MouseAdapter() {
-				
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					grafico.setVisible(false);
-					grafico.getParent().remove(grafico);
-				}
-				
-			});
-		}
-		
+	public JLabel getGrafico(){		
 		return grafico;
 	}
 	
 	public void mover () {
-		//sobreescribir en AtacarEnemigo
+		//sobreescribir en GraficoEnemigo
 	}
 	
 }

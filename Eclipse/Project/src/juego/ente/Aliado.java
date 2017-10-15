@@ -9,7 +9,7 @@ public abstract class Aliado extends Personaje{
 		super(v, cell, a, c, r);
 		v = new DisparoAliado(this);
 	}
-	
+
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
