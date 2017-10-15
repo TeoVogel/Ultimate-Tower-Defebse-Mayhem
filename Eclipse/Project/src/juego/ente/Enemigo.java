@@ -1,7 +1,7 @@
 package juego.ente;
 
 import grafica.GraficoEnemigo;
-import juego.visitor.AtaqueEnemigo;
+import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public abstract class Enemigo extends Personaje {
@@ -12,6 +12,7 @@ public abstract class Enemigo extends Personaje {
 	public Enemigo (int v, Celda cel, int a, int c, int r, int velocidad) {
 		super(v, cel, a, c, r);
 		this.velocidad = velocidad;
+		v = new DisparoAliado(this);
 		grafico = new GraficoEnemigo(this);
 	}
 	
