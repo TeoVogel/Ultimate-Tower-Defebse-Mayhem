@@ -10,8 +10,8 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
-import Logica.Acciones.AccionSpawnearAliado;
-import Logica.Acciones.AccionSpawnearEnemigo;
+import logica.acciones.AccionSpawnearAliado;
+import logica.acciones.AccionSpawnearEnemigo;
 
 
 public class Juego {

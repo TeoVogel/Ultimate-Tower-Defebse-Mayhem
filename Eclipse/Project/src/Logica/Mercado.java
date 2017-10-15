@@ -1,6 +1,6 @@
 package Logica;
 
-import Logica.Acciones.Accion;
+import logica.acciones.Accion;
 
 public class Mercado {
 
