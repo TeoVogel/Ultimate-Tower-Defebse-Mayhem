@@ -7,11 +7,11 @@ import juego.ente.Ente;
 import juego.ente.Obstaculo;
 
 //Ataques que realizan los enemigos
-public class AtaqueEnemigo implements Visitor{
+public class DisparoEnemigo implements Visitor {
 	protected int ataque, rango;
 	protected Celda celda;
 	
-	public AtaqueEnemigo(Celda c) {
+	public DisparoEnemigo(Celda c) {
 		Enemigo e = (Enemigo) c.getEnte();
 		rango = e.getRango();
 		ataque = e.getAtaque();

@@ -8,7 +8,7 @@ public abstract class Enemigo extends Personaje{
 	private int vel;
 	
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int v) {
-		super(vida, celda, ataque, cadencia)
+		super(vida, celda, ataque, cadencia, rango);
 		velocidad = v;
 	}
 	
