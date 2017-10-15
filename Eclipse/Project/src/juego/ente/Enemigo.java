@@ -3,7 +3,7 @@ package juego.ente;
 import javax.swing.JLabel;
 
 import grafica.GraficoEnemigo;
-import juego.visitor.AtaqueEnemigo;
+import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public abstract class Enemigo extends Personaje {
@@ -13,6 +13,7 @@ public abstract class Enemigo extends Personaje {
 	public Enemigo (int v, Celda cel, int a, int c, int rango, int velocidad) {
 		super(v, cel, a, c);
 		this.velocidad = velocidad;
+		v = new DisparoAliado(this);
 		grafico = new GraficoEnemigo(this);
 	}
 	
