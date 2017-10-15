@@ -10,8 +10,8 @@ public abstract class Grafico {
 	
 	protected JLabel grafico;
 	protected Icon image[];
-	protected final int width = 100;
-	protected final int height = 160;
+	public final static int width = 100;
+	public final static int height = 100;
 		
 	protected Point pos;
 	
