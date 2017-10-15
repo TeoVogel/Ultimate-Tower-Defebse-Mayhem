@@ -32,18 +32,18 @@ public class Mapa extends JFrame {
 		Celda[][] grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
 			for (int ii = 0; ii < 10; ii++)
-				grilla[i][ii] = new Celda();
+				grilla[i][ii] = new Celda(i, ii);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][0].setSiguiente(grilla[i][1]);
+			grilla[i][0].setDer(grilla[i][1]);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][5].setAnterior(grilla[i][4]);
+			grilla[i][5].setIzq(grilla[i][4]);
 			
 		for (int i = 0; i < 6; i++)
 			for (int ii = 1; ii < 9; ii++) {
-				grilla[i][ii].setSiguiente(grilla[i][ii+1]);
-				grilla[i][ii].setAnterior(grilla[i][ii-1]);
+				grilla[i][ii].setDer(grilla[i][ii+1]);
+				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

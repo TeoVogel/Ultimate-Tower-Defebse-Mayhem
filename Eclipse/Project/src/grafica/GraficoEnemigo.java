@@ -20,10 +20,10 @@ public class GraficoEnemigo extends Grafico {
 		enemigo = e;
 
 		this.image = new Icon[4];
-		this.image[0] = new ImageIcon("assets/e1.gif");
-		this.image[1] = new ImageIcon("assets/e2.gif");
-		//this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
-		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif");
+		this.image[0] = new ImageIcon("assets/e1.gif"); //quieto
+		this.image[1] = new ImageIcon("assets/e2.gif"); //en movimiento
+		//this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //atacando
+		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //muriendo
 		
 	}
 	
