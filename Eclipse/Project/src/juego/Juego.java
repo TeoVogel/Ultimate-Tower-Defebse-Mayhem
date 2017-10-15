@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Enemigo;
+import juego.ente.Enemigo1;
 
 
 public class Juego {
@@ -85,7 +86,7 @@ public class Juego {
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
 		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo(1, mapa.getCelda(r.nextInt(5), r.nextInt(5)), 1, 1, 1, velocidad);
+		return new Enemigo1(mapa.getCelda(r.nextInt(5), r.nextInt(5)));
 	}
 	
 	//TODO esto es horrible
