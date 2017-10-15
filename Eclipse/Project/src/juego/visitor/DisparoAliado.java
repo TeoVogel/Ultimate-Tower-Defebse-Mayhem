@@ -5,6 +5,7 @@ import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Ente;
 import juego.ente.Obstaculo;
+import grafica.GraficoDisparo;
 
 //Ataques que realizan los aliados
 public class DisparoAliado implements Visitor{
@@ -16,7 +17,7 @@ public class DisparoAliado implements Visitor{
 		aliado = a;
 		ataque = a.getAtaque();
 		rango = a.getRango();
-		celda = c;
+		celda = a.getCelda();
 	}
 	
 	public void visit(Enemigo e) {
