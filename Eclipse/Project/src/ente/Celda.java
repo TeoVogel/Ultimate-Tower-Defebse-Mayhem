@@ -1,4 +1,4 @@
-package loquequieras;
+package ente;
 
 public class Celda {
 	private int fila, columna;

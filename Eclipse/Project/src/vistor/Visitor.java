@@ -1,4 +1,8 @@
-package loquequieras;
+package vistor;
+
+import ente.Aliado;
+import ente.Enemigo;
+import ente.Obstaculo;
 
 public interface Visitor {
 	public void visit(Aliado a);

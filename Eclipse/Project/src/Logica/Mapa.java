@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import loquequieras.Celda;
+import ente.Celda;
 
 public class Mapa extends JFrame {
 

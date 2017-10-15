@@ -1,4 +1,6 @@
-package loquequieras;
+package ente;
+
+import vistor.Visitor;
 
 public abstract class Ente {
 	protected int vida;

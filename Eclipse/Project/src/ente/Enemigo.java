@@ -1,4 +1,7 @@
-package loquequieras;
+package ente;
+
+import vistor.AtaqueEnemigo;
+import vistor.Visitor;
 
 public abstract class Enemigo extends Personaje{
 	protected int velocidad;

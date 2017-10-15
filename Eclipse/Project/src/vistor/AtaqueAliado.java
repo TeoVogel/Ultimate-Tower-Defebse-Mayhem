@@ -1,4 +1,10 @@
-package loquequieras;
+package vistor;
+
+import ente.Aliado;
+import ente.Celda;
+import ente.Enemigo;
+import ente.Ente;
+import ente.Obstaculo;
 
 //Ataques que realizan los aliados
 public class AtaqueAliado implements Visitor{
