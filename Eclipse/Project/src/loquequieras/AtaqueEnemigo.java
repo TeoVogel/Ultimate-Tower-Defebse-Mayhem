@@ -31,7 +31,7 @@ public class AtaqueEnemigo implements Visitor{
 		Ente e = null;
 		do {
 			rango--;
-			celda = celda.getAnterior();
+			celda = celda.getIzq();
 			if (celda != null)
 				e = celda.getEnte();
 		} while (rango > 0 && celda != null && e == null);

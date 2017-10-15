@@ -18,16 +18,15 @@ public abstract class Enemigo extends Personaje{
 	
 	public void mover() {
 		if (vel == velocidad) {
-			Celda anterior = celda.getAnterior();
-			if (anterior == null) 
+			Celda izq = celda.getIzq();
+			if (izq == null) 
 				System.out.println("MISSION FAILED");
 			else 
-				if (anterior.getEnte() == null) {
-					anterior.setEnte(this);
+				if (izq.getEnte() == null) {
+					izq.setEnte(this);
 					celda.setEnte(null);
-					celda = anterior;
+					celda = izq;
 				}
 		} else vel = (vel-1)%(velocidad+1);
-	}
-	
+	}	
 }

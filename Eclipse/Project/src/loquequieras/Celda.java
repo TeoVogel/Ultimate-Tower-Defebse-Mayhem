@@ -4,22 +4,22 @@ public class Celda {
 	private int fila, columna;
 	private EfectoCelda efecto;
 	private Ente ente;
-	private Celda anterior, siguiente;
+	private Celda izq, der;
 	
-	public Celda getAnterior() {
-		return anterior;
+	public Celda getIzq() {
+		return izq;
 	}
 	
-	public Celda getSiguiente() {
-		return siguiente;
+	public Celda getDer() {
+		return der;
 	}
 	
-	public void setAnterior(Celda c) {
-		anterior = c;
+	public void setIzq(Celda c) {
+		izq = c;
 	}
 	
-	public void setSiguiente(Celda c) {
-		siguiente = c;
+	public void setDer(Celda c) {
+		der = c;
 	}
 	
 	public Ente getEnte() {

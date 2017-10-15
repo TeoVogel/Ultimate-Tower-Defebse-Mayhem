@@ -33,7 +33,7 @@ public class AtaqueAliado implements Visitor{
 		Ente e = null;
 		do {
 			rango--;
-			celda = celda.getSiguiente();
+			celda = celda.getDer();
 			if (celda != null)
 				e = celda.getEnte();
 		} while (rango > 0 && celda != null && e == null);
