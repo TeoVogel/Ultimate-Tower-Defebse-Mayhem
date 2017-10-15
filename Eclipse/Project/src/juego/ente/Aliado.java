@@ -5,7 +5,6 @@ import juego.visitor.Visitor;
 
 public abstract class Aliado extends Personaje{
 	
-	
 	public void accept(Visitor v) {
 		v.visit(this);
 	}

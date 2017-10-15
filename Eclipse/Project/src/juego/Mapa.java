@@ -11,9 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import juego.ente.Aliado;
 import juego.ente.Celda;
-import tmp.Aliado;
-import tmp.Enemigo;
+import juego.ente.Enemigo;
 
 public class Mapa extends JFrame {
 
@@ -75,13 +75,11 @@ public class Mapa extends JFrame {
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		e.getPos().setLocation((new Point(columna*100, fila*100)));
 		enemigos.add(e);
 		add(e.getGrafico());
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {
-		a.getPos().setLocation((new Point(columna*100, fila*100)));
 		aliados.add(a);
 		add(a.getGrafico());
 	}

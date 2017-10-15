@@ -1,5 +1,7 @@
 package juego.ente;
 
+import javax.swing.JLabel;
+
 import grafica.GraficoEnemigo;
 import juego.visitor.AtaqueEnemigo;
 import juego.visitor.Visitor;
@@ -12,6 +14,10 @@ public abstract class Enemigo extends Personaje {
 		super(v, cel, a, c);
 		this.velocidad = velocidad;
 		grafico = new GraficoEnemigo(this);
+	}
+	
+	public JLabel getGrafico () {
+		return grafico.getGrafico();
 	}
 	
 	public void accept(Visitor v) {
