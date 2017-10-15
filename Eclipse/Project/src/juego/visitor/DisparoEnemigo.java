@@ -11,7 +11,7 @@ public class DisparoEnemigo implements Visitor {
 	protected int ataque, rango;
 	protected Celda celda;
 	
-	public DisparoEnemigo(Celda c) {
+	public DisparoEnemigo(Enemigo e) {
 		Enemigo e = (Enemigo) c.getEnte();
 		rango = e.getRango();
 		ataque = e.getAtaque();
