@@ -32,4 +32,8 @@ public abstract class Enemigo extends Personaje{
 				}
 		} else vel = (vel+1)%(velocidad);
 	}	
+	
+	public int getVelocidad() {
+		return velocidad;
+	}
 }
