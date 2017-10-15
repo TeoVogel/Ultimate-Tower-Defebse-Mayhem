@@ -13,7 +13,7 @@ public abstract class Enemigo extends Personaje{
 			cad--;
 			Visitor v = new AtaqueEnemigo(celda);
 			accept(v);
-		} else cad = (cad-1)%(cadencia+1);
+		} else cad = (cad+1)%(cadencia);
 	}
 	
 	public void mover() {
@@ -27,6 +27,6 @@ public abstract class Enemigo extends Personaje{
 					celda.setEnte(null);
 					celda = izq;
 				}
-		} else vel = (vel-1)%(velocidad+1);
+		} else vel = (vel+1)%(velocidad);
 	}	
 }
