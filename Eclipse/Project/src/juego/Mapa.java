@@ -47,11 +47,6 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setDer(grilla[i][ii+1]);
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
-		
-		if (grilla != null) 
-			System.out.println("grilla nulla");
-		if (grilla[0][0] != null)
-			System.out.println("cedlda nulla");
 			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,9 +75,11 @@ public class Mapa extends JFrame {
 		return enemigos;
 	}
 	
-	public void addEnemigo (Enemigo e, int fila, int columna) {
+	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
 		add(e.getGrafico());
+		e.getGrafico().setVisible(true);
+		e.getGrafico().repaint();
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {

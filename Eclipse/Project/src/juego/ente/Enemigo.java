@@ -14,6 +14,8 @@ public abstract class Enemigo extends Personaje {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
 		grafica = new GraficoEnemigo(this);
+		
+		celda.setEnte(this);
 	}
 	
 	public JLabel getGrafico () {
@@ -33,6 +35,7 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
+		grafica.mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
@@ -43,8 +46,9 @@ public abstract class Enemigo extends Personaje {
 					celda.setEnte(null);
 					celda = izq;
 				}
-		} else vel = (vel+1)%(velocidad);
-		grafica.mover();
+		} else {
+			vel = (vel+1)%(velocidad);
+		}
 	}	
 	
 	public int getVelocidad() {

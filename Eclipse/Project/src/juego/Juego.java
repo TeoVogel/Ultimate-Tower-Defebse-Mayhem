@@ -37,9 +37,9 @@ public class Juego {
 		
 		for(int i = 0; i < 5; i++) {
 			Random r = new Random();
-			int columnaOffset = r.nextInt(3);
+			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
-			//mapa.addEnemigo(crearEnemigo(), fila, 10 + columnaOffset);
+			mapa.addEnemigo(EnemigoFactory.crearEnemigo(mapa, fila, columna));
 		}
 			
 		
@@ -56,7 +56,7 @@ public class Juego {
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
+				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
 			}			
 		});
 	}
@@ -80,13 +80,6 @@ public class Juego {
 	
 	public void sumarPuntos (int p) {
 		puntos += p;
-	}
-	
-
-	private Enemigo crearEnemigo () {
-		Random r = new Random();
-		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo1(mapa.getCelda(2, 2));
 	}
 	
 	//TODO esto es horrible
