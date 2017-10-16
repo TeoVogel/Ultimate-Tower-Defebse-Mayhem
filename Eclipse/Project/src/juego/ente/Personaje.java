@@ -12,6 +12,7 @@ public abstract class Personaje extends Ente{
 		super(v, cell);
 		ataque = a;
 		cadencia = c;
+		cad = cadencia;
 		rango = r;
 	}
 	

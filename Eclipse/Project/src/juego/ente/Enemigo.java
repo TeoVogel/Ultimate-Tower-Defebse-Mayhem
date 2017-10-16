@@ -7,14 +7,13 @@ import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public abstract class Enemigo extends Personaje {
-	protected int velocidad;
-	private int vel;
+	protected int velocidad, vel;
 	
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
+		vel = velocidad;
 		grafica = new GraficoEnemigo(this);
-		
 		celda.setEnte(this);
 	}
 	
