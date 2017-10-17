@@ -12,6 +12,7 @@ import javax.swing.JButton;
 
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
+import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Enemigo1;
 
@@ -34,14 +35,19 @@ public class Juego {
 	public Juego(){
 		mapa = new Mapa(this);
 		createMarket();
-		
-		for(int i = 0; i < 5; i++) {
+
+		int i = 0;
+		while (i<5) {
 			Random r = new Random();
 			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
-			mapa.addEnemigo(EnemigoFactory.crearEnemigo(mapa, fila, columna));
+			Celda celda = mapa.getCelda(fila, columna);
+			if (celda.getEnte() == null) {
+				mapa.addEnemigo(EnemigoFactory.crearEnemigo(celda));
+				i++;
+			}
 		}
-			
+		
 		
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();

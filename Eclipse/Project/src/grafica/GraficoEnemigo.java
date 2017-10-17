@@ -40,13 +40,10 @@ public class GraficoEnemigo extends Grafico {
 	}
 	
 	public void mover () {
-		if (enemigo.getCelda().getIzq().getEnte() != null) {
-			int velocidad = enemigo.getVelocidad();
-			int delta = 100 / velocidad;
-			pos.setLocation(pos.x - delta, pos.y);
-			cambiarGrafico(1);
-		} else
-			cambiarGrafico(0);
+		int velocidad = enemigo.getVelocidad();
+		int delta = 100 / velocidad;
+		pos.setLocation(pos.x - delta, pos.y);
+		cambiarGrafico(1);
 	}
 	
 }

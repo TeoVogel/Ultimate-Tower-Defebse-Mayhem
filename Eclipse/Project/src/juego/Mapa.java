@@ -62,7 +62,7 @@ public class Mapa extends JFrame {
 				if (juego.getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					juego.getMercado().getPlaceHolderContent().ejecutar(fila, columna);
+					juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
 				}
             }
 			

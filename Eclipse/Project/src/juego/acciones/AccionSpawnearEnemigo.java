@@ -1,5 +1,6 @@
 package juego.acciones;
 
+import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.EnemigoFactory;
 import juego.Juego;
@@ -12,9 +13,9 @@ public class AccionSpawnearEnemigo implements Accion {
 		juego = j;
 	}
 	
-	public void ejecutar (int fila, int columna) {
+	public void ejecutar (Celda celda) {
 		juego.getMapa().addEnemigo(
-				EnemigoFactory.crearEnemigo(juego.getMapa(), fila, columna));
+				EnemigoFactory.crearEnemigo(celda));
 	}
 	
 }

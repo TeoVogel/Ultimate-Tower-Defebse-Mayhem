@@ -1,8 +1,9 @@
 package juego.acciones;
 
+import juego.ente.Celda;
+
 public interface Accion {
 
-	//TODO reemplazar fila y columna por Celda
-	public void ejecutar (int fila, int columna);
+	public void ejecutar (Celda celda);
 	
 }
