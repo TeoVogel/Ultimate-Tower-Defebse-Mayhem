@@ -8,6 +8,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import juego.ente.Celda;
 import juego.ente.Enemigo;
 
 
@@ -40,10 +41,14 @@ public class GraficoEnemigo extends Grafico {
 	}
 	
 	public void mover () {
-		int velocidad = enemigo.getVelocidad();
-		int delta = 100 / velocidad;
-		pos.setLocation(pos.x - delta, pos.y);
-		cambiarGrafico(1);
+		Celda izq = enemigo.getCelda().getIzq();
+		if (izq != null && izq.getEnte() != null) {
+			int velocidad = enemigo.getVelocidad();
+			int delta = 100 / velocidad;
+			pos.setLocation(pos.x - delta, pos.y);
+			cambiarGrafico(1);
+		} else
+			cambiarGrafico(0);
 	}
 	
 }

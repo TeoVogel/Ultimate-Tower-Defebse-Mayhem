@@ -45,9 +45,11 @@ public abstract class Enemigo extends Personaje {
 					celda.setEnte(null);
 					celda = izq;
 				}
+			vel = 0;
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
+		System.out.println("vel: " + vel + "columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {
