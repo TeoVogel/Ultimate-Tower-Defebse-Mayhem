@@ -6,7 +6,7 @@ import grafica.GraficoEnemigo;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
-public abstract class Enemigo extends Personaje {
+public class Enemigo extends Personaje {
 	protected int velocidad, vel;
 	
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
