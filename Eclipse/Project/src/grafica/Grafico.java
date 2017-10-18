@@ -17,16 +17,17 @@ public abstract class Grafico extends JLabel{
 //	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 
+	protected Ente ente;
 	protected String name;
 	protected Icon image[];
-	protected String[] archivos;
+	protected String[] sufijosArchivos = {"_parar", "_morir", "_frente", "_atacar", "_mover"};
 	public final static int width = 100;
 	public final static int height = 100;
 	protected Point pos;
 	
-	protected Grafico(Ente e, String name) {
-		this.name = name;
-		archivos = new String[]{name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"};
+	protected Grafico(Ente e, String n) {
+		name = n;
+		ente = e;
 	}
 	
 	public void initGrafico (Celda c) {
