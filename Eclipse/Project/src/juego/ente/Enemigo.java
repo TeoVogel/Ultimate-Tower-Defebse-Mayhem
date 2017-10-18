@@ -9,6 +9,7 @@ import juego.visitor.Visitor;
 public class Enemigo extends Personaje {
 	protected int velocidad, vel;
 	
+	// TODO: este lo volamos
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
