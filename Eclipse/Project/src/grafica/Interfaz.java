@@ -59,7 +59,7 @@ public class Interfaz extends JFrame{
 		buttonA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
+				//juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
 			}			
 		});
 	}
@@ -77,8 +77,6 @@ public class Interfaz extends JFrame{
 			}
 			
 		});*/
-		g.initGrafico(e);
-		g.setVisible(true);
 		g.repaint();
 	}
 }
