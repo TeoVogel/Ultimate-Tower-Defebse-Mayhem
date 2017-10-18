@@ -42,7 +42,7 @@ public class Enemigo extends Personaje {
 	
 	public void mover() {
 		grafica.mover(); // TODO: DONDE VA ESTO??
-		if (vel == velocidad) {
+		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
 				System.out.println("MISSION FAILED"); // TODO: detectar cuando perdes el juego.

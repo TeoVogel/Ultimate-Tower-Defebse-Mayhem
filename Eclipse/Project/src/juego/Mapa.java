@@ -86,24 +86,18 @@ public class Mapa extends JFrame {
 		aliados.add(a);
 		//add(a.getGrafico());
 	}
-	
+
 	public void mover(){
 		List<Integer> enemigosMuertos = new ArrayList<Integer>();
-		for (int i=0; i<enemigos.size(); i++) {
-			Enemigo e = enemigos.get(i);
-			if (e.getVida() <= 0) {
-				//juego.sumarPuntos(e.getPuntos());
-				enemigosMuertos.add(i);
-			}
+		for (Enemigo e : enemigos)
 			e.mover();
-		}
 		for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
 		}
 		System.out.println(enemigos.size() + "      " + juego.getPuntos());
 	}
-	
+
 	
 	// TODO: elimnar esto, es solo para testear
 	public Celda getCelda(int f, int c) {
