@@ -33,8 +33,19 @@ public class GraficoEnemigo extends Grafico {
 	
 	
 	public void mover() {
+		/*
 		Celda izq = enemigo.getCelda().getIzq();
-		if (izq != null && izq.getEnte() != null) {
+		String tmp1 = "izq != null", tmp2 = "	ente = null";
+		if (izq == null)
+			tmp1 = "izq = null";
+		else
+			if (izq.getEnte() != null)
+				tmp2 = "ente != null";
+				
+		System.out.println(tmp1+tmp2+'\n');
+		*/
+		
+		if (izq != null && izq.getEnte() == null) {
 			int velocidad = enemigo.getVelocidad();
 			int delta = 100 / velocidad;
 			pos.setLocation(pos.x - delta, pos.y);
@@ -42,7 +53,7 @@ public class GraficoEnemigo extends Grafico {
 			System.out.println("__Moviendose");
 		} else {
 			cambiarGrafico(0);
-			System.out.println("__Parado");
+		//	System.out.println("__Parado");
 		}
 	}
 	

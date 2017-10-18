@@ -73,7 +73,7 @@ public class Mapa extends JFrame {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
 		}
-		System.out.println(enemigos.size() + "      " + juego.getPuntos());
+		//System.out.println(enemigos.size() + "      " + juego.getPuntos());
 	}
 
 	
