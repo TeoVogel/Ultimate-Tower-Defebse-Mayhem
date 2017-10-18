@@ -8,6 +8,8 @@ public abstract class Personaje extends Ente{
 	protected Visitor v;
 	protected EfectoPersonaje efecto;
 	
+	
+	// TODO: este lo volamos.
 	public Personaje(int v, Celda cell, int a, int c, int r) {
 		super(v, cell);
 		ataque = a;
