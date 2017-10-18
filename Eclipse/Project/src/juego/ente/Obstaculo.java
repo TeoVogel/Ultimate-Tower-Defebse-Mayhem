@@ -1,5 +1,10 @@
 package juego.ente;
 
-public abstract class Obstaculo extends Ente{
+/*
+ * TODO: algunos obstaculos tienen que ser comprables
+ */
 
+public abstract class Obstaculo extends Ente {
+	
+	
 }

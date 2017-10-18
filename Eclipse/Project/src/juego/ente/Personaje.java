@@ -16,6 +16,14 @@ public abstract class Personaje extends Ente{
 		rango = r;
 	}
 	
+	public Personaje(int v, int a, int c, int r) {
+		super(v);
+		ataque = a;
+		cadencia = c;
+		cad = cadencia;
+		rango = r;
+	}
+	
 	public int getAtaque() {
 		return ataque;
 	}
