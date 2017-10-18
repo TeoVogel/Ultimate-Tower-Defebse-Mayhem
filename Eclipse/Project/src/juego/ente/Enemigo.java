@@ -1,11 +1,7 @@
 package juego.ente;
 
-
-import javax.swing.JLabel;
 import grafica.Grafico;
 import grafica.GraficoEnemigo;
-import grafica.Grafico;
-import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {
@@ -56,7 +52,8 @@ public class Enemigo extends Personaje {
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		System.out.println("vel: " + vel + " columna: " + celda.columna);
+		if (velocidad<100)
+			System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {

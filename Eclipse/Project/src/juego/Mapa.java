@@ -68,11 +68,15 @@ public class Mapa{
 			}
 			e.mover();
 		}
-		for (Integer i : enemigosMuertos) {
+		/*for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
-		}
+<<<<<<< HEAD
+		}*/
 		System.out.println(enemigos.size() + "      " + juego.getPuntos());
+=======
+		}
+>>>>>>> 8c97197ed9297881262fc8e66469274d6d0bdc24
 	}
 	
 	

@@ -21,6 +21,7 @@ public abstract class Ente {
 	
 	public void init (Celda c) {
 		celda = c;
+		celda.setEnte(this);
 		grafica.initGrafico(c);
 	}
 
