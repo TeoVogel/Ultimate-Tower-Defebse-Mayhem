@@ -13,8 +13,8 @@ public class Interfaz{
 	private static Juego juego;
 	
 	public static void Iniciar(Juego j){
-		juego=j;
-		frame=new JFrame();
+		juego = j;
+		frame = new JFrame();
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(0, 0, 1000, 600);

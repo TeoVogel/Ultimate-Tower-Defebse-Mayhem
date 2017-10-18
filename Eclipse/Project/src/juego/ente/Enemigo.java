@@ -1,5 +1,6 @@
 package juego.ente;
 
+
 import javax.swing.JLabel;
 import grafica.Grafico;
 import grafica.GraficoEnemigo;
@@ -10,20 +11,19 @@ public class Enemigo extends Personaje {
 	protected int velocidad, vel;
 	protected GraficoEnemigo miGrafico;
 	
-	// TODO: este lo volamos posiblemente
-	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
+	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
 		vel = 0;
-		miGrafico = new GraficoEnemigo(this);
+		miGrafico = new GraficoEnemigo(this, name);
 		celda.setEnte(this);
 	}
 	
-	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad) {
+	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
 		vel = 0;
-		miGrafico = new GraficoEnemigo(this);
+		miGrafico = new GraficoEnemigo(this, name);
 	}
 	
 	public Grafico getGrafico () {

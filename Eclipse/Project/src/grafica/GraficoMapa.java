@@ -11,7 +11,7 @@ public class GraficoMapa extends JFrame {
 	private Mapa miMapa;
 	
 	public GraficoMapa(Mapa m){
-		miMapa=m;
+		miMapa = m;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();

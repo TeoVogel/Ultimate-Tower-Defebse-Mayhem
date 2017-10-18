@@ -36,7 +36,7 @@ public class Juego {
 	
 	public Juego(){
 		
-		interfaz=new Interfaz(this);
+		interfaz = new Interfaz(this);
 		mapa = new Mapa(this, interfaz);
 		createMarket();
 

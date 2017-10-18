@@ -10,8 +10,8 @@ private Aliado aliado;
 	
 	private String [] archivos = {"a1", "a2","a3"};
 	
-	public GraficoAliado (Aliado a) {
-		super(a);
+	public GraficoAliado (Aliado a, String name) {
+		super(a, name);
 		
 		aliado = a;
 
