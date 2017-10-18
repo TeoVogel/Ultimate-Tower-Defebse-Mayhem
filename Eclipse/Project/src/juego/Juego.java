@@ -14,6 +14,7 @@ import grafica.Interfaz;
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
+import juego.ente.Ente;
 import juego.ente.Enemigo;
 import juego.ente.Enemigo1;
 
@@ -57,7 +58,7 @@ public class Juego {
 		tiempo.start();
 	}
 	
-	private void createMarket () {
+	/*private void createMarket () {
 		//mercado = new Mercado();
 		
 		JButton buttonE = new JButton("SpawnE");
@@ -69,7 +70,7 @@ public class Juego {
 				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
 			}			
 		});
-	}
+	}*/
 	
 	public Mercado getMercado () {
 		return mercado;
@@ -79,7 +80,10 @@ public class Juego {
 		return mapa;
 	}
 	
-	
+	/*public void eliminarEnte(Ente e) {
+		mapa.
+		
+	}*/
 	/* 
 	 * SISTEMA DE PUNTOS
 	 */

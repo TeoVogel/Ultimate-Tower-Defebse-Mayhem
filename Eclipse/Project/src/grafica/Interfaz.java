@@ -58,6 +58,16 @@ public class Interfaz extends JFrame{
 	public void addEnte(Ente e) {
 		Grafico g= e.getGrafico();
 		add(g);
+		/*g.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				remove(g);
+				//juego.eliminarEnte(e);
+			}
+			
+		});*/
 		g.initGrafico(e.getCelda());
 		g.setVisible(true);
 		g.repaint();
