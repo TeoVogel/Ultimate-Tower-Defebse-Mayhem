@@ -9,7 +9,6 @@ public abstract class Personaje extends Ente{
 	protected EfectoPersonaje efecto;
 	
 	
-	// TODO: este lo volamos.
 	public Personaje(int vida, Celda celda, int ataque, int cadencia, int rango) {
 		super(vida, celda);
 		this.ataque = ataque;

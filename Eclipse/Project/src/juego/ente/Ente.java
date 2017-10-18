@@ -8,14 +8,13 @@ public abstract class Ente {
 	protected int vida;
 	protected Celda celda;
 
-	// TODO:: Este lo volamos en lo posible
 	public Ente(int vida, Celda celda) {
 		this.vida = vida;
 		this.celda = celda;
 	}
 	
 	public Ente(int vida) {
-		this.vida=vida;
+		this.vida = vida;
 	}
 	
 	public void setCelda(Celda celda){

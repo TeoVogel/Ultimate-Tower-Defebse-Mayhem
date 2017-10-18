@@ -8,7 +8,7 @@ public class ContadorTiempo extends Thread {
 	}
 
 	public void run() {
-		while(true){
+		while(true) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {

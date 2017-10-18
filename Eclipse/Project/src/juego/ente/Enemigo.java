@@ -35,7 +35,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void atacar() {
-		if (cad == cadencia) { // Cad se resetea en el visitor si el ataque fue exitoso
+		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);
 		} else cad = (cad+1)%(cadencia);

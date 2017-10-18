@@ -29,7 +29,7 @@ public abstract class Aliado extends Personaje{
 	}
 	
 	public void atacar() {
-		if (cad == cadencia) {
+		if (cad == cadencia-1) {
 			cad--;
 			v.reset();
 			accept(v);
