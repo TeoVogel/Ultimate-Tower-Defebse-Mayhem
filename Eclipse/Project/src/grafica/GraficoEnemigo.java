@@ -15,7 +15,7 @@ import juego.ente.Enemigo;
 
 public class GraficoEnemigo extends Grafico {
 	// archivos [name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"]
-	// archivos [  0  |  1  |   2  |   3  |  5  ]
+	// archivos [  0  |  1  |   2  |   3  |  4  ]
 	// archivos [parar|morir|frente|atacar|mover]
 	private Enemigo enemigo;
 	
@@ -26,7 +26,7 @@ public class GraficoEnemigo extends Grafico {
 
 		this.image = new Icon[4];
 		this.image[0] = new ImageIcon(path + archivos[0] + ".gif"); //quieto
-		this.image[1] = new ImageIcon(path + archivos[5] + ".gif"); //en movimiento
+		this.image[1] = new ImageIcon(path + archivos[4] + ".gif"); //en movimiento
 	
 		initGrafico();
 	}
@@ -39,10 +39,10 @@ public class GraficoEnemigo extends Grafico {
 			int delta = 100 / velocidad;
 			pos.setLocation(pos.x - delta, pos.y);
 			cambiarGrafico(1);
-			System.out.println("Moviendose");
+			System.out.println("__Moviendose");
 		} else {
 			cambiarGrafico(0);
-			System.out.println("Parado");
+			System.out.println("__Parado");
 		}
 	}
 	

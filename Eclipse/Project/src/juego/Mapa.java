@@ -65,7 +65,7 @@ public class Mapa extends JFrame {
 		interfaz.addGrafico(a.getGrafico());
 	}
 
-	public void mover(){
+	public void mover() {
 		List<Integer> enemigosMuertos = new ArrayList<Integer>();
 		for (Enemigo e : enemigos)
 			e.mover();
