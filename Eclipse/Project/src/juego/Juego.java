@@ -36,7 +36,7 @@ public class Juego {
 	public Juego(){
 		mercado = new Mercado();
 		interfaz=new Interfaz(this);
-		createMarket();
+		interfaz.crearBotonSpawn();
 		mapa = new Mapa(this, interfaz);
 		int i = 0;
 		while (i<3) {
@@ -60,7 +60,7 @@ public class Juego {
 	private void createMarket () {
 		//mercado = new Mercado();
 		
-		JButton buttonE = new JButton("SpawE");
+		JButton buttonE = new JButton("SpawnE");
 		buttonE.setBounds(0, 0, 100, 50);
 		interfaz.add(buttonE);
 		buttonE.addActionListener(new ActionListener() {

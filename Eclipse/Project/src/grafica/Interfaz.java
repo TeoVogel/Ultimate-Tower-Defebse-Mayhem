@@ -1,14 +1,18 @@
 package grafica;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import juego.ente.Ente; 
+import juego.ente.Ente;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import juego.Juego;
+import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
 	private JPanel contentPane;
@@ -37,6 +41,18 @@ public class Interfaz extends JFrame{
             @Override
             public void mouseReleased(MouseEvent e) {}
 		});	
+	}
+	
+	public void crearBotonSpawn(){
+		JButton buttonE = new JButton("SpawnE");
+		buttonE.setBounds(0, 0, 100, 50);
+		add(buttonE);
+		buttonE.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearEnemigo(juego));
+			}			
+		});
 	}
 	
 	public void addEnte(Ente e) {
