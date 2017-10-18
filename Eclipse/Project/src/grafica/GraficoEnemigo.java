@@ -32,7 +32,7 @@ public class GraficoEnemigo extends Grafico {
 	}
 	
 	
-	public void mover () {
+	public void mover() {
 		Celda izq = enemigo.getCelda().getIzq();
 		if (izq != null && izq.getEnte() != null) {
 			int velocidad = enemigo.getVelocidad();

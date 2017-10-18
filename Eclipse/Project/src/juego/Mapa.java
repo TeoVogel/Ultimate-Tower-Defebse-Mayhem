@@ -14,19 +14,19 @@ import javax.swing.JPanel;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
-import grafica.GraficoMapa;
+import grafica.Interfaz;
 
 public class Mapa extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
 	
-	private GraficoMapa miGrafico;
+	private Interfaz interfaz;
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
 	
-	public Mapa (Juego j) {
+	public Mapa (Juego j, Interfaz interfaz) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
 		juego = j;
@@ -49,7 +49,7 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 			
-		miGrafico= new GraficoMapa(this);
+		this.interfaz= interfaz;
 	}
 	
 	public List<Enemigo> getEnemigos () {
@@ -58,12 +58,12 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		miGrafico.addGrafico(e.getGrafico());
+		interfaz.addGrafico(e.getGrafico());
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {
 		aliados.add(a);
-		//miGrafico.addGrafico(a.getGrafico());
+		interfaz.addGrafico(a.getGrafico());
 	}
 
 	public void mover(){
