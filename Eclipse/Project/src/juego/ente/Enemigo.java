@@ -1,11 +1,7 @@
 package juego.ente;
 
-
-import javax.swing.JLabel;
 import grafica.Grafico;
 import grafica.GraficoEnemigo;
-import grafica.Grafico;
-import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {

@@ -60,7 +60,7 @@ public class Juego {
 	}
 	
 	/*public void eliminarEnte(Ente e) {
-		mapa.
+		mapa.eliminar(e);
 		
 	}*/
 	/* 

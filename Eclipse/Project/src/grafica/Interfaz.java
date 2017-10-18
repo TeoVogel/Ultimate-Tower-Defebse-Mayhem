@@ -31,7 +31,7 @@ public class Interfaz extends JFrame{
 		juego=j;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 638); // TODO: fix, 600 + 38 es por la tittle bar de windows
+		setBounds(0, 0, 1000, 640); // TODO: fix, 600 + 38 es por la tittle bar de windows
 		panelMapa = new JLabel();
 		panelMapa.setBounds(0, 0, 1000, 600);
 		setContentPane(panelMapa);
@@ -85,7 +85,7 @@ public class Interfaz extends JFrame{
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
 				remove(g);
-				//juego.eliminarEnte(e);
+				//ente.eliminarse(e);
 			}
 			
 		});*/
