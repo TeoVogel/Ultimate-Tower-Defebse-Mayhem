@@ -1,6 +1,6 @@
 package grafica;
 
-public abstract class GraficoMovible extends Grafico {
+public interface Movible {
 	
 	public abstract void mover ();
 	

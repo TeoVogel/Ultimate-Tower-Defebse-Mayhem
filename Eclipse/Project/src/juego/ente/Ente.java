@@ -7,6 +7,7 @@ public abstract class Ente {
 	
 	protected int vida;
 	protected Celda celda;
+	protected Grafico grafica;
 	
 	// Este lo volamos en lo posible
 	public Ente(int v, Celda c) {
@@ -16,6 +17,11 @@ public abstract class Ente {
 	
 	public Ente(int vida) {
 		this.vida = vida;
+	}
+	
+	public void init (Celda c) {
+		celda = c;
+		grafica.initGrafico(c);
 	}
 	
 	public void setCelda(Celda celda) {

@@ -6,9 +6,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
-import juego.Juego;
 import juego.ente.Celda;
-import juego.ente.Enemigo;
 
 public abstract class Grafico extends JLabel {
 	
@@ -19,7 +17,7 @@ public abstract class Grafico extends JLabel {
 	protected Icon image[];
 	public final static int width = 100;
 	public final static int height = 100;
-		
+	
 	protected Point pos;
 
 	public void initGrafico (Celda c) {
@@ -38,6 +36,17 @@ public abstract class Grafico extends JLabel {
 		});
 	}
 	
+	public Point getPos() {
+		return pos;
+	}
+	
+	
+	protected void cambiarGrafico(int dir) {
+		setIcon(image[dir]);
+		setBounds(pos.x, pos.y, width, height);
+	}
+	
+	
 	private int calcularX (Celda c) {
 		return c.columna * 100;
 	}
@@ -46,21 +55,7 @@ public abstract class Grafico extends JLabel {
 		return c.fila * 100;
 	}
 	
-	public Point getPos() {
-		return pos;
-	}
-	
-	protected void cambiarGrafico(int dir) {
-		setIcon(image[dir]);
-		setBounds(pos.x, pos.y, width, height);
-	}
-	
-	// TODO: eliminar
-	public JLabel getGrafico(){		
-		return this;
-	}
-	
 	//TODO esto es horrible
-	public Grafico getThis() { return this; }
+	private Grafico getThis() { return this; }
 	
 }

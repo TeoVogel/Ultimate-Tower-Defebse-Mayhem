@@ -3,14 +3,13 @@ package juego.ente;
 import javax.swing.JLabel;
 
 import grafica.GraficoEnemigo;
-import grafica.GraficoMovible;
+import grafica.Grafico;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {
 	
 	protected int velocidad, vel;
-	protected GraficoMovible grafica;
 	
 	// TODO: este lo volamos
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
@@ -28,13 +27,8 @@ public class Enemigo extends Personaje {
 		grafica = new GraficoEnemigo(this);
 	}
 	
-	public void init (Celda c) {
-		celda = c;
-		grafica.initGrafico(c);
-	}
-	
 	public JLabel getGrafico () {
-		return grafica.getGrafico();
+		return grafica;
 	}
 	
 	public void accept(Visitor v) {
@@ -50,7 +44,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
-		grafica.mover(); // TODO: DONDE VA ESTO??
+		((GraficoEnemigo)grafica).mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
