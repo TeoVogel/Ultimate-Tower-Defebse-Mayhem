@@ -17,8 +17,6 @@ public class GraficoEnemigo extends Grafico {
 	
 	private Enemigo enemigo;
 	
-	private String [] archivos = {"e1_estatico", "e2_caminando","e3","e4","e5"};
-	
 	public GraficoEnemigo (Enemigo e, String name) {
 		super(e, name);
 		
