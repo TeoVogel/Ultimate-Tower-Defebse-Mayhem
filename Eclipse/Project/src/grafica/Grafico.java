@@ -11,7 +11,7 @@ import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Ente;
 
-public abstract class Grafico extends JLabel{
+public class Grafico extends JLabel{
 	
 //	protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
