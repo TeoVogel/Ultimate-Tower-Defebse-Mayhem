@@ -43,7 +43,9 @@ public class Juego {
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				mapa.addEnemigo(EnemigoFactory.crearEnemigo(celda));
+				Enemigo e = EnemigoFactory.crearEnemigo();
+				e.init(celda);
+				mapa.addEnemigo(e);
 				i++;
 			}
 		}

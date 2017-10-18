@@ -4,8 +4,8 @@ import grafica.Grafico;
 import juego.visitor.Visitor;
 
 public abstract class Ente {
+	
 	protected int vida;
-	protected Grafico grafica;
 	protected Celda celda;
 	
 	// Este lo volamos en lo posible

@@ -13,15 +13,13 @@ import juego.ente.Enemigo;
 
 
 
-public class GraficoEnemigo extends Grafico {
+public class GraficoEnemigo extends GraficoMovible {
 	
 	private Enemigo enemigo;
 	
 	private String [] archivos = {"e1", "e2"};
 	
-	public GraficoEnemigo (Enemigo e) {
-		super(calcularX(e), calcularY(e));
-		
+	public GraficoEnemigo (Enemigo e) {		
 		enemigo = e;
 
 		this.image = new Icon[4];
@@ -30,28 +28,21 @@ public class GraficoEnemigo extends Grafico {
 
 		//this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //atacando
 		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //muriendo
-	
-		initGrafico();
 		
 	}
 	
-	private static int calcularX (Enemigo e) {
-		return e.getCelda().columna * 100;
-	}
-	
-	private static int calcularY (Enemigo e) {
-		return e.getCelda().fila * 100;
-	}
-	
 	public void mover () {
-		Celda izq = enemigo.getCelda().getIzq();
-		if (izq != null && izq.getEnte() != null) {
-			int velocidad = enemigo.getVelocidad();
-			int delta = 100 / velocidad;
-			pos.setLocation(pos.x - delta, pos.y);
-			cambiarGrafico(1);
-		} else
-			cambiarGrafico(0);
+		Celda cel = enemigo.getCelda();
+		if (cel != null) { 
+			Celda izq = cel.getIzq();
+			if (izq != null && izq.getEnte() != null) {
+				int velocidad = enemigo.getVelocidad();
+				int delta = 100 / velocidad;
+				pos.setLocation(pos.x - delta, pos.y);
+				cambiarGrafico(1);
+			} else
+				cambiarGrafico(0);
+		}
 	}
 	
 }

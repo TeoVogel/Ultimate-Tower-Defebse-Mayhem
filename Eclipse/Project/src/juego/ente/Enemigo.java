@@ -3,11 +3,14 @@ package juego.ente;
 import javax.swing.JLabel;
 
 import grafica.GraficoEnemigo;
+import grafica.GraficoMovible;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {
+	
 	protected int velocidad, vel;
+	protected GraficoMovible grafica;
 	
 	// TODO: este lo volamos
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
@@ -23,6 +26,10 @@ public class Enemigo extends Personaje {
 		this.velocidad = velocidad;
 		vel = velocidad;
 		grafica = new GraficoEnemigo(this);
+	}
+	
+	public void init (Celda c) {
+		grafica.initGrafico(c);
 	}
 	
 	public JLabel getGrafico () {
