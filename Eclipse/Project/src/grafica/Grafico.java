@@ -12,9 +12,9 @@ import juego.ente.Ente;
 
 public abstract class Grafico {
 	
-	//protected final static String path = "C:/Users/Franco/Documents/";
+	protected final static String path = "C:/Users/Franco/Documents/";
 	//protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+	//protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	
 	protected JLabel grafico;
 	protected Icon image[];
@@ -23,7 +23,7 @@ public abstract class Grafico {
 		
 	protected Point pos;
 	
-	protected Grafico(Ente e){
+	protected Grafico(Ente e) {
 		pos = new Point(calcularX(e), calcularY(e));
 	}
 	protected Grafico(int x, int y) {
@@ -63,7 +63,7 @@ public abstract class Grafico {
 		}
 	}
 	
-	public JLabel getLabel(){		
+	public JLabel getLabel(){
 		return grafico;
 	}
 	
