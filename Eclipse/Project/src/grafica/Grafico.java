@@ -1,6 +1,4 @@
 package grafica;
-import static grafica.Grafico.calcularX;
-import static grafica.Grafico.calcularY;
 
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -17,7 +15,6 @@ public abstract class Grafico {
 	protected final static String path = "C:/Users/Franco/Documents/";
 	//protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	//protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	
 	protected JLabel grafico;
 	protected Icon image[];

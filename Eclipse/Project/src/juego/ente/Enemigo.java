@@ -42,8 +42,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
-<<<<<<< HEAD
-		grafica.mover(); // TODO: DONDE VA ESTO??
+		miGrafico.mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
