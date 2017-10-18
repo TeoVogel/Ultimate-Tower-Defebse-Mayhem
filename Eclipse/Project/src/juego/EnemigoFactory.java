@@ -21,7 +21,7 @@ public class EnemigoFactory {
 		return new Enemigo(80, celda, 20, 40, 3, 25, "e2");
 	}
 	public static Enemigo crearEnemigo2 () {
-		return new Enemigo(80, 20, 40, 3, 25, "e2");
+		return new Enemigo(80, 20, 40, 3, 10000, "e2");
 	}
 
 }
