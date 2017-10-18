@@ -15,7 +15,7 @@ public class AccionSpawnearEnemigo implements Accion {
 	
 	public void ejecutar (Celda celda) {
 		juego.getMapa().addEnemigo(
-				EnemigoFactory.crearEnemigo(celda));
+				EnemigoFactory.crearEnemigo1(celda));
 	}
 	
 }

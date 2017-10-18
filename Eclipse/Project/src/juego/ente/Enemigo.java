@@ -14,7 +14,7 @@ public class Enemigo extends Personaje {
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
+		vel = 0;
 		miGrafico = new GraficoEnemigo(this);
 		celda.setEnte(this);
 	}
@@ -22,7 +22,7 @@ public class Enemigo extends Personaje {
 	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
+		vel = 0;
 		miGrafico = new GraficoEnemigo(this);
 	}
 	
@@ -42,7 +42,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
-		grafica.mover(); // TODO: DONDE VA ESTO??
+		miGrafico.mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 

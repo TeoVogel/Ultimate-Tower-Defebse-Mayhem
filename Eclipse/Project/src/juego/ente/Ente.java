@@ -7,18 +7,18 @@ import juego.visitor.Visitor;
 public abstract class Ente {
 	protected int vida;
 	protected Celda celda;
-	
-	// Este lo volamos en lo posible
-	public Ente(int v, Celda c) {
-		vida = v;
-		celda = c;
+
+	// TODO:: Este lo volamos en lo posible
+	public Ente(int vida, Celda celda) {
+		this.vida = vida;
+		this.celda = celda;
 	}
 	
 	public Ente(int vida) {
-		this.vida = vida;
+		this.vida=vida;
 	}
 	
-	public void setCelda(Celda celda) {
+	public void setCelda(Celda celda){
 		this.celda = celda;
 	}
 	
@@ -37,6 +37,7 @@ public abstract class Ente {
 	public void quitarVida(int cant) {
 		vida -= cant;
 		if (vida <= 0) {
+			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			celda.setEnte(null);
 			celda = null;
 		}

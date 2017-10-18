@@ -14,7 +14,6 @@ import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
-import juego.ente.Enemigo1;
 
 
 public class Juego {
@@ -37,13 +36,13 @@ public class Juego {
 		createMarket();
 
 		int i = 0;
-		while (i<5) {
+		while (i<2) {
 			Random r = new Random();
 			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				mapa.addEnemigo(EnemigoFactory.crearEnemigo(celda));
+				mapa.addEnemigo(EnemigoFactory.crearEnemigo1(celda));
 				i++;
 			}
 		}
