@@ -1,16 +1,10 @@
 package grafica;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import juego.ente.Celda;
 import juego.ente.Enemigo;
-
 
 
 public class GraficoEnemigo extends Grafico {
@@ -28,24 +22,12 @@ public class GraficoEnemigo extends Grafico {
 		this.image[0] = new ImageIcon(path + archivos[0] + ".gif"); //quieto
 		this.image[1] = new ImageIcon(path + archivos[4] + ".gif"); //en movimiento
 	
-		initGrafico(enemigo);
 	}
 	
 	
 	public void mover() {
 		
 		Celda izq = enemigo.getCelda().getIzq();
-		/*
-		String tmp1 = "izq != null", tmp2 = "	ente = null";
-		if (izq == null)
-			tmp1 = "izq = null";
-		else
-			if (izq.getEnte() != null)
-				tmp2 = "ente != null";
-				
-		System.out.println(tmp1+tmp2+'\n');
-		*/
-		
 		if (izq != null && izq.getEnte() == null) {
 			int velocidad = enemigo.getVelocidad();
 			int delta = 100 / velocidad;

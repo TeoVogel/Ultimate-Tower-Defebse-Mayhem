@@ -34,7 +34,7 @@ public class Interfaz extends JFrame{
 				if (juego.getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					juego.getMercado().getPlaceHolderContent().ejecutar(fila, columna);
+					juego.getMercado().getPlaceHolderContent().ejecutar(juego.getMapa().getCelda(fila, columna));
 				}
             }
 			
@@ -53,6 +53,15 @@ public class Interfaz extends JFrame{
 				juego.getMercado().addToPlaceHolder(new AccionSpawnearEnemigo(juego));
 			}			
 		});
+		JButton buttonA = new JButton("SpawnA");
+		buttonA.setBounds(100, 0, 100, 50);
+		add(buttonA);
+		buttonA.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
+			}			
+		});
 	}
 	
 	public void addEnte(Ente e) {
@@ -68,8 +77,6 @@ public class Interfaz extends JFrame{
 			}
 			
 		});*/
-		g.initGrafico(e);
-		g.setVisible(true);
 		g.repaint();
 	}
 }

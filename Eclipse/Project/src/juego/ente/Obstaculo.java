@@ -16,5 +16,4 @@ public abstract class Obstaculo extends Ente {
 	public Obstaculo(int vida) {
 		super(vida);
 	}
-	
 }

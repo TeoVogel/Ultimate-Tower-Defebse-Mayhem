@@ -5,9 +5,10 @@ import javax.swing.JLabel;
 import juego.visitor.Visitor;
 
 public abstract class Ente {
+	
 	protected int vida;
 	protected Celda celda;
-	// TODO: Ente deberia tener Grafico?
+	protected Grafico grafica;
 	
 	public Ente(int vida, Celda celda) {
 		this.vida = vida;
@@ -18,7 +19,12 @@ public abstract class Ente {
 		this.vida = vida;
 	}
 	
-	public void setCelda(Celda celda){
+	public void init (Celda c) {
+		celda = c;
+		grafica.initGrafico(c);
+	}
+	
+	public void setCelda(Celda celda) {
 		this.celda = celda;
 	}
 	

@@ -4,18 +4,19 @@ package juego.ente;
 import javax.swing.JLabel;
 import grafica.Grafico;
 import grafica.GraficoEnemigo;
+import grafica.Grafico;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {
+	
 	protected int velocidad, vel;
-	protected GraficoEnemigo miGrafico;
 	
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
 		vel = 0;
-		miGrafico = new GraficoEnemigo(this, name);
+		grafica = new GraficoEnemigo(this, name);
 		celda.setEnte(this);
 	}
 	
@@ -23,11 +24,11 @@ public class Enemigo extends Personaje {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
 		vel = 0;
-		miGrafico = new GraficoEnemigo(this, name);
+		grafica = new GraficoEnemigo(this, name);
 	}
-	
+
 	public Grafico getGrafico () {
-		return miGrafico;
+		return grafica;
 	}
 	
 	public void accept(Visitor v) {
@@ -42,7 +43,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
-		miGrafico.mover(); // TODO: DONDE VA ESTO??
+		((GraficoEnemigo)grafica).mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
