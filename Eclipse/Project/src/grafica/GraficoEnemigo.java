@@ -29,7 +29,7 @@ public class GraficoEnemigo extends Grafico implements Movible {
 		Celda cel = enemigo.getCelda();
 		if (cel != null) { 
 			Celda izq = cel.getIzq();
-			if (izq != null && izq.getEnte() != null) {
+			if (izq != null && izq.getEnte() == null) {
 				int velocidad = enemigo.getVelocidad();
 				int delta = 100 / velocidad;
 				pos.setLocation(pos.x - delta, pos.y);
