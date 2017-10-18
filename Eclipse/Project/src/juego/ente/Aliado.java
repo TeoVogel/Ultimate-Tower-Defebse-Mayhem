@@ -20,6 +20,7 @@ public class Aliado extends Personaje implements Comprable{
 	public Aliado(int vida, int ataque, int cadencia, int rango, int precio, String name) {
 		super(vida, ataque, cadencia, rango);
 		this.precio = precio;
+		grafica = new GraficoAliado(this, name);
 		v = new DisparoAliado(this);
 	}
 	

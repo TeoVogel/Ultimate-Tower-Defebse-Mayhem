@@ -25,8 +25,8 @@ public class Grafico extends JLabel{
 	public final static int height = 100;
 	protected Point pos;
 	
-	protected Grafico(Ente e, String n) {
-		name = n;
+	public Grafico(Ente e, String name) {
+		this.name = name;
 		ente = e;
 	}
 	

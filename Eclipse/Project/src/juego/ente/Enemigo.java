@@ -18,6 +18,7 @@ public class Enemigo extends Personaje {
 		vel = 0;
 		grafica = new GraficoEnemigo(this, name);
 		celda.setEnte(this);
+		v = new DisparoEnemigo(this);
 	}
 	
 	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name) {
@@ -25,6 +26,7 @@ public class Enemigo extends Personaje {
 		this.velocidad = velocidad;
 		vel = 0;
 		grafica = new GraficoEnemigo(this, name);
+		v = new DisparoEnemigo(this);
 	}
 	
 	public void accept(Visitor v) {
