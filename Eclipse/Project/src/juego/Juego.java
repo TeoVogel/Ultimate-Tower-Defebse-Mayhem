@@ -37,7 +37,7 @@ public class Juego {
 		createMarket();
 
 		int i = 0;
-		while (i<5) {
+		while (i<3) {
 			Random r = new Random();
 			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);

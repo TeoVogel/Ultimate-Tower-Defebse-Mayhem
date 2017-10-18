@@ -52,8 +52,8 @@ public class Enemigo extends Personaje {
 					izq.setEnte(this);
 					celda.setEnte(null);
 					celda = izq;
+					vel = 0;
 				}
-			vel = 0;
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
