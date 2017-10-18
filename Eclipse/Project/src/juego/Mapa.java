@@ -49,28 +49,7 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 			
-		//miGrafico= new GraficoMapa(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 600);
-		contentPane = new JPanel();
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		this.setVisible(true);
-		
-		addMouseListener(new MouseAdapter() {
-				@Override
-	            public void mousePressed(MouseEvent e) {
-					if (juego.getMercado().isPlaceHolderFull()) {
-						int columna = e.getX()/100,
-						    fila    = e.getY()/100;
-						juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
-					}
-	            }
-				
-	            @Override
-	            public void mouseReleased(MouseEvent e) {}
-			}
-		);
+		miGrafico= new GraficoMapa(this);
 	}
 	
 	public List<Enemigo> getEnemigos () {
@@ -79,9 +58,7 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		add(e.getGrafico().getLabel());
-		e.getGrafico().getLabel().setVisible(true);
-		e.getGrafico().getLabel().repaint();
+		miGrafico.addGrafico(e.getGrafico());
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {
