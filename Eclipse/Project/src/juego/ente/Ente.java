@@ -10,13 +10,15 @@ public abstract class Ente {
 	protected Celda celda;
 	protected Grafico grafica;
 	
-	public Ente(int vida, Celda celda) {
+	public Ente(int vida, Celda celda, String name) {
 		this.vida = vida;
+		grafica = new Grafico(this, name);
 		this.celda = celda;
 	}
 	
-	public Ente(int vida) {
+	public Ente(int vida, String name) {
 		this.vida = vida;
+		grafica = new Grafico(this, name);
 	}
 	
 	public void init (Celda c) {
