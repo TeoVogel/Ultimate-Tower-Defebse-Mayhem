@@ -19,9 +19,8 @@ import juego.ente.Enemigo;
 
 
 public class Juego {
-
-	private Mapa mapa;
 	private Interfaz interfaz;
+	private Mapa mapa;
 	private ContadorTiempo tiempo;
 	
 	private Mercado mercado;
@@ -35,11 +34,9 @@ public class Juego {
 	}
 	
 	public Juego(){
-		
-		interfaz = new Interfaz(this);
-		mapa = new Mapa(this, interfaz);
+		interfaz= new Interfaz(this);
 		createMarket();
-
+		mapa= new Mapa(this, interfaz);
 		int i = 0;
 		while (i<2) {
 			Random r = new Random();
@@ -59,16 +56,7 @@ public class Juego {
 	
 	private void createMarket () {
 		mercado = new Mercado();
-		
-		JButton buttonE = new JButton("SpawE");
-		buttonE.setBounds(0, 0, 100, 50);
-		mapa.add(buttonE);
-		buttonE.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
-			}			
-		});
+		interfaz.SpawnE();
 	}
 	
 	public Mercado getMercado () {
@@ -79,7 +67,14 @@ public class Juego {
 		return mapa;
 	}
 	
-	
+	public void ejecutarMercado(int fila, int columna){
+		if (mercado.isPlaceHolderFull()) {
+			mercado.getPlaceHolderContent().ejecutar(mapa.getCelda(fila, columna));
+		}	
+	}
+	public void SpawnE(){
+		mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
+	}	
 	/* 
 	 * SISTEMA DE PUNTOS
 	 */
