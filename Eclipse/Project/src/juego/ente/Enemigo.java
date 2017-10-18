@@ -36,7 +36,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void atacar() {
-		if (cad == cadencia) {
+		if (cad == cadencia-1) {
 			cad--;
 			v.reset();
 			accept(v);
@@ -45,7 +45,7 @@ public class Enemigo extends Personaje {
 	
 	public void mover() {
 		((GraficoEnemigo)grafica).mover(); // TODO: DONDE VA ESTO??
-		if (vel == velocidad) {
+		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
 				System.out.println("MISSION FAILED");
