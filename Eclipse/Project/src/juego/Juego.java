@@ -40,13 +40,15 @@ public class Juego {
 		interfaz.crearBotonSpawn();
 		mapa = new Mapa(this, interfaz);
 		int i = 0;
+
 		while (i<3) {
 			Random r = new Random();
 			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				Enemigo e = EnemigoFactory.crearEnemigo1(celda);
+				Enemigo e = EnemigoFactory.crearEnemigo1();
+				e.init(celda);
 				mapa.addEnemigo(e);
 				i++;
 			}
