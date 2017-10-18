@@ -46,20 +46,6 @@ public class Juego {
 		tiempo.start();
 	}
 	
-	/*private void createMarket () {
-		//mercado = new Mercado();
-		
-		JButton buttonE = new JButton("SpawnE");
-		buttonE.setBounds(0, 0, 100, 50);
-		interfaz.add(buttonE);
-		buttonE.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
-			}			
-		});
-	}*/
-	
 	public Mercado getMercado () {
 		return mercado;
 	}
