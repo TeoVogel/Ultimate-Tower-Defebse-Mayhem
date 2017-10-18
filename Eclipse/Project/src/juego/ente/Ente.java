@@ -8,9 +8,18 @@ public abstract class Ente {
 	protected Grafico grafica;
 	protected Celda celda;
 	
+	// Este lo volamos en lo posible
 	public Ente(int v, Celda c) {
 		vida = v;
 		celda = c;
+	}
+	
+	public Ente(int vida) {
+		this.vida = vida;
+	}
+	
+	public void setCelda(Celda celda) {
+		this.celda = celda;
 	}
 	
 	public int getVida(){

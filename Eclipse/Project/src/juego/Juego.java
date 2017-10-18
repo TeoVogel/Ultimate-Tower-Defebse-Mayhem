@@ -12,6 +12,7 @@ import javax.swing.JButton;
 
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
+import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Enemigo1;
 
@@ -34,14 +35,19 @@ public class Juego {
 	public Juego(){
 		mapa = new Mapa(this);
 		createMarket();
-		
-		for(int i = 0; i < 5; i++) {
+
+		int i = 0;
+		while (i<5) {
 			Random r = new Random();
-			int columnaOffset = r.nextInt(3);
+			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
-			//mapa.addEnemigo(crearEnemigo(), fila, 10 + columnaOffset);
+			Celda celda = mapa.getCelda(fila, columna);
+			if (celda.getEnte() == null) {
+				mapa.addEnemigo(EnemigoFactory.crearEnemigo(celda));
+				i++;
+			}
 		}
-			
+		
 		
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
@@ -56,8 +62,12 @@ public class Juego {
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				//mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
 				mapa.addEnemigo(crearEnemigo(), 0, 0);
+=======
+				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
+>>>>>>> c97a0f3bd529248bad62fe74a1c300753fd99822
 			}			
 		});
 	}
@@ -83,6 +93,7 @@ public class Juego {
 		puntos += p;
 	}
 	
+<<<<<<< HEAD
 
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
@@ -90,6 +101,8 @@ public class Juego {
 		return new Enemigo1(mapa.getCelda(r.nextInt(5), 9));
 	}
 	
+=======
+>>>>>>> c97a0f3bd529248bad62fe74a1c300753fd99822
 	//TODO esto es horrible
 	public Juego getThis() { return this; }
 

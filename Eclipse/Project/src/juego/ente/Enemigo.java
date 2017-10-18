@@ -6,14 +6,15 @@ import grafica.GraficoEnemigo;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
-public abstract class Enemigo extends Personaje {
-	protected int velocidad;
-	private int vel;
+public class Enemigo extends Personaje {
+	protected int velocidad, vel;
 	
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
+		vel = velocidad;
 		grafica = new GraficoEnemigo(this);
+		celda.setEnte(this);
 	}
 	
 	public JLabel getGrafico () {
@@ -33,6 +34,7 @@ public abstract class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
+		grafica.mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
@@ -43,8 +45,11 @@ public abstract class Enemigo extends Personaje {
 					celda.setEnte(null);
 					celda = izq;
 				}
-		} else vel = (vel+1)%(velocidad);
-		grafica.mover();
+			vel = 0;
+		} else {
+			vel = (vel+1)%(velocidad);
+		}
+		System.out.println("vel: " + vel + "columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {

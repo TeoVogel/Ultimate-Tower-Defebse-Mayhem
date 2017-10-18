@@ -1,20 +1,21 @@
 package juego.acciones;
 
+import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.EnemigoFactory;
 import juego.Juego;
 
 public class AccionSpawnearEnemigo implements Accion {
 
-	private Enemigo enemigo;
 	private Juego juego;	
 	
-	public AccionSpawnearEnemigo (Enemigo e, Juego j) {
-		enemigo = e;
+	public AccionSpawnearEnemigo (Juego j) {
 		juego = j;
 	}
 	
-	public void ejecutar (int fila, int columna) {
-		juego.getMapa().addEnemigo(enemigo, fila, columna);
+	public void ejecutar (Celda celda) {
+		juego.getMapa().addEnemigo(
+				EnemigoFactory.crearEnemigo(celda));
 	}
 	
 }
