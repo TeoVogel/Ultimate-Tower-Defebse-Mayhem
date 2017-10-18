@@ -30,11 +30,13 @@ public class DisparoEnemigo implements Visitor {
 	}
 	
 	public void visit(Aliado a) {
+		enemigo.setCad(0);
 		a.quitarVida(ataque);
 		GraficoDisparo.crearDisparo(a.getGrafico(), enemigo.getGrafico(), "izq");
 	}
 	
 	public void visit(Obstaculo o) {
+		enemigo.setCad(0);
 		o.quitarVida(ataque);
 		GraficoDisparo.crearDisparo(o.getGrafico(), enemigo.getGrafico(), "izq");
 	}

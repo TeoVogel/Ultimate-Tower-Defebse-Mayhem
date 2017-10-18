@@ -38,6 +38,10 @@ public abstract class Personaje extends Ente{
 		return cadencia;
 	}
 	
+	public void setCad(int c) {
+		cad = c;
+	}
+	
 	public EfectoPersonaje getEfecto() {
 		return efecto;
 	}

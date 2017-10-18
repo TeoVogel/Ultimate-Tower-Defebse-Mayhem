@@ -8,7 +8,7 @@ public abstract class Ente {
 	protected Grafico grafica;
 	protected Celda celda;
 	
-	// Este lo volamos en lo posible
+	// TODO: Este lo volamos en lo posible
 	public Ente(int v, Celda c) {
 		vida = v;
 		celda = c;

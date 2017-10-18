@@ -9,7 +9,7 @@ import juego.visitor.Visitor;
 public class Enemigo extends Personaje {
 	protected int velocidad, vel;
 	
-	// TODO: este lo volamos
+	// TODO: este lo volamos posiblemente
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
@@ -34,8 +34,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void atacar() {
-		if (cad == cadencia) {
-			cad--;
+		if (cad == cadencia) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);
 		} else cad = (cad+1)%(cadencia);
@@ -46,18 +45,18 @@ public class Enemigo extends Personaje {
 		if (vel == velocidad) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
-				System.out.println("MISSION FAILED");
+				System.out.println("MISSION FAILED"); // TODO: detectar cuando perdes el juego.
 			else 
 				if (izq.getEnte() == null) {
 					izq.setEnte(this);
 					celda.setEnte(null);
 					celda = izq;
+					vel = 0;
 				}
-			vel = 0;
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		System.out.println("vel: " + vel + "columna: " + celda.columna);
+		System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {

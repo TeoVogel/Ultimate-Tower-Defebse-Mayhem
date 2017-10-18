@@ -8,8 +8,8 @@ import juego.ente.Enemigo1;
 
 public class EnemigoFactory {
 
-	public static Enemigo crearEnemigo (Celda celda) {
-		return new Enemigo1(celda);
+	public static Enemigo crearEnemigo1 (Celda celda) {
+		return new Enemigo(celda);
 	}
 	
 }
