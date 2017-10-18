@@ -9,9 +9,9 @@ public abstract class Ente {
 	protected Celda celda;
 	
 	// TODO: Este lo volamos en lo posible
-	public Ente(int v, Celda c) {
-		vida = v;
-		celda = c;
+	public Ente(int vida, Celda celda) {
+		this.vida = vida;
+		this.celda = celda;
 	}
 	
 	public Ente(int vida) {
@@ -35,6 +35,7 @@ public abstract class Ente {
 	public void quitarVida(int cant) {
 		vida -= cant;
 		if (vida <= 0) {
+			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			celda.setEnte(null);
 			celda = null;
 		}

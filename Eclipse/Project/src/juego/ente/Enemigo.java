@@ -13,7 +13,7 @@ public class Enemigo extends Personaje {
 	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
+		vel = 0;
 		grafica = new GraficoEnemigo(this);
 		celda.setEnte(this);
 	}
@@ -21,7 +21,7 @@ public class Enemigo extends Personaje {
 	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
+		vel = 0;
 		grafica = new GraficoEnemigo(this);
 	}
 	
