@@ -5,60 +5,71 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import juego.ente.Ente;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JLabel;
-import juego.Juego;
 
-public class Interfaz{
-	private JFrame frame;
+import juego.Juego;
+import juego.acciones.AccionSpawnearEnemigo;
+
+public class Interfaz extends JFrame{
 	private JPanel contentPane;
 	private Juego juego;
 	
-	public Interfaz(Juego j){
-		juego = j;
-		frame = new JFrame();
+	public Interfaz(Juego j) {
+		juego=j;
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(0, 0, 1000, 600);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
-		frame.setContentPane(contentPane);
+		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		frame.setVisible(true);
+		setVisible(true);
 		
-		frame.addMouseListener(new MouseAdapter() {
-				@Override
-	            public void mousePressed(MouseEvent e) {
-					juego.ejecutarMercado(e.getX()/100, e.getY()/100);
-	            }
-	            @Override
-	            public void mouseReleased(MouseEvent e) {}
-			}
-		);
+		addMouseListener(new MouseAdapter() {
+			@Override
+            public void mousePressed(MouseEvent e) {
+				if (juego.getMercado().isPlaceHolderFull()) {
+					int columna = e.getX()/100,
+					    fila    = e.getY()/100;
+					juego.getMercado().getPlaceHolderContent().ejecutar(fila, columna);
+				}
+            }
+			
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+		});	
 	}
 	
-	public void SpawnE() {
+	public void crearBotonSpawn(){
 		JButton buttonE = new JButton("SpawnE");
 		buttonE.setBounds(0, 0, 100, 50);
+		add(buttonE);
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.SpawnE();
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearEnemigo(juego));
 			}			
 		});
-		frame.add(buttonE);
 	}
 	
-	public JFrame getFrame(){
-		return frame;
-	}
-	
-	public void addGrafico(Grafico g){
-		frame.add(g.getLabel());
-		g.initGrafico();
-		g.getLabel().setVisible(true);
-		g.getLabel().repaint();
-	
+	public void addEnte(Ente e) {
+		Grafico g= e.getGrafico();
+		add(g);
+		/*g.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				setVisible(false);
+				remove(g);
+				//juego.eliminarEnte(e);
+			}
+			
+		});*/
+		g.initGrafico(e);
+		g.setVisible(true);
+		g.repaint();
 	}
 }

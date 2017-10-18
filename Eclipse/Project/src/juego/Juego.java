@@ -1,5 +1,4 @@
 package juego;
-
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,17 +14,19 @@ import grafica.Interfaz;
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
+import juego.ente.Ente;
 import juego.ente.Enemigo;
 
 
+
 public class Juego {
-	private Interfaz interfaz;
+
 	private Mapa mapa;
 	private ContadorTiempo tiempo;
 	
 	private Mercado mercado;
 	private int puntos;
-
+	Interfaz interfaz;
 	/**
 	 * Launch the application.
 	 */
@@ -34,17 +35,19 @@ public class Juego {
 	}
 	
 	public Juego(){
-		interfaz= new Interfaz(this);
-		createMarket();
-		mapa= new Mapa(this, interfaz);
+		mercado = new Mercado();
+		interfaz=new Interfaz(this);
+		interfaz.crearBotonSpawn();
+		mapa = new Mapa(this, interfaz);
 		int i = 0;
-		while (i<1) {
+		while (i<3) {
 			Random r = new Random();
 			int columna = 4 + r.nextInt(5);
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				mapa.addEnemigo(EnemigoFactory.crearEnemigo1(celda));
+				Enemigo e = EnemigoFactory.crearEnemigo1(celda);
+				mapa.addEnemigo(e);
 				i++;
 			}
 		}
@@ -54,10 +57,19 @@ public class Juego {
 		tiempo.start();
 	}
 	
-	private void createMarket () {
-		mercado = new Mercado();
-		interfaz.SpawnE();
-	}
+	/*private void createMarket () {
+		//mercado = new Mercado();
+		
+		JButton buttonE = new JButton("SpawnE");
+		buttonE.setBounds(0, 0, 100, 50);
+		interfaz.add(buttonE);
+		buttonE.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
+			}			
+		});
+	}*/
 	
 	public Mercado getMercado () {
 		return mercado;
@@ -67,14 +79,10 @@ public class Juego {
 		return mapa;
 	}
 	
-	public void ejecutarMercado(int fila, int columna){
-		if (mercado.isPlaceHolderFull()) {
-			mercado.getPlaceHolderContent().ejecutar(mapa.getCelda(fila, columna));
-		}	
-	}
-	public void SpawnE(){
-		mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
-	}	
+	/*public void eliminarEnte(Ente e) {
+		mapa.
+		
+	}*/
 	/* 
 	 * SISTEMA DE PUNTOS
 	 */

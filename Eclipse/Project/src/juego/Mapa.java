@@ -11,26 +11,28 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
-import grafica.Interfaz;
 
 public class Mapa extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
-	private Interfaz interfaz;
+	
 	
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
+	Interfaz interfaz;
 	
-	public Mapa (Juego j,Interfaz interfaz) {
+	public Mapa (Juego j, Interfaz interfaz) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
 		juego = j;
 		this.interfaz=interfaz;
+		
 		// Crea grilla y setea todas las celdas con anterior y siguiente
 		grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
@@ -49,6 +51,27 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 			
+		/*
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 1000, 600);
+		contentPane = new JPanel();
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		this.setVisible(true);
+		
+		addMouseListener(new MouseAdapter() {
+			@Override
+            public void mousePressed(MouseEvent e) {
+				if (juego.getMercado().isPlaceHolderFull()) {
+					int columna = e.getX()/100,
+					    fila    = e.getY()/100;
+					juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
+				}
+            }
+			
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+		});*/
 	}
 	
 	public List<Enemigo> getEnemigos () {
@@ -57,25 +80,31 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		interfaz.addGrafico(e.getGrafico());
+		interfaz.addEnte(e);
 	}
 	
 	public void addAliado (Aliado a) {
 		aliados.add(a);
-		interfaz.addGrafico(a.getGrafico());
+		interfaz.addEnte(a);
 	}
-
-	public void mover() {
+	
+	public void mover(){
 		List<Integer> enemigosMuertos = new ArrayList<Integer>();
-		for (Enemigo e : enemigos)
+		for (int i=0; i<enemigos.size(); i++) {
+			Enemigo e = enemigos.get(i);
+			if (e.getVida() <= 0) {
+				//juego.sumarPuntos(e.getPuntos());
+				enemigosMuertos.add(i);
+			}
 			e.mover();
+		}
 		for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
 		}
-		//System.out.println(enemigos.size() + "      " + juego.getPuntos());
+		System.out.println(enemigos.size() + "      " + juego.getPuntos());
 	}
-
+	
 	
 	// TODO: elimnar esto, es solo para testear
 	public Celda getCelda(int f, int c) {

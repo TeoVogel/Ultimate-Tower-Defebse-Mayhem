@@ -19,6 +19,6 @@ public class GraficoAliado extends Grafico{
 		//this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //atacando
 		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //muriendo
 	
-		initGrafico();	
+		initGrafico(aliado);	
 	}
 }

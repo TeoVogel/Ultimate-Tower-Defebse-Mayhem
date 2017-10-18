@@ -10,11 +10,11 @@ import javax.swing.JLabel;
 import juego.ente.Enemigo;
 import juego.ente.Ente;
 
-public abstract class Grafico {
+public abstract class Grafico extends JLabel{
 	
-	protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/";
+	//protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/";
 	//protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	//protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	
 	protected String name;
 	protected JLabel grafico;
@@ -37,19 +37,20 @@ public abstract class Grafico {
 		pos = new Point(x, y);
 	}
 
-	protected void initGrafico () {
-		grafico = new JLabel(image[0]);
-		grafico.setBounds(pos.x, pos.y, width, height);
+	public void initGrafico (Ente e) {
+		pos = new Point(calcularX(e), calcularY(e));
+		setIcon(image[0]);
+		setBounds(pos.x, pos.y, width, height);
 		
-		grafico.addMouseListener(new MouseAdapter() {
+		/*addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				grafico.setVisible(false);
-				grafico.getParent().remove(grafico);
+				setVisible(false);
+				getParent().remove(getThis());
 			}
 			
-		});
+		});*/
 	}
 	
 	public Point getPos() {
@@ -64,14 +65,8 @@ public abstract class Grafico {
 	}
 	
 	protected void cambiarGrafico(int dir) {
-		if (grafico != null) {
-			grafico.setIcon(image[dir]);
-			grafico.setBounds(pos.x, pos.y, width, height);
-		}
-	}
-	
-	public JLabel getLabel(){
-		return grafico;
+		setIcon(image[dir]);
+		setBounds(pos.x, pos.y, width, height);
 	}
 	
 }
