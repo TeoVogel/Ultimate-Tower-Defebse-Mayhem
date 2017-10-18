@@ -10,6 +10,9 @@ import juego.ente.Enemigo;
 
 public class Juego {
 
+	private final static Juego juego = new Juego();
+	public static Juego getJuego() { return juego; }
+	
 	private Mapa mapa;
 	private ContadorTiempo tiempo;
 	
@@ -23,7 +26,7 @@ public class Juego {
 		Juego juego = new Juego();
 	}
 	
-	public Juego(){
+	private Juego(){
 		mercado = new Mercado();
 		interfaz=new Interfaz(this);
 		interfaz.crearBotonSpawn();
@@ -67,6 +70,8 @@ public class Juego {
 	public int getPuntos() {
 		return puntos;
 	}
+	
+	public Interfaz getInterfaz(){return interfaz;}
 	
 	public void sumarPuntos (int p) {
 		puntos += p;

@@ -8,24 +8,22 @@ import juego.ente.Enemigo;
 
 
 public class GraficoEnemigo extends Grafico {
-	// archivos [name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"]
-	// archivos [  0  |  1  |   2  |   3  |  4  ]
-	// archivos [parar|morir|frente|atacar|mover]
-	private Enemigo enemigo;
+	// sufijosArchivos ["_parar", "_morir", "_frente", "_atacar", "_mover"]
+	// sufijosArchivos [  0  |  1  |   2  |   3  |  4  ]
+	// sufijosArchivos [parar|morir|frente|atacar|mover]
 	
 	public GraficoEnemigo (Enemigo e, String name) {
 		super(e, name);
-		
-		enemigo = e;
 
 		this.image = new Icon[4];
-		this.image[0] = new ImageIcon(path + archivos[0] + ".gif"); //quieto
-		this.image[1] = new ImageIcon(path + archivos[4] + ".gif"); //en movimiento
+		this.image[0] = new ImageIcon(path + name + sufijosArchivos[0] + ".gif"); //quieto
+		this.image[1] = new ImageIcon(path + name + sufijosArchivos[4] + ".gif"); //en movimientos
 	
 	}
 	
 	
 	public void mover() {
+		Enemigo enemigo = (Enemigo) ente;
 		
 		Celda izq = enemigo.getCelda().getIzq();
 		if (izq != null && izq.getEnte() == null) {

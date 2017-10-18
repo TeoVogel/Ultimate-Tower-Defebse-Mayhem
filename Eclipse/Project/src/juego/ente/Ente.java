@@ -25,6 +25,10 @@ public abstract class Ente {
 		celda = c;
 		grafica.initGrafico(c);
 	}
+
+	public JLabel getGrafico () {
+		return grafica;
+	}
 	
 	public void setCelda(Celda celda) {
 		this.celda = celda;
@@ -33,8 +37,6 @@ public abstract class Ente {
 	public int getVida(){
 		return vida;
 	}
-	
-	public abstract Grafico getGrafico();
 	
 	public Celda getCelda() {
 		return celda;
