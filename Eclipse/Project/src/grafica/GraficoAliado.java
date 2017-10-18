@@ -1,5 +1,27 @@
 package grafica;
 
-public class GraficoAliado {
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
+import juego.ente.Aliado;
+
+public class GraficoAliado extends Grafico{
+private Aliado aliado;
+	
+	private String [] archivos = {"a1", "a2","a3"};
+	
+	public GraficoAliado (Aliado a) {
+		super(a);
+		
+		aliado = a;
+
+		this.image = new Icon[3];
+		this.image[0] = new ImageIcon(path + archivos[0] + ".gif"); //quieto
+		this.image[1] = new ImageIcon(path + archivos[1] + ".gif"); //en movimiento
+		this.image[2] = new ImageIcon(path + archivos[2] + ".gif"); //ni idea
+		//this.image[2] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //atacando
+		//this.image[3] = new ImageIcon("C:/Users/Franco/Documents/e2.gif"); //muriendo
+	
+		initGrafico();	
+	}
 }
