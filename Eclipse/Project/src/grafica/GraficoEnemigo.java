@@ -17,7 +17,7 @@ public class GraficoEnemigo extends Grafico {
 	
 	private Enemigo enemigo;
 	
-	private String [] archivos = {"e1", "e2","e3","e4","e5"};
+	private String [] archivos = {"e1_estatico", "e2_caminando","e3","e4","e5"};
 	
 	public GraficoEnemigo (Enemigo e) {
 		super(e);
@@ -39,8 +39,11 @@ public class GraficoEnemigo extends Grafico {
 			int delta = 100 / velocidad;
 			pos.setLocation(pos.x - delta, pos.y);
 			cambiarGrafico(1);
-		} else
+			System.out.println("Moviendose");
+		} else {
 			cambiarGrafico(0);
+			System.out.println("Parado");
+		}
 	}
 	
 }
