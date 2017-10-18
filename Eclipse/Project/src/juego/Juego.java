@@ -62,12 +62,7 @@ public class Juego {
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-				//mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
-				mapa.addEnemigo(crearEnemigo(), 0, 0);
-=======
 				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
->>>>>>> c97a0f3bd529248bad62fe74a1c300753fd99822
 			}			
 		});
 	}
@@ -93,16 +88,6 @@ public class Juego {
 		puntos += p;
 	}
 	
-<<<<<<< HEAD
-
-	private Enemigo crearEnemigo () {
-		Random r = new Random();
-		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo1(mapa.getCelda(r.nextInt(5), 9));
-	}
-	
-=======
->>>>>>> c97a0f3bd529248bad62fe74a1c300753fd99822
 	//TODO esto es horrible
 	public Juego getThis() { return this; }
 

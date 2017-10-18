@@ -1,15 +1,16 @@
 package grafica;
 import java.awt.Point;
 
+import javax.swing.JFrame;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Image;
 import javax.swing.JLabel;
 
-public class GraficoDisparo{
+public class GraficoDisparo extends Thread{
 	protected static int altoDisparo=10;
 	
-	public static void crearDisparo(Grafico a, Grafico b, String dir){
+	public static void crearDisparo(Grafico a, Grafico b, String dir, JFrame frame){
 		JLabel grafico;
 		ImageIcon image;
 		Point izq=new Point((int)a.getPos().getX()+ Grafico.width,(int)a.getPos().getY()+ Grafico.height/2-altoDisparo/2);//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
@@ -24,7 +25,17 @@ public class GraficoDisparo{
 		image = new ImageIcon(newimg);
 		grafico=new JLabel(image);
 		grafico.setBounds((int)izq.getX(),(int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo);
+		
+		frame.add(grafico);
 		grafico.setVisible(true);
+		grafico.repaint();
+		try {
+			sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		frame.remove(grafico);
 	}
 	
 }
