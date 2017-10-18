@@ -1,20 +1,9 @@
 package juego;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
-import javax.swing.JButton;
-
 import grafica.Interfaz;
-import juego.acciones.AccionSpawnearAliado;
-import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
-import juego.ente.Ente;
 import juego.ente.Enemigo;
 
 
@@ -58,20 +47,6 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 	}
-	
-	/*private void createMarket () {
-		//mercado = new Mercado();
-		
-		JButton buttonE = new JButton("SpawnE");
-		buttonE.setBounds(0, 0, 100, 50);
-		interfaz.add(buttonE);
-		buttonE.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(getThis()));
-			}			
-		});
-	}*/
 	
 	public Mercado getMercado () {
 		return mercado;
