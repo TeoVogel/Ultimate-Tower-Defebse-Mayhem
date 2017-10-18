@@ -1,12 +1,7 @@
 package grafica;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import juego.ente.Celda;
 import juego.ente.Enemigo;

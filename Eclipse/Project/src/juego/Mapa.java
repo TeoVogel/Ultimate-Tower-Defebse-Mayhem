@@ -1,24 +1,15 @@
 package juego;
 
-
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 
-public class Mapa extends JFrame {
+public class Mapa{
 
-	private JPanel contentPane;
 	private Juego juego;
 	
 	

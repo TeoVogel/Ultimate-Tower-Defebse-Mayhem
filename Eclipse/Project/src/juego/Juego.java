@@ -1,20 +1,9 @@
 package juego;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
-import javax.swing.JButton;
-
 import grafica.Interfaz;
-import juego.acciones.AccionSpawnearAliado;
-import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
-import juego.ente.Ente;
 import juego.ente.Enemigo;
 
 
