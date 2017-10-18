@@ -20,16 +20,17 @@ public class Mapa extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
+	private Interfaz interfaz;
 	
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
 	
-	public Mapa (Juego j) {
+	public Mapa (Juego j,Interfaz interfaz) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
 		juego = j;
-		
+		this.interfaz=interfaz;
 		// Crea grilla y setea todas las celdas con anterior y siguiente
 		grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
@@ -56,12 +57,12 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		Interfaz.addGrafico(e.getGrafico());
+		interfaz.addGrafico(e.getGrafico());
 	}
 	
 	public void addAliado (Aliado a) {
 		aliados.add(a);
-		Interfaz.addGrafico(a.getGrafico());
+		interfaz.addGrafico(a.getGrafico());
 	}
 
 	public void mover(){

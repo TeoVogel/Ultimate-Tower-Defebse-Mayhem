@@ -1,18 +1,22 @@
 package grafica;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
 import juego.Juego;
 
 public class Interfaz{
-	private static JFrame frame;
-	private static JPanel contentPane;
-	private static Juego juego;
+	private JFrame frame;
+	private JPanel contentPane;
+	private Juego juego;
 	
-	public static void Iniciar(Juego j){
+	public Interfaz(Juego j){
 		juego = j;
 		frame = new JFrame();
 		
@@ -26,25 +30,33 @@ public class Interfaz{
 		frame.addMouseListener(new MouseAdapter() {
 				@Override
 	            public void mousePressed(MouseEvent e) {
-					if (juego.getMercado().isPlaceHolderFull()) {
-						int columna = e.getX()/100,
-						    fila    = e.getY()/100;
-						juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
-					}
+					juego.ejecutarMercado(e.getX()/100, e.getY()/100);
 	            }
-				
 	            @Override
 	            public void mouseReleased(MouseEvent e) {}
 			}
 		);
 	}
-		
-	public static JFrame getFrame(){
+	
+	public void SpawnE() {
+		JButton buttonE = new JButton("SpawnE");
+		buttonE.setBounds(0, 0, 100, 50);
+		buttonE.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				juego.SpawnE();
+			}			
+		});
+		frame.add(buttonE);
+	}
+	
+	public JFrame getFrame(){
 		return frame;
 	}
 	
-	public static void addGrafico(Grafico g){
+	public void addGrafico(Grafico g){
 		frame.add(g.getLabel());
+		g.initGrafico();
 		g.getLabel().setVisible(true);
 		g.getLabel().repaint();
 	
