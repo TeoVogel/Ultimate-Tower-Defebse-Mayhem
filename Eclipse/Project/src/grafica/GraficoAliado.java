@@ -6,13 +6,10 @@ import javax.swing.ImageIcon;
 import juego.ente.Aliado;
 
 public class GraficoAliado extends Grafico{
-private Aliado aliado;
-	
-	private String [] archivos = {"a1", "a2","a3"};
+	private Aliado aliado;
 	
 	public GraficoAliado (Aliado a, String name) {
 		super(a, name);
-		
 		aliado = a;
 
 		this.image = new Icon[3];

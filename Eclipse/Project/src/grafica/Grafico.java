@@ -19,6 +19,7 @@ public abstract class Grafico {
 	protected String name;
 	protected JLabel grafico;
 	protected Icon image[];
+	protected String[] archivos;
 	public final static int width = 100;
 	public final static int height = 100;
 		
@@ -26,11 +27,13 @@ public abstract class Grafico {
 	
 	protected Grafico(Ente e, String name) {
 		this.name = name;
+		archivos = new String[]{name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"};
 		pos = new Point(calcularX(e), calcularY(e));
 	}
 	
 	protected Grafico(int x, int y, String name) {
 		this.name = name;
+		archivos = new String[]{name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"};
 		pos = new Point(x, y);
 	}
 
