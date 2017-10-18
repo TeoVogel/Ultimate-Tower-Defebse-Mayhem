@@ -29,6 +29,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void init (Celda c) {
+		celda = c;
 		grafica.initGrafico(c);
 	}
 	
