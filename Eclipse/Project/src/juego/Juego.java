@@ -56,7 +56,8 @@ public class Juego {
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
+				//mercado.addToPlaceHolder(new AccionSpawnearEnemigo(crearEnemigo(), getThis()));
+				mapa.addEnemigo(crearEnemigo(), 0, 0);
 			}			
 		});
 	}
@@ -86,7 +87,7 @@ public class Juego {
 	private Enemigo crearEnemigo () {
 		Random r = new Random();
 		int velocidad = 5 + r.nextInt(10);
-		return new Enemigo1(mapa.getCelda(2, 2));
+		return new Enemigo1(mapa.getCelda(r.nextInt(5), 9));
 	}
 	
 	//TODO esto es horrible

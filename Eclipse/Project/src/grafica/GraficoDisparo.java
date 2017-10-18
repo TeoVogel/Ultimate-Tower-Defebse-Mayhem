@@ -26,4 +26,5 @@ public class GraficoDisparo{
 		grafico.setBounds((int)izq.getX(),(int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo);
 		grafico.setVisible(true);
 	}
+	
 }
