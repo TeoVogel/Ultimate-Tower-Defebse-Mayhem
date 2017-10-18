@@ -19,12 +19,12 @@ import juego.Juego;
 import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
-	private JLabel contentPane;
+	private JLabel panelMapa;
 	private Juego juego;
 
 //	protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-//	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+//	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+ 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 
 	
 	public Interfaz(Juego j) {
@@ -32,14 +32,15 @@ public class Interfaz extends JFrame{
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 638); // TODO: fix, 600 + 38 es por la tittle bar de windows
-		contentPane = new JLabel();
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		contentPane.setIcon(new ImageIcon(path + "fondo.png"));
-		
+		panelMapa = new JLabel();
+		panelMapa.setBounds(0, 0, 1000, 600);
+		setContentPane(panelMapa);
+		panelMapa.setLayout(null);
+		panelMapa.setIcon(new ImageIcon(path + "fondo.png"));
 		setVisible(true);
+		panelMapa.setVisible(true);
 		
-		addMouseListener(new MouseAdapter() {
+		panelMapa.addMouseListener(new MouseAdapter() {
 			@Override
             public void mousePressed(MouseEvent e) {
 				if (juego.getMercado().isPlaceHolderFull()) {
@@ -57,7 +58,7 @@ public class Interfaz extends JFrame{
 	public void crearBotonSpawn(){
 		JButton buttonE = new JButton("SpawnE");
 		buttonE.setBounds(0, 0, 100, 50);
-		add(buttonE);
+		panelMapa.add(buttonE);
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -66,7 +67,7 @@ public class Interfaz extends JFrame{
 		});
 		JButton buttonA = new JButton("SpawnA");
 		buttonA.setBounds(100, 0, 100, 50);
-		add(buttonA);
+		panelMapa.add(buttonA);
 		buttonA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +78,7 @@ public class Interfaz extends JFrame{
 	
 	public void addEnte(Ente e) {
 		Grafico g= e.getGrafico();
-		add(g);
+		panelMapa.add(g);
 		/*g.addMouseListener(new MouseAdapter() {
 			
 			@Override
