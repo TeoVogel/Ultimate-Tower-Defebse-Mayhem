@@ -71,6 +71,7 @@ public class Mapa{
 		/*for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
+<<<<<<< HEAD
 		}*/
 	}
 	
