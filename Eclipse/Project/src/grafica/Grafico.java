@@ -63,7 +63,7 @@ public abstract class Grafico {
 		return e.getCelda().fila * 100;
 	}
 	
-	protected void cambiarGrafico(int dir){
+	protected void cambiarGrafico(int dir) {
 		if (grafico != null) {
 			grafico.setIcon(image[dir]);
 			grafico.setBounds(pos.x, pos.y, width, height);
