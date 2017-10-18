@@ -2,6 +2,7 @@ package juego.ente;
 
 import grafica.Grafico;
 import grafica.GraficoEnemigo;
+import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
 public class Enemigo extends Personaje {
