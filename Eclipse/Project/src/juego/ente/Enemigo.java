@@ -26,10 +26,6 @@ public class Enemigo extends Personaje {
 		vel = 0;
 		grafica = new GraficoEnemigo(this, name);
 	}
-
-	public Grafico getGrafico () {
-		return grafica;
-	}
 	
 	public void accept(Visitor v) {
 		v.visit(this);
