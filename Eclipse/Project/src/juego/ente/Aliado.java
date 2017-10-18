@@ -6,7 +6,7 @@ import juego.visitor.Visitor;
 import grafica.Grafico;
 import grafica.GraficoAliado;
 
-public abstract class Aliado extends Personaje implements Comprable{
+public class Aliado extends Personaje implements Comprable{
 	protected GraficoAliado miGrafico;
 	protected int precio;
 	

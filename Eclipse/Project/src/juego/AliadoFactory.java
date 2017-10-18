@@ -1,0 +1,27 @@
+package juego;
+
+import juego.ente.Celda;
+import juego.ente.Aliado;
+
+public class AliadoFactory {
+	// TODO: cambiarle el nomre a los constructores por Tanque, Melee, etc.
+	// public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad)
+	// public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad)
+	
+	// VIDA: 100 | ATAQUE:15 | CADENCIA: 30 | RANGO: 2 | Precio: 0 
+	public static Aliado crearAliado1 (Celda celda) {
+		return new Aliado(100, celda, 15, 30, 2, 0);
+	}
+	public static Aliado crearAliado1 () {
+		return new Aliado(100, 15, 30, 2, 0);
+	}
+	
+	// VIDA: 80 | ATAQUE:20 | CADENCIA: 40 | RANGO: 3 | Precio: 0
+	public static Aliado crearAliado2 (Celda celda) {
+		return new Aliado(80, celda, 20, 40, 3, 0);
+	}
+	public static Aliado crearAliado2 () {
+		return new Aliado(80, 20, 40, 3, 0);
+	}
+
+}
