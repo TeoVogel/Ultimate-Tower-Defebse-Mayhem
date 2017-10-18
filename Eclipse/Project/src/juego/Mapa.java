@@ -72,7 +72,6 @@ public class Mapa{
 			enemigos.remove((int) i);
 			System.out.println("Removido");
 		}
-		System.out.println(enemigos.size() + "      " + juego.getPuntos());
 	}
 	
 	

@@ -54,7 +54,8 @@ public class Enemigo extends Personaje {
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		System.out.println("vel: " + vel + " columna: " + celda.columna);
+		if (velocidad<100)
+			System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {
