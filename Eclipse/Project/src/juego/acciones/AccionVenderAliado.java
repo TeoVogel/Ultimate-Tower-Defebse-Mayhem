@@ -12,9 +12,5 @@ public class AccionVenderAliado implements Accion {
 		juego = j;
 	}
 	
-	public void ejecutar (int fila, int columna) {
-		juego.getMapa().addAliado(aliado, fila, columna);
-		juego.getMercado().sumarMonedas(aliado.precio());
-	}
 	
 }

@@ -25,7 +25,7 @@ public abstract class Grafico extends JLabel {
 		setIcon(image[0]);
 		setBounds(pos.x, pos.y, width, height);
 		
-		addMouseListener(new MouseAdapter() {
+		/*addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -33,7 +33,7 @@ public abstract class Grafico extends JLabel {
 				getParent().remove(getThis());
 			}
 			
-		});
+		});*/
 	}
 	
 	public Point getPos() {

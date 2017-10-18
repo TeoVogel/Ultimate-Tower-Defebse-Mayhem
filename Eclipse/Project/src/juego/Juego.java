@@ -10,6 +10,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
+import grafica.Interfaz;
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
@@ -24,7 +25,7 @@ public class Juego {
 	
 	private Mercado mercado;
 	private int puntos;
-
+	Interfaz interfaz;
 	/**
 	 * Launch the application.
 	 */
@@ -33,9 +34,10 @@ public class Juego {
 	}
 	
 	public Juego(){
-		mapa = new Mapa(this);
+		mercado = new Mercado();
+		interfaz=new Interfaz(this);
 		createMarket();
-
+		mapa = new Mapa(this, interfaz);
 		int i = 0;
 		while (i<3) {
 			Random r = new Random();
@@ -43,7 +45,7 @@ public class Juego {
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				Enemigo e = EnemigoFactory.crearEnemigo();
+				Enemigo e = EnemigoFactory.crearEnemigo1(celda);
 				e.init(celda);
 				mapa.addEnemigo(e);
 				i++;
@@ -56,11 +58,11 @@ public class Juego {
 	}
 	
 	private void createMarket () {
-		mercado = new Mercado();
+		//mercado = new Mercado();
 		
 		JButton buttonE = new JButton("SpawE");
 		buttonE.setBounds(0, 0, 100, 50);
-		mapa.add(buttonE);
+		interfaz.add(buttonE);
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

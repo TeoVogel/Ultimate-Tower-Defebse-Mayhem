@@ -7,17 +7,14 @@ import juego.Juego;
 
 public class AccionSpawnearEnemigo implements Accion {
 
-	private Juego juego;
-	private Enemigo enemigo;
+	private Juego juego;	
 	
 	public AccionSpawnearEnemigo (Juego j) {
 		juego = j;
-		enemigo = EnemigoFactory.crearEnemigo();
 	}
 	
-	public void ejecutar (Celda celda) {
-		enemigo.init(celda);
-		juego.getMapa().addEnemigo(enemigo);
+	public void ejecutar (int fila, int columna) {
+		juego.getMapa().addEnemigo(EnemigoFactory.crearEnemigo1(juego.getMapa().getCelda(fila, columna)));
 	}
 	
 }

@@ -27,7 +27,7 @@ public class Enemigo extends Personaje {
 		grafica = new GraficoEnemigo(this);
 	}
 	
-	public JLabel getGrafico () {
+	public Grafico getGrafico () {
 		return grafica;
 	}
 	

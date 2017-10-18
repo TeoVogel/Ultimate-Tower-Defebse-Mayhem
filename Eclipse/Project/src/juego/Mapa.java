@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
@@ -24,11 +25,13 @@ public class Mapa extends JFrame {
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
+	Interfaz interfaz;
 	
-	public Mapa (Juego j) {
+	public Mapa (Juego j, Interfaz interfaz) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
 		juego = j;
+		this.interfaz=interfaz;
 		
 		// Crea grilla y setea todas las celdas con anterior y siguiente
 		grilla = new Celda[6][10];
@@ -48,7 +51,7 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 			
-		
+		/*
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
@@ -68,7 +71,7 @@ public class Mapa extends JFrame {
 			
             @Override
             public void mouseReleased(MouseEvent e) {}
-		});
+		});*/
 	}
 	
 	public List<Enemigo> getEnemigos () {
@@ -77,14 +80,12 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		add(e.getGrafico());
-		e.getGrafico().setVisible(true);
-		e.getGrafico().repaint();
+		interfaz.addEnte(e);
 	}
 	
-	public void addAliado (Aliado a, int fila, int columna) {
+	public void addAliado (Aliado a) {
 		aliados.add(a);
-		//add(a.getGrafico());
+		interfaz.addEnte(a);
 	}
 	
 	public void mover(){

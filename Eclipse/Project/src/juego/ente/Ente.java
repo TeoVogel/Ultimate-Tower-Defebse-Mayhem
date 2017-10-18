@@ -28,6 +28,8 @@ public abstract class Ente {
 		this.celda = celda;
 	}
 	
+	public Grafico getGrafico() {return grafica;}
+	
 	public int getVida(){
 		return vida;
 	}
