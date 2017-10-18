@@ -16,6 +16,7 @@ public abstract class Grafico {
 	//protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	
+	protected String name;
 	protected JLabel grafico;
 	protected Icon image[];
 	public final static int width = 100;
@@ -23,10 +24,13 @@ public abstract class Grafico {
 		
 	protected Point pos;
 	
-	protected Grafico(Ente e) {
+	protected Grafico(Ente e, String name) {
+		this.name = name;
 		pos = new Point(calcularX(e), calcularY(e));
 	}
-	protected Grafico(int x, int y) {
+	
+	protected Grafico(int x, int y, String name) {
+		this.name = name;
 		pos = new Point(x, y);
 	}
 

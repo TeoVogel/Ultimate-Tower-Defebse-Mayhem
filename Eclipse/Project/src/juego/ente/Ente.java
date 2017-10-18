@@ -7,7 +7,8 @@ import juego.visitor.Visitor;
 public abstract class Ente {
 	protected int vida;
 	protected Celda celda;
-
+	// TODO: Ente deberia tener Grafico?
+	
 	public Ente(int vida, Celda celda) {
 		this.vida = vida;
 		this.celda = celda;

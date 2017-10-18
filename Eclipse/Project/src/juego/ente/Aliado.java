@@ -6,17 +6,19 @@ import juego.visitor.Visitor;
 import grafica.Grafico;
 import grafica.GraficoAliado;
 
-public abstract class Aliado extends Personaje{
+public abstract class Aliado extends Personaje implements Comprable{
 	protected GraficoAliado miGrafico;
+	protected int precio;
 	
-	// TODO: Este lo volamos
-	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango) {
+	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango, int precio) {
 		super(vida, celda, ataque, cadencia, rango);
+		this.precio = precio;
 		v = new DisparoAliado(this);
 	}
 
-	public Aliado(int vida, int ataque, int cadencia, int rango) {
+	public Aliado(int vida, int ataque, int cadencia, int rango, int precio) {
 		super(vida, ataque, cadencia, rango);
+		this.precio = precio;
 		v = new DisparoAliado(this);
 	}
 	
@@ -34,5 +36,9 @@ public abstract class Aliado extends Personaje{
 			v.reset();
 			accept(v);
 		} else cad = (cad-1)%(cadencia+1);
+	}
+	
+	public int getPrecio() {
+		return precio;
 	}
 }

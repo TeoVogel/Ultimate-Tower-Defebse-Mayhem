@@ -5,25 +5,21 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import juego.Juego;
-
-public class Interfaz{
-	private static JFrame frame;
-	private static JPanel contentPane;
-	private static Juego juego;
+import juego.Mapa;
+public class GraficoMapa extends JFrame {
+	private JPanel contentPane;
+	private Mapa miMapa;
 	
-	public static void Iniciar(Juego j){
-		juego = j;
-		frame = new JFrame();
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(0, 0, 1000, 600);
+	public GraficoMapa(Mapa m){
+		miMapa = m;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
-		frame.setContentPane(contentPane);
+		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		frame.setVisible(true);
+		this.setVisible(true);
 		
-		frame.addMouseListener(new MouseAdapter() {
+		addMouseListener(new MouseAdapter() {
 				@Override
 	            public void mousePressed(MouseEvent e) {
 					if (juego.getMercado().isPlaceHolderFull()) {
@@ -39,14 +35,11 @@ public class Interfaz{
 		);
 	}
 		
-	public static JFrame getFrame(){
-		return frame;
-	}
-	
-	public static void addGrafico(Grafico g){
-		frame.add(g.getLabel());
+	public void addGrafico(Grafico g){
+		add(g.getLabel());
 		g.getLabel().setVisible(true);
 		g.getLabel().repaint();
 	
 	}
+		
 }
