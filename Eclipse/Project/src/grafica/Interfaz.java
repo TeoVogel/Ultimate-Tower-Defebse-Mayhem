@@ -23,8 +23,8 @@ public class Interfaz extends JFrame{
 	private Juego juego;
 
 //	protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-//	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
- 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+// 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 
 	
 	public Interfaz(Juego j) {
@@ -33,7 +33,7 @@ public class Interfaz extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 640); // TODO: fix, 600 + 38 es por la tittle bar de windows
 		panelMapa = new JLabel();
-		panelMapa.setBounds(0, 0, 1000, 600);
+		panelMapa.setBounds(0, 38, 1000, 638);
 		setContentPane(panelMapa);
 		panelMapa.setLayout(null);
 		panelMapa.setIcon(new ImageIcon(path + "fondo.png"));
@@ -77,8 +77,9 @@ public class Interfaz extends JFrame{
 	}
 	
 	public void addEnte(Ente e) {
-		Grafico g= e.getGrafico();
-		panelMapa.add(g);
+		JLabel grafico = e.getGrafico();
+		panelMapa.add(grafico);
+		grafico.repaint();
 		/*g.addMouseListener(new MouseAdapter() {
 			
 			@Override
@@ -89,6 +90,5 @@ public class Interfaz extends JFrame{
 			}
 			
 		});*/
-		g.repaint();
 	}
 }

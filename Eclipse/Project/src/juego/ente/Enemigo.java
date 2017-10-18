@@ -22,10 +22,6 @@ public class Enemigo extends Personaje {
 		vel = 0;
 		grafica = new GraficoEnemigo(this, name);
 	}
-
-	public Grafico getGrafico () {
-		return grafica;
-	}
 	
 	public void accept(Visitor v) {
 		v.visit(this);
@@ -54,7 +50,8 @@ public class Enemigo extends Personaje {
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		System.out.println("vel: " + vel + " columna: " + celda.columna);
+		if (velocidad<100)
+			System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {
