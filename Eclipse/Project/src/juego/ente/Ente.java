@@ -1,14 +1,14 @@
 package juego.ente;
 
 import grafica.Grafico;
+import javax.swing.JLabel;
 import juego.visitor.Visitor;
 
 public abstract class Ente {
 	protected int vida;
-	protected Grafico grafica;
 	protected Celda celda;
 	
-	// TODO: Este lo volamos en lo posible
+	// Este lo volamos en lo posible
 	public Ente(int v, Celda c) {
 		vida = v;
 		celda = c;
@@ -25,6 +25,8 @@ public abstract class Ente {
 	public int getVida(){
 		return vida;
 	}
+	
+	public abstract Grafico getGrafico();
 	
 	public Celda getCelda() {
 		return celda;

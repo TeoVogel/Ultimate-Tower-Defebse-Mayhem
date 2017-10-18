@@ -1,4 +1,7 @@
 package grafica;
+import static grafica.Grafico.calcularX;
+import static grafica.Grafico.calcularY;
+
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,11 +9,12 @@ import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 
+import juego.ente.Enemigo;
+import juego.ente.Ente;
+
 public abstract class Grafico {
 	
-	protected final static String path = "C:/Users/Franco/Documents/";
-	//protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	//protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
+	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
 	
 	protected JLabel grafico;
 	protected Icon image[];
@@ -19,6 +23,9 @@ public abstract class Grafico {
 		
 	protected Point pos;
 	
+	protected Grafico(Ente e){
+		pos = new Point(calcularX(e), calcularY(e));
+	}
 	protected Grafico(int x, int y) {
 		pos = new Point(x, y);
 	}
@@ -42,6 +49,13 @@ public abstract class Grafico {
 		return pos;
 	}
 	
+	private static int calcularX (Ente e) {
+		return e.getCelda().columna * 100;
+	}
+	private static int calcularY (Ente e) {
+		return e.getCelda().fila * 100;
+	}
+	
 	protected void cambiarGrafico(int dir){
 		if (grafico != null) {
 			grafico.setIcon(image[dir]);
@@ -49,12 +63,8 @@ public abstract class Grafico {
 		}
 	}
 	
-	public JLabel getGrafico(){		
+	public JLabel getLabel(){		
 		return grafico;
-	}
-	
-	public void mover () {
-		//sobreescribir en GraficoEnemigo
 	}
 	
 }

@@ -17,10 +17,10 @@ public class GraficoEnemigo extends Grafico {
 	
 	private Enemigo enemigo;
 	
-	private String [] archivos = {"e1", "e2"};
+	private String [] archivos = {"e1", "e2","e3","e4","e5"};
 	
 	public GraficoEnemigo (Enemigo e) {
-		super(calcularX(e), calcularY(e));
+		super(e);
 		
 		enemigo = e;
 
@@ -35,13 +35,6 @@ public class GraficoEnemigo extends Grafico {
 		
 	}
 	
-	private static int calcularX (Enemigo e) {
-		return e.getCelda().columna * 100;
-	}
-	
-	private static int calcularY (Enemigo e) {
-		return e.getCelda().fila * 100;
-	}
 	
 	public void mover () {
 		Celda izq = enemigo.getCelda().getIzq();

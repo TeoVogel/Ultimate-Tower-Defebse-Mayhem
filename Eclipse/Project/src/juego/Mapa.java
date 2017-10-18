@@ -14,13 +14,14 @@ import javax.swing.JPanel;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import grafica.GraficoMapa;
 
 public class Mapa extends JFrame {
 
 	private JPanel contentPane;
 	private Juego juego;
 	
-	
+	private GraficoMapa miGrafico;
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
@@ -48,7 +49,7 @@ public class Mapa extends JFrame {
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
 			
-		
+		//miGrafico= new GraficoMapa(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
@@ -57,18 +58,19 @@ public class Mapa extends JFrame {
 		this.setVisible(true);
 		
 		addMouseListener(new MouseAdapter() {
-			@Override
-            public void mousePressed(MouseEvent e) {
-				if (juego.getMercado().isPlaceHolderFull()) {
-					int columna = e.getX()/100,
-					    fila    = e.getY()/100;
-					juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
-				}
-            }
-			
-            @Override
-            public void mouseReleased(MouseEvent e) {}
-		});
+				@Override
+	            public void mousePressed(MouseEvent e) {
+					if (juego.getMercado().isPlaceHolderFull()) {
+						int columna = e.getX()/100,
+						    fila    = e.getY()/100;
+						juego.getMercado().getPlaceHolderContent().ejecutar(grilla[fila][columna]);
+					}
+	            }
+				
+	            @Override
+	            public void mouseReleased(MouseEvent e) {}
+			}
+		);
 	}
 	
 	public List<Enemigo> getEnemigos () {
@@ -77,14 +79,14 @@ public class Mapa extends JFrame {
 	
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		add(e.getGrafico());
-		e.getGrafico().setVisible(true);
-		e.getGrafico().repaint();
+		add(e.getGrafico().getLabel());
+		e.getGrafico().getLabel().setVisible(true);
+		e.getGrafico().getLabel().repaint();
 	}
 	
 	public void addAliado (Aliado a, int fila, int columna) {
 		aliados.add(a);
-		//add(a.getGrafico());
+		//miGrafico.addGrafico(a.getGrafico());
 	}
 	
 	public void mover(){
