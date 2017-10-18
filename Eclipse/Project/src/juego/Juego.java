@@ -1,4 +1,5 @@
 package juego;
+
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import java.util.Random;
 
 import javax.swing.JButton;
 
+import grafica.Interfaz;
 import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 import juego.ente.Celda;
@@ -19,6 +21,7 @@ import juego.ente.Enemigo;
 public class Juego {
 
 	private Mapa mapa;
+	private Interfaz interfaz;
 	private ContadorTiempo tiempo;
 	
 	private Mercado mercado;
@@ -32,7 +35,9 @@ public class Juego {
 	}
 	
 	public Juego(){
-		mapa = new Mapa(this);
+		
+		interfaz=new Interfaz(this);
+		mapa = new Mapa(this, interfaz);
 		createMarket();
 
 		int i = 0;
