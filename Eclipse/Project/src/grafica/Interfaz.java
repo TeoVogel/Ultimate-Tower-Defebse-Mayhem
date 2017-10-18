@@ -7,21 +7,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import juego.Juego;
 
-public class Interfaz extends JFrame{
-	private JPanel contentPane;
-	private Juego juego;
+public class Interfaz{
+	private static JFrame frame;
+	private static JPanel contentPane;
+	private static Juego juego;
 	
-	public Interfaz(Juego j){
+	public static void Iniciar(Juego j){
 		juego=j;
+		frame=new JFrame();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(0, 0, 1000, 600);
 		contentPane = new JPanel();
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setVisible(true);
+		frame.setVisible(true);
 		
-		addMouseListener(new MouseAdapter() {
+		frame.addMouseListener(new MouseAdapter() {
 				@Override
 	            public void mousePressed(MouseEvent e) {
 					if (juego.getMercado().isPlaceHolderFull()) {
@@ -37,8 +39,12 @@ public class Interfaz extends JFrame{
 		);
 	}
 		
-	public void addGrafico(Grafico g){
-		add(g.getLabel());
+	public static JFrame getFrame(){
+		return frame;
+	}
+	
+	public static void addGrafico(Grafico g){
+		frame.add(g.getLabel());
 		g.getLabel().setVisible(true);
 		g.getLabel().repaint();
 	

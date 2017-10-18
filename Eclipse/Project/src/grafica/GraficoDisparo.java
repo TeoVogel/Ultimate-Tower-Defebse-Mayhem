@@ -10,7 +10,8 @@ import javax.swing.JLabel;
 public class GraficoDisparo extends Thread{
 	protected static int altoDisparo=10;
 	
-	public static void crearDisparo(Grafico a, Grafico b, String dir, JFrame frame){
+	public static void crearDisparo(Grafico a, Grafico b, String dir){
+		JFrame frame=Interfaz.getFrame();
 		JLabel grafico;
 		ImageIcon image;
 		Point izq=new Point((int)a.getPos().getX()+ Grafico.width,(int)a.getPos().getY()+ Grafico.height/2-altoDisparo/2);//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
