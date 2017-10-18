@@ -71,6 +71,8 @@ public class Juego {
 		return puntos;
 	}
 	
+	public Interfaz getInterfaz(){return interfaz;}
+	
 	public void sumarPuntos (int p) {
 		puntos += p;
 	}

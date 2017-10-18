@@ -2,16 +2,17 @@ package grafica;
 import java.awt.Point;
 
 import javax.swing.JFrame;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Image;
 import javax.swing.JLabel;
+import juego.Juego;
 
 public class GraficoDisparo extends Thread{
 	protected static int altoDisparo=10;
 	
 	public static void crearDisparo(Grafico a, Grafico b, String dir){
-		JFrame frame=Interfaz.getFrame();
+		Juego j=Juego.getJuego();
+		JFrame frame=j.getInterfaz();
 		JLabel grafico;
 		ImageIcon image;
 		Point izq = new Point((int)a.getPos().getX()+ Grafico.width,(int)a.getPos().getY()+ Grafico.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
