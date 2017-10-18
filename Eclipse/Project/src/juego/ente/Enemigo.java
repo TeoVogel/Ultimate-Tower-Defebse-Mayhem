@@ -17,6 +17,13 @@ public class Enemigo extends Personaje {
 		celda.setEnte(this);
 	}
 	
+	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad) {
+		super(vida, ataque, cadencia, rango);
+		this.velocidad = velocidad;
+		vel = velocidad;
+		grafica = new GraficoEnemigo(this);
+	}
+	
 	public JLabel getGrafico () {
 		return grafica.getGrafico();
 	}
