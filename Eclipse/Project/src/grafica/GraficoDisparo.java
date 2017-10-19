@@ -8,37 +8,34 @@ import javax.swing.JLabel;
 import juego.Juego;
 import juego.Constantes;
 public class GraficoDisparo extends Thread{
-	protected static int altoDisparo=10;
+	protected int altoDisparo=10;
 	
-	public static void crearDisparo(JLabel a, JLabel b, String dir){
+	public GraficoDisparo (JLabel a, JLabel b, String dir){
 		Juego j=Juego.getJuego();
 		JFrame frame=j.getInterfaz();
 		JLabel grafico;
 		ImageIcon image;
+		
 		Point izq = new Point((int)a.getX()+ Constantes.width,(int)a.getY()+ Constantes.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
 		Point der = new Point((int)b.getX(), (int)b.getY()+ Constantes.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
-		
-<<<<<<< HEAD
-=======
-		
->>>>>>> 1b418d953eeff00308986bc662a2dec7e2a39385
-		image = new ImageIcon(Constantes.path+"assets/dispIzq.png"); 
+
+		image = new ImageIcon(Constantes.path+"dispIzq.png"); 
 		/*if(dir=="der")
-			image = new ImageIcon(Constantes.path+"assets/dispDer.gif"); 
+			image = new ImageIcon(Constantes.path+"dispDer.gif"); 
 		else
 			if(dir=="izq")
-				image = new ImageIcon(Constantes.path+"assets/dispIzq.gif"); 
+				image = new ImageIcon(Constantes.path+"dispIzq.gif"); 
 			else
 				return;
 		*/
-		Image imagen = image.getImage(); // transform it 
+		Image imagen = image.getImage(); // transform it (int)( der.getX()-izq.getX() )
 		Image newimg = imagen.getScaledInstance(100, altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
 		image = new ImageIcon(newimg);
 		grafico = new JLabel(image);
-		grafico.setBounds((int)izq.getX(),(int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo);
-		
-		frame.add(grafico);
+		grafico.setBounds(100,100,200, altoDisparo+10);
+		//(int)izq.getX() (int)izq.getY() (int)( der.getX()-izq.getX() )
 		grafico.setVisible(true);
+		frame.add(grafico);
 		grafico.repaint();
 		try {
 			sleep(200);
@@ -46,6 +43,9 @@ public class GraficoDisparo extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		grafico.setVisible(true);
+		grafico.repaint();
+		System.out.println("disparaaaaaaaaaaaaaaaaa");
 		//frame.remove(grafico);
 	}
 	
