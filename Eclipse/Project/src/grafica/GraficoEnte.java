@@ -5,25 +5,46 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import juego.ente.Celda;
-import juego.ente.Enemigo;
 import juego.ente.Ente;
+import juego.Constantes;
+import juego.ente.Aliado;
+import juego.ente.Obstaculo;
 
-public class GraficoEnte extends JLabel {
+public class GraficoEnte extends JLabel{
 
+	protected Ente ente;
 	protected String name;
-	protected Icon image[];
-	protected String[] archivos;
+	protected Icon image[];			//	 [	  0   |    1    |     2    |    3     |    4    ]
+	protected String[] sufijosArchivos = {"_parar", "_morir", "_frente", "_atacar", "_mover"};
 	public final static int width = 100;
 	public final static int height = 100;
 	protected Point pos;
 	
-	protected GraficoEnte(Ente e, String name) {
+	public GraficoEnte(Ente e, String name) {
 		this.name = name;
-		archivos = new String[]{name+"_parar", name+"_morir", name+"_frente", name+"_atacar", name+"_mover"};
-		
+		ente = e;
+	}
+	
+	public GraficoEnte(Aliado a, String name) {
+		this.name = name;
+		ente = a;
+		image = new Icon[4];
+		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
+		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
+		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif");
+		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif");
+	}
+	
+	public GraficoEnte(Obstaculo o, String name) {
+		this.name = name;
+		ente = o;
+		image = new Icon[2];
+		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
+		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
 	}
 	
 	public void initGrafico (Celda c) {
