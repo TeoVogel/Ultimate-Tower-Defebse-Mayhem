@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import juego.Juego;
 import juego.Constantes;
 public class GraficoDisparo extends Thread{
-	protected int altoDisparo=10;
+	protected int altoDisparo=5;
 	
 	public GraficoDisparo (JLabel a, JLabel b, String dir){
 		Juego j=Juego.getJuego();
@@ -29,10 +29,10 @@ public class GraficoDisparo extends Thread{
 				return;
 		*/
 		Image imagen = image.getImage(); // transform it (int)( der.getX()-izq.getX() )
-		Image newimg = imagen.getScaledInstance(100, altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
+		Image newimg = imagen.getScaledInstance((int)( der.getX()-izq.getX() ), altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
 		image = new ImageIcon(newimg);
 		grafico = new JLabel(image);
-		grafico.setBounds(100,100,200, altoDisparo+10);
+		grafico.setBounds((int)izq.getX(), (int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo+10);
 		//(int)izq.getX() (int)izq.getY() (int)( der.getX()-izq.getX() )
 		grafico.setVisible(true);
 		frame.add(grafico);

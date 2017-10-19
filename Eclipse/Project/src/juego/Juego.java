@@ -20,9 +20,7 @@ public class Juego {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		Juego juego = new Juego();
-	}
+	public static void main(String[] args) {}
 	
 	private Juego(){
 		mercado = new Mercado();
@@ -33,7 +31,7 @@ public class Juego {
 
 		while (i<3) {
 			Random r = new Random();
-			int columna = 4 + r.nextInt(5);
+			int columna = 6 + r.nextInt(3);
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
