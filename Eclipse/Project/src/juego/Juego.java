@@ -6,8 +6,6 @@ import grafica.Interfaz;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 
-
-
 public class Juego {
 
 	private final static Juego juego = new Juego();

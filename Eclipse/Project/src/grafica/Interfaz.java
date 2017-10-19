@@ -15,18 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.IconView;
 
+import juego.Constantes;
 import juego.Juego;
 import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
 	private JLabel panelMapa;
-	private Juego juego;
+	private Juego juego; 
 
-//	protected final static String path = "C:/Users/Franco/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-	protected final static String path = "C:/Users/teo/Documents/TDP/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-// 	protected final static String path = "C:/Users/guido/Documents/GitHub/Ultimate-Tower-Defense-Mayhem/Eclipse/Project/src/assets/"; 
-
-	
 	public Interfaz(Juego j) {
 		juego=j;
 		
@@ -36,7 +32,7 @@ public class Interfaz extends JFrame{
 		panelMapa.setBounds(0, 38, 1000, 638);
 		setContentPane(panelMapa);
 		panelMapa.setLayout(null);
-		panelMapa.setIcon(new ImageIcon(path + "fondo.png"));
+		panelMapa.setIcon(new ImageIcon(Constantes.path + "fondo.png"));
 		setVisible(true);
 		panelMapa.setVisible(true);
 		
