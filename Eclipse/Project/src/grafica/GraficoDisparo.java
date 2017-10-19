@@ -18,6 +18,10 @@ public class GraficoDisparo extends Thread{
 		Point izq = new Point((int)a.getX()+ Constantes.width,(int)a.getY()+ Constantes.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
 		Point der = new Point((int)b.getX(), (int)b.getY()+ Constantes.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
 		
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 1b418d953eeff00308986bc662a2dec7e2a39385
 		image = new ImageIcon(Constantes.path+"assets/dispIzq.png"); 
 		/*if(dir=="der")
 			image = new ImageIcon(Constantes.path+"assets/dispDer.gif"); 
