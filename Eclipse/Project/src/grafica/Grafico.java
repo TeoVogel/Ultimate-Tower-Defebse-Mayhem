@@ -48,7 +48,7 @@ public class Grafico extends JLabel{
 	
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
-		setBounds(pos.x, pos.y, width, height);
+		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 	}
 	
 	

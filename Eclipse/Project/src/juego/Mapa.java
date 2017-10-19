@@ -3,6 +3,8 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
@@ -58,7 +60,7 @@ public class Mapa{
 		interfaz.addEnte(a);
 	}
 	
-	public void mover(){
+	public void mover() {
 		List<Integer> enemigosMuertos = new ArrayList<Integer>();
 		for (int i=0; i<enemigos.size(); i++) {
 			Enemigo e = enemigos.get(i);
@@ -67,12 +69,44 @@ public class Mapa{
 				enemigosMuertos.add(i);
 			}
 			e.mover();
-			e.atacar();
 		}
 		/*for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 			System.out.println("Removido");
 		}*/
+	}
+	
+	public void atacar () {
+		List<Integer> aliadosMuertos = new ArrayList<Integer>();
+		for (int i=0; i<aliados.size(); i++) {
+			Aliado a = aliados.get(i);
+			if (a.getVida() <= 0) {
+				aliadosMuertos.add(i);
+			}
+			a.atacar();
+		}
+		for (Integer i : aliadosMuertos) {
+			JLabel grafico = aliados.get((int) i).getGrafico();
+			grafico.setVisible(false);
+			interfaz.remove(grafico); // TODO: hacer en gráfico
+			aliados.remove((int) i);
+		}
+
+		List<Integer> enemigosMuertos = new ArrayList<Integer>();
+		for (int i=0; i<enemigos.size(); i++) {
+			Enemigo e = enemigos.get(i);
+			if (e.getVida() <= 0) {
+				//juego.sumarPuntos(e.getPuntos());
+				enemigosMuertos.add(i);
+			}
+			e.atacar();
+		}
+		for (Integer i : enemigosMuertos) {
+			JLabel grafico = enemigos.get((int) i).getGrafico();
+			grafico.setVisible(false);
+			interfaz.remove(grafico); // TODO: hacer en gráfico}
+			enemigos.remove((int) i);
+		}
 	}
 	
 	
