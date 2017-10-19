@@ -10,13 +10,13 @@ import juego.Juego;
 public class GraficoDisparo extends Thread{
 	protected static int altoDisparo=10;
 	
-	public static void crearDisparo(Grafico a, Grafico b, String dir){
+	public static void crearDisparo(JLabel a, JLabel b, String dir){
 		Juego j=Juego.getJuego();
 		JFrame frame=j.getInterfaz();
 		JLabel grafico;
 		ImageIcon image;
-		Point izq = new Point((int)a.getPos().getX()+ Grafico.width,(int)a.getPos().getY()+ Grafico.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
-		Point der = new Point((int)b.getPos().getX(), (int)b.getPos().getY()+ Grafico.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
+		Point izq = new Point((int)a.getX()+ Grafico.width,(int)a.getY()+ Grafico.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
+		Point der = new Point((int)b.getX(), (int)b.getY()+ Grafico.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
 		
 		if(dir=="der")
 			image = new ImageIcon("assets/dispDer.gif"); 
