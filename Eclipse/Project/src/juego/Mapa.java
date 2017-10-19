@@ -83,10 +83,10 @@ public class Mapa{
 		List<Integer> aliadosMuertos = new ArrayList<Integer>();
 		for (int i=0; i<aliados.size(); i++) {
 			Aliado a = aliados.get(i);
-			if (a.getVida() <= 0) {
+			if (a.getVida() <= 0) 
 				aliadosMuertos.add(i);
-			}
-			a.atacar();
+			else 
+				a.atacar();
 		}
 		for (Integer i : aliadosMuertos) {
 			JLabel grafico = aliados.get((int) i).getGrafico();
@@ -98,11 +98,10 @@ public class Mapa{
 		List<Integer> enemigosMuertos = new ArrayList<Integer>();
 		for (int i=0; i<enemigos.size(); i++) {
 			Enemigo e = enemigos.get(i);
-			if (e.getVida() <= 0) {
-				//juego.sumarPuntos(e.getPuntos());
+			if (e.getVida() <= 0) 
 				enemigosMuertos.add(i);
-			}
-			e.atacar();
+			else
+				e.atacar();
 		}
 		for (Integer i : enemigosMuertos) {
 			JLabel grafico = enemigos.get((int) i).getGrafico();
