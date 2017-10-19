@@ -67,6 +67,7 @@ public class Mapa{
 				enemigosMuertos.add(i);
 			}
 			e.mover();
+			e.atacar();
 		}
 		/*for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);

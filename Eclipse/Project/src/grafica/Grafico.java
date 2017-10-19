@@ -20,8 +20,8 @@ public class Grafico extends JLabel{
 
 	protected Point pos;
 	
-	public Grafico(Ente e, String name) {
-		this.name = name;
+	protected Grafico(Ente e, String n) {
+		name = n;
 		ente = e;
 	}
 	

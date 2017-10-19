@@ -7,7 +7,6 @@ import grafica.Grafico;
 import grafica.GraficoAliado;
 
 public class Aliado extends Personaje implements Comprable{
-	protected GraficoAliado miGrafico;
 	protected int precio;
 	
 	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango, int precio, String name) {
@@ -22,10 +21,6 @@ public class Aliado extends Personaje implements Comprable{
 		this.precio = precio;
 		grafica = new GraficoAliado(this, name);
 		v = new DisparoAliado(this);
-	}
-	
-	public Grafico getGrafico() {
-		return miGrafico;
 	}
 	
 	public void accept(Visitor v) {
