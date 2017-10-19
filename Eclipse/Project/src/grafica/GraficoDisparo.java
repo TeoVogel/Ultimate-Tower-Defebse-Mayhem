@@ -15,14 +15,9 @@ public class GraficoDisparo extends Thread{
 		JFrame frame=j.getInterfaz();
 		JLabel grafico;
 		ImageIcon image;
-<<<<<<< HEAD
 		Point izq = new Point((int)a.getX()+ Constantes.width,(int)a.getY()+ Constantes.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
 		Point der = new Point((int)b.getX(), (int)b.getY()+ Constantes.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
 		
-=======
-		Point izq = new Point((int)a.getX()+ Grafico.width,(int)a.getY()+ Grafico.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
-		Point der = new Point((int)b.getX(), (int)b.getY()+ Grafico.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
->>>>>>> 3d916a27893074fe987e819afb6e96b3839efe76
 		
 		image = new ImageIcon(Constantes.path+"assets/dispIzq.png"); 
 		/*if(dir=="der")
