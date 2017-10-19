@@ -10,7 +10,7 @@ import grafica.GraficoDisparo;
 //Ataques que realizan los aliados
 public class DisparoAliado implements Visitor{
 	protected Aliado aliado;
-	protected int ataque, rango;
+	protected int rango;
 	protected Celda celda;
 	
 	public DisparoAliado(Aliado a) {
@@ -18,15 +18,14 @@ public class DisparoAliado implements Visitor{
 	}
 	
 	public void reset() {
-		ataque = aliado.getAtaque();
 		rango = aliado.getRango();
 		celda = aliado.getCelda();
 	}
 	
 	public void visit(Enemigo e) {
 		aliado.setCad(0);
-		e.quitarVida(ataque);
-		GraficoDisparo asd = new GraficoDisparo(e.getGrafico(), aliado.getGrafico(), "der");
+		e.quitarVida(aliado.getAtaque());
+		new GraficoDisparo(e.getGrafico(), aliado.getGrafico(), "der");
 	}
 	
 	public void visit(Aliado a) {

@@ -2,8 +2,8 @@ package juego.acciones;
 import juego.ente.Aliado;
 import juego.Juego;
 
-public class AccionVenderAliado implements Accion {
-
+public class AccionVenderAliado /*implements Accion */{
+/*
 	private Aliado aliado;
 	private Juego juego;	
 	
@@ -16,5 +16,5 @@ public class AccionVenderAliado implements Accion {
 		juego.getMapa().addAliado(aliado, fila, columna);
 		juego.getMercado().sumarMonedas(aliado.precio());
 	}
-	
+*/	
 }

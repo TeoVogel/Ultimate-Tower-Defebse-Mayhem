@@ -10,7 +10,7 @@ import grafica.GraficoDisparo;
 //Ataques que realizan los enemigos
 public class DisparoEnemigo implements Visitor {
 	protected Enemigo enemigo;
-	protected int ataque, rango;
+	protected int rango;
 	protected Celda celda;
 	
 	public DisparoEnemigo(Enemigo e) {
@@ -20,7 +20,6 @@ public class DisparoEnemigo implements Visitor {
 	public void reset() {
 		celda = enemigo.getCelda();
 		rango = enemigo.getRango();
-		ataque = enemigo.getAtaque();
 	}
 	
 	public void visit(Enemigo e) {
@@ -31,14 +30,14 @@ public class DisparoEnemigo implements Visitor {
 	
 	public void visit(Aliado a) {
 		enemigo.setCad(0);
-		a.quitarVida(ataque);
-		GraficoDisparo asd = new GraficoDisparo(a.getGrafico(), enemigo.getGrafico(), "izq");
+		a.quitarVida(enemigo.getAtaque());
+		new GraficoDisparo(a.getGrafico(), enemigo.getGrafico(), "izq");
 	}
 	
 	public void visit(Obstaculo o) {
 		enemigo.setCad(0);
-		o.quitarVida(ataque);
-		GraficoDisparo asd = new GraficoDisparo(o.getGrafico(), enemigo.getGrafico(), "izq");
+		o.quitarVida(enemigo.getAtaque());
+		new GraficoDisparo(o.getGrafico(), enemigo.getGrafico(), "izq");
 	}
 	
 	//Busca la primer celda (a la izquierda) que contenga un ente dentro del rango de ataque

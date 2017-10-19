@@ -25,8 +25,12 @@ public class Mapa{
 		aliados = new ArrayList<Aliado>();
 		juego = j;
 		this.interfaz=interfaz;
-		
-		// Crea grilla y setea todas las celdas con anterior y siguiente
+		inicializarGrilla();
+	}
+	
+	
+	// Crea grilla y setea todas las celdas con anterior y siguiente
+	protected void inicializarGrilla() {
 		grilla = new Celda[6][10];
 		for (int i = 0; i < 6; i++)
 			for (int ii = 0; ii < 10; ii++)
@@ -36,14 +40,13 @@ public class Mapa{
 			grilla[i][0].setDer(grilla[i][1]);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][5].setIzq(grilla[i][4]);
+			grilla[i][9].setIzq(grilla[i][8]);
 			
 		for (int i = 0; i < 6; i++)
 			for (int ii = 1; ii < 9; ii++) {
 				grilla[i][ii].setDer(grilla[i][ii+1]);
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
-			
 	}
 	
 	public List<Enemigo> getEnemigos () {
