@@ -13,7 +13,7 @@ public class EnemigoFactory {
 		return new Enemigo(100, celda, 15, 30, 2, 15, "e1");
 	}
 	public static Enemigo crearEnemigo1 () {
-		return new Enemigo(100, 200, 30, 2, 15, "e1");
+		return new Enemigo(100, 10, 30, 2, 15, "e1");
 	}
 	
 	// VIDA: 80 | ATAQUE:20 | CADENCIA: 40 | RANGO: 3 | VELOCIDAD: 25
@@ -21,7 +21,7 @@ public class EnemigoFactory {
 		return new Enemigo(80, celda, 20, 40, 3, 25, "e2");
 	}
 	public static Enemigo crearEnemigo2 () {
-		return new Enemigo(80, 200, 40, 3, 20, "e2");
+		return new Enemigo(80, 10, 5, 3, 20, "e2");
 	}
 
 }

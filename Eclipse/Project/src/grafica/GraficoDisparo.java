@@ -29,7 +29,7 @@ public class GraficoDisparo extends Thread{
 				return;
 		*/
 		Image imagen = image.getImage(); // transform it (int)( der.getX()-izq.getX() )
-		Image newimg = imagen.getScaledInstance((int)( der.getX()-izq.getX() ), altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
+		Image newimg = imagen.getScaledInstance((int)( der.getX()-izq.getX() + 1 ), altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
 		image = new ImageIcon(newimg);
 		grafico = new JLabel(image);
 		grafico.setBounds((int)izq.getX(), (int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo+10);
