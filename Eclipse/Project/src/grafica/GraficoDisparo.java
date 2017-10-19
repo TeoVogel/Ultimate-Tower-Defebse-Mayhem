@@ -43,10 +43,11 @@ public class GraficoDisparo extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		grafico.setVisible(true);
-		grafico.repaint();
+		grafico.setVisible(false);
+		//grafico.repaint();
 		System.out.println("disparaaaaaaaaaaaaaaaaa");
-		//frame.remove(grafico);
+		
+		frame.remove(grafico);
 	}
 	
 }
