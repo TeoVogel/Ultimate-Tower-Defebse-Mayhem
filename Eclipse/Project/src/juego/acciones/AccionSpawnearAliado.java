@@ -2,6 +2,7 @@ package juego.acciones;
 
 import juego.ente.Aliado;
 import juego.ente.Celda;
+import juego.AliadoFactory;
 import juego.EnemigoFactory;
 import juego.Juego;
 
@@ -12,10 +13,12 @@ public class AccionSpawnearAliado implements Accion {
 	
 	public AccionSpawnearAliado ( Juego j) {
 		juego = j;
+		aliado = AliadoFactory.crearAliado1();
 	}
 	
 	public void ejecutar (Celda celda){
-		juego.getMapa().addAliado(AliadoFactory.crearAliado1(celda));
+		aliado.init(celda);
+		juego.getMapa().addAliado(aliado);
 	}
 	
 	public void ejecutar (int fila, int columna) {
