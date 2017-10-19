@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import java.awt.Image;
 import javax.swing.JLabel;
 import juego.Juego;
-
+import juego.Constantes;
 public class GraficoDisparo extends Thread{
 	protected static int altoDisparo=10;
 	
@@ -15,17 +15,19 @@ public class GraficoDisparo extends Thread{
 		JFrame frame=j.getInterfaz();
 		JLabel grafico;
 		ImageIcon image;
-		Point izq = new Point((int)a.getPos().getX()+ Grafico.width,(int)a.getPos().getY()+ Grafico.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
-		Point der = new Point((int)b.getPos().getX(), (int)b.getPos().getY()+ Grafico.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
+		Point izq = new Point((int)a.getX()+ Constantes.width,(int)a.getY()+ Constantes.height/2-altoDisparo/2);	//a la derecha y a la mitad(+la mitad de la altura del disparo) del ente
+		Point der = new Point((int)b.getX(), (int)b.getY()+ Constantes.height/2-altoDisparo/2 );				//a la izquierda y a la mitad(+la mitad de la altura del disparo) del ente
 		
-		if(dir=="der")
-			image = new ImageIcon("assets/dispDer.gif"); 
+		
+		image = new ImageIcon(Constantes.path+"assets/dispIzq.png"); 
+		/*if(dir=="der")
+			image = new ImageIcon(Constantes.path+"assets/dispDer.gif"); 
 		else
 			if(dir=="izq")
-				image = new ImageIcon("assets/dispIzq.gif"); 
+				image = new ImageIcon(Constantes.path+"assets/dispIzq.gif"); 
 			else
 				return;
-		
+		*/
 		Image imagen = image.getImage(); // transform it 
 		Image newimg = imagen.getScaledInstance(100, altoDisparo,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
 		image = new ImageIcon(newimg);
