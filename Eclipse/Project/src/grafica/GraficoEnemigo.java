@@ -17,7 +17,7 @@ public class GraficoEnemigo extends Grafico {
 
 		this.image = new Icon[4];
 		this.image[0] = new ImageIcon(path + name + sufijosArchivos[0] + ".gif"); //quieto
-		this.image[1] = new ImageIcon(path + name + sufijosArchivos[4] + ".gif"); //en movimientos
+		this.image[1] = new ImageIcon(path + name + sufijosArchivos[4] + ".gif"); //en movimiento
 	
 	}
 	

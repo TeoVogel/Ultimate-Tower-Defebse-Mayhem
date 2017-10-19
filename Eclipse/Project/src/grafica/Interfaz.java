@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.text.IconView;
 
 import juego.Juego;
+import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
@@ -71,7 +72,7 @@ public class Interfaz extends JFrame{
 		buttonA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
 			}			
 		});
 	}
