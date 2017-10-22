@@ -9,22 +9,21 @@ import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.niveles.Nivel;
 
 public class Mapa{
 
-	private Juego juego;
-	
 	
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
 	Interfaz interfaz;
 	
-	public Mapa (Juego j, Interfaz interfaz) {
+	public Mapa () {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
-		juego = j;
-		this.interfaz=interfaz;
+		interfaz = new Interfaz(Juego.getJuego());
+		interfaz.crearBotonSpawn();
 		inicializarGrilla();
 	}
 	

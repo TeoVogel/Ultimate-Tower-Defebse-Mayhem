@@ -2,7 +2,7 @@ package juego.acciones;
 
 import juego.ente.Aliado;
 import juego.ente.Celda;
-import juego.AliadoFactory;
+import juego.FactoryAliado;
 import juego.Juego;
 
 public class AccionSpawnearAliado implements Accion {
@@ -12,7 +12,7 @@ public class AccionSpawnearAliado implements Accion {
 	
 	public AccionSpawnearAliado ( Juego j) {
 		juego = j;
-		aliado = AliadoFactory.crearAliado1();
+		aliado = FactoryAliado.crearAliado1();
 	}
 	
 	public void ejecutar (Celda celda){

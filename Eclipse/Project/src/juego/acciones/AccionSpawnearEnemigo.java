@@ -2,7 +2,7 @@ package juego.acciones;
 
 import juego.ente.Celda;
 import juego.ente.Enemigo;
-import juego.EnemigoFactory;
+import juego.FactoryEnemigo;
 import juego.Juego;
 
 public class AccionSpawnearEnemigo implements Accion {
@@ -12,7 +12,7 @@ public class AccionSpawnearEnemigo implements Accion {
 	
 	public AccionSpawnearEnemigo (Juego j) {
 		juego = j;
-		enemigo = EnemigoFactory.crearEnemigo1();
+		enemigo = FactoryEnemigo.crearEnemigo1();
 	}
 	
 	public void ejecutar (Celda celda) {

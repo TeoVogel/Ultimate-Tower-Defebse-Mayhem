@@ -3,7 +3,7 @@ package juego;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 
-public class EnemigoFactory {
+public class FactoryEnemigo {
 	// TODO: cambiarle el nomre a los constructores por Tanque, Melee, etc.
 	// public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad)
 	// public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad)
@@ -22,6 +22,17 @@ public class EnemigoFactory {
 	}
 	public static Enemigo crearEnemigo2 () {
 		return new Enemigo(20, 10, 5, 3, 20, "e2");
+	}
+
+
+	public static Enemigo crearEnemigo (String tipo) {
+		Enemigo enemigo;
+		switch(tipo) {
+			case("e1"): enemigo = crearEnemigo1(); break;
+			case("e2"): enemigo = crearEnemigo2(); break;
+			default: enemigo = null;
+		}
+		return enemigo;
 	}
 
 }

@@ -3,7 +3,7 @@ package juego;
 import juego.ente.Celda;
 import juego.ente.Aliado;
 
-public class AliadoFactory {
+public class FactoryAliado {
 	// TODO: cambiarle el nomre a los constructores por Tanque, Melee, etc.
 	// public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad)
 	// public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad)
