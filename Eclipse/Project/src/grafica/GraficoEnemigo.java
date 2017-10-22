@@ -12,7 +12,7 @@ public class GraficoEnemigo extends Grafico {
 	// sufijosArchivos [  0  |  1  |   2  |   3  |  4  ]
 	// sufijosArchivos [parar|morir|frente|atacar|mover]
 	
-	public GraficoEnemigo (Enemigo e, String name) {
+	public GraficoEnemigo(Enemigo e, String name) {
 		super(e, name);
 
 		this.image = new Icon[4];
