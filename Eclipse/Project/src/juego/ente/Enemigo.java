@@ -1,9 +1,7 @@
 package juego.ente;
 
-import javax.swing.JLabel;
-
-import grafica.GraficoEnemigo;
 import grafica.Grafico;
+import grafica.GraficoEnemigo;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
@@ -11,24 +9,21 @@ public class Enemigo extends Personaje {
 	
 	protected int velocidad, vel;
 	
-	// TODO: este lo volamos
-	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad) {
+	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, celda, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
-		grafica = new GraficoEnemigo(this);
+		vel = 0;
+		grafica = new GraficoEnemigo(this, name);
 		celda.setEnte(this);
+		v = new DisparoEnemigo(this);
 	}
 	
-	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad) {
+	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
-		vel = velocidad;
-		grafica = new GraficoEnemigo(this);
-	}
-	
-	public JLabel getGrafico () {
-		return grafica;
+		vel = 0;
+		grafica = new GraficoEnemigo(this, name);
+		v = new DisparoEnemigo(this);
 	}
 	
 	public void accept(Visitor v) {
@@ -36,8 +31,7 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void atacar() {
-		if (cad == cadencia-1) {
-			cad--;
+		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);
 		} else cad = (cad+1)%(cadencia);
@@ -48,7 +42,7 @@ public class Enemigo extends Personaje {
 		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) 
-				System.out.println("MISSION FAILED");
+				System.out.println("MISSION FAILED"); // TODO: detectar cuando perdes el juego.
 			else 
 				if (izq.getEnte() == null) {
 					izq.setEnte(this);
@@ -59,7 +53,8 @@ public class Enemigo extends Personaje {
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		System.out.println("vel: " + vel + " columna: " + celda.columna);
+		if (velocidad<100)
+			System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {

@@ -8,12 +8,13 @@ public class ContadorTiempo extends Thread {
 	}
 
 	public void run() {
-		while(true){
+		while(true) {
 			try {
-				Thread.sleep(200);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			juego.getMapa().atacar();
 			juego.getMapa().mover();
 		}
 	}

@@ -1,18 +1,25 @@
 package juego.ente;
 
+import javax.swing.JLabel;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
+import grafica.Grafico;
+import grafica.GraficoAliado;
 
-public abstract class Aliado extends Personaje{
+public class Aliado extends Personaje implements Comprable{
+	protected int precio;
 	
-	// TODO: Este lo volamos
-	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango) {
+	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango, int precio, String name) {
 		super(vida, celda, ataque, cadencia, rango);
+		this.precio = precio;
+		grafica = new GraficoAliado(this, name);
 		v = new DisparoAliado(this);
 	}
 
-	public Aliado(int vida, int ataque, int cadencia, int rango) {
+	public Aliado(int vida, int ataque, int cadencia, int rango, int precio, String name) {
 		super(vida, ataque, cadencia, rango);
+		this.precio = precio;
+		grafica = new GraficoAliado(this, name);
 		v = new DisparoAliado(this);
 	}
 	
@@ -21,10 +28,13 @@ public abstract class Aliado extends Personaje{
 	}
 	
 	public void atacar() {
-		if (cad == cadencia-1) {
-			cad--;
+		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);
-		} else cad = (cad-1)%(cadencia+1);
+		} else cad = (cad+1)%(cadencia);
+	}
+	
+	public int getPrecio() {
+		return precio;
 	}
 }

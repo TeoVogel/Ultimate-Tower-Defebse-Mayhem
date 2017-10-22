@@ -33,11 +33,16 @@ public class Celda {
 		return ente;
 	}
 	
+	public void setEnte(Ente e) {
+		ente = e;
+	}
+	
 	public EfectoCelda getEfecto() {
 		return efecto;
 	}
 	
-	public void setEnte(Ente e) {
-		ente = e;
+	public void setEfecto(EfectoCelda efecto) {
+		this.efecto = efecto;
 	}
+
 }
