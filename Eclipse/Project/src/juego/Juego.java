@@ -6,6 +6,7 @@ import grafica.Interfaz;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.niveles.Nivel;
+import juego.niveles.Nivel1;
 
 public class Juego {
 
@@ -44,7 +45,7 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		Nivel nivel = new Nivel(2);
+		Nivel nivel = new Nivel1(2);
 		nivel.start();
 	}
 	

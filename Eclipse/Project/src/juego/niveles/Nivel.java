@@ -10,7 +10,7 @@ import juego.Mapa;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 
-public class Nivel extends Thread {
+public abstract class Nivel extends Thread {
 
 	int dificultad;
 	ArrayList<Enemigo> enemigos;
