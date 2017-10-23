@@ -49,10 +49,10 @@ public class Nivel extends Thread {
 		
 		while (enemigos.size() > 0) {
 			try {
-				Celda celda = mapa.getCelda(random.nextInt(5), 8 + random.nextInt(1));
+				Celda celda = mapa.getCelda(random.nextInt(6), 8 + random.nextInt(2));
 				enemigos.get(0).init(celda);
 				mapa.addEnemigo(enemigos.remove(0));			
-				sleep(1000);
+				sleep(2000);
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
