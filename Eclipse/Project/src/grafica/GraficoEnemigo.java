@@ -5,12 +5,17 @@ import javax.swing.ImageIcon;
 
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.ente.Ente;
+import juego.ente.EstadoEnteMover;
+import juego.ente.EstadoEnteParar;
 import juego.Constantes;
 
 public class GraficoEnemigo extends Grafico {
 	// sufijosArchivos ["_parar", "_morir", "_frente", "_atacar", "_mover"]
 	// sufijosArchivos [  0  |  1  |   2  |   3  |  4  ]
 	// sufijosArchivos [parar|morir|frente|atacar|mover]
+	
+	private float acumuladorPixeles;
 	
 	public GraficoEnemigo (Enemigo e, String name) {
 		super(e, name);
@@ -25,16 +30,30 @@ public class GraficoEnemigo extends Grafico {
 		Enemigo enemigo = (Enemigo) ente;
 		
 		Celda izq = enemigo.getCelda().getIzq();
-		if (izq != null && izq.getEnte() == null) {
-			int velocidad = enemigo.getVelocidad();
-			int delta = 100 / velocidad;
-			pos.setLocation(pos.x - delta, pos.y);
-			cambiarGrafico(1);
-//			System.out.println("__Moviendose");
-		} else {
-			cambiarGrafico(0);
-//			System.out.println("__Parado");
+		if (izq != null) {
+			Ente enteIzq = izq.getEnte();
+			if (enteIzq == null || enteIzq.getEstado().enMovimiento()) {
+				int velocidad = enemigo.getVelocidad();
+				
+				float delta = 100f / velocidad;
+				System.out.println(""+delta);
+				int pixeles = (int) delta;
+				acumuladorPixeles += delta - pixeles;
+				
+				pixeles += acumuladorPixeles;
+				acumuladorPixeles -= (int) acumuladorPixeles;
+				
+				System.out.println("" + acumuladorPixeles + ", " + delta + ", " + velocidad + ", " + pixeles);
+				
+				pos.setLocation(pos.x - pixeles, pos.y);
+				ente.setEstado(new EstadoEnteMover()); // TODO: clase estática
+				cambiarGrafico(1);
+				return;
+			}
 		}
+
+		ente.setEstado(new EstadoEnteParar());
+		cambiarGrafico(0);
 	}
 	
 }

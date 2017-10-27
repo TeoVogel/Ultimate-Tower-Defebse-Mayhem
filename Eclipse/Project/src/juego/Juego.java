@@ -34,7 +34,7 @@ public class Juego {
 			int fila = r.nextInt(5);
 			Celda celda = mapa.getCelda(fila, columna);
 			if (celda.getEnte() == null) {
-				Enemigo e = FactoryEnemigo.crearEnemigo2();
+				Enemigo e = FactoryEnemigo.crearEnemigo1();
 				e.init(celda);
 				mapa.addEnemigo(e);
 				i++;

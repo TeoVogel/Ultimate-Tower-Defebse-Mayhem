@@ -9,10 +9,13 @@ public abstract class Ente {
 	protected int vida;
 	protected Celda celda;
 	protected Grafico grafica;
+	protected EstadoEnte estado;
+	
 	
 	public Ente(int vida, Celda celda) {
 		this.vida = vida;
 		this.celda = celda;
+		estado = new EstadoEnteParar();
 	}
 	
 	public Ente(int vida) {
@@ -23,6 +26,7 @@ public abstract class Ente {
 		celda = c;
 		celda.setEnte(this);
 		grafica.initGrafico(c);
+		estado = new EstadoEnteParar();
 	}
 
 	public JLabel getGrafico () {
@@ -50,6 +54,14 @@ public abstract class Ente {
 			celda.setEnte(null);
 			celda = null;
 		}
+	}
+	
+	public EstadoEnte getEstado () {
+		return estado;
+	}
+	
+	public void setEstado (EstadoEnte e) {
+		estado = e;
 	}
 	
 }

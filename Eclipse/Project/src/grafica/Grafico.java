@@ -10,14 +10,17 @@ import javax.swing.JLabel;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Ente;
+import juego.ente.EstadoEnte;
+import juego.ente.EstadoEnteParar;
 import juego.Constantes;
+
 public class Grafico extends JLabel{
 
 	protected Ente ente;
 	protected String name;
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_frente", "_atacar", "_mover"};
-
+	
 	protected Point pos;
 	
 	protected Grafico(Ente e, String n) {
@@ -58,6 +61,13 @@ public class Grafico extends JLabel{
 	
 	private int calcularY (Celda c) {
 		return c.fila * 100;
+	}
+	
+	public void centrar () {
+		Celda celda = ente.getCelda();
+		pos.setLocation(celda.columna*Constantes.width, 
+						celda.fila*Constantes.height);
+		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
 	}
 	
 	//TODO esto es horrible

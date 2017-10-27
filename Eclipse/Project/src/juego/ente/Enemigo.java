@@ -41,20 +41,20 @@ public class Enemigo extends Personaje {
 		((GraficoEnemigo)grafica).mover(); // TODO: DONDE VA ESTO??
 		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
-			if (izq == null) 
+			if (izq == null) {
 				System.out.println("MISSION FAILED"); // TODO: detectar cuando perdes el juego.
-			else 
+			} else {
 				if (izq.getEnte() == null) {
 					izq.setEnte(this);
 					celda.setEnte(null);
 					celda = izq;
 					vel = 0;
+					grafica.centrar();
 				}
+			}
 		} else {
 			vel = (vel+1)%(velocidad);
 		}
-		if (velocidad<100)
-			System.out.println("vel: " + vel + " columna: " + celda.columna);
 	}	
 	
 	public int getVelocidad() {
