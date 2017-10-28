@@ -11,7 +11,7 @@ public class Obstaculo extends Ente {
 	
 	public Obstaculo(int vida) {
 		super(vida);
-		grafica = new GraficoEnte(this, "e5");
+		grafica = new GraficoEnte(this, "a2");
 	}
 	
 	public void accept(Visitor v) {
