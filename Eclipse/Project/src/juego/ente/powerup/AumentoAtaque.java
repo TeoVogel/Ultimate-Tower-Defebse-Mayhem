@@ -6,9 +6,7 @@ public class AumentoAtaque extends PowerUp{
 	 protected int aumento;
 
 		public AumentoAtaque(Personaje p){
-			super(p);
-			duracionMax=50;
-			duracion=duracionMax;
+			super(p,50);
 			aumento=30;
 		}
 		

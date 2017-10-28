@@ -6,9 +6,7 @@ public class TiroRapido extends PowerUp{
 	private int original;
 	
 		public TiroRapido(Personaje p){
-			super(p);
-			duracionMax=30;
-			duracion=duracionMax;
+			super(p,30);
 		}
 		
 		public void actualizar(){

@@ -11,6 +11,11 @@ public class PowerUp {
 		duracion=0;
 	}
 	
+	protected PowerUp(Personaje p, int d) {
+		afectado=p;
+		duracionMax=d;
+		duracion=d;
+	}
 	public void actualizar() {}
 	
 }

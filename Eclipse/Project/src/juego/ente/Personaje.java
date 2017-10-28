@@ -23,20 +23,8 @@ public abstract class Personaje extends Ente{
 		return ataque;
 	}
 	
-	public void setAtaque(int a) {
-		ataque=a;
-	}
-	
-	public void curar(int c){
-		if(vida+c>=vidaTotal){
-			vida=vidaTotal;
-		}else {
-			vida+=c;
-		}	
-	}
-	
-	public void setPowerUp(PowerUp p){
-		estado= p;
+	public int getCadencia() {
+		return cadencia;
 	}
 	
 	public int getVidaTotal(){
@@ -47,8 +35,16 @@ public abstract class Personaje extends Ente{
 		return rango;
 	}
 	
-	public int getCadencia() {
-		return cadencia;
+	public void setPowerUp(PowerUp p){
+		estado= p;
+	}
+	
+	public void setVida(int v){
+		vida=v;
+	}
+	
+	public void setAtaque(int a) {
+		ataque=a;
 	}
 	
 	public void setCadencia(int c){

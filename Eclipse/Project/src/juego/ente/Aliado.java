@@ -1,6 +1,5 @@
 package juego.ente;
 
-import javax.swing.JLabel;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
 import grafica.GraficoEnte;
