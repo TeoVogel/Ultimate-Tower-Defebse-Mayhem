@@ -2,6 +2,7 @@ package juego.ente;
 import juego.visitor.*;
 
 public abstract class Personaje extends Ente{
+	
 	protected int ataque;
 	protected int rango;
 	protected int cadencia, cad;

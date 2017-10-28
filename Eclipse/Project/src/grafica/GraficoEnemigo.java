@@ -10,10 +10,7 @@ import juego.ente.EstadoEnteMover;
 import juego.ente.EstadoEnteParar;
 import juego.Constantes;
 
-public class GraficoEnemigo extends Grafico {
-	// sufijosArchivos ["_parar", "_morir", "_atacar", "_mover", "_frente"]
-	// sufijosArchivos [  0  |  1  |   2  |  3  |  4   ]
-	// sufijosArchivos [parar|morir|atacar|mover|frente]
+public class GraficoEnemigo extends GraficoEnte {
 	
 	private float acumuladorPixeles;
 	
@@ -38,8 +35,6 @@ public class GraficoEnemigo extends Grafico {
 				
 				pixeles += acumuladorPixeles;
 				acumuladorPixeles -= (int) acumuladorPixeles;
-				
-				System.out.println("" + acumuladorPixeles + ", " + delta + ", " + velocidad + ", " + pixeles);
 				
 				pos.setLocation(pos.x - pixeles, pos.y);
 				ente.setEstado(new EstadoEnteMover()); // TODO: clase estática

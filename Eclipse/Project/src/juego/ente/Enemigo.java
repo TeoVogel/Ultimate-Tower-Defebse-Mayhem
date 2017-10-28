@@ -1,6 +1,6 @@
 package juego.ente;
 
-import grafica.Grafico;
+import grafica.GraficoEnte;
 import grafica.GraficoEnemigo;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;

@@ -1,6 +1,6 @@
 package juego.ente;
 
-import grafica.Grafico;
+import grafica.GraficoEnte;
 
 /*
  * TODO: algunos obstaculos tienen que ser comprables

@@ -3,8 +3,7 @@ package juego.ente;
 import javax.swing.JLabel;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
-import grafica.Grafico;
-import grafica.GraficoAliado;
+import grafica.GraficoEnte;
 
 public class Aliado extends Personaje implements Comprable {
 	
@@ -13,7 +12,7 @@ public class Aliado extends Personaje implements Comprable {
 	public Aliado(int vida, int ataque, int cadencia, int rango, int precio, String name) {
 		super(vida, ataque, cadencia, rango);
 		this.precio = precio;
-		grafica = new GraficoAliado(this, name);
+		grafica = new GraficoEnte(this, name);
 		v = new DisparoAliado(this);
 	}
 	

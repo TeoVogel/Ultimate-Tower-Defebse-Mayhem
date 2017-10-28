@@ -1,6 +1,6 @@
 package juego.ente;
 
-import grafica.Grafico;
+import grafica.GraficoEnte;
 import javax.swing.JLabel;
 import juego.visitor.Visitor;
 
@@ -8,7 +8,7 @@ public abstract class Ente {
 	
 	protected int vida;
 	protected Celda celda;
-	protected Grafico grafica;
+	protected GraficoEnte grafica;
 	protected EstadoEnte estado;
 	
 	public Ente(int vida) {
