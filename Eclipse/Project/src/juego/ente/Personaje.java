@@ -59,5 +59,7 @@ public abstract class Personaje extends Ente{
 		cad = c;
 	}
 	
-	public abstract void atacar();
+	public void atacar(){
+		estado.actualizar();
+	}
 }
