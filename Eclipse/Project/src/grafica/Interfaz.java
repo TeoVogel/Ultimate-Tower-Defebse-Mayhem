@@ -40,10 +40,10 @@ public class Interfaz extends JFrame{
 		
 		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 678); // TODO: fix, 600 + 38 es por la tittle bar de windows
+		setBounds(0, 0, 1000, 696); // TODO: fix, 600 + 38 es por la tittle bar de windows
 		
-		panelMenu.setBounds(0, 38, 1000, 1000);
-		panelMapa.setBounds(0, 1038, 1000, 638);
+		panelMenu.setBounds(0, 38, 1000, 50);
+		panelMapa.setBounds(0, 88, 1000, 638);
 		cont.add(panelMenu, BorderLayout.NORTH);
 		cont.add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
