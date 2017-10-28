@@ -22,7 +22,6 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void atacar() {
-		super.atacar();
 		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);
