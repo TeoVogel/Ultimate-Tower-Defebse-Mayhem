@@ -9,7 +9,6 @@ public abstract class Personaje extends Ente{
 	protected Visitor v;
 	protected EfectoPersonaje efecto;
 	
-	
 	public Personaje(int vida, int ataque, int cadencia, int rango) {
 		super(vida);
 		this.ataque = ataque;
