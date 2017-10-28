@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Container;
+import java.awt.BorderLayout;
 
 import juego.ente.Ente;
 
@@ -21,21 +23,36 @@ import juego.acciones.AccionSpawnearAliado;
 import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
+	private Container cont;
 	private JLabel panelMapa;
+	private JLabel panelTienda;
+	private JLabel panelMenu;
 	private Juego juego; 
 
 	public Interfaz(Juego j) {
+		super("juego");
 		juego=j;
+		panelMapa = new JLabel();
+		panelMenu = new JLabel();
+		panelTienda = new JLabel();
+		cont=getContentPane();
 		
+		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 640); // TODO: fix, 600 + 38 es por la tittle bar de windows
-		panelMapa = new JLabel();
-		panelMapa.setBounds(0, 38, 1000, 638);
-		setContentPane(panelMapa);
+		
+		panelMenu.setBounds(0, 38, 1000, 400);
+		panelMapa.setBounds(0, 438, 1000, 638);
+		cont.add(panelMenu, BorderLayout.NORTH);
+		cont.add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
+		panelMenu.setLayout(null);
+		panelMenu.setIcon(new ImageIcon(Constantes.path+"dispIzq.png"));
 		panelMapa.setIcon(new ImageIcon(Constantes.path + "fondo.png"));
 		setVisible(true);
+		cont.setVisible(true);
 		panelMapa.setVisible(true);
+		panelMenu.setVisible(true);
 		
 		panelMapa.addMouseListener(new MouseAdapter() {
 			@Override
@@ -55,7 +72,7 @@ public class Interfaz extends JFrame{
 	public void crearBotonSpawn(){
 		JButton buttonE = new JButton("SpawnE");
 		buttonE.setBounds(0, 0, 100, 50);
-		panelMapa.add(buttonE);
+		panelMenu.add(buttonE);
 		buttonE.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -64,7 +81,7 @@ public class Interfaz extends JFrame{
 		});
 		JButton buttonA = new JButton("SpawnA");
 		buttonA.setBounds(100, 0, 100, 50);
-		panelMapa.add(buttonA);
+		panelMenu.add(buttonA);
 		buttonA.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
