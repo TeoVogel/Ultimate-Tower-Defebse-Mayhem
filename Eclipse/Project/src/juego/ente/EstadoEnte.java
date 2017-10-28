@@ -2,14 +2,14 @@ package juego.ente;
 
 public abstract class EstadoEnte {
 	
-	String sufijo;
-	
-	public String getSufijo () {
-		return sufijo;
-	}
+	protected int index;
 	
 	public boolean enMovimiento () {
 		return false;
 	}
-
+	
+	public int getIndex () {
+		return index;
+	}
+	
 }

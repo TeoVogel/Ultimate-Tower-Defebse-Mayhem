@@ -11,22 +11,15 @@ public abstract class Ente {
 	protected Grafico grafica;
 	protected EstadoEnte estado;
 	
-	
-	public Ente(int vida, Celda celda) {
-		this.vida = vida;
-		this.celda = celda;
-		estado = new EstadoEnteParar();
-	}
-	
 	public Ente(int vida) {
 		this.vida = vida;
+		estado = new EstadoEnteParar();
 	}
 	
 	public void init (Celda c) {
 		celda = c;
 		celda.setEnte(this);
 		grafica.initGrafico(c);
-		estado = new EstadoEnteParar();
 	}
 
 	public JLabel getGrafico () {

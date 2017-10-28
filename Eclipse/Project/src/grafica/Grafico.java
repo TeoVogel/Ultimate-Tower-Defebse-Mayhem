@@ -5,6 +5,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import juego.ente.Celda;
@@ -19,13 +20,20 @@ public class Grafico extends JLabel{
 	protected Ente ente;
 	protected String name;
 	protected Icon image[];
-	protected String[] sufijosArchivos = {"_parar", "_morir", "_frente", "_atacar", "_mover"};
+	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
 	protected Point pos;
 	
 	protected Grafico(Ente e, String n) {
 		name = n;
 		ente = e;
+
+		image = new Icon[5];
+		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
+		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif"); //_morir
+		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
+		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
+		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".gif"); //_frente
 	}
 	
 	public void initGrafico (Celda c) {
@@ -51,6 +59,11 @@ public class Grafico extends JLabel{
 	
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
+		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+	}
+	
+	protected void cambiarGrafico(EstadoEnte estado) {
+		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 	}
 	

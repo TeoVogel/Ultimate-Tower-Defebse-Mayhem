@@ -6,15 +6,9 @@ import juego.visitor.Visitor;
 import grafica.Grafico;
 import grafica.GraficoAliado;
 
-public class Aliado extends Personaje implements Comprable{
-	protected int precio;
+public class Aliado extends Personaje implements Comprable {
 	
-	public Aliado(int vida, Celda celda, int ataque, int cadencia, int rango, int precio, String name) {
-		super(vida, celda, ataque, cadencia, rango);
-		this.precio = precio;
-		grafica = new GraficoAliado(this, name);
-		v = new DisparoAliado(this);
-	}
+	protected int precio;
 
 	public Aliado(int vida, int ataque, int cadencia, int rango, int precio, String name) {
 		super(vida, ataque, cadencia, rango);

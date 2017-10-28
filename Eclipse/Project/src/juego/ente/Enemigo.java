@@ -9,15 +9,6 @@ public class Enemigo extends Personaje {
 	
 	protected int velocidad, vel;
 	
-	public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad, String name) {
-		super(vida, celda, ataque, cadencia, rango);
-		this.velocidad = velocidad;
-		vel = 0;
-		grafica = new GraficoEnemigo(this, name);
-		celda.setEnte(this);
-		v = new DisparoEnemigo(this);
-	}
-	
 	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
