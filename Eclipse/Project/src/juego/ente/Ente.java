@@ -46,6 +46,7 @@ public abstract class Ente {
 			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			celda.setEnte(null);
 			celda = null;
+			grafica.setVisible(false);
 		}
 	}
 	

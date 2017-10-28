@@ -9,6 +9,7 @@ import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.ente.Obstaculo;
 import juego.niveles.Nivel;
 
 public class Mapa{
@@ -60,6 +61,10 @@ public class Mapa{
 	public void addAliado (Aliado a) {
 		aliados.add(a);
 		interfaz.addEnte(a);
+	}
+	
+	public void addObstaculo (Obstaculo o) {
+		interfaz.addEnte(o);
 	}
 	
 	public void mover() {

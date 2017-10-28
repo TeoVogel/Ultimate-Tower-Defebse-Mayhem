@@ -7,21 +7,22 @@ import juego.ente.Obstaculo;
 
 public class Nivel1 extends Nivel {
 
-	public Nivel1 (int d) {
+	public Nivel1 (int d, Mapa mapa) {
 		super(d);
 		
 		/*
 		 * TODO: crear obstaculos y setear el fondo del mapa
 		 */
-		
+
 		Obstaculo o1 = new Obstaculo(100);
-		Juego juego = Juego.getJuego();
-		Mapa mapa = juego.getMapa();
-		Celda celda = mapa.getCelda(1, 1);
-		//o1.init(celda);
+		Celda celda = mapa.getCelda(4, 4);
+		o1.init(celda);
+		mapa.addObstaculo(o1);		
 
 		Obstaculo o2 = new Obstaculo(100);
-		//o2.init(Juego.getJuego().getMapa().getCelda(3, 6));
+		celda = mapa.getCelda(2, 6);
+		o2.init(celda);
+		mapa.addObstaculo(o2);		
 		
 	}
 	

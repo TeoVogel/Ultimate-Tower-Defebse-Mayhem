@@ -11,12 +11,11 @@ public class Obstaculo extends Ente {
 	
 	public Obstaculo(int vida) {
 		super(vida);
-		grafica = new GraficoEnte(this, "a3");
+		grafica = new GraficoEnte(this, "e5");
 	}
-
-	@Override
+	
 	public void accept(Visitor v) {
-		// TODO Auto-generated method stub		
+		v.visit(this);
 	}
 	
 }

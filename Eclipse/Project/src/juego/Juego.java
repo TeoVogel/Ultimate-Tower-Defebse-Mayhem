@@ -18,6 +18,7 @@ public class Juego {
 	
 	private Mercado mercado;
 	private int puntos;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +46,7 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		Nivel nivel = new Nivel1(2);
+		Nivel nivel = new Nivel1(2, mapa);
 		nivel.start();
 	}
 	
