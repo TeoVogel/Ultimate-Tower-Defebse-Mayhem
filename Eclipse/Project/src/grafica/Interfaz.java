@@ -39,10 +39,10 @@ public class Interfaz extends JFrame{
 		
 		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 640); // TODO: fix, 600 + 38 es por la tittle bar de windows
+		setBounds(0, 0, 1000, 1640); // TODO: fix, 600 + 38 es por la tittle bar de windows
 		
-		panelMenu.setBounds(0, 38, 1000, 400);
-		panelMapa.setBounds(0, 438, 1000, 638);
+		panelMenu.setBounds(0, 38, 1000, 1000);
+		panelMapa.setBounds(0, 1038, 1000, 638);
 		cont.add(panelMenu, BorderLayout.NORTH);
 		cont.add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
@@ -72,6 +72,7 @@ public class Interfaz extends JFrame{
 	public void crearBotonSpawn(){
 		JButton buttonE = new JButton("SpawnE");
 		buttonE.setBounds(0, 0, 100, 50);
+		buttonE.setVisible(true);
 		panelMenu.add(buttonE);
 		buttonE.addActionListener(new ActionListener() {
 			@Override
@@ -81,6 +82,7 @@ public class Interfaz extends JFrame{
 		});
 		JButton buttonA = new JButton("SpawnA");
 		buttonA.setBounds(100, 0, 100, 50);
+		buttonA.setVisible(true);
 		panelMenu.add(buttonA);
 		buttonA.addActionListener(new ActionListener() {
 			@Override
