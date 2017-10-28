@@ -6,6 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Container;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import juego.ente.Ente;
 
@@ -39,7 +40,7 @@ public class Interfaz extends JFrame{
 		
 		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 1640); // TODO: fix, 600 + 38 es por la tittle bar de windows
+		setBounds(0, 0, 1000, 678); // TODO: fix, 600 + 38 es por la tittle bar de windows
 		
 		panelMenu.setBounds(0, 38, 1000, 1000);
 		panelMapa.setBounds(0, 1038, 1000, 638);
@@ -47,7 +48,7 @@ public class Interfaz extends JFrame{
 		cont.add(panelMapa, BorderLayout.CENTER);
 		panelMapa.setLayout(null);
 		panelMenu.setLayout(null);
-		panelMenu.setIcon(new ImageIcon(Constantes.path+"dispIzq.png"));
+		panelMenu.setIcon(new ImageIcon(Constantes.path + "fff.png"));
 		panelMapa.setIcon(new ImageIcon(Constantes.path + "fondo.png"));
 		setVisible(true);
 		cont.setVisible(true);
