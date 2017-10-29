@@ -1,6 +1,11 @@
 package juego;
 
+import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import javax.swing.JOptionPane;
 
 import grafica.Interfaz;
 import juego.ente.Celda;
@@ -19,6 +24,9 @@ public class Juego {
 	private Mercado mercado;
 	private int puntos;
 	
+	private int dificultad = 2;
+	private List<Nivel> niveles = new ArrayList<Nivel>();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -27,27 +35,14 @@ public class Juego {
 	private Juego(){
 		mercado = new Mercado();
 		mapa = new Mapa();
-		int i = 0;
-
-		while (i<3) {
-			Random r = new Random();
-			int columna = 6 + r.nextInt(3);
-			int fila = r.nextInt(5);
-			Celda celda = mapa.getCelda(fila, columna);
-			if (celda.getEnte() == null) {
-				Enemigo e = FactoryEnemigo.crearEnemigo1();
-				e.init(celda);
-				mapa.addEnemigo(e);
-				i++;
-			}
-		}
-		
+		int i = 0;		
 		
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		Nivel nivel = new Nivel1(2, mapa);
-		nivel.start();
+		niveles.add(new Nivel1(mapa, dificultad));
+		siguienteNivel();
+		
 	}
 	
 	public Mercado getMercado () {
@@ -57,11 +52,7 @@ public class Juego {
 	public Mapa getMapa () {
 		return mapa;
 	}
-	
-	/*public void eliminarEnte(Ente e) {
-		mapa.eliminar(e);
-		
-	}*/
+
 	/* 
 	 * SISTEMA DE PUNTOS
 	 */
@@ -74,6 +65,24 @@ public class Juego {
 	
 	public void sumarPuntos (int p) {
 		puntos += p;
+	}
+	
+	public void siguienteNivel () {
+		if (niveles.size() > 0) {
+			niveles.remove(0).init();
+		} else {
+			ganar();
+		}
+	}
+	
+	public void perder () {
+		JOptionPane.showMessageDialog(null, "You lose!");
+		mapa.interfaz.dispatchEvent(new WindowEvent(mapa.interfaz, WindowEvent.WINDOW_CLOSING));
+	}
+	
+	public void ganar () {
+		JOptionPane.showMessageDialog(null, "You win!");
+		mapa.interfaz.dispatchEvent(new WindowEvent(mapa.interfaz, WindowEvent.WINDOW_CLOSING));
 	}
 	
 	//TODO esto es horrible

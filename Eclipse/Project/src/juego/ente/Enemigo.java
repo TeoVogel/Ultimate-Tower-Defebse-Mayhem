@@ -2,6 +2,7 @@ package juego.ente;
 
 import grafica.GraficoEnte;
 import grafica.GraficoEnemigo;
+import juego.Juego;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
@@ -29,11 +30,12 @@ public class Enemigo extends Personaje {
 	}
 	
 	public void mover() {
-		((GraficoEnemigo)grafica).mover(); // TODO: DONDE VA ESTO??
+		((GraficoEnemigo)grafica).mover();
 		if (vel == velocidad-1) {
 			Celda izq = celda.getIzq();
 			if (izq == null) {
-				System.out.println("MISSION FAILED"); // TODO: detectar cuando perdes el juego.
+				System.out.println("MISSION FAILED");
+				Juego.getJuego().perder();
 			} else {
 				if (izq.getEnte() == null) {
 					izq.setEnte(this);
