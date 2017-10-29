@@ -12,11 +12,13 @@ import juego.ente.Enemigo;
 
 public abstract class Nivel extends Thread {
 
-	int dificultad;
-	ArrayList<Enemigo> enemigos;
-	Random random;
+	protected Mapa mapa;
+	protected int dificultad;
+	protected ArrayList<Enemigo> enemigos;
+	private Random random;
 	
-	public Nivel (int d) {
+	public Nivel (Mapa m, int d) {
+		mapa = m;
 		dificultad = d;
 		System.out.println(""+dificultad);
 		
@@ -30,6 +32,8 @@ public abstract class Nivel extends Thread {
 		}
 		
 	}
+	
+	public abstract void init ();
 	
 	public int calcularCantEnemigos () {
 		return 10 * 2^dificultad;
@@ -46,18 +50,32 @@ public abstract class Nivel extends Thread {
 	
 	public void run () {
 		Mapa mapa = Juego.getJuego().getMapa();
-		
-		while (enemigos.size() > 0) {
-			try {
+
+		try {
+			
+			int i = 0;
+			while (i < enemigos.size()) {
 				Celda celda = mapa.getCelda(random.nextInt(6), 8 + random.nextInt(2));
-				enemigos.get(0).init(celda);
-				mapa.addEnemigo(enemigos.remove(0));			
+				enemigos.get(i).init(celda);
+				mapa.addEnemigo(enemigos.get(i++));			
 				sleep(2000);
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+			
+			while (enemigos.size() > 0) {
+				i = 0;
+				while (i < enemigos.size()) {
+					if (enemigos.get(i).getVida() <= 0) {
+						enemigos.remove(i);
+					}
+				}
+				sleep(2000);
+			}
+			
+			Juego.getJuego().siguienteNivel();
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
