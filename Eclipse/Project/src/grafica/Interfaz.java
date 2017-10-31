@@ -70,7 +70,7 @@ public class Interfaz extends JFrame{
 	public void crearBotonSpawn(){
 		JButton buttonS = new JButton("Support");
 		buttonS.setBounds(0, 0, 100, 50);
-		panelMapa.add(buttonS);
+		panelMenu.add(buttonS);
 		buttonS.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -79,7 +79,7 @@ public class Interfaz extends JFrame{
 		});
 		JButton buttonC = new JButton("Commando");
 		buttonC.setBounds(100, 0, 100, 50);
-		panelMapa.add(buttonC);
+		panelMenu.add(buttonC);
 		buttonC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -88,7 +88,7 @@ public class Interfaz extends JFrame{
 		});
 		JButton buttonSh = new JButton("Sharpshooter");
 		buttonSh.setBounds(200, 0, 100, 50);
-		panelMapa.add(buttonSh);
+		panelMenu.add(buttonSh);
 		buttonSh.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
