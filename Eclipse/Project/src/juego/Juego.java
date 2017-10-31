@@ -24,7 +24,7 @@ public class Juego {
 	private Mercado mercado;
 	private int puntos;
 	
-	private int dificultad = 2;
+	private int dificultad = 4;
 	private List<Nivel> niveles = new ArrayList<Nivel>();
 	
 	/**

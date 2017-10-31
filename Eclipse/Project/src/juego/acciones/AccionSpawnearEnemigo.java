@@ -12,7 +12,7 @@ public class AccionSpawnearEnemigo implements Accion {
 	
 	public AccionSpawnearEnemigo (Juego j) {
 		juego = j;
-		enemigo = FactoryEnemigo.crearEnemigo1();
+		enemigo = FactoryEnemigo.crearClot();
 	}
 	
 	public void ejecutar (Celda celda) {

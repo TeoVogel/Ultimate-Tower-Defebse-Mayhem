@@ -7,7 +7,7 @@ public final class Constantes {
 	public final static int width = 100;
 	public final static int height = 100;
 	
-	public final static String[] enemigos = {"e1", "e2"};
+	public final static String[] enemigos = {"e1", "e2", "e3", "e4", "e5"};
 	
 
 }
