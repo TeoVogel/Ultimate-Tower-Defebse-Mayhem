@@ -40,7 +40,8 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		niveles.add(new Nivel1(mapa, dificultad));
+		niveles.add(new Nivel1(mapa, 1));
+		niveles.add(new Nivel1(mapa, 1));
 		siguienteNivel();
 		
 	}
