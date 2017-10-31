@@ -10,9 +10,9 @@ public class AccionSpawnearAliado implements Accion {
 	private Aliado aliado;
 	private Juego juego;	
 	
-	public AccionSpawnearAliado ( Juego j) {
+	public AccionSpawnearAliado (String tipo, Juego j) {
 		juego = j;
-		aliado = FactoryAliado.crearAliado1();
+		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
 	public void ejecutar (Celda celda){

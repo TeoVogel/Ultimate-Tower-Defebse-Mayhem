@@ -53,22 +53,31 @@ public class Interfaz extends JFrame{
 	}
 	
 	public void crearBotonSpawn(){
-		JButton buttonE = new JButton("SpawnE");
-		buttonE.setBounds(0, 0, 100, 50);
-		panelMapa.add(buttonE);
-		buttonE.addActionListener(new ActionListener() {
+		JButton buttonS = new JButton("Support");
+		buttonS.setBounds(0, 0, 100, 50);
+		panelMapa.add(buttonS);
+		buttonS.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearEnemigo(juego));
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[0], juego));
 			}			
 		});
-		JButton buttonA = new JButton("SpawnA");
-		buttonA.setBounds(100, 0, 100, 50);
-		panelMapa.add(buttonA);
-		buttonA.addActionListener(new ActionListener() {
+		JButton buttonC = new JButton("Commando");
+		buttonC.setBounds(100, 0, 100, 50);
+		panelMapa.add(buttonC);
+		buttonC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[1], juego));
+			}			
+		});
+		JButton buttonSh = new JButton("Sharpshooter");
+		buttonSh.setBounds(200, 0, 100, 50);
+		panelMapa.add(buttonSh);
+		buttonSh.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[2], juego));
 			}			
 		});
 	}
