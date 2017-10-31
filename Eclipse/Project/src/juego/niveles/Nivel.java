@@ -54,32 +54,29 @@ public abstract class Nivel extends Thread {
 
 		try {
 			
+			// spawnear enemigos
 			int i = 0;
 			while (i < enemigos.size()) {
 				Celda celda = mapa.getCelda(random.nextInt(6), 8 + random.nextInt(2));
 				enemigos.get(i).init(celda);
 				mapa.addEnemigo(enemigos.get(i++));			
 				sleep(2000);
-				System.out.println("spawn");
 			}
-
-			System.out.println("hola");
 			
+			// controlar cuando el nivel fue completado
 			List<Enemigo> muertos = new ArrayList<Enemigo>();			
 			while (enemigos.size() > 0) {
 				i = 0;
 				while (i < enemigos.size()) {
 					if (enemigos.get(i).getVida() <= 0) {
 						muertos.add(enemigos.get(i++));
-						System.out.println("controlandoloop");
 					}
 				}
 				
 				for (Enemigo e : muertos) {
 					enemigos.remove(e);
 				}
-				sleep(2000);
-				System.out.println("controlando");
+				sleep(3000);
 			}
 			
 			Juego.getJuego().siguienteNivel();

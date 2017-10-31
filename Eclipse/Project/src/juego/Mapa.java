@@ -110,7 +110,7 @@ public class Mapa{
 		for (Integer i : enemigosMuertos) {
 			JLabel grafico = enemigos.get((int) i).getGrafico();
 			grafico.setVisible(false);
-			interfaz.remove(grafico); // TODO: hacer en gráfico}
+			interfaz.remove(grafico); // TODO: hacer en gráfico
 			enemigos.remove((int) i);
 		}
 	}
