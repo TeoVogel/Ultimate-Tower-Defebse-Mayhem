@@ -97,6 +97,18 @@ public class Interfaz extends JFrame{
 		});
 	}
 	
+	public JLabel getPanelMapa() {
+		return panelMapa;
+	}
+	
+	public JLabel getPanelMenu() {
+		return panelMenu;
+	}
+	
+	public JLabel getPanelTienda() {
+		return panelTienda;
+	}
+	
 	public void addEnte(Ente e) {
 		JLabel grafico = e.getGrafico();
 		panelMapa.add(grafico);
