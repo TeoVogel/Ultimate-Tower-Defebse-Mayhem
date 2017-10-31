@@ -23,7 +23,7 @@ public class Mapa{
 	public Mapa () {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
-		interfaz = new Interfaz(Juego.getJuego());
+		interfaz = new Interfaz();
 		interfaz.crearBotonSpawn();
 		inicializarGrilla();
 	}

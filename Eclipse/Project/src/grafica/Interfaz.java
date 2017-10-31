@@ -21,18 +21,15 @@ import javax.swing.text.IconView;
 import juego.Constantes;
 import juego.Juego;
 import juego.acciones.AccionSpawnearAliado;
-import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
 	private Container cont;
 	private JLabel panelMapa;
 	private JLabel panelTienda;
 	private JLabel panelMenu;
-	private Juego juego; 
 
-	public Interfaz(Juego j) {
+	public Interfaz() {
 		super("juego");
-		juego=j;
 		panelMapa = new JLabel();
 		panelMenu = new JLabel();
 		panelTienda = new JLabel();
@@ -58,10 +55,10 @@ public class Interfaz extends JFrame{
 		panelMapa.addMouseListener(new MouseAdapter() {
 			@Override
             public void mousePressed(MouseEvent e) {
-				if (juego.getMercado().isPlaceHolderFull()) {
+				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					juego.getMercado().getPlaceHolderContent().ejecutar(juego.getMapa().getCelda(fila, columna));
+					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(Juego.getJuego().getMapa().getCelda(fila, columna));
 				}
             }
 			
@@ -77,7 +74,7 @@ public class Interfaz extends JFrame{
 		buttonS.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[0], juego));
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[0]));
 			}			
 		});
 		JButton buttonC = new JButton("Commando");
@@ -86,7 +83,7 @@ public class Interfaz extends JFrame{
 		buttonC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[1], juego));
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[1]));
 			}			
 		});
 		JButton buttonSh = new JButton("Sharpshooter");
@@ -95,7 +92,7 @@ public class Interfaz extends JFrame{
 		buttonSh.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[2], juego));
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[2]));
 			}			
 		});
 	}
