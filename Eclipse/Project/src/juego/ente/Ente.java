@@ -48,6 +48,7 @@ public abstract class Ente {
 	
 	public void quitarVida(int cant) {
 		vida -= cant;
+		grafica.actualizarVida();
 		if (vida <= 0) {
 			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			celda.setEnte(null);

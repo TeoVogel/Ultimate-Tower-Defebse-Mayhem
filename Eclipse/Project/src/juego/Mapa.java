@@ -70,7 +70,13 @@ public class Mapa{
 		aliados.add(a);
 		interfaz.addEnte(a);
 	}
+
+	public void addObstaculo (Obstaculo o, int fila, int columna) {
+		interfaz.addEnte(o);
+		o.init(grilla[fila][columna]);
+	}
 	
+	@Deprecated
 	public void addObstaculo (Obstaculo o) {
 		interfaz.addEnte(o);
 	}

@@ -53,6 +53,7 @@ public abstract class Nivel extends Thread {
 		Mapa mapa = Juego.getJuego().getMapa();
 
 		try {
+			sleep(3000);
 			
 			// spawnear enemigos
 			int i = 0;

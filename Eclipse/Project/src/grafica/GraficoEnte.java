@@ -17,6 +17,7 @@ import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteParar;
 import juego.ente.Obstaculo;
 import juego.Constantes;
+import juego.Juego;
 
 public class GraficoEnte extends JLabel{
 
@@ -68,6 +69,9 @@ public class GraficoEnte extends JLabel{
 		barraVida.setBackground(Color.GREEN);
 		barraVida.setOpaque(true);
 		
+		actualizarVida();
+	    this.getParent().add(barraVida);
+		
 		/*
 		addMouseListener(new MouseAdapter() {
 			
@@ -84,16 +88,19 @@ public class GraficoEnte extends JLabel{
 		return pos;
 	}
 	
+	@Deprecated
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
-	    this.getParent().add(barraVida);
 	}
 	
 	protected void cambiarGrafico(EstadoEnte estado) {
 		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
-		
+		actualizarVida();
+	}
+	
+	public void actualizarVida () {		
 		int max = ente.getMaxVida();
 		int vida = ente.getVida();
 		
@@ -103,7 +110,6 @@ public class GraficoEnte extends JLabel{
 		int barraHeightOffset = Constantes.height - Constantes.barraVidaHeight/2;
 		
 		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, Constantes.barraVidaHeight);
-	    this.getParent().add(barraVida);
 	}
 	
 	
