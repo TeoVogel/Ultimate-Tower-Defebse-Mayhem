@@ -1,5 +1,6 @@
 package grafica;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,6 +24,8 @@ public class GraficoEnte extends JLabel{
 	protected String name;
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
+	
+	protected JLabel barraVida;
 	
 	protected Point pos;
 	
@@ -60,6 +63,10 @@ public class GraficoEnte extends JLabel{
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		
+		barraVida = new JLabel();
+		barraVida.setBackground(Color.GREEN);
+		setBounds(pos.x, pos.y + 100, Constantes.width, Constantes.height);
 		
 		/*
 		addMouseListener(new MouseAdapter() {

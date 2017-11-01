@@ -18,7 +18,6 @@ import javax.swing.text.IconView;
 import juego.Constantes;
 import juego.Juego;
 import juego.acciones.AccionSpawnearAliado;
-import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
 	private JLabel panelMapa;
