@@ -62,7 +62,7 @@ public class GraficoEnte extends JLabel{
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
-		//setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		
 		barraVida = new JLabel();
 		barraVida.setBackground(Color.GREEN);
