@@ -1,5 +1,6 @@
 	package grafica;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -23,6 +24,8 @@ public class GraficoEnte extends JLabel{
 	protected String name;
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
+	
+	protected JLabel barraVida;
 	
 	protected Point pos;
 	
@@ -59,7 +62,11 @@ public class GraficoEnte extends JLabel{
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		//setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		
+		barraVida = new JLabel();
+		barraVida.setBackground(Color.GREEN);
+		barraVida.setOpaque(true);
 		
 		/*
 		addMouseListener(new MouseAdapter() {
@@ -80,11 +87,23 @@ public class GraficoEnte extends JLabel{
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+	    this.getParent().add(barraVida);
 	}
 	
 	protected void cambiarGrafico(EstadoEnte estado) {
 		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		
+		int max = ente.getMaxVida();
+		int vida = ente.getVida();
+		
+		int barraLenght = Constantes.barraVidaWidth*vida/max;
+		
+		int barraWidthOffset = (Constantes.width - Constantes.barraVidaWidth)/2;
+		int barraHeightOffset = Constantes.height - Constantes.barraVidaHeight/2;
+		
+		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, Constantes.barraVidaHeight);
+	    this.getParent().add(barraVida);
 	}
 	
 	
