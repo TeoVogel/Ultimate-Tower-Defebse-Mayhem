@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
+import grafica.GraficoEnte;
 import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
@@ -100,9 +101,9 @@ public class Mapa{
 				a.atacar();
 		}
 		for (Integer i : aliadosMuertos) {
-			JLabel grafico = aliados.get((int) i).getGrafico();
+			GraficoEnte grafico = aliados.get((int) i).getGrafico();
 			grafico.setVisible(false);
-			interfaz.remove(grafico); // TODO: hacer en gráfico
+			grafico.morir();
 			aliados.remove((int) i);
 		}
 
@@ -115,9 +116,9 @@ public class Mapa{
 				e.atacar();
 		}
 		for (Integer i : enemigosMuertos) {
-			JLabel grafico = enemigos.get((int) i).getGrafico();
+			GraficoEnte grafico = enemigos.get((int) i).getGrafico();
 			grafico.setVisible(false);
-			interfaz.remove(grafico); // TODO: hacer en gráfico
+			grafico.morir();
 			enemigos.remove((int) i);
 		}
 	}

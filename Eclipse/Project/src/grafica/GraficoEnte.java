@@ -99,7 +99,7 @@ public class GraficoEnte extends JLabel{
 		
 		int barraLenght = Constantes.barraVidaWidth*vida/max;
 		
-		int barraWidthOffset = (Constantes.width - Constantes.barraVidaWidth)/2;
+		int barraWidthOffset = (Constantes.width - barraLenght)/2;
 		int barraHeightOffset = Constantes.height - Constantes.barraVidaHeight/2;
 		
 		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, Constantes.barraVidaHeight);
@@ -120,6 +120,13 @@ public class GraficoEnte extends JLabel{
 		pos.setLocation(celda.columna*Constantes.width, 
 						celda.fila*Constantes.height);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
+	}
+	
+	public void morir () {
+		barraVida.setVisible(false);
+		this.getParent().remove(barraVida);
+		this.setVisible(false);
+		this.getParent().remove(this);
 	}
 	
 	//TODO esto es horrible

@@ -24,7 +24,7 @@ public abstract class Ente {
 		grafica.initGrafico(c);
 	}
 
-	public JLabel getGrafico () {
+	public GraficoEnte getGrafico () {
 		return grafica;
 	}
 	
