@@ -65,7 +65,14 @@ public class Mapa{
 		enemigos.add(e);
 		interfaz.addEnte(e);
 	}
+
+	public void addAliado (Aliado a, int fila, int columna) {
+		aliados.add(a);
+		interfaz.addEnte(a);
+		a.init(grilla[fila][columna]);
+	}
 	
+	@Deprecated
 	public void addAliado (Aliado a) {
 		aliados.add(a);
 		interfaz.addEnte(a);

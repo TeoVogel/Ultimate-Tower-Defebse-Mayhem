@@ -13,9 +13,8 @@ public class AccionSpawnearAliado implements Accion {
 		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
-	public void ejecutar (Celda celda){
-		Juego.getJuego().getMapa().addAliado(aliado);
-		aliado.init(celda);
+	public void ejecutar (int fila, int columna){
+		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
 	}
 	
 }

@@ -58,7 +58,7 @@ public class Interfaz extends JFrame{
 				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(Juego.getJuego().getMapa().getCelda(fila, columna));
+					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(fila, columna);
 				}
             }
 			
