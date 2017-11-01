@@ -14,7 +14,7 @@ public class GraficoEnemigo extends GraficoEnte {
 	
 	private float acumuladorPixeles;
 	
-	public GraficoEnemigo (Enemigo e, String name) {
+	public GraficoEnemigo(Enemigo e, String name) {
 		super(e, name);
 	}
 	
