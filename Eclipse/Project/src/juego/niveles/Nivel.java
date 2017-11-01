@@ -55,9 +55,9 @@ public abstract class Nivel extends Thread {
 			
 			int i = 0;
 			while (i < enemigos.size()) {
-				Celda celda = mapa.getCelda(random.nextInt(6), 8 + random.nextInt(2));
-				enemigos.get(i).init(celda);
-				mapa.addEnemigo(enemigos.get(i++));			
+				int fila = random.nextInt(6);
+				int columna = 8 + random.nextInt(2);
+				mapa.addEnemigo(enemigos.get(i++), fila, columna);
 				sleep(2000);
 			}
 			

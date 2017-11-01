@@ -85,15 +85,5 @@ public class Interfaz extends JFrame{
 		JLabel grafico = e.getGrafico();
 		panelMapa.add(grafico);
 		grafico.repaint();
-		/*g.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				remove(g);
-				//ente.eliminarse(e);
-			}
-			
-		});*/
 	}
 }

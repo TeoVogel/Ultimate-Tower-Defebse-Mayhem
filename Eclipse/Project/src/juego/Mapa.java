@@ -53,6 +53,13 @@ public class Mapa{
 		return enemigos;
 	}
 	
+	public void addEnemigo (Enemigo e, int fila, int columna) {
+		enemigos.add(e);
+		interfaz.addEnte(e);
+		e.init(grilla[fila][columna]);
+	}
+	
+	@Deprecated
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
 		interfaz.addEnte(e);
