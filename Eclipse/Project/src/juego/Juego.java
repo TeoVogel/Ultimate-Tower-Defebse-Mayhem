@@ -24,8 +24,7 @@ public class Juego {
 	
 	private Juego(){
 		mercado = new Mercado();
-		interfaz = new Interfaz(this);
-		interfaz.crearBotonSpawn();
+		interfaz = new Interfaz();
 		mapa = new Mapa(this, interfaz);
 		int i = 0;
 
