@@ -1,6 +1,6 @@
 package juego.ente;
 import juego.visitor.*;
-import juego.ente.powerup.PowerUp;
+import juego.ente.powerup.*;
 
 public abstract class Personaje extends Ente{
 	
