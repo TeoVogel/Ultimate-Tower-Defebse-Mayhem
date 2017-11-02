@@ -15,7 +15,6 @@ import juego.ente.Enemigo;
 import juego.ente.Ente;
 import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteParar;
-import juego.ente.EstadoEnteMuerte;
 import juego.ente.Obstaculo;
 import juego.Constantes;
 import juego.Juego;
@@ -25,7 +24,7 @@ public class GraficoEnte extends JLabel{
 	protected Ente ente;
 	protected String name;
 	protected Icon image[];
-	protected String[] sufijosArchivos = {"_parar", "muerte", "_atacar", "_mover", "_frente"};
+	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
 	protected JLabel barraVida;
 	
@@ -37,10 +36,10 @@ public class GraficoEnte extends JLabel{
 
 		image = new Icon[5];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
-		image[1] = new ImageIcon(sufijosArchivos[1] + ".gif");							//_muerte
+		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif"); //_morir
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
 		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
-		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
+		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".gif"); //_frente
 	}
 	
 	/*public GraficoEnte(Aliado a, String name) {
@@ -50,16 +49,15 @@ public class GraficoEnte extends JLabel{
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
 		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif");
-		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png");
+		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif");
 	}
 	
 	public GraficoEnte(Obstaculo o, String name) {
 		this.name = name;
 		ente = o;
-		image = new Icon[3];
+		image = new Icon[2];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
 		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
-		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".png");
 	}*/
 	
 	public void initGrafico (Celda c) {
@@ -131,17 +129,8 @@ public class GraficoEnte extends JLabel{
 	}
 	
 	public void morir () {
-		Thread tiempo = new Thread();
 		barraVida.setVisible(false);
-		cambiarGrafico(new EstadoEnteMuerte());
-		repaint();
-		try {
-			tiempo.start();
-			tiempo.sleep(1500);
-			tiempo.stop();
-			
-		} catch (Exception e) {}
-//		this.getParent().remove(barraVida);
+		this.getParent().remove(barraVida);
 		this.setVisible(false);
 		this.getParent().remove(this);
 	}

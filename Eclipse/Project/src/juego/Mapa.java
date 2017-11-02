@@ -113,9 +113,10 @@ public class Mapa{
 			else 
 				a.atacar();
 		}
-		
 		for (Integer i : aliadosMuertos) {
 			GraficoEnte grafico = aliados.get((int) i).getGrafico();
+			grafico.setVisible(false);
+			grafico.morir();
 			aliados.remove((int) i);
 		}
 
