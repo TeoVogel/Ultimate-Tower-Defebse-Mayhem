@@ -1,5 +1,6 @@
 	package grafica;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,7 @@ import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteParar;
 import juego.ente.Obstaculo;
 import juego.Constantes;
+import juego.Juego;
 
 public class GraficoEnte extends JLabel{
 
@@ -23,6 +25,8 @@ public class GraficoEnte extends JLabel{
 	protected String name;
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
+	
+	protected JLabel barraVida;
 	
 	protected Point pos;
 	
@@ -61,6 +65,13 @@ public class GraficoEnte extends JLabel{
 		setIcon(image[0]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		
+		barraVida = new JLabel();
+		barraVida.setBackground(Color.GREEN);
+		barraVida.setOpaque(true);
+		
+		actualizarVida();
+	    this.getParent().add(barraVida);
+		
 		/*
 		addMouseListener(new MouseAdapter() {
 			
@@ -77,6 +88,7 @@ public class GraficoEnte extends JLabel{
 		return pos;
 	}
 	
+	@Deprecated
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
@@ -85,6 +97,19 @@ public class GraficoEnte extends JLabel{
 	protected void cambiarGrafico(EstadoEnte estado) {
 		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		actualizarVida();
+	}
+	
+	public void actualizarVida () {		
+		int max = ente.getMaxVida();
+		int vida = ente.getVida();
+		
+		int barraLenght = Constantes.barraVidaWidth*vida/max;
+		
+		int barraWidthOffset = (Constantes.width - barraLenght)/2;
+		int barraHeightOffset = Constantes.height - Constantes.barraVidaHeight/2;
+		
+		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, Constantes.barraVidaHeight);
 	}
 	
 	
@@ -101,6 +126,13 @@ public class GraficoEnte extends JLabel{
 		pos.setLocation(celda.columna*Constantes.width, 
 						celda.fila*Constantes.height);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
+	}
+	
+	public void morir () {
+		barraVida.setVisible(false);
+		this.getParent().remove(barraVida);
+		this.setVisible(false);
+		this.getParent().remove(this);
 	}
 	
 	//TODO esto es horrible

@@ -12,7 +12,7 @@ public class GraficoDisparo extends Thread{
 	
 	public GraficoDisparo (JLabel a, JLabel b, String dir){
 		Juego j=Juego.getJuego();
-		JFrame frame=j.getInterfaz();
+		JLabel panelMapa=j.getInterfaz().getPanelMapa();
 		JLabel grafico;
 		ImageIcon image;
 		
@@ -35,7 +35,7 @@ public class GraficoDisparo extends Thread{
 		grafico.setBounds((int)izq.getX(), (int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo+10);
 		//(int)izq.getX() (int)izq.getY() (int)( der.getX()-izq.getX() )
 		grafico.setVisible(true);
-		frame.add(grafico);
+		panelMapa.add(grafico);
 		grafico.repaint();
 		try {
 			sleep(200);
@@ -47,7 +47,7 @@ public class GraficoDisparo extends Thread{
 		//grafico.repaint();
 		System.out.println("disparaaaaaaaaaaaaaaaaa");
 		
-		frame.remove(grafico);
+		panelMapa.remove(grafico);
 	}
 	
 }

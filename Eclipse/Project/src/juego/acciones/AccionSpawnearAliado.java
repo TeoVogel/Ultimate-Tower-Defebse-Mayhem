@@ -8,16 +8,13 @@ import juego.Juego;
 public class AccionSpawnearAliado implements Accion {
 
 	private Aliado aliado;
-	private Juego juego;	
 	
-	public AccionSpawnearAliado ( Juego j) {
-		juego = j;
-		aliado = FactoryAliado.crearAliado1();
+	public AccionSpawnearAliado (String tipo) {
+		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
-	public void ejecutar (Celda celda){
-		aliado.init(celda);
-		juego.getMapa().addAliado(aliado);
+	public void ejecutar (int fila, int columna){
+		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JLabel;
 
+import grafica.GraficoEnte;
 import grafica.Interfaz;
 import juego.ente.Aliado;
 import juego.ente.Celda;
@@ -23,7 +24,7 @@ public class Mapa{
 	public Mapa () {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
-		interfaz = new Interfaz(Juego.getJuego());
+		interfaz = new Interfaz();
 		interfaz.crearBotonSpawn();
 		inicializarGrilla();
 	}
@@ -53,16 +54,36 @@ public class Mapa{
 		return enemigos;
 	}
 	
+	public void addEnemigo (Enemigo e, int fila, int columna) {
+		enemigos.add(e);
+		interfaz.addEnte(e);
+		e.init(grilla[fila][columna]);
+	}
+	
+	@Deprecated
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
 		interfaz.addEnte(e);
 	}
+
+	public void addAliado (Aliado a, int fila, int columna) {
+		aliados.add(a);
+		interfaz.addEnte(a);
+		a.init(grilla[fila][columna]);
+	}
 	
+	@Deprecated
 	public void addAliado (Aliado a) {
 		aliados.add(a);
 		interfaz.addEnte(a);
 	}
+
+	public void addObstaculo (Obstaculo o, int fila, int columna) {
+		interfaz.addEnte(o);
+		o.init(grilla[fila][columna]);
+	}
 	
+	@Deprecated
 	public void addObstaculo (Obstaculo o) {
 		interfaz.addEnte(o);
 	}
@@ -93,9 +114,9 @@ public class Mapa{
 				a.atacar();
 		}
 		for (Integer i : aliadosMuertos) {
-			JLabel grafico = aliados.get((int) i).getGrafico();
+			GraficoEnte grafico = aliados.get((int) i).getGrafico();
 			grafico.setVisible(false);
-			interfaz.remove(grafico); // TODO: hacer en gráfico
+			grafico.morir();
 			aliados.remove((int) i);
 		}
 
@@ -108,9 +129,9 @@ public class Mapa{
 				e.atacar();
 		}
 		for (Integer i : enemigosMuertos) {
-			JLabel grafico = enemigos.get((int) i).getGrafico();
+			GraficoEnte grafico = enemigos.get((int) i).getGrafico();
 			grafico.setVisible(false);
-			interfaz.remove(grafico); // TODO: hacer en gráfico}
+			grafico.morir();
 			enemigos.remove((int) i);
 		}
 	}

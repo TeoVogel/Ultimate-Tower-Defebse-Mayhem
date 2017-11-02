@@ -1,6 +1,5 @@
 package juego.ente;
 
-import javax.swing.JLabel;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
 import grafica.GraficoEnte;
@@ -21,6 +20,7 @@ public class Aliado extends Personaje implements Comprable {
 	}
 	
 	public void atacar() {
+		super.atacar();
 		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
 			v.reset();
 			accept(v);

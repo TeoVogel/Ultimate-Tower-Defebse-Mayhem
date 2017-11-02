@@ -18,14 +18,10 @@ public class Nivel1 extends Nivel {
 		 */
 
 		Obstaculo o1 = new Obstaculo(100);
-		Celda celda = mapa.getCelda(4, 4);
-		o1.init(celda);
-		mapa.addObstaculo(o1);		
+		mapa.addObstaculo(o1, 4, 4);		
 
 		Obstaculo o2 = new Obstaculo(100);
-		celda = mapa.getCelda(2, 6);
-		o2.init(celda);
-		mapa.addObstaculo(o2);	
+		mapa.addObstaculo(o2, 2, 6);	
 		
 		this.start();
 	}

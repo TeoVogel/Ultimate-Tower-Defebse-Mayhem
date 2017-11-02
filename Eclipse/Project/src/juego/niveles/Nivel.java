@@ -1,6 +1,7 @@
 package juego.niveles;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import juego.Constantes;
@@ -36,7 +37,7 @@ public abstract class Nivel extends Thread {
 	public abstract void init ();
 	
 	public int calcularCantEnemigos () {
-		return 10 * 2^dificultad;
+		return 1 * 2^dificultad;
 	}
 	
 	public String calcularTipoEnemigo () {
@@ -52,23 +53,31 @@ public abstract class Nivel extends Thread {
 		Mapa mapa = Juego.getJuego().getMapa();
 
 		try {
+			sleep(3000);
 			
+			// spawnear enemigos
 			int i = 0;
 			while (i < enemigos.size()) {
-				Celda celda = mapa.getCelda(random.nextInt(6), 8 + random.nextInt(2));
-				enemigos.get(i).init(celda);
-				mapa.addEnemigo(enemigos.get(i++));			
+				int fila = random.nextInt(6);
+				int columna = 8 + random.nextInt(2);
+				mapa.addEnemigo(enemigos.get(i++), fila, columna);
 				sleep(2000);
 			}
 			
+			// controlar cuando el nivel fue completado
+			List<Enemigo> muertos = new ArrayList<Enemigo>();			
 			while (enemigos.size() > 0) {
 				i = 0;
 				while (i < enemigos.size()) {
 					if (enemigos.get(i).getVida() <= 0) {
-						enemigos.remove(i);
+						muertos.add(enemigos.get(i++));
 					}
 				}
-				sleep(2000);
+				
+				for (Enemigo e : muertos) {
+					enemigos.remove(e);
+				}
+				sleep(3000);
 			}
 			
 			Juego.getJuego().siguienteNivel();

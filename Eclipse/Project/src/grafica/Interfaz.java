@@ -21,18 +21,15 @@ import javax.swing.text.IconView;
 import juego.Constantes;
 import juego.Juego;
 import juego.acciones.AccionSpawnearAliado;
-import juego.acciones.AccionSpawnearEnemigo;
 
 public class Interfaz extends JFrame{
 	private Container cont;
 	private JLabel panelMapa;
 	private JLabel panelTienda;
 	private JLabel panelMenu;
-	private Juego juego; 
 
-	public Interfaz(Juego j) {
+	public Interfaz() {
 		super("juego");
-		juego=j;
 		panelMapa = new JLabel();
 		panelMenu = new JLabel();
 		panelTienda = new JLabel();
@@ -58,10 +55,10 @@ public class Interfaz extends JFrame{
 		panelMapa.addMouseListener(new MouseAdapter() {
 			@Override
             public void mousePressed(MouseEvent e) {
-				if (juego.getMercado().isPlaceHolderFull()) {
+				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					juego.getMercado().getPlaceHolderContent().ejecutar(juego.getMapa().getCelda(fila, columna));
+					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(fila, columna);
 				}
             }
 			
@@ -71,41 +68,50 @@ public class Interfaz extends JFrame{
 	}
 	
 	public void crearBotonSpawn(){
-		JButton buttonE = new JButton("SpawnE");
-		buttonE.setBounds(0, 0, 100, 50);
-		buttonE.setVisible(true);
-		panelMenu.add(buttonE);
-		buttonE.addActionListener(new ActionListener() {
+		JButton buttonS = new JButton("Support");
+		buttonS.setBounds(0, 0, 100, 50);
+		panelMenu.add(buttonS);
+		buttonS.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearEnemigo(juego));
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[0]));
 			}			
 		});
-		JButton buttonA = new JButton("SpawnA");
-		buttonA.setBounds(100, 0, 100, 50);
-		buttonA.setVisible(true);
-		panelMenu.add(buttonA);
-		buttonA.addActionListener(new ActionListener() {
+		JButton buttonC = new JButton("Commando");
+		buttonC.setBounds(100, 0, 100, 50);
+		panelMenu.add(buttonC);
+		buttonC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				juego.getMercado().addToPlaceHolder(new AccionSpawnearAliado(juego));
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[1]));
 			}			
 		});
+		JButton buttonSh = new JButton("Sharpshooter");
+		buttonSh.setBounds(200, 0, 100, 50);
+		panelMenu.add(buttonSh);
+		buttonSh.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionSpawnearAliado(Constantes.aliados[2]));
+			}			
+		});
+	}
+	
+	public JLabel getPanelMapa() {
+		return panelMapa;
+	}
+	
+	public JLabel getPanelMenu() {
+		return panelMenu;
+	}
+	
+	public JLabel getPanelTienda() {
+		return panelTienda;
 	}
 	
 	public void addEnte(Ente e) {
 		JLabel grafico = e.getGrafico();
 		panelMapa.add(grafico);
 		grafico.repaint();
-		/*g.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				remove(g);
-				//ente.eliminarse(e);
-			}
-			
-		});*/
 	}
 }

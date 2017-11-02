@@ -24,7 +24,7 @@ public class Juego {
 	private Mercado mercado;
 	private int puntos;
 	
-	private int dificultad = 2;
+	private int dificultad = 4;
 	private List<Nivel> niveles = new ArrayList<Nivel>();
 	
 	/**
@@ -40,7 +40,8 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		niveles.add(new Nivel1(mapa, dificultad));
+		niveles.add(new Nivel1(mapa, 1));
+		niveles.add(new Nivel1(mapa, 1));
 		siguienteNivel();
 		
 	}

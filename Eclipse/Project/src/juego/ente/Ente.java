@@ -7,12 +7,14 @@ import juego.visitor.Visitor;
 public abstract class Ente {
 	
 	protected int vida;
+	protected int maxVida;
 	protected Celda celda;
 	protected GraficoEnte grafica;
 	protected EstadoEnte estado;
 	
 	public Ente(int vida) {
 		this.vida = vida;
+		this.maxVida = vida;
 		estado = new EstadoEnteParar();
 	}
 	
@@ -22,7 +24,7 @@ public abstract class Ente {
 		grafica.initGrafico(c);
 	}
 
-	public JLabel getGrafico () {
+	public GraficoEnte getGrafico () {
 		return grafica;
 	}
 	
@@ -34,6 +36,10 @@ public abstract class Ente {
 		return vida;
 	}
 	
+	public int getMaxVida () {
+		return maxVida;
+	}
+	
 	public Celda getCelda() {
 		return celda;
 	}
@@ -42,6 +48,7 @@ public abstract class Ente {
 	
 	public void quitarVida(int cant) {
 		vida -= cant;
+		grafica.actualizarVida();
 		if (vida <= 0) {
 			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			celda.setEnte(null);
