@@ -25,7 +25,7 @@ public class DisparoAliado implements Visitor{
 	public void visit(Enemigo e) {
 		aliado.setCad(0);
 		e.quitarVida(aliado.getAtaque());
-		new GraficoDisparo(e.getGrafico(), aliado.getGrafico(), "der");
+		new GraficoDisparo(aliado.getGrafico(), e.getGrafico(), "der");
 	}
 	
 	public void visit(Aliado a) {
