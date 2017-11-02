@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 import juego.Constantes;
 import juego.Juego;
+import juego.ente.Ente;
 
 public class PanelMapa extends JLabel{
 	
@@ -30,6 +31,12 @@ public class PanelMapa extends JLabel{
             @Override
             public void mouseReleased(MouseEvent e) {}
 		});	
+	}
+	
+	public void addEnte(Ente e) {
+		JLabel grafico = e.getGrafico();
+		add(grafico);
+		grafico.repaint();
 	}
 		
 }

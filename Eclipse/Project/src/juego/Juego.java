@@ -19,6 +19,7 @@ public class Juego {
 	public static Juego getJuego() { return juego; }
 	
 	private Mapa mapa;
+	private Interfaz interfaz;
 	private ContadorTiempo tiempo;
 	
 	private Mercado mercado;
@@ -34,7 +35,8 @@ public class Juego {
 	
 	private Juego(){
 		mercado = new Mercado();
-		mapa = new Mapa();
+		interfaz= new Interfaz();
+		mapa = new Mapa(interfaz.getPanelMapa());
 		int i = 0;		
 		
 		tiempo = new ContadorTiempo(this);
@@ -62,7 +64,7 @@ public class Juego {
 		return puntos;
 	}
 	
-	public Interfaz getInterfaz(){return mapa.interfaz;}
+	public Interfaz getInterfaz(){return interfaz;}
 	
 	public void sumarPuntos (int p) {
 		puntos += p;
@@ -78,12 +80,12 @@ public class Juego {
 	
 	public void perder () {
 		JOptionPane.showMessageDialog(null, "You lose!");
-		mapa.interfaz.dispatchEvent(new WindowEvent(mapa.interfaz, WindowEvent.WINDOW_CLOSING));
+		interfaz.dispatchEvent(new WindowEvent(interfaz, WindowEvent.WINDOW_CLOSING));
 	}
 	
 	public void ganar () {
 		JOptionPane.showMessageDialog(null, "You win!");
-		mapa.interfaz.dispatchEvent(new WindowEvent(mapa.interfaz, WindowEvent.WINDOW_CLOSING));
+		interfaz.dispatchEvent(new WindowEvent(interfaz, WindowEvent.WINDOW_CLOSING));
 	}
 	
 	//TODO esto es horrible

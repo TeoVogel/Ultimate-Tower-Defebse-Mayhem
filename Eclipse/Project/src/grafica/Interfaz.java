@@ -1,31 +1,17 @@
 package grafica;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.Container;
 import java.awt.BorderLayout;
 
-import juego.ente.Ente;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.text.IconView;
 
-import juego.Constantes;
-import juego.Juego;
-import juego.acciones.AccionSpawnearAliado;
 
 public class Interfaz extends JFrame{
 	private Container cont;
-	private JLabel panelMapa;
-	private JLabel panelTienda;
-	private JLabel panelMenu;
-
+	private PanelMapa panelMapa;
+	private PanelMenu panelMenu;
+	private PanelTienda panelTienda;
+	
 	public Interfaz() {
 		super("juego");
 	
@@ -47,21 +33,16 @@ public class Interfaz extends JFrame{
 		
 	}
 	
-	public JLabel getPanelMapa() {
+	public PanelMapa getPanelMapa() {
 		return panelMapa;
 	}
 	
-	public JLabel getPanelMenu() {
+	public PanelMenu getPanelMenu() {
 		return panelMenu;
 	}
 	
-	public JLabel getPanelTienda() {
+	public PanelTienda getPanelTienda() {
 		return panelTienda;
 	}
 	
-	public void addEnte(Ente e) {
-		JLabel grafico = e.getGrafico();
-		panelMapa.add(grafico);
-		grafico.repaint();
-	}
 }

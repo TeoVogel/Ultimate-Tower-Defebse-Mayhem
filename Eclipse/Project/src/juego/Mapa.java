@@ -3,10 +3,8 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JLabel;
-
 import grafica.GraficoEnte;
-import grafica.Interfaz;
+import grafica.PanelMapa;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
@@ -19,12 +17,12 @@ public class Mapa{
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
-	Interfaz interfaz;
+	private PanelMapa panelMapa;
 	
-	public Mapa () {
+	public Mapa (PanelMapa p) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
-		interfaz = new Interfaz();
+		panelMapa = p;
 		inicializarGrilla();
 	}
 	
@@ -55,36 +53,36 @@ public class Mapa{
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
 		enemigos.add(e);
-		interfaz.addEnte(e);
+		panelMapa.addEnte(e);
 		e.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
 	public void addEnemigo (Enemigo e) {
 		enemigos.add(e);
-		interfaz.addEnte(e);
+		panelMapa.addEnte(e);
 	}
 
 	public void addAliado (Aliado a, int fila, int columna) {
 		aliados.add(a);
-		interfaz.addEnte(a);
+		panelMapa.addEnte(a);
 		a.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
 	public void addAliado (Aliado a) {
 		aliados.add(a);
-		interfaz.addEnte(a);
+		panelMapa.addEnte(a);
 	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
-		interfaz.addEnte(o);
+		panelMapa.addEnte(o);
 		o.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
 	public void addObstaculo (Obstaculo o) {
-		interfaz.addEnte(o);
+		panelMapa.addEnte(o);
 	}
 	
 	public void mover() {
