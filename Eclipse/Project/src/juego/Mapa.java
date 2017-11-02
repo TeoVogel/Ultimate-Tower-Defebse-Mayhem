@@ -25,7 +25,6 @@ public class Mapa{
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
 		interfaz = new Interfaz();
-		interfaz.crearBotonSpawn();
 		inicializarGrilla();
 	}
 	
