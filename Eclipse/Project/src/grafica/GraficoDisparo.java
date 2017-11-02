@@ -45,7 +45,6 @@ public class GraficoDisparo extends Thread{
 		}
 		grafico.setVisible(false);
 		//grafico.repaint();
-		System.out.println("disparaaaaaaaaaaaaaaaaa");
 		
 		panelMapa.remove(grafico);
 	}

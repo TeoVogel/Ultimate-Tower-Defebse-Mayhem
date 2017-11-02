@@ -51,9 +51,9 @@ public abstract class Ente {
 		grafica.actualizarVida();
 		if (vida <= 0) {
 			// TODO: Matar bien al chabon, probablemente haya que redefinir
+			grafica.morir();
 			celda.setEnte(null);
 			celda = null;
-			grafica.setVisible(false);
 		}
 	}
 	
