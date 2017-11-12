@@ -36,22 +36,13 @@ public class Celda {
 	}
 	
 	public void setEnte(Ente e) {
-		if(ente != null) {
-			ente = e;
-			efecto.afectarEnte(ente);
-		}
+		ente = e;
+		if(ente!=null)
+			efecto.aplicar(ente);
 	}
 	
-	public int actualizarEfecto(){
-		int duracion= efecto.actualizar(ente);
-		if(duracion == 0) {
-			efecto = new EfectoCelda();
-		}
-		return duracion;
-	}
-	
-	public void removeEnte() {
-		efecto.desafectarEnte(ente);
+	public void RemoveEnte() {
+		efecto.desaplicar(ente);
 		ente=null;
 	}
 	

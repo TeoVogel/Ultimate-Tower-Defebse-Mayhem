@@ -1,50 +1,17 @@
 package juego.ente.EfectoCelda;
 import juego.ente.Ente;
-import juego.ente.Obstaculo;
-import juego.ente.Aliado;
-import juego.ente.Enemigo;
+import juego.ente.Celda;
 
 public class Pegamento extends EfectoCelda{
 	
-	int velocidad;
-	
-	public Pegamento() {
-		super();
+	public Pegamento( Celda c) {
+		super(c);
 		duracion=40;
-		velocidad=0;
 	}
 	
-	public void afectarEnte(Ente e){
-		Ente ente=e;
-		if(ente!=null) 			
-			ente.afectar(this);
+	public void setEnte(Ente e) {
+		ente=e;
+		ente
+		
 	}
-	
-	public int actualizar(Ente e){
-		duracion--;
-		return duracion;
-	}
-	
-	public void desafectarEnte(Ente e){
-		Ente ente=e;
-		if(ente!=null) 			
-			ente.desafectar(this);
-	}
-	
-	
-	public void aplicar(Enemigo e){
-		velocidad= e.getVelocidad();
-		e.setVelocidad(velocidad*2);
-	}
-	
-	public void desaplicar(Enemigo e){
-		e.setVelocidad(velocidad);
-		velocidad=0;
-	}
-	
-	public void aplicar(Aliado a){}
-	public void desaplicar(Aliado a){}
-	
-	public void aplicar(Obstaculo o){}
-	public void desaplicar(Obstaculo o){}
 }

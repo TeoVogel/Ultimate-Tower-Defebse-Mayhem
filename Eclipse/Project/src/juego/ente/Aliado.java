@@ -32,10 +32,6 @@ public class Aliado extends Personaje implements Comprable {
 		e.aplicar(this);
 	}
 	
-	public void desafectar(EfectoCelda e){
-		e.desaplicar(this);
-	}
-	
 	public int getPrecio() {
 		return precio;
 	}

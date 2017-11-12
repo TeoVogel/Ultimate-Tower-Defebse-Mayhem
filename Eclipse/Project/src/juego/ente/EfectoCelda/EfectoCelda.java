@@ -3,38 +3,32 @@ import juego.ente.Ente;
 import juego.ente.Enemigo;
 import juego.ente.Aliado;
 import juego.ente.Obstaculo;
+import juego.ente.Celda;
 
 public class EfectoCelda {
 	
+	protected Celda celda;
 	protected int duracion;
 	
-	public EfectoCelda( ){
-		duracion=1;
+	public EfectoCelda( Celda c ){
+		celda= c;
 	}
 	
-	public void afectarEnte(Ente e){
-		Ente ente=e;
+	public void actualizar(){
+		Ente ente=celda.getEnte();
 		if(ente!=null) 			
 			ente.afectar(this);
 	}
 	
-	public int actualizar(Ente e){}
-	
-	public void desafectarEnte(Ente e){
-		Ente ente=e;
-		if(ente!=null) 			
-			ente.desafectar(this);
+	public void aplicar(Aliado a){
+		
 	}
 	
-	public void aplicar(Aliado a){}
+	public void aplicar(Enemigo e){
+		
+	}
 	
-	public void aplicar(Enemigo e){}
+	public void aplicar(Obstaculo o){
+	}
 	
-	public void aplicar(Obstaculo o){}
-	
-	public void desaplicar(Aliado a){}
-	
-	public void desaplicar(Enemigo e){}
-	
-	public void desaplicar(Obstaculo o){}
 }

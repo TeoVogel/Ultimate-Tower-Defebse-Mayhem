@@ -19,10 +19,6 @@ public class Obstaculo extends Ente {
 		e.aplicar(this);
 	}
 	
-	public void desafectar(EfectoCelda e){
-		e.desaplicar(this);
-	}
-	
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
