@@ -1,5 +1,7 @@
 package juego.ente;
 
+import java.util.Random;
+
 import grafica.GraficoEnemigo;
 import juego.Juego;
 import juego.visitor.DisparoEnemigo;
@@ -8,10 +10,12 @@ import juego.visitor.Visitor;
 public class Enemigo extends Personaje {
 	
 	protected int velocidad, vel;
+	protected int monedas;
 	
-	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name) {
+	public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad, String name, int monedas) {
 		super(vida, ataque, cadencia, rango);
 		this.velocidad = velocidad;
+		this.monedas = monedas;
 		vel = 0;
 		grafica = new GraficoEnemigo(this, name);
 		v = new DisparoEnemigo(this);
@@ -52,5 +56,11 @@ public class Enemigo extends Personaje {
 	
 	public int getVelocidad() {
 		return velocidad;
+	}
+	
+	public int getMonedas () {
+		Random r = new Random();
+		int m = r.nextInt(20);
+		return monedas - 10 + m;
 	}
 }

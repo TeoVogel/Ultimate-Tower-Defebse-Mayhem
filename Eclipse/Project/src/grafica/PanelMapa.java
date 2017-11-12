@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 
 import juego.Constantes;
 import juego.Juego;
+import juego.ente.Celda;
 import juego.ente.Ente;
 
 public class PanelMapa extends JLabel{
@@ -24,7 +25,8 @@ public class PanelMapa extends JLabel{
 				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(fila, columna);
+					Celda c = Juego.getJuego().getMapa().getCelda(fila, columna);
+					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(c);
 				}
             }
 			

@@ -61,10 +61,10 @@ public class Mapa{
 		panelMapa.addEnte(e);
 	}
 
-	public void addAliado (Aliado a, int fila, int columna) {
+	public void addAliado (Aliado a, Celda c) {
 		aliados.add(a);
 		panelMapa.addEnte(a);
-		a.init(grilla[fila][columna]);
+		a.init(c);
 	}
 	
 	@Deprecated
@@ -121,6 +121,7 @@ public class Mapa{
 				e.atacar();
 		}
 		for (Integer i : enemigosMuertos) {
+			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());
 			enemigos.remove((int) i);
 		}
 	}

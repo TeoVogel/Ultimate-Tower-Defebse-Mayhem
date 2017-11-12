@@ -31,7 +31,6 @@ public class Mercado {
 	public Accion getPlaceHolderContent () {
 		Accion a = accionPlaceHolder;
 		accionPlaceHolder = null;
-		agregarMonedas(a.getPrecio());
 		return a;
 	}
 	

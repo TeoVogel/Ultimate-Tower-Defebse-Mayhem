@@ -4,7 +4,7 @@ import juego.ente.Celda;
 
 public interface Accion {
 
-	public void ejecutar (int fila, int columna);
+	public void ejecutar (Celda c);
 	
 	public abstract int getPrecio ();
 	

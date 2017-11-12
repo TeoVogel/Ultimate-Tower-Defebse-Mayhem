@@ -13,8 +13,9 @@ public class AccionComprarAliado implements Accion {
 		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
-	public void ejecutar (int fila, int columna){
-		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
+	public void ejecutar (Celda c){
+		Juego.getJuego().getMapa().addAliado(aliado, c);
+		Juego.getJuego().getMercado().agregarMonedas(getPrecio());
 	}
 	
 	public int getPrecio () {

@@ -1,20 +1,22 @@
 package juego.acciones;
 import juego.ente.Aliado;
+import juego.ente.Celda;
+import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionVenderAliado /*implements Accion */{
-/*
+public class AccionVenderAliado implements Accion {
+	
 	private Aliado aliado;
-	private Juego juego;	
 	
-	public AccionVenderAliado (Aliado a, Juego j) {
-		aliado = a;
-		juego = j;
+	public void ejecutar (Celda c){
+		aliado = (Aliado) c.getEnte();
+		Juego.getJuego().getMercado().agregarMonedas(getPrecio());
+		aliado.quitarVida(aliado.getVida());
 	}
 	
-	public void ejecutar (int fila, int columna) {
-		juego.getMapa().addAliado(aliado, fila, columna);
-		juego.getMercado().sumarMonedas(aliado.precio());
+	public int getPrecio () {
+		float porcentajeVida = ((float)aliado.getVida())/((float)aliado.getMaxVida());
+		return (int) (aliado.getPrecio()*porcentajeVida);
 	}
-*/	
+
 }
