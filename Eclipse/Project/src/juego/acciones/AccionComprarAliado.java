@@ -5,16 +5,20 @@ import juego.ente.Celda;
 import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionSpawnearAliado implements Accion {
+public class AccionComprarAliado implements Accion {
 
 	private Aliado aliado;
 	
-	public AccionSpawnearAliado (String tipo) {
+	public AccionComprarAliado (String tipo) {
 		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
 	public void ejecutar (int fila, int columna){
 		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
+	}
+	
+	public int getPrecio () {
+		return - aliado.getPrecio();
 	}
 	
 }
