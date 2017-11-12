@@ -1,5 +1,8 @@
 package juego.ente.powerup;
 
+import javax.swing.ImageIcon;
+
+import juego.Constantes;
 import juego.ente.Personaje;
 
 public class AumentoAtaque extends PowerUp{
@@ -8,6 +11,7 @@ public class AumentoAtaque extends PowerUp{
 		public AumentoAtaque(Personaje p){
 			super(p,50);
 			aumento=30;
+			img = new ImageIcon(Constantes.path + "powerup_shield_enemigo" + ".png");
 		}
 		
 		public void actualizar(){

@@ -2,6 +2,7 @@ package juego;
 
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.ente.powerup.Escudo;
 import juego.ente.Aliado;
 
 public class FactoryAliado {
@@ -11,7 +12,9 @@ public class FactoryAliado {
 	
 	// VIDA: 100 | ATAQUE: 20 | CADENCIA: 20 | RANGO: 2 | PRECIO: 0 
 	public static Aliado crearSupport () {
-		return new Aliado(100, 20, 20, 2, 0, "a1");
+		Aliado aliado = new Aliado(100, 20, 20, 2, 0, "a1");
+		aliado.setPowerUp(new Escudo(aliado));
+		return aliado;
 	}
 	
 	// VIDA: 80 | ATAQUE: 30 | CADENCIA: 35 | RANGO: 2 | PRECIO: 0
