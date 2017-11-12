@@ -6,7 +6,7 @@ public class CuraGradual extends PowerUp{
 	 protected int cura;
 
 		public CuraGradual(Personaje p){
-			super(p,50);
+			super(50);
 			cura=25;
 		}
 		
@@ -21,7 +21,7 @@ public class CuraGradual extends PowerUp{
 				}
 			}	
 			if(duracion==0) 
-				afectado.setPowerUp(new PowerUp(afectado));	
+				afectado.setPowerUp(new PowerUp());	
 			else duracion--;
 		}
 			

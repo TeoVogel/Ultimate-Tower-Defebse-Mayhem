@@ -4,12 +4,12 @@ import juego.ente.Celda;
 import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionVenderAliado implements Accion {
+public class AccionVenderAliado implements AccionMonetaria, AccionSobreAliado {
 	
 	private Aliado aliado;
 	
-	public void ejecutar (Celda c){
-		aliado = (Aliado) c.getEnte();
+	public void ejecutar (Aliado a){
+		aliado = a;
 		Juego.getJuego().getMercado().agregarMonedas(getPrecio());
 		aliado.quitarVida(aliado.getVida());
 	}

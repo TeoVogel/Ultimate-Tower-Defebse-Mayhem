@@ -32,8 +32,8 @@ public class GraficoAliado extends GraficoPersonaje {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
-					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(ente.getCelda());
+				if (Juego.getJuego().getMercado().isAccionSobreAliado()) {
+					Juego.getJuego().getMercado().getAccionSobreAliado().ejecutar((Aliado)ente);
 				}
 			}
 			

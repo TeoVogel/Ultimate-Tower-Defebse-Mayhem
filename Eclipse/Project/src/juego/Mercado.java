@@ -1,10 +1,13 @@
 package juego;
 
-import juego.acciones.Accion;
+import juego.acciones.AccionInsertar;
+import juego.acciones.AccionMonetaria;
+import juego.acciones.AccionSobreAliado;
 
 public class Mercado {
 
-	private Accion accionPlaceHolder;
+	private AccionSobreAliado accionSobreAliado;
+	private AccionInsertar accionInsertar;
 	private int monedas;
 	
 	public Mercado () {
@@ -20,17 +23,31 @@ public class Mercado {
 		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
 	}
 
-	public void addToPlaceHolder(Accion a) {
-		accionPlaceHolder = a;
+	public void addAccionSobreAliado(AccionSobreAliado a) {
+		accionSobreAliado = a;
 	}
 	
-	public boolean isPlaceHolderFull () {
-		return accionPlaceHolder != null;
+	public boolean isAccionSobreAliado () {
+		return accionSobreAliado != null;
 	}
 	
-	public Accion getPlaceHolderContent () {
-		Accion a = accionPlaceHolder;
-		accionPlaceHolder = null;
+	public AccionSobreAliado getAccionSobreAliado () {
+		AccionSobreAliado a = accionSobreAliado;
+		accionSobreAliado = null;
+		return a;
+	}
+
+	public void addAccionInsertar(AccionInsertar a) {
+		accionInsertar = a;
+	}
+	
+	public boolean isAccionInsertar () {
+		return accionInsertar != null;
+	}
+	
+	public AccionInsertar getAccionInsertar () {
+		AccionInsertar a = accionInsertar;
+		accionInsertar = null;
 		return a;
 	}
 	
