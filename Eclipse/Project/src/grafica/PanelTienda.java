@@ -13,6 +13,7 @@ import juego.Constantes;
 import juego.Juego;
 import juego.Mercado;
 import juego.acciones.AccionComprarAliado;
+import juego.acciones.AccionVenderAliado;
 
 public class PanelTienda extends JLabel {
 	
@@ -81,6 +82,16 @@ public class PanelTienda extends JLabel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addToPlaceHolder(new AccionComprarAliado(Constantes.aliados[4]));
+			}			
+		});
+		
+		JButton buttonV = new JButton("$");
+		buttonV.setBounds(250, 0, 50, 50);
+		add(buttonV);
+		buttonV.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addToPlaceHolder(new AccionVenderAliado());
 			}			
 		});
 	}
