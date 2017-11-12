@@ -22,9 +22,16 @@ public class Mercado {
 		monedas += m;
 		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
 	}
+	
+	public void quitarMonedas (int m) {
+		monedas -= m;
+		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+	}
 
 	public void addAccionSobreAliado(AccionSobreAliado a) {
-		accionSobreAliado = a;
+		if (a.getPrecio()<=monedas) {
+			accionSobreAliado = a;
+		}
 	}
 	
 	public boolean isAccionSobreAliado () {
@@ -38,7 +45,9 @@ public class Mercado {
 	}
 
 	public void addAccionInsertar(AccionInsertar a) {
-		accionInsertar = a;
+		if (a.getPrecio()<monedas) {
+			accionInsertar = a;
+		}
 	}
 	
 	public boolean isAccionInsertar () {

@@ -5,7 +5,7 @@ import juego.ente.Celda;
 import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionComprarAliado implements AccionMonetaria, AccionInsertar {
+public class AccionComprarAliado implements AccionInsertar {
 
 	private Aliado aliado;
 	
@@ -15,11 +15,11 @@ public class AccionComprarAliado implements AccionMonetaria, AccionInsertar {
 	
 	public void ejecutar (Celda c){
 		Juego.getJuego().getMapa().addAliado(aliado, c);
-		Juego.getJuego().getMercado().agregarMonedas(getPrecio());
+		Juego.getJuego().getMercado().quitarMonedas(getPrecio());
 	}
 	
 	public int getPrecio () {
-		return - aliado.getPrecio();
+		return aliado.getPrecio();
 	}
 	
 }

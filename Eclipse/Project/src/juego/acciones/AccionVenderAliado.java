@@ -4,7 +4,7 @@ import juego.ente.Celda;
 import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionVenderAliado implements AccionMonetaria, AccionSobreAliado {
+public class AccionVenderAliado implements AccionSobreAliado {
 	
 	private Aliado aliado;
 	

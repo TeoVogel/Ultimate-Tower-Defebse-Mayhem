@@ -6,7 +6,7 @@ import juego.ente.powerup.PowerUp;
 import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionComprarPowerUp implements AccionMonetaria, AccionSobreAliado {
+public class AccionComprarPowerUp implements AccionSobreAliado {
 
 	private PowerUp powerUp;
 	
@@ -16,11 +16,11 @@ public class AccionComprarPowerUp implements AccionMonetaria, AccionSobreAliado 
 	
 	public void ejecutar (Aliado a){
 		a.setPowerUp(powerUp);;
-		Juego.getJuego().getMercado().agregarMonedas(getPrecio());
+		Juego.getJuego().getMercado().quitarMonedas(getPrecio());
 	}
 	
 	public int getPrecio () {
-		return - powerUp.getPrecio();
+		return powerUp.getPrecio();
 	}
 	
 }
