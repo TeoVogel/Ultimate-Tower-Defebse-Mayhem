@@ -8,11 +8,11 @@ import javax.swing.JLabel;
 import juego.Juego;
 import juego.Constantes;
 public class GraficoDisparo extends Thread{
-	protected int altoDisparo=5;
+	protected int altoDisparo = 5;
 	
-	public GraficoDisparo (JLabel a, JLabel b, String dir){
-		Juego j=Juego.getJuego();
-		JLabel panelMapa=j.getInterfaz().getPanelMapa();
+	public GraficoDisparo (JLabel a, JLabel b, String dir) {
+		Juego j = Juego.getJuego();
+		JLabel panelMapa = j.getInterfaz().getPanelMapa();
 		JLabel grafico;
 		ImageIcon image;
 		
