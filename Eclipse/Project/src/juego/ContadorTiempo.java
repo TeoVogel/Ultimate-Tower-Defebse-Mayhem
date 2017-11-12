@@ -14,8 +14,9 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			juego.getMapa().actualizarCeldas();
 			juego.getMapa().atacar();
-			juego.getMapa().mover();
+			juego.getMapa().mover();	
 		}
 	}
 }
