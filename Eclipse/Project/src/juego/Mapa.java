@@ -51,12 +51,9 @@ public class Mapa{
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		Celda c= grilla[fila][columna]
-		if(c.getEnte()==null) {
-			enemigos.add(e);
-			panelMapa.addEnte(e);
-			e.init(c);
-		}
+		enemigos.add(e);
+		panelMapa.addEnte(e);
+		e.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
@@ -66,12 +63,9 @@ public class Mapa{
 	}
 
 	public void addAliado (Aliado a, int fila, int columna) {
-		Celda c= grilla[fila][columna];
-		if(c.getEnte()==null) {
-			aliados.add(a);
-			panelMapa.addEnte(a);
-			a.init(c);
-		}
+		aliados.add(a);
+		panelMapa.addEnte(a);
+		a.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
@@ -81,11 +75,8 @@ public class Mapa{
 	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
-		Celda c= grilla[fila][columna];
-		if(c.getEnte()==null) {
-			panelMapa.addEnte(o);
-			o.init(grilla[fila][columna]);
-		}
+		panelMapa.addEnte(o);
+		o.init(grilla[fila][columna]);
 	}
 	
 	@Deprecated
