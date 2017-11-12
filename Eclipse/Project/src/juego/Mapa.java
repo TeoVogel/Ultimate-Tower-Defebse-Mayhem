@@ -15,6 +15,7 @@ public class Mapa{
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
+	private List<Celda> celdas;
 	private PanelMapa panelMapa;
 	
 	public Mapa (PanelMapa p) {
@@ -123,6 +124,20 @@ public class Mapa{
 		for (Integer i : enemigosMuertos) {
 			enemigos.remove((int) i);
 		}
+	}
+	
+	public void actualizarCeldas() {
+		int duracion;
+		List<Integer> efectosTerminados= new ArrayList<Integer>();
+		for(int i = 0; i < celdas.size() ; i++) {
+			Celda c= celdas.get(i);
+			duracion= c.actualizarEfecto();
+			if(duracion <= 0){
+				efectosTerminados.add(i);
+			}
+		}
+		for(Integer i : efectosTerminados)
+			celdas.remove((int) i);
 	}
 	
 	
