@@ -3,13 +3,11 @@ package juego;
 import java.util.ArrayList;
 import java.util.List;
 
-import grafica.GraficoEnte;
 import grafica.PanelMapa;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
-import juego.niveles.Nivel;
 
 public class Mapa{
 
@@ -111,9 +109,6 @@ public class Mapa{
 				a.atacar();
 		}
 		for (Integer i : aliadosMuertos) {
-			GraficoEnte grafico = aliados.get((int) i).getGrafico();
-			grafico.setVisible(false);
-			grafico.morir();
 			aliados.remove((int) i);
 		}
 
@@ -126,9 +121,6 @@ public class Mapa{
 				e.atacar();
 		}
 		for (Integer i : enemigosMuertos) {
-			GraficoEnte grafico = enemigos.get((int) i).getGrafico();
-			grafico.setVisible(false);
-			grafico.morir();
 			enemigos.remove((int) i);
 		}
 	}

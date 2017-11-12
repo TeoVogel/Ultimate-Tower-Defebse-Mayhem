@@ -19,7 +19,7 @@ import juego.ente.Obstaculo;
 import juego.Constantes;
 import juego.Juego;
 
-public class GraficoEnte extends JLabel{
+public class GraficoEnte extends JLabel {
 
 	protected Ente ente;
 	protected String name;
@@ -30,13 +30,15 @@ public class GraficoEnte extends JLabel{
 	
 	protected Point pos;
 	
+	protected boolean inicializado = false;
+	
 	public GraficoEnte(Ente e, String n) {
 		name = n;
 		ente = e;
 
 		image = new Icon[5];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
-		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif"); //_morir
+		image[1] = new ImageIcon(Constantes.path + "muerte" + ".gif"); //_morir
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
 		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
 		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".gif"); //_frente
@@ -69,8 +71,11 @@ public class GraficoEnte extends JLabel{
 		barraVida.setBackground(Color.GREEN);
 		barraVida.setOpaque(true);
 		
-		actualizarVida();
 	    this.getParent().add(barraVida);
+	    
+	    inicializado = true;
+	    
+		actualizarVida();
 		
 		/*
 		addMouseListener(new MouseAdapter() {
@@ -95,12 +100,20 @@ public class GraficoEnte extends JLabel{
 	}
 	
 	protected void cambiarGrafico(EstadoEnte estado) {
+		if (!inicializado) {
+			return;
+		}
+		
 		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		actualizarVida();
 	}
 	
 	public void actualizarVida () {		
+		if (!inicializado) {
+			return;
+		}
+		
 		int max = ente.getMaxVida();
 		int vida = ente.getVida();
 		
@@ -129,6 +142,13 @@ public class GraficoEnte extends JLabel{
 	}
 	
 	public void morir () {
+		setIcon(image[1]);
+		try {
+		    Thread.sleep(500);
+		} catch(InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
+
 		barraVida.setVisible(false);
 		this.getParent().remove(barraVida);
 		this.setVisible(false);
