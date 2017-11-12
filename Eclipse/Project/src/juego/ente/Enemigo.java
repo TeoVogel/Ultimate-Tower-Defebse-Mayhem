@@ -2,6 +2,7 @@ package juego.ente;
 
 import grafica.GraficoEnemigo;
 import juego.Juego;
+import juego.ente.EfectoCelda.EfectoCelda;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
 
@@ -49,6 +50,10 @@ public class Enemigo extends Personaje {
 			vel = (vel+1)%(velocidad);
 		}
 	}	
+	
+	public void afectar(EfectoCelda e){
+		e.aplicar(this);
+	}
 	
 	public int getVelocidad() {
 		return velocidad;

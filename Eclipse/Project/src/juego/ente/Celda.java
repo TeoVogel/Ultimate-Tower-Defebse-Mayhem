@@ -1,5 +1,7 @@
 package juego.ente;
 
+import juego.ente.EfectoCelda.EfectoCelda;
+
 public class Celda {
 	
 	public final int fila, columna;
@@ -35,6 +37,13 @@ public class Celda {
 	
 	public void setEnte(Ente e) {
 		ente = e;
+		if(ente!=null)
+			efecto.aplicar(ente);
+	}
+	
+	public void RemoveEnte() {
+		efecto.desaplicar(ente);
+		ente=null;
 	}
 	
 	public EfectoCelda getEfecto() {

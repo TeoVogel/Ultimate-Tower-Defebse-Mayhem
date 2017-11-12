@@ -1,5 +1,6 @@
 package juego.ente;
 
+import juego.ente.EfectoCelda.EfectoCelda;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
 import grafica.GraficoEnte;
@@ -25,6 +26,10 @@ public class Aliado extends Personaje implements Comprable {
 			v.reset();
 			accept(v);
 		} else cad = (cad+1)%(cadencia);
+	}
+	
+	public void afectar(EfectoCelda e){
+		e.aplicar(this);
 	}
 	
 	public int getPrecio() {

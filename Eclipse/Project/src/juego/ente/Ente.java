@@ -3,6 +3,7 @@ package juego.ente;
 import grafica.GraficoEnte;
 import javax.swing.JLabel;
 import juego.visitor.Visitor;
+import juego.ente.EfectoCelda.EfectoCelda;
 
 public abstract class Ente {
 	
@@ -60,6 +61,8 @@ public abstract class Ente {
 	public EstadoEnte getEstado () {
 		return estado;
 	}
+	
+	public abstract void afectar(EfectoCelda e);
 	
 	public void setEstado (EstadoEnte e) {
 		estado = e;
