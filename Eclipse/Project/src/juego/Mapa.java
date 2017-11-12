@@ -51,7 +51,7 @@ public class Mapa{
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		Celda c= grilla[fila][columna];
+		Celda c= grilla[fila][columna]
 		if(c.getEnte()==null) {
 			enemigos.add(e);
 			panelMapa.addEnte(e);
