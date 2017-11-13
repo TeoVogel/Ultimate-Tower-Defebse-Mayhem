@@ -42,6 +42,13 @@ public class Celda {
 			efecto.afectar(ente);
 	}
 	
+	public void actualizarEfecto(){
+		int duracion=efecto.actualizar(ente);
+		if(duracion == 0) {
+			efecto= new EfectoCelda();
+		}
+	}
+	
 	public void RemoveEnte() {
 		efecto.desafectar(ente);
 		ente=null;

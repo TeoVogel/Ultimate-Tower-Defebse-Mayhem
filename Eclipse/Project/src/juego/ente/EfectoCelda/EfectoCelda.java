@@ -13,7 +13,7 @@ public class EfectoCelda {
 	}
 	public void afectar(Ente e) {}
 	
-	public int actualizar(){
+	public int actualizar(Ente e){
 		return duracion;
 	}
 	

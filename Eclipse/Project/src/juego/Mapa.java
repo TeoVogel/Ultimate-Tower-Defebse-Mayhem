@@ -15,11 +15,13 @@ public class Mapa{
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
+	private List<Celda> celdas;
 	private PanelMapa panelMapa;
 	
 	public Mapa (PanelMapa p) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
+		celdas = new ArrayList<Celda>();
 		panelMapa = p;
 		inicializarGrilla();
 	}
@@ -54,33 +56,16 @@ public class Mapa{
 		panelMapa.addEnte(e);
 		e.init(grilla[fila][columna]);
 	}
-	
-	@Deprecated
-	public void addEnemigo (Enemigo e) {
-		enemigos.add(e);
-		panelMapa.addEnte(e);
-	}
 
 	public void addAliado (Aliado a, int fila, int columna) {
 		aliados.add(a);
 		panelMapa.addEnte(a);
 		a.init(grilla[fila][columna]);
 	}
-	
-	@Deprecated
-	public void addAliado (Aliado a) {
-		aliados.add(a);
-		panelMapa.addEnte(a);
-	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
 		panelMapa.addEnte(o);
 		o.init(grilla[fila][columna]);
-	}
-	
-	@Deprecated
-	public void addObstaculo (Obstaculo o) {
-		panelMapa.addEnte(o);
 	}
 	
 	public void mover() {

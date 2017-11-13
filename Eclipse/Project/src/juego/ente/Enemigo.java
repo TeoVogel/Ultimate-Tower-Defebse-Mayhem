@@ -62,4 +62,8 @@ public class Enemigo extends Personaje {
 	public int getVelocidad() {
 		return velocidad;
 	}
+	
+	public void setVelocidad(int v){
+		velocidad=v;
+	}
 }
