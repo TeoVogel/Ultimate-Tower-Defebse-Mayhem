@@ -42,11 +42,13 @@ public class Celda {
 			efecto.afectar(ente);
 	}
 	
-	public void actualizarEfecto(){
+	public boolean actualizarEfecto(){
 		int duracion=efecto.actualizar(ente);
 		if(duracion == 0) {
 			efecto= new EfectoCelda();
+			return true;
 		}
+		return false;
 	}
 	
 	public void RemoveEnte() {

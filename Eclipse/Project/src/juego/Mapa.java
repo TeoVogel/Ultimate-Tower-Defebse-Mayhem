@@ -110,6 +110,18 @@ public class Mapa{
 		}
 	}
 	
+	public void actualizarEfectos(){
+		List<Integer> efectosTerminados = new ArrayList<Integer>();
+		for (int i=0; i<celdas.size(); i++) {
+			Celda c= celdas.get(i);
+			if(c.actualizarEfecto())
+				efectosTerminados.add(i);
+		}
+		for(Integer i: efectosTerminados){
+			celdas.remove((int) i);
+		}
+	}
+	
 	
 	// TODO: elimnar esto, es solo para testear
 	public Celda getCelda(int f, int c) {
