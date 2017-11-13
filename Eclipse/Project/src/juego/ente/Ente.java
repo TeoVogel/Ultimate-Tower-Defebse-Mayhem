@@ -64,6 +64,8 @@ public abstract class Ente {
 	
 	public abstract void afectar(EfectoCelda e);
 	
+	public abstract void desafectar(EfectoCelda e);
+	
 	public void setEstado (EstadoEnte e) {
 		estado = e;
 	}

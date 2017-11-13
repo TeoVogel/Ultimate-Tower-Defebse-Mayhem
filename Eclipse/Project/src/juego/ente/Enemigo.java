@@ -55,6 +55,10 @@ public class Enemigo extends Personaje {
 		e.aplicar(this);
 	}
 	
+	public void desafectar(EfectoCelda e){
+		e.desaplicar(this);
+	}
+	
 	public int getVelocidad() {
 		return velocidad;
 	}

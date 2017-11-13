@@ -13,6 +13,7 @@ public class Celda {
 	public Celda (int f, int c) {
 		fila = f;
 		columna = c;
+		efecto= new EfectoCelda();
 	}
 	
 	public Celda getIzq() {
@@ -38,11 +39,11 @@ public class Celda {
 	public void setEnte(Ente e) {
 		ente = e;
 		if(ente!=null)
-			efecto.aplicar(ente);
+			efecto.afectar(ente);
 	}
 	
 	public void RemoveEnte() {
-		efecto.desaplicar(ente);
+		efecto.desafectar(ente);
 		ente=null;
 	}
 	
