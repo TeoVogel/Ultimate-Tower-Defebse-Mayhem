@@ -1,13 +1,13 @@
 package juego;
 
-import juego.acciones.AccionInsertar;
+import juego.acciones.AccionSobreMapa;
 import juego.acciones.AccionMonetaria;
 import juego.acciones.AccionSobreAliado;
 
 public class Mercado {
 
 	private AccionSobreAliado accionSobreAliado;
-	private AccionInsertar accionInsertar;
+	private AccionSobreMapa accionSobreMapa;
 	private int monedas;
 	
 	public Mercado () {
@@ -44,19 +44,19 @@ public class Mercado {
 		return a;
 	}
 
-	public void addAccionInsertar(AccionInsertar a) {
+	public void addAccionSobreMapa(AccionSobreMapa a) {
 		if (a.getPrecio()<monedas) {
-			accionInsertar = a;
+			accionSobreMapa = a;
 		}
 	}
 	
-	public boolean isAccionInsertar () {
-		return accionInsertar != null;
+	public boolean isAccionSobreMapa () {
+		return accionSobreMapa != null;
 	}
 	
-	public AccionInsertar getAccionInsertar () {
-		AccionInsertar a = accionInsertar;
-		accionInsertar = null;
+	public AccionSobreMapa getAccionSobreMapa () {
+		AccionSobreMapa a = accionSobreMapa;
+		accionSobreMapa = null;
 		return a;
 	}
 	

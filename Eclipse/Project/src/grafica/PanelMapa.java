@@ -22,11 +22,11 @@ public class PanelMapa extends JLabel{
 		addMouseListener(new MouseAdapter() {
 			@Override
             public void mousePressed(MouseEvent e) {
-				if (Juego.getJuego().getMercado().isAccionInsertar()) {
+				if (Juego.getJuego().getMercado().isAccionSobreMapa()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
 					Celda c = Juego.getJuego().getMapa().getCelda(fila, columna);
-					Juego.getJuego().getMercado().getAccionInsertar().ejecutar(c);
+					Juego.getJuego().getMercado().getAccionSobreMapa().ejecutar(c);
 				}
             }
 			

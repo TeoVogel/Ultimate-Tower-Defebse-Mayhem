@@ -46,7 +46,7 @@ public class PanelTienda extends JLabel {
 		buttonS.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionInsertar(new AccionComprarAliado(Constantes.aliados[0]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[0]));
 			}			
 		});
 		JButton buttonC = new JButton("Commando");
@@ -56,7 +56,7 @@ public class PanelTienda extends JLabel {
 		buttonC.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionInsertar(new AccionComprarAliado(Constantes.aliados[1]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[1]));
 			}			
 		});
 		JButton buttonSh = new JButton("Sharpshooter");
@@ -66,7 +66,7 @@ public class PanelTienda extends JLabel {
 		buttonSh.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionInsertar(new AccionComprarAliado(Constantes.aliados[2]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[2]));
 			}			
 		});
 		JButton buttonM = new JButton("Mago");
@@ -76,7 +76,7 @@ public class PanelTienda extends JLabel {
 		buttonSh.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionInsertar(new AccionComprarAliado(Constantes.aliados[3]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[3]));
 			}			
 		});
 		JButton buttonT = new JButton("Tanque");
@@ -86,7 +86,7 @@ public class PanelTienda extends JLabel {
 		buttonT.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionInsertar(new AccionComprarAliado(Constantes.aliados[4]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[4]));
 			}			
 		});
 		
