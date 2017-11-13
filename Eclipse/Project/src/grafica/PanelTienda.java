@@ -32,58 +32,58 @@ public class PanelTienda extends JLabel {
 		setIcon(new ImageIcon(Constantes.path + "fff.png"));
 		setVisible(true);
 		
-		monedas = new JLabel("" + mercado.getMonedas());
+		monedas = new JLabel("$" + mercado.getMonedas());
 		monedas.setForeground(Color.YELLOW);
-		monedas.setFont(new Font("", Font.PLAIN, 20));
+		monedas.setFont(new Font("", Font.PLAIN, 24));
 		monedas.setBounds(900, 0, 100, 50);
 		
 		add(monedas);
 		
-		JButton buttonS = new JButton("Support");
-		buttonS.setIcon(new ImageIcon(Constantes.path + "a1_frente.png"));
-		buttonS.setBounds(0, 0, 50, 50);
-		add(buttonS);
-		buttonS.addActionListener(new ActionListener() {
+		JButton buttonA1 = new JButton("Support");
+		buttonA1.setIcon(new ImageIcon(Constantes.path + "a1_frente.png"));
+		buttonA1.setBounds(0, 0, 50, 50);
+		add(buttonA1);
+		buttonA1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[0]));
 			}			
 		});
-		JButton buttonC = new JButton("Commando");
-		buttonC.setIcon(new ImageIcon(Constantes.path + "a2_frente.png"));
-		buttonC.setBounds(50, 0, 50, 50);
-		add(buttonC);
-		buttonC.addActionListener(new ActionListener() {
+		JButton buttonA2 = new JButton("Commando");
+		buttonA2.setIcon(new ImageIcon(Constantes.path + "a2_frente.png"));
+		buttonA2.setBounds(50, 0, 50, 50);
+		add(buttonA2);
+		buttonA2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[1]));
 			}			
 		});
-		JButton buttonSh = new JButton("Sharpshooter");
-		buttonSh.setIcon(new ImageIcon(Constantes.path + "a3_frente.png"));
-		buttonSh.setBounds(100, 0, 50, 50);
-		add(buttonSh);
-		buttonSh.addActionListener(new ActionListener() {
+		JButton buttonA3 = new JButton("Sharpshooter");
+		buttonA3.setIcon(new ImageIcon(Constantes.path + "a3_frente.png"));
+		buttonA3.setBounds(100, 0, 50, 50);
+		add(buttonA3);
+		buttonA3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[2]));
 			}			
 		});
-		JButton buttonM = new JButton("Mago");
-		buttonM.setIcon(new ImageIcon(Constantes.path + "a4_frente.png"));
-		buttonM.setBounds(150, 0, 50, 50);
-		add(buttonM);
-		buttonSh.addActionListener(new ActionListener() {
+		JButton buttonA4 = new JButton("Mago");
+		buttonA4.setIcon(new ImageIcon(Constantes.path + "a4_frente.png"));
+		buttonA4.setBounds(150, 0, 50, 50);
+		add(buttonA4);
+		buttonA4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[3]));
 			}			
 		});
-		JButton buttonT = new JButton("Tanque");
-		buttonT.setIcon(new ImageIcon(Constantes.path + "a5_frente.png"));
-		buttonT.setBounds(200, 0, 50, 50);
-		add(buttonT);
-		buttonT.addActionListener(new ActionListener() {
+		JButton buttonA5 = new JButton("Tanque");
+		buttonA5.setIcon(new ImageIcon(Constantes.path + "a5_frente.png"));
+		buttonA5.setBounds(200, 0, 50, 50);
+		add(buttonA5);
+		buttonA5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[4]));
@@ -142,7 +142,7 @@ public class PanelTienda extends JLabel {
 	}
 	
 	public void setMonedas (int m) {
-		monedas.setText(String.valueOf(m));
+		monedas.setText("$" + m);
 	}
 		
 }
