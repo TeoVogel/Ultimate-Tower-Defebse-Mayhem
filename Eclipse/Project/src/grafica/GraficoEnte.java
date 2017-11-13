@@ -1,4 +1,4 @@
-	package grafica;
+package grafica;
 
 import java.awt.Color;
 import java.awt.Point;
@@ -23,6 +23,7 @@ public class GraficoEnte extends JLabel {
 
 	protected Ente ente;
 	protected String name;
+	protected GraficoDisparo disparo = new RayoLaserAliado();
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
@@ -35,13 +36,13 @@ public class GraficoEnte extends JLabel {
 	public GraficoEnte(Ente e, String n) {
 		name = n;
 		ente = e;
-
+		
 		image = new Icon[5];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
 		image[1] = new ImageIcon(Constantes.path + "muerte" + ".gif"); //_morir
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
 		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
-		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".gif"); //_frente
+		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
 	}
 	
 	/*public GraficoEnte(Aliado a, String name) {
@@ -51,15 +52,16 @@ public class GraficoEnte extends JLabel {
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
 		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif");
-		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif");
+		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".png");
 	}
 	
 	public GraficoEnte(Obstaculo o, String name) {
 		this.name = name;
 		ente = o;
-		image = new Icon[2];
+		image = new Icon[3];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
 		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
+		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".png");
 	}*/
 	
 	public void initGrafico (Celda c) {
@@ -143,16 +145,16 @@ public class GraficoEnte extends JLabel {
 	
 	public void morir () {
 		setIcon(image[1]);
-		try {
-		    Thread.sleep(500);
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
-		}
+		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 7);
 
 		barraVida.setVisible(false);
 		this.getParent().remove(barraVida);
-		this.setVisible(false);
-		this.getParent().remove(this);
+		//this.setVisible(false);
+		//this.getParent().remove(this);
+	}
+	
+	public void graficarDisparo(Ente e1, Ente e2) {
+		disparo.graficar(e1.getGrafico(), e2.getGrafico());
 	}
 	
 	//TODO esto es horrible

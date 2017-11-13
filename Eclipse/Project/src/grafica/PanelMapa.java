@@ -6,14 +6,20 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import juego.Constantes;
 import juego.Juego;
 import juego.ente.Ente;
+import juego.Pair;
 
-public class PanelMapa extends JLabel{
+public class PanelMapa extends JLabel {
+	List<Pair<JLabel, Integer>> graficosTemporales;
 	
 	public PanelMapa() {
 		super();
+		graficosTemporales = new ArrayList<Pair<JLabel, Integer>>();
 		setBounds(0, 88, 1000, 638);
 		setLayout(null);
 		setIcon(new ImageIcon(Constantes.path + "fondo.png"));
@@ -38,5 +44,28 @@ public class PanelMapa extends JLabel{
 		add(grafico);
 		grafico.repaint();
 	}
+	
+	// Agrega graficos a una lista para que sean
+	// eliminados despues de un tiempo, no los agrega al panel
+	public void graficoTemporal(JLabel grafico, int tiempo) {
+		graficosTemporales.add(new Pair<JLabel, Integer>(grafico, tiempo));
+	}
+	
+	public void actualizarGraficosTemporales() {
+		List<Pair<JLabel, Integer>> eliminar = new ArrayList<Pair<JLabel, Integer>>();
 		
+		for (Pair<JLabel, Integer> par : graficosTemporales) {
+			JLabel grafico = par.getLeft();
+			int tiempo = par.getRight() - 1;
+			par.setRight(tiempo);
+			if (tiempo == 0) {
+				grafico.setVisible(false);
+				remove(grafico);
+				eliminar.add(par);
+			}
+		}
+		
+		for (Pair<JLabel, Integer> par : eliminar)
+			graficosTemporales.remove(par);
+	}
 }

@@ -2,7 +2,6 @@ package grafica;
 
 import java.awt.Container;
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 
@@ -15,7 +14,7 @@ public class Interfaz extends JFrame{
 	public Interfaz() {
 		super("juego");
 	
-		cont=getContentPane();		
+		cont = getContentPane();		
 		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1000, 746); // TODO: fix, 600 + 38 es por la tittle bar de windows
@@ -44,5 +43,4 @@ public class Interfaz extends JFrame{
 	public PanelTienda getPanelTienda() {
 		return panelTienda;
 	}
-	
 }
