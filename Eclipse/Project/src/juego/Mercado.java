@@ -1,27 +1,62 @@
 package juego;
 
-import juego.acciones.Accion;
+import juego.acciones.AccionSobreMapa;
+import juego.acciones.AccionMonetaria;
+import juego.acciones.AccionSobreAliado;
 
 public class Mercado {
 
-	private Accion accionPlaceHolder;
+	private AccionSobreAliado accionSobreAliado;
+	private AccionSobreMapa accionSobreMapa;
 	private int monedas;
 	
-	public void sumarMonedas (int m) {
+	public Mercado () {
+		monedas = 200;
+	}
+	
+	public int getMonedas () {
+		return monedas;
+	}
+	
+	public void agregarMonedas (int m) {
 		monedas += m;
+		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+	}
+	
+	public void quitarMonedas (int m) {
+		monedas -= m;
+		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
 	}
 
-	public void addToPlaceHolder(Accion a) {
-		accionPlaceHolder = a;
+	public void addAccionSobreAliado(AccionSobreAliado a) {
+		if (a.getPrecio()<=monedas) {
+			accionSobreAliado = a;
+		}
 	}
 	
-	public boolean isPlaceHolderFull () {
-		return accionPlaceHolder != null;
+	public boolean isAccionSobreAliado () {
+		return accionSobreAliado != null;
 	}
 	
-	public Accion getPlaceHolderContent () {
-		Accion a = accionPlaceHolder;
-		accionPlaceHolder = null;
+	public AccionSobreAliado getAccionSobreAliado () {
+		AccionSobreAliado a = accionSobreAliado;
+		accionSobreAliado = null;
+		return a;
+	}
+
+	public void addAccionSobreMapa(AccionSobreMapa a) {
+		if (a.getPrecio()<monedas) {
+			accionSobreMapa = a;
+		}
+	}
+	
+	public boolean isAccionSobreMapa () {
+		return accionSobreMapa != null;
+	}
+	
+	public AccionSobreMapa getAccionSobreMapa () {
+		AccionSobreMapa a = accionSobreMapa;
+		accionSobreMapa = null;
 		return a;
 	}
 	

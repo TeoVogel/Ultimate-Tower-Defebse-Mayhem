@@ -5,8 +5,9 @@ import juego.ente.Celda;
 
 public class Escudo extends PowerUp{
 	 protected int original;
-		public Escudo(Personaje p){
-			super(p,30);
+		public Escudo(){
+			super(30);
+			precio = 75;
 		}
 		
 		public void actualizar(){
@@ -17,7 +18,7 @@ public class Escudo extends PowerUp{
 			
 			if(duracion==0) {
 				afectado.setVida(original);
-				afectado.setPowerUp(new PowerUp(afectado));
+				afectado.setPowerUp(new PowerUp());
 			}
 			else duracion--;
 		}

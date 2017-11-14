@@ -4,9 +4,10 @@ import juego.ente.Personaje;
 public class CuraInstantanea extends PowerUp{
 	 protected int cura;
 
-	public CuraInstantanea(Personaje p){
-		super(p);
+	public CuraInstantanea(){
+		super();
 		cura=200;
+		precio = 75;
 	}
 	
 	public void actualizar(){
@@ -17,6 +18,6 @@ public class CuraInstantanea extends PowerUp{
 		}else {
 			afectado.setVida(vida+cura);
 		}
-		afectado.setPowerUp(new PowerUp(afectado));
+		afectado.setPowerUp(new PowerUp());
 	}
 }

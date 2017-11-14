@@ -9,27 +9,27 @@ public class FactoryEnemigo {
 	
 	// VIDA: 100 | ATAQUE:20 | CADENCIA: 25 | RANGO: 3 | VELOCIDAD: 25 
 	public static Enemigo crearClot () {
-		return new Enemigo(100, 20, 25, 3, 25, "e2");
+		return new Enemigo(100, 20, 25, 3, 25, "e2", 20);
 	}
 	
 	// VIDA: 110 | ATAQUE:25 | CADENCIA: 40 | RANGO: 3 | VELOCIDAD: 20
 	public static Enemigo crearGorefast () {
-		return new Enemigo(110, 25, 40, 3, 20, "e1");
+		return new Enemigo(110, 25, 40, 3, 20, "e1", 30);
 	}
 	
 	// VIDA: 50 | ATAQUE:35 | CADENCIA: 30 | RANGO: 1 | VELOCIDAD: 15 
 	public static Enemigo crearStalker () {
-		return new Enemigo(50, 35, 30, 1, 15, "e3");
+		return new Enemigo(50, 35, 30, 1, 15, "e3", 40);
 	}
 	
 	// VIDA: 250 | ATAQUE:25 | CADENCIA: 40 | RANGO: 1 | VELOCIDAD: 45
 	public static Enemigo crearFleshpound () {
-		return new Enemigo(250, 25, 40, 1, 45, "e5");
+		return new Enemigo(250, 25, 40, 1, 45, "e5", 75);
 	}
 	
 	// VIDA: 60 | ATAQUE:20 | CADENCIA: 40 | RANGO: 7 | VELOCIDAD: 35 
 	public static Enemigo crearHusk () {
-		return new Enemigo(60, 20, 40, 7, 35, "e4");
+		return new Enemigo(60, 20, 40, 7, 35, "e4", 50);
 	}
 
 
