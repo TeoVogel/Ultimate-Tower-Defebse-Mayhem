@@ -15,7 +15,9 @@ import juego.ente.Ente;
 import juego.Pair;
 
 public class PanelMapa extends JLabel {
-	List<Pair<JLabel, Integer>> graficosTemporales;
+	private List<Pair<JLabel, Integer>> graficosTemporales;
+	public final static int TILE_WIDTH = 100;
+	public final static int TILE_HIGHT = 100;
 	
 	public PanelMapa() {
 		super();

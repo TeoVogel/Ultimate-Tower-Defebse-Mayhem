@@ -25,6 +25,8 @@ public class RayoLaserAliado extends GraficoDisparo {
 		grafico = new JLabel(disp);
 		grafico.setBounds((int)izq.getX(), (int)izq.getY(), (int)( der.getX()-izq.getX() ), altoDisparo+10);
 		grafico.setVisible(true);
+//		panelMapa.add(grafico);
+//		panelMapa.graficoTemporal(grafico, 5);
 		Juego.getJuego().getInterfaz().getPanelMapa().add(grafico);
 		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(grafico, 5);
 	}	

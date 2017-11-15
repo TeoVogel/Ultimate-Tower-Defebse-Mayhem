@@ -27,6 +27,9 @@ public class GraficoEnte extends JLabel {
 	protected Icon image[];
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
+	public final static int BARRA_VIDA_WIDTH = 80;
+	public final static int BARRA_VIDA_HIGHT = 4;
+	
 	protected JLabel barraVida;
 	
 	protected Point pos;

@@ -28,20 +28,36 @@ public class Mapa{
 	// Crea grilla y setea todas las celdas con anterior y siguiente
 	protected void inicializarGrilla() {
 		grilla = new Celda[6][10];
+		
+		// Inicializa todas las celdas de la grilla
 		for (int i = 0; i < 6; i++)
 			for (int ii = 0; ii < 10; ii++)
 				grilla[i][ii] = new Celda(i, ii);
 		
-		for (int i = 0; i < 6; i++)
+		// Setea la celda derecha de la primer columna y la izquierda de la la ultima
+		for (int i = 0; i < 6; i++) {
 			grilla[i][0].setDer(grilla[i][1]);
-		
-		for (int i = 0; i < 6; i++)
 			grilla[i][9].setIzq(grilla[i][8]);
-			
+		}	
+		 
+		// Setea izquierda y derecha de las celdas restantes
 		for (int i = 0; i < 6; i++)
-			for (int ii = 1; ii < 9; ii++) {
-				grilla[i][ii].setDer(grilla[i][ii+1]);
-				grilla[i][ii].setIzq(grilla[i][ii-1]);
+			for (int j = 1; j < 9; j++) {
+				grilla[i][j].setDer(grilla[i][j+1]);
+				grilla[i][j].setIzq(grilla[i][j-1]);
+			}
+		
+		// Setea la celda de arriba de la ultima fila y la de abajo de la primera
+		for (int i = 0; i < 10; i++) {
+			grilla[6][i].setArriba(grilla[5][i]);
+			grilla[0][i].setAbajo(grilla[1][i]);
+		}
+		
+		// Setea arriba y abajo de las celdas restantes
+		for (int i = 1; i < 5; i++)
+			for (int j = 0; j < 10; j++) {
+				grilla[i][j].setArriba(grilla[i-1][j]);
+				grilla[i][j].setAbajo(grilla[i+1][j]);
 			}
 	}
 	
