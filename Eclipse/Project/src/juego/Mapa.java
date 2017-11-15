@@ -33,9 +33,22 @@ public class Mapa{
 		
 		// Inicializa todas las celdas de la grilla
 		for (int i = 0; i < 6; i++)
-			for (int ii = 0; ii < 10; ii++)
-				grilla[i][ii] = new Celda(i, ii);
+			for (int j = 0; j < 10; j++)
+				grilla[i][j] = new Celda(i, j);
 		
+		for (int i = 0; i < 6; i++)
+			for (int j = 0; j < 10; j++){			
+				
+				if(j != 0)
+					grilla[i][j].setIzq(grilla[i][j-1]);
+				if(j != 9)
+					grilla[i][j].setDer(grilla[i][j+1]);
+				if(i != 0)
+					grilla[i][j].setArriba(grilla[i-1][j]);
+				if(i != 6)
+					grilla[i][j].setAbajo(grilla[i+1][j]);
+			}
+		/*
 		// Setea la celda derecha de la primer columna y la izquierda de la la ultima
 		for (int i = 0; i < 6; i++) {
 			grilla[i][0].setDer(grilla[i][1]);
@@ -60,7 +73,7 @@ public class Mapa{
 			for (int j = 0; j < 10; j++) {
 				grilla[i][j].setArriba(grilla[i-1][j]);
 				grilla[i][j].setAbajo(grilla[i+1][j]);
-			}
+			}*/
 	}
 	
 	public List<Enemigo> getEnemigos () {
