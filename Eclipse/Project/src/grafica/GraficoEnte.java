@@ -50,7 +50,7 @@ public class GraficoEnte extends JLabel {
 		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
 	}
 	
-<<<<<<< HEAD
+
 	/*public GraficoEnte(Aliado a, String name) {
 		this.name = name;
 		ente = a;
@@ -70,8 +70,7 @@ public class GraficoEnte extends JLabel {
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".png");
 	}*/
 	
-=======
->>>>>>> sprint-5
+
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
@@ -172,20 +171,13 @@ public class GraficoEnte extends JLabel {
 
 		barraVida.setVisible(false);
 		this.getParent().remove(barraVida);
-<<<<<<< HEAD
-		//this.setVisible(false);
-		//this.getParent().remove(this);
+		
+		powerUp.setVisible(false);
+		this.getParent().remove(powerUp);
 	}
 	
 	public void graficarDisparo(Ente e1, Ente e2) {
 		disparo.graficar(e1.getGrafico(), e2.getGrafico());
-=======
-		powerUp.setVisible(false);
-		this.getParent().remove(powerUp);
-		
-		this.setVisible(false);
-		this.getParent().remove(this);
->>>>>>> sprint-5
 	}
 	
 }

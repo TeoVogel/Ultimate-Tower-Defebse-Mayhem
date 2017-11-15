@@ -10,14 +10,9 @@ public class FactoryAliado {
 	// public Enemigo (int vida, int ataque, int cadencia, int rango, int velocidad)
 	// public Enemigo (int vida, Celda celda, int ataque, int cadencia, int rango, int velocidad)
 	
-
-	/** Quedo asi despues de un merge, es para testear**/
 	// VIDA: 100 | ATAQUE: 20 | CADENCIA: 20 | RANGO: 2 | PRECIO: 0 
 	public static Aliado crearSupport () {
-//		return new Aliado(100, 20, 20, 2, 20, "a1");
-		Aliado aliado = new Aliado(100, 20, 20, 2, 0, "a1");
-		aliado.setPowerUp(new Escudo(aliado));
-		return aliado;
+		return new Aliado(100, 20, 20, 2, 20, "a1");
 	}
 	
 	// VIDA: 80 | ATAQUE: 30 | CADENCIA: 35 | RANGO: 2 | PRECIO: 0
