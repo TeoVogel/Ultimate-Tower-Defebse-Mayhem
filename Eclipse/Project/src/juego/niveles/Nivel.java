@@ -21,7 +21,7 @@ public abstract class Nivel extends Thread {
 	public Nivel (Mapa m, int d) {
 		mapa = m;
 		dificultad = d;
-		System.out.println(""+dificultad);
+		System.out.println("Nuevo nivel con dificultad: "+dificultad);
 		
 		random = new Random();
 		
@@ -29,7 +29,7 @@ public abstract class Nivel extends Thread {
 		enemigos = new ArrayList<Enemigo>();
 		for (int i = 0; i < size; i++) {
 			enemigos.add(FactoryEnemigo.crearEnemigo(calcularTipoEnemigo()));
-			System.out.println(""+size);
+			System.out.println("Creando " + size + " enemigos");
 		}
 		
 	}
@@ -61,31 +61,41 @@ public abstract class Nivel extends Thread {
 				int fila = random.nextInt(6);
 				int columna = 8 + random.nextInt(2);
 				mapa.addEnemigo(enemigos.get(i++), fila, columna);
+				System.out.println("Spawneando enemigo, quedan " + enemigos.size() + ". Mi contador es " + i);
 				sleep(2000);
 			}
+			
+			System.out.println("No hay más que spawnear");
 			
 			// controlar cuando el nivel fue completado
 			List<Enemigo> muertos = new ArrayList<Enemigo>();			
 			while (enemigos.size() > 0) {
+				System.out.println("Hola?");
 				i = 0;
 				while (i < enemigos.size()) {
+					System.out.println("Hola2?");
 					if (enemigos.get(i).getVida() <= 0) {
-						muertos.add(enemigos.get(i++));
+						muertos.add(enemigos.get(i));
 					}
+					i++;
 				}
+				System.out.println("Hola3?");
 				
 				for (Enemigo e : muertos) {
 					enemigos.remove(e);
+					System.out.println("Enemigo muerto, quedan " + enemigos.size());
 				}
 				sleep(3000);
 			}
-			
-			Juego.getJuego().siguienteNivel();
+
 			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		System.out.println("Nivel terminado, siguiente!");
+		Juego.getJuego().siguienteNivel();
 	}
 	
 }

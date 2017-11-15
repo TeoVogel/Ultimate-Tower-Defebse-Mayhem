@@ -29,7 +29,6 @@ public class GraficoEnemigo extends GraficoEnte {
 				int velocidad = enemigo.getVelocidad();
 				
 				float delta = 100f / velocidad;
-				System.out.println(""+delta);
 				int pixeles = (int) delta;
 				acumuladorPixeles += delta - pixeles;
 				
