@@ -4,6 +4,8 @@ import java.awt.Container;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
+import juego.Juego;
+
 
 public class Interfaz extends JFrame{
 	private Container cont;
@@ -11,7 +13,7 @@ public class Interfaz extends JFrame{
 	private PanelMenu panelMenu;
 	private PanelTienda panelTienda;
 	
-	public Interfaz() {
+	public Interfaz(Juego juego) {
 		super("juego");
 	
 		cont = getContentPane();		
@@ -22,7 +24,7 @@ public class Interfaz extends JFrame{
 
 		panelMapa = new PanelMapa();
 		panelMenu = new PanelMenu();
-		panelTienda = new PanelTienda();
+		panelTienda = new PanelTienda(juego.getMercado());
 		
 		cont.add(panelMenu, BorderLayout.NORTH);
 		cont.add(panelMapa, BorderLayout.CENTER);

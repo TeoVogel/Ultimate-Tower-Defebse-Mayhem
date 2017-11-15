@@ -1,6 +1,7 @@
 package juego.ente;
 
 import grafica.GraficoEnte;
+import juego.ente.EfectoCelda.EfectoCelda;
 import juego.visitor.Visitor;
 
 /*
@@ -12,6 +13,14 @@ public class Obstaculo extends Ente {
 	public Obstaculo(int vida) {
 		super(vida);
 		grafica = new GraficoEnte(this, "a2");
+	}
+	
+	public void afectar(EfectoCelda e){
+		e.aplicar(this);
+	}
+	
+	public void desafectar(EfectoCelda e){
+		e.desaplicar(this);
 	}
 	
 	public void accept(Visitor v) {

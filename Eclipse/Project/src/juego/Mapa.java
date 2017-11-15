@@ -15,11 +15,13 @@ public class Mapa{
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
+	private List<Celda> celdas;
 	private PanelMapa panelMapa;
 	
 	public Mapa (PanelMapa p) {
 		enemigos = new ArrayList<Enemigo>();
 		aliados = new ArrayList<Aliado>();
+		celdas = new ArrayList<Celda>();
 		panelMapa = p;
 		inicializarGrilla();
 	}
@@ -66,37 +68,29 @@ public class Mapa{
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		enemigos.add(e);
-		panelMapa.addEnte(e);
-		e.init(grilla[fila][columna]);
-	}
-	
-	@Deprecated
-	public void addEnemigo (Enemigo e) {
-		enemigos.add(e);
-		panelMapa.addEnte(e);
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			enemigos.add(e);
+			panelMapa.addEnte(e);
+			e.init(c);
+		}
 	}
 
 	public void addAliado (Aliado a, int fila, int columna) {
-		aliados.add(a);
-		panelMapa.addEnte(a);
-		a.init(grilla[fila][columna]);
-	}
-	
-	@Deprecated
-	public void addAliado (Aliado a) {
-		aliados.add(a);
-		panelMapa.addEnte(a);
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			aliados.add(a);
+			panelMapa.addEnte(a);
+			a.init(c);
+		}
 	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
-		panelMapa.addEnte(o);
-		o.init(grilla[fila][columna]);
-	}
-	
-	@Deprecated
-	public void addObstaculo (Obstaculo o) {
-		panelMapa.addEnte(o);
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			panelMapa.addEnte(o);
+			o.init(c);
+		}
 	}
 	
 	public void mover() {
@@ -121,8 +115,10 @@ public class Mapa{
 			Aliado a = aliados.get(i);
 			if (a.getVida() <= 0) 
 				aliadosMuertos.add(i);
-			else 
+			else{ 
 				a.atacar();
+				a.actualizarPowerUp();
+			}
 		}
 		for (Integer i : aliadosMuertos) {
 			aliados.remove((int) i);
@@ -133,11 +129,26 @@ public class Mapa{
 			Enemigo e = enemigos.get(i);
 			if (e.getVida() <= 0) 
 				enemigosMuertos.add(i);
-			else
+			else {
 				e.atacar();
+				e.actualizarPowerUp();
+			}
 		}
 		for (Integer i : enemigosMuertos) {
+			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());
 			enemigos.remove((int) i);
+		}
+	}
+	
+	public void actualizarEfectos(){
+		List<Integer> efectosTerminados = new ArrayList<Integer>();
+		for (int i=0; i<celdas.size(); i++) {
+			Celda c= celdas.get(i);
+			if(c.actualizarEfecto())
+				efectosTerminados.add(i);
+		}
+		for(Integer i: efectosTerminados){
+			celdas.remove((int) i);
 		}
 	}
 	

@@ -35,7 +35,7 @@ public class Juego {
 	
 	private Juego(){
 		mercado = new Mercado();
-		interfaz= new Interfaz();
+		interfaz= new Interfaz(this);
 		mapa = new Mapa(interfaz.getPanelMapa());
 		int i = 0;		
 		

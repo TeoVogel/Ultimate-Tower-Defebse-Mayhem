@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import juego.Constantes;
 import juego.Juego;
+import juego.ente.Celda;
 import juego.ente.Ente;
 import juego.Pair;
 
@@ -29,10 +30,11 @@ public class PanelMapa extends JLabel {
 		addMouseListener(new MouseAdapter() {
 			@Override
             public void mousePressed(MouseEvent e) {
-				if (Juego.getJuego().getMercado().isPlaceHolderFull()) {
+				if (Juego.getJuego().getMercado().isAccionSobreMapa()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					Juego.getJuego().getMercado().getPlaceHolderContent().ejecutar(fila, columna);
+					Celda c = Juego.getJuego().getMapa().getCelda(fila, columna);
+					Juego.getJuego().getMercado().getAccionSobreMapa().ejecutar(c);
 				}
             }
 			

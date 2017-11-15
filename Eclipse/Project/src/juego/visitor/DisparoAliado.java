@@ -12,6 +12,7 @@ public class DisparoAliado implements Visitor{
 	protected Aliado aliado;
 	protected int rango;
 	protected Celda celda;
+	protected boolean ataco;
 	
 	public DisparoAliado(Aliado a) {
 		aliado = a;
@@ -20,10 +21,11 @@ public class DisparoAliado implements Visitor{
 	public void reset() {
 		rango = aliado.getRango();
 		celda = aliado.getCelda();
+		ataco = false;
 	}
 	
 	public void visit(Enemigo e) {
-		aliado.setCad(0);
+		ataco = true;
 		e.quitarVida(aliado.getAtaque());
 		aliado.getGrafico().graficarDisparo(aliado, e);
 	}
@@ -50,5 +52,9 @@ public class DisparoAliado implements Visitor{
 				e = celda.getEnte();
 		} while (rango > 0 && celda != null && e == null);
 		return e;
+	}
+	
+	public boolean ataco(){
+		return ataco;
 	}
 }

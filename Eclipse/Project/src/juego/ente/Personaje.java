@@ -13,11 +13,24 @@ public abstract class Personaje extends Ente{
 	
 	public Personaje(int vida, int ataque, int cadencia, int rango) {
 		super(vida);
+<<<<<<< HEAD
 		estado = new PowerUp(this);
+=======
+<<<<<<< HEAD
+		estado = new PowerUp();
+=======
+		estado = new PowerUp(this);
+>>>>>>> 5e5b9404466d4cb3868da5460e39b12c44774bdc
+>>>>>>> sprint-5
 		this.ataque = ataque;
 		this.cadencia = cadencia;
 		cad = 0;
 		this.rango = rango;
+	}
+	
+	public void init (Celda c) {
+		super.init(c);
+		grafica.setPowerUp(estado);
 	}
 	
 	public int getAtaque() {
@@ -28,7 +41,7 @@ public abstract class Personaje extends Ente{
 		return cadencia;
 	}
 	
-	public int getVidaTotal(){
+	public int getVidaTotal() {
 		return vidaTotal;
 	}
 	
@@ -36,19 +49,37 @@ public abstract class Personaje extends Ente{
 		return rango;
 	}
 	
-	public void setPowerUp(PowerUp p){
-		estado= p;
+	public void setRango(int r) {
+		rango = r;
 	}
 	
-	public void setVida(int v){
-		vida=v;
+<<<<<<< HEAD
+	public void setPowerUp(PowerUp p) {
+		estado = p;
+<<<<<<< HEAD
+		p.setPersonaje(this);
+=======
+	public void setPowerUp(PowerUp p) {
+		estado = p;
+>>>>>>> 5e5b9404466d4cb3868da5460e39b12c44774bdc
+=======
+		grafica.setPowerUp(p);
+>>>>>>> efectos-graficamente
+	}
+	
+	public void setVida(int v) {
+		vida = v;
 	}
 	
 	public void setAtaque(int a) {
-		ataque=a;
+		ataque = a;
 	}
 	
+<<<<<<< HEAD
 	public void setCadencia(int c){
+=======
+	public void setCadencia(int c) {
+>>>>>>> sprint-5
 		cadencia = c;
 	} 
 	
@@ -56,7 +87,22 @@ public abstract class Personaje extends Ente{
 		cad = c;
 	}
 	
-	public void atacar(){
+	public void actualizarPowerUp() {
 		estado.actualizar();
 	}
+	
+	public void atacar() {
+		if (cad == cadencia-1) { 
+			if(enviarVisitor())
+				cad = 0;
+		} else 
+			cad = (cad+1)%(cadencia);
+	}
+	
+	public boolean enviarVisitor() {
+		v.reset();
+		accept(v);
+		return v.ataco();
+	}
+
 }

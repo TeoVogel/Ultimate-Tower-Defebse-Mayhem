@@ -1,21 +1,48 @@
 package juego.ente.powerup;
+
+import juego.ente.Comprable;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+
 import juego.ente.Personaje;
 
-public class PowerUp {
+public class PowerUp implements Comprable {
 	protected Personaje afectado;
 	protected int duracion;
 	protected int duracionMax;
-	
-	public PowerUp(Personaje p) {
-		afectado=p;
-		duracion=0;
+	protected int precio;
+
+	protected Icon img;
+
+	// TODO: En un merge aparecio otro constructor...
+	public PowerUp() {
+		duracion = 0;
+		precio = 50;
+		img = new ImageIcon();
 	}
 	
-	protected PowerUp(Personaje p, int d) {
-		afectado=p;
-		duracionMax=d;
-		duracion=d;
+	protected PowerUp(int d) {
+		duracionMax = d;
+		duracion =  d;
+		precio = 50;
+		img = new ImageIcon();
 	}
+	
+	public void setPersonaje (Personaje p) {
+		afectado = p;
+	}
+	
 	public void actualizar() {}
+
+	@Override
+	public int getPrecio() {
+		return precio;
+	}
+	
+	public Icon getImg () {
+		return img;
+	}
 	
 }
