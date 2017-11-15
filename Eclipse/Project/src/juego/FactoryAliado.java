@@ -16,7 +16,7 @@ public class FactoryAliado {
 	public static Aliado crearSupport () {
 //		return new Aliado(100, 20, 20, 2, 20, "a1");
 		Aliado aliado = new Aliado(100, 20, 20, 2, 0, "a1");
-		aliado.setPowerUp(new Escudo(aliado));
+		aliado.setPowerUp(new Escudo());
 		return aliado;
 	}
 	

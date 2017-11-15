@@ -25,8 +25,7 @@ public class PanelMapa extends JLabel{
 				if (Juego.getJuego().getMercado().isAccionSobreMapa()) {
 					int columna = e.getX()/100,
 					    fila    = e.getY()/100;
-					Celda c = Juego.getJuego().getMapa().getCelda(fila, columna);
-					Juego.getJuego().getMercado().getAccionSobreMapa().ejecutar(c);
+					Juego.getJuego().getMercado().getAccionSobreMapa().ejecutar(fila, columna);
 				}
             }
 			
