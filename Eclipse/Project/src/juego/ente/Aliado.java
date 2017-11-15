@@ -4,7 +4,6 @@ import juego.ente.EfectoCelda.EfectoCelda;
 import juego.visitor.DisparoAliado;
 import juego.visitor.Visitor;
 import grafica.GraficoAliado;
-import grafica.GraficoEnte;
 
 public class Aliado extends Personaje implements Comprable {
 	
