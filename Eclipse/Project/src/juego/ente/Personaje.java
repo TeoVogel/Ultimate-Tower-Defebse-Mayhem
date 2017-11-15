@@ -36,6 +36,10 @@ public abstract class Personaje extends Ente{
 		return rango;
 	}
 	
+	public void setRango(int r){
+		rango = r;
+	}
+	
 	public void setPowerUp(PowerUp p){
 		estado= p;
 	}
@@ -56,7 +60,16 @@ public abstract class Personaje extends Ente{
 		cad = c;
 	}
 	
-	public void atacar(){
+	public void actualizarPowerUp(){
 		estado.actualizar();
 	}
+	
+	public void atacar(){}
+	
+	public boolean enviarVisitor(){
+		v.reset();
+		accept(v);
+		return v.ataco();
+	}
+
 }
