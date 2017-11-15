@@ -40,41 +40,15 @@ public class Mapa{
 		for (int i = 0; i < 6; i++)
 			for (int j = 0; j < 10; j++){			
 				
-				if(j != 0)
+				if(j != 0) // si no se encuentra en el extremo izquierdo
 					grilla[i][j].setIzq(grilla[i][j-1]);
-				if(j != 9)
+				if(j != 9)// si no se encuentra en el extremo derecho
 					grilla[i][j].setDer(grilla[i][j+1]);
-				if(i != 0)
+				if(i != 0)// si no se encuentra en el extremo superior
 					grilla[i][j].setArriba(grilla[i-1][j]);
-				if(i != 6)
+				if(i != 5)// si no se encuentra en el extremo inferior
 					grilla[i][j].setAbajo(grilla[i+1][j]);
 			}
-		/*
-		// Setea la celda derecha de la primer columna y la izquierda de la la ultima
-		for (int i = 0; i < 6; i++) {
-			grilla[i][0].setDer(grilla[i][1]);
-			grilla[i][9].setIzq(grilla[i][8]);
-		}	
-		 
-		// Setea izquierda y derecha de las celdas restantes
-		for (int i = 0; i < 6; i++)
-			for (int j = 1; j < 9; j++) {
-				grilla[i][j].setDer(grilla[i][j+1]);
-				grilla[i][j].setIzq(grilla[i][j-1]);
-			}
-		
-		// Setea la celda de arriba de la ultima fila y la de abajo de la primera
-		for (int i = 0; i < 10; i++) {
-			grilla[6][i].setArriba(grilla[5][i]);
-			grilla[0][i].setAbajo(grilla[1][i]);
-		}
-		
-		// Setea arriba y abajo de las celdas restantes
-		for (int i = 1; i < 5; i++)
-			for (int j = 0; j < 10; j++) {
-				grilla[i][j].setArriba(grilla[i-1][j]);
-				grilla[i][j].setAbajo(grilla[i+1][j]);
-			}*/
 	}
 	
 	public List<Enemigo> getEnemigos () {

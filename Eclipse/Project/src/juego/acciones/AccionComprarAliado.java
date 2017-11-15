@@ -14,7 +14,7 @@ public class AccionComprarAliado implements AccionSobreMapa {
 	}
 	
 	public void ejecutar (Celda c){
-		Juego.getJuego().getMapa().addAliado(aliado, c);
+		Juego.getJuego().getMapa().addAliado(aliado, c.fila, c.columna);
 		Juego.getJuego().getMercado().quitarMonedas(getPrecio());
 	}
 	
