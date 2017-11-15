@@ -31,6 +31,9 @@ public class AliadoDosCeldas extends Aliado {
 	@Override
 	public void atacar() {
 		super.atacar();
-		cad =  
+		cad =  (cad-1)%(cadencia);
+		celda = celdaInferior;
+		super.atacar();
+		celda = celdaInferior.getArriba();
 	}
 }
