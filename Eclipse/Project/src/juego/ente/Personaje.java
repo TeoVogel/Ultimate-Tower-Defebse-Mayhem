@@ -82,6 +82,7 @@ public abstract class Personaje extends Ente{
 			cad = (cad+1)%(cadencia);
 	}
 	
+	// Es para poder forzar un ataque sin modificar la cadencia
 	public boolean enviarVisitor() {
 		v.reset();
 		accept(v);

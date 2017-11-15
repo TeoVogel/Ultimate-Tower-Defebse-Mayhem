@@ -32,7 +32,7 @@ public class FactoryAliado {
 	
 	// VIDA: 100 | ATAQUE: 15 | CADENCIA: 25 | RANGO: 8 | PRECIO: 0
 	public static Aliado crearTanque () {
-		return new Aliado(200, 30, 30, 2, 50, "a5");
+		return new Aliado(200, 30, 30, 2, 1, "a6");
 	}
 	
 	public static Aliado crearAliado (String tipo) {
