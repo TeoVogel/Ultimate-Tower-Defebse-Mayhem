@@ -1,6 +1,7 @@
 package juego.ente;
 import juego.visitor.*;
 import juego.ente.powerup.*;
+import grafica.GraficoPersonaje;
 
 public abstract class Personaje extends Ente{
 	
@@ -23,7 +24,7 @@ public abstract class Personaje extends Ente{
 	public void init (Celda c) {
 		super.init(c);
 		setPowerUp( new PowerUp() );
-		grafica.setPowerUp(estado);
+		( (GraficoPersonaje) grafica).setPowerUp(estado);
 	}
 	
 	public int getAtaque() {
@@ -49,7 +50,7 @@ public abstract class Personaje extends Ente{
 	public void setPowerUp(PowerUp p) {
 		estado = p;
 		p.setPersonaje(this);
-		grafica.setPowerUp(p);
+		( (GraficoPersonaje) grafica).setPowerUp(p);
 	}
 	
 	public void setVida(int v) {

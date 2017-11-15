@@ -125,16 +125,6 @@ public class GraficoEnte extends JLabel {
 		actualizarVida();
 	}
 	
-	//TODO: graficoPersonaje
-	public void setPowerUp (PowerUp p) {
-		if (!inicializado) {
-			return;
-		}
-		
-		powerUp.setIcon(p.getImg());
-		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
-	}
-	
 	public void actualizarVida () {		
 		if (!inicializado) {
 			return;
