@@ -20,11 +20,11 @@ public class Aliado extends Personaje implements Comprable {
 		v.visit(this);
 	}
 	
-	public void afectar(EfectoCelda e){
+	public void afectar(EfectoCelda e) {
 		e.aplicar(this);
 	}
 	
-	public void desafectar(EfectoCelda e){
+	public void desafectar(EfectoCelda e) {
 		e.desaplicar(this);
 	}
 	

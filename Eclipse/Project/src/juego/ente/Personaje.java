@@ -13,7 +13,7 @@ public abstract class Personaje extends Ente{
 	
 	public Personaje(int vida, int ataque, int cadencia, int rango) {
 		super(vida);
-		estado= new PowerUp(this);
+		estado = new PowerUp(this);
 		this.ataque = ataque;
 		this.cadencia = cadencia;
 		cad = 0;
@@ -28,7 +28,7 @@ public abstract class Personaje extends Ente{
 		return cadencia;
 	}
 	
-	public int getVidaTotal(){
+	public int getVidaTotal() {
 		return vidaTotal;
 	}
 	
@@ -36,43 +36,43 @@ public abstract class Personaje extends Ente{
 		return rango;
 	}
 	
-	public void setRango(int r){
+	public void setRango(int r) {
 		rango = r;
 	}
 	
-	public void setPowerUp(PowerUp p){
-		estado= p;
+	public void setPowerUp(PowerUp p) {
+		estado = p;
 	}
 	
-	public void setVida(int v){
-		vida=v;
+	public void setVida(int v) {
+		vida = v;
 	}
 	
 	public void setAtaque(int a) {
-		ataque=a;
+		ataque = a;
 	}
 	
-	public void setCadencia(int c){
-		cadencia=c;
+	public void setCadencia(int c) {
+		cadencia = c;
 	} 
 	
 	public void setCad(int c) {
 		cad = c;
 	}
 	
-	public void actualizarPowerUp(){
+	public void actualizarPowerUp() {
 		estado.actualizar();
 	}
 	
-	public void atacar(){
+	public void atacar() {
 		if (cad == cadencia-1) { 
-			if( enviarVisitor() )
+			if(enviarVisitor())
 				cad = 0;
 		} else 
 			cad = (cad+1)%(cadencia);
 	}
 	
-	public boolean enviarVisitor(){
+	public boolean enviarVisitor() {
 		v.reset();
 		accept(v);
 		return v.ataco();
