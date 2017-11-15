@@ -45,7 +45,7 @@ public class Mapa{
 					grilla[i][j].setDer(grilla[i][j+1]);
 				if(i != 0)// si no se encuentra en el extremo superior
 					grilla[i][j].setArriba(grilla[i-1][j]);
-				if(i != 6)// si no se encuentra en el extremo inferior
+				if(i != 5)// si no se encuentra en el extremo inferior
 					grilla[i][j].setAbajo(grilla[i+1][j]);
 			}
 	}

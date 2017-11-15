@@ -8,7 +8,7 @@ public abstract class GraficoDisparo {
 	protected PanelMapa panelMapa;
 	
 	public GraficoDisparo() {
-		panelMapa = Juego.getJuego().getInterfaz().getPanelMapa();
+		//panelMapa = Juego.getJuego().getInterfaz().getPanelMapa();
 	}
 	
 	public abstract void graficar(GraficoEnte ataca, GraficoEnte recibe);

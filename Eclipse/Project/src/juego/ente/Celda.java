@@ -3,7 +3,7 @@ package juego.ente;
 import juego.ente.EfectoCelda.EfectoCelda;
 
 public class Celda {
-	
+
 	public final int fila, columna;
 	
 	private EfectoCelda efecto;
