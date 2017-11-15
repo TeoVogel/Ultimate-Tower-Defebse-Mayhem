@@ -20,15 +20,6 @@ public class Aliado extends Personaje implements Comprable {
 		v.visit(this);
 	}
 	
-	public void atacar() {
-		super.atacar();
-		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
-			if( enviarVisitor() )
-				cad = 0;
-		} else 
-			cad = (cad+1)%(cadencia);
-	}
-	
 	public void afectar(EfectoCelda e){
 		e.aplicar(this);
 	}

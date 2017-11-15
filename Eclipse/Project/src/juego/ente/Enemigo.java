@@ -22,14 +22,6 @@ public class Enemigo extends Personaje {
 		v.visit(this);
 	}
 	
-	public void atacar() {
-		super.atacar();
-		if (cad == cadencia-1) { // Cad se resetea en el visitor si el ataque fue exitoso
-			if( enviarVisitor() )
-				cad = 0;
-		} else cad = (cad+1)%(cadencia);
-	}
-	
 	public void mover() {
 		((GraficoEnemigo)grafica).mover();
 		if (vel == velocidad-1) {

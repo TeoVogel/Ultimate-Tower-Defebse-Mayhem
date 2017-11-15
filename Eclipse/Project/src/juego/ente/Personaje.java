@@ -64,7 +64,13 @@ public abstract class Personaje extends Ente{
 		estado.actualizar();
 	}
 	
-	public void atacar(){}
+	public void atacar(){
+		if (cad == cadencia-1) { 
+			if( enviarVisitor() )
+				cad = 0;
+		} else 
+			cad = (cad+1)%(cadencia);
+	}
 	
 	public boolean enviarVisitor(){
 		v.reset();
