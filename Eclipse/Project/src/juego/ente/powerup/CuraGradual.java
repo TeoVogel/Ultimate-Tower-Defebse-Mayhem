@@ -3,11 +3,10 @@ package juego.ente.powerup;
 import juego.ente.Personaje;
 
 public class CuraGradual extends PowerUp{
-	 protected int cura;
+	 protected final static int cura = 25;
 
 		public CuraGradual(Personaje p){
-			super(50);
-			cura=25;
+			super(50, 40);
 		}
 		
 		public void actualizar(){

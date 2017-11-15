@@ -1,13 +1,10 @@
 package juego.ente.powerup;
-import juego.ente.Personaje;
 
 public class CuraInstantanea extends PowerUp{
-	 protected int cura;
+	 protected final static int cura = 200;
 
 	public CuraInstantanea(){
-		super();
-		cura=200;
-		precio = 75;
+		super(1, 75);
 	}
 	
 	public void actualizar(){
