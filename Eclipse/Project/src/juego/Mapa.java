@@ -60,12 +60,6 @@ public class Mapa{
 		}
 	}
 
-<<<<<<< HEAD
-	public void addAliado (Aliado a, Celda c) {
-		aliados.add(a);
-		panelMapa.addEnte(a);
-		a.init(c);
-=======
 	public void addAliado (Aliado a, int fila, int columna) {
 		Celda c = grilla[fila][columna];
 		if( c.getEnte() == null ){
@@ -73,7 +67,6 @@ public class Mapa{
 			panelMapa.addEnte(a);
 			a.init(c);
 		}
->>>>>>> f6f2d355f69c12985340b09f2c3cbe4713290c17
 	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {

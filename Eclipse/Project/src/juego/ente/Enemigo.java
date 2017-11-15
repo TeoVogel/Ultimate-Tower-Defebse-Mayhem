@@ -47,11 +47,11 @@ public class Enemigo extends Personaje {
 		}
 	}	
 	
-	public void afectar(EfectoCelda e){
+	public void afectar(EfectoCelda e) {
 		e.aplicar(this);
 	}
 	
-	public void desafectar(EfectoCelda e){
+	public void desafectar(EfectoCelda e) {
 		e.desaplicar(this);
 	}
 	
@@ -59,14 +59,13 @@ public class Enemigo extends Personaje {
 		return velocidad;
 	}
 	
-<<<<<<< HEAD
-	public void setVelocidad(int v){
-		velocidad=v;
-=======
+	public void setVelocidad(int v) {
+		velocidad = v;
+	}
+	
 	public int getMonedas () {
 		Random r = new Random();
 		int m = r.nextInt(20);
 		return monedas - 10 + m;
->>>>>>> Mercado
 	}
 }
