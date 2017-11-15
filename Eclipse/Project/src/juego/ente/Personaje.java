@@ -13,19 +13,8 @@ public abstract class Personaje extends Ente{
 	
 	public Personaje(int vida, int ataque, int cadencia, int rango) {
 		super(vida);
-<<<<<<< HEAD
-<<<<<<< HEAD
-		estado = new PowerUp(this);
-=======
-<<<<<<< HEAD
-		estado = new PowerUp();
-=======
-		estado = new PowerUp(this);
->>>>>>> 5e5b9404466d4cb3868da5460e39b12c44774bdc
->>>>>>> sprint-5
-=======
+
 		setPowerUp( new PowerUp() );
->>>>>>> sprint-5
 		this.ataque = ataque;
 		this.cadencia = cadencia;
 		cad = 0;
@@ -71,11 +60,8 @@ public abstract class Personaje extends Ente{
 		ataque = a;
 	}
 	
-<<<<<<< HEAD
-	public void setCadencia(int c){
-=======
 	public void setCadencia(int c) {
->>>>>>> sprint-5
+
 		cadencia = c;
 	} 
 	
