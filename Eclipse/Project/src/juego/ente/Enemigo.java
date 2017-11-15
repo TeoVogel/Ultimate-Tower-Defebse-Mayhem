@@ -68,4 +68,8 @@ public class Enemigo extends Personaje {
 		int m = r.nextInt(20);
 		return monedas - 10 + m;
 	}
+	
+	public GraficoEnemigo getGrafico() {
+		return (GraficoEnemigo) grafica;
+	}
 }

@@ -10,7 +10,7 @@ import juego.ente.EstadoEnteMover;
 import juego.ente.EstadoEnteParar;
 import juego.Constantes;
 
-public class GraficoEnemigo extends GraficoEnte {
+public class GraficoEnemigo extends GraficoPersonaje {
 	
 	private float acumuladorPixeles;
 	

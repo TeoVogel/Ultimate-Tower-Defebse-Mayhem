@@ -25,7 +25,6 @@ public class GraficoPersonaje extends GraficoEnte {
 	
 	public GraficoPersonaje(Ente e, String n) {
 		super(e, n);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void graficarDisparo(Ente e1, Ente e2) {
