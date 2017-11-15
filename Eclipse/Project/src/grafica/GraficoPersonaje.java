@@ -6,10 +6,11 @@ import juego.ente.powerup.PowerUp;
 
 public class GraficoPersonaje extends GraficoEnte {
 
-	protected GraficoDisparo disparo = new RayoLaserAliado();
+	protected GraficoDisparo disparo;
 	
-	public GraficoPersonaje(Ente e, String n) {
+	public GraficoPersonaje(Ente e, String n , GraficoDisparo d) {
 		super(e, n);
+		disparo= d;
 	}
 	
 	public void setPowerUp (PowerUp p) {

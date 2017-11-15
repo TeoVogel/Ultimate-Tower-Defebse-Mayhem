@@ -11,7 +11,7 @@ import juego.Juego;
 public class GraficoAliado extends GraficoPersonaje {
 
 	public GraficoAliado(Ente e, String n) {
-		super(e, n);
+		super(e, n , new RayoLaserAliado() );
 	}
 	
 	public void initGrafico (Celda c) {
