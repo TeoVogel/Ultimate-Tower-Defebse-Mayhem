@@ -11,7 +11,7 @@ import juego.Juego;
 import grafica.GraficoEnte;
 
 public class RayoLaserAliado extends GraficoDisparo {
-	protected ImageIcon disparo = new ImageIcon(Constantes.path+"atacks/disparo_aliado.png");
+	protected ImageIcon disparo = new ImageIcon(Constantes.path+"atacks/disp_aliado.png");
 	JLabel grafico;
 	
 	
@@ -38,5 +38,6 @@ public class RayoLaserAliado extends GraficoDisparo {
 		grafico.setVisible(true);
 		Juego.getJuego().getInterfaz().getPanelMapa().add(grafico);
 		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(grafico, 5);
+		grafico.repaint();
 	}	
 }

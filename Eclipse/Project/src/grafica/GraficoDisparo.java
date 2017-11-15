@@ -7,7 +7,7 @@ public abstract class GraficoDisparo {
 	
 	protected PanelMapa panelMapa;
 	
-	public GraficoDisparo() {
+	public GraficoDisparo(){
 		//panelMapa = Juego.getJuego().getInterfaz().getPanelMapa();
 	}
 	
