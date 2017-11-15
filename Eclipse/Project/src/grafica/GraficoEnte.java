@@ -16,6 +16,7 @@ import juego.ente.Ente;
 import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteParar;
 import juego.ente.Obstaculo;
+import juego.ente.powerup.PowerUp;
 import juego.Constantes;
 import juego.Juego;
 
@@ -27,6 +28,7 @@ public class GraficoEnte extends JLabel {
 	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
 	protected JLabel barraVida;
+	protected JLabel powerUp;
 	
 	protected Point pos;
 	
@@ -44,24 +46,6 @@ public class GraficoEnte extends JLabel {
 		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".gif"); //_frente
 	}
 	
-	/*public GraficoEnte(Aliado a, String name) {
-		this.name = name;
-		ente = a;
-		image = new Icon[4];
-		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
-		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
-		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif");
-		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif");
-	}
-	
-	public GraficoEnte(Obstaculo o, String name) {
-		this.name = name;
-		ente = o;
-		image = new Icon[2];
-		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
-		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
-	}*/
-	
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
@@ -72,6 +56,10 @@ public class GraficoEnte extends JLabel {
 		barraVida.setOpaque(true);
 		
 	    this.getParent().add(barraVida);
+	    
+		powerUp = new JLabel();
+		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		this.getParent().add(powerUp);
 	    
 	    inicializado = true;
 	    
@@ -106,7 +94,17 @@ public class GraficoEnte extends JLabel {
 		
 		setIcon(image[estado.getIndex()]);
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		actualizarVida();
+	}
+	
+	public void setPowerUp (PowerUp p) {
+		if (!inicializado) {
+			return;
+		}
+		
+		powerUp.setIcon(p.getImg());
+		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 	}
 	
 	public void actualizarVida () {		
@@ -138,7 +136,8 @@ public class GraficoEnte extends JLabel {
 		Celda celda = ente.getCelda();
 		pos.setLocation(celda.columna*Constantes.width, 
 						celda.fila*Constantes.height);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
+		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);	
+		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
 	}
 	
 	public void morir () {
@@ -151,11 +150,11 @@ public class GraficoEnte extends JLabel {
 
 		barraVida.setVisible(false);
 		this.getParent().remove(barraVida);
+		powerUp.setVisible(false);
+		this.getParent().remove(powerUp);
+		
 		this.setVisible(false);
 		this.getParent().remove(this);
 	}
-	
-	//TODO esto es horrible
-	private GraficoEnte getThis() { return this; }
 	
 }

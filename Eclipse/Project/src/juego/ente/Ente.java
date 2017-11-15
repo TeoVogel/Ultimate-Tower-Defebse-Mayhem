@@ -1,6 +1,8 @@
 package juego.ente;
 
 import grafica.GraficoEnte;
+
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import juego.visitor.Visitor;
 import juego.ente.EfectoCelda.EfectoCelda;

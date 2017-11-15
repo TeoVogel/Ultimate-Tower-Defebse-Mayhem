@@ -24,6 +24,11 @@ public abstract class Personaje extends Ente{
 		this.rango = rango;
 	}
 	
+	public void init (Celda c) {
+		super.init(c);
+		grafica.setPowerUp(estado);
+	}
+	
 	public int getAtaque() {
 		return ataque;
 	}
@@ -47,11 +52,15 @@ public abstract class Personaje extends Ente{
 <<<<<<< HEAD
 	public void setPowerUp(PowerUp p){
 		estado= p;
+<<<<<<< HEAD
 		p.setPersonaje(this);
 =======
 	public void setPowerUp(PowerUp p) {
 		estado = p;
 >>>>>>> 5e5b9404466d4cb3868da5460e39b12c44774bdc
+=======
+		grafica.setPowerUp(p);
+>>>>>>> efectos-graficamente
 	}
 	
 	public void setVida(int v) {

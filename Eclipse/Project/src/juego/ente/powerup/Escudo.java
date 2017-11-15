@@ -1,13 +1,27 @@
 package juego.ente.powerup;
 
 import juego.ente.Personaje;
+<<<<<<< HEAD
+=======
+
+import javax.swing.ImageIcon;
+
+import juego.Constantes;
+import juego.ente.Celda;
+>>>>>>> efectos-graficamente
 
 public class Escudo extends PowerUp{
 <<<<<<< HEAD
 	 protected int original;
+<<<<<<< HEAD
 		public Escudo(){
 			super(30);
 			precio = 75;
+=======
+		public Escudo(Personaje p){
+			super(p,30);
+			img = new ImageIcon(Constantes.path + "powerup_shield_aliado" + ".png");
+>>>>>>> efectos-graficamente
 		}
 =======
 	 protected int vidaOriginal;
