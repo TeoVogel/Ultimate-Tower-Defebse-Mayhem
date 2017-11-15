@@ -5,6 +5,7 @@ import java.util.List;
 
 import grafica.PanelMapa;
 import juego.ente.Aliado;
+import juego.ente.AliadoDosCeldas;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
@@ -97,6 +98,25 @@ public class Mapa{
 			a.init(c);
 		}
 	}
+	
+	public void addAliado (AliadoDosCeldas a, int fila, int columna) {
+		Celda c = grilla[fila][columna];
+		if (c.getEnte() != null) {
+			
+			if (c.getAbajo().getEnte() != null) {
+				aliados.add(a);
+				panelMapa.addEnte(a);
+				a.init(c);
+				return;
+			}
+			
+			if (c.getArriba().getEnte() != null) {
+				aliados.add(a);
+				panelMapa.addEnte(a);
+				a.init(c.getArriba());
+			}
+	}
+}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
 		Celda c = grilla[fila][columna];

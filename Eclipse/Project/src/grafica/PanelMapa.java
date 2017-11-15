@@ -44,6 +44,7 @@ public class PanelMapa extends JLabel {
 	}
 	
 	public void addEnte(Ente e) {
+		// TODO: por que no add(e) ?
 		JLabel grafico = e.getGrafico();
 		add(grafico);
 		grafico.repaint();
