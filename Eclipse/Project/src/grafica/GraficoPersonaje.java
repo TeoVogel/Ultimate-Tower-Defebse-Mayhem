@@ -21,10 +21,14 @@ import juego.Juego;
 
 public class GraficoPersonaje extends GraficoEnte {
 
+	protected GraficoDisparo disparo = new RayoLaserAliado();
+	
 	public GraficoPersonaje(Ente e, String n) {
 		super(e, n);
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public void graficarDisparo(Ente e1, Ente e2) {
+		disparo.graficar(e1.getGrafico(), e2.getGrafico());
+	}
 }

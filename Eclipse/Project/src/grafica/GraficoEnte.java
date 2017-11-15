@@ -24,15 +24,14 @@ public class GraficoEnte extends JLabel {
 
 	protected Ente ente;
 	protected String name;
-	protected GraficoDisparo disparo = new RayoLaserAliado();
 	protected Icon image[];
-	protected String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
+	protected static final String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
 	
-	public final static int BARRA_VIDA_WIDTH = 80;
-	public final static int BARRA_VIDA_HIGHT = 4;
+	public static final int BARRA_VIDA_WIDTH = 80;
+	public static final int BARRA_VIDA_HIGHT = 4;
 	
 	protected JLabel barraVida;
-	protected JLabel powerUp;
+	protected JLabel powerUp;	// TODO: no deberia estar en graficoPersonaje?
 	
 	protected Point pos;
 	
@@ -80,8 +79,12 @@ public class GraficoEnte extends JLabel {
 		barraVida.setBackground(Color.GREEN);
 		barraVida.setOpaque(true);
 		
+		// TODO: cual es la diferencia entre las 2?
 	    this.getParent().add(barraVida);
+//	    add(barraVida);
 	    
+	    
+	    // TODO: no tendria que estar en grafico graficoPersonaje?
 		powerUp = new JLabel();
 		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		this.getParent().add(powerUp);
@@ -123,6 +126,7 @@ public class GraficoEnte extends JLabel {
 		actualizarVida();
 	}
 	
+	//TODO: graficoPersonaje
 	public void setPowerUp (PowerUp p) {
 		if (!inicializado) {
 			return;
@@ -157,6 +161,7 @@ public class GraficoEnte extends JLabel {
 		return c.fila * 100;
 	}
 	
+	// TODO: no tendria que estar en GraficoEnemigo?
 	public void centrar () {
 		Celda celda = ente.getCelda();
 		pos.setLocation(celda.columna*Constantes.width, 
@@ -174,10 +179,6 @@ public class GraficoEnte extends JLabel {
 		
 		powerUp.setVisible(false);
 		this.getParent().remove(powerUp);
-	}
-	
-	public void graficarDisparo(Ente e1, Ente e2) {
-		disparo.graficar(e1.getGrafico(), e2.getGrafico());
 	}
 	
 }
