@@ -11,7 +11,6 @@ import juego.ente.Personaje;
 public class PowerUp implements Comprable {
 	protected Personaje afectado;
 	protected int duracion;
-	protected int duracionMax;
 	protected int precio;
 
 	protected Icon img;
@@ -19,14 +18,13 @@ public class PowerUp implements Comprable {
 	// TODO: En un merge aparecio otro constructor...
 	public PowerUp() {
 		duracion = 0;
-		precio = 50;
+		precio = 0;
 		img = new ImageIcon();
 	}
 	
-	protected PowerUp(int d) {
-		duracionMax = d;
+	protected PowerUp(int d, int p) {
 		duracion =  d;
-		precio = 50;
+		precio = p;
 		img = new ImageIcon();
 	}
 	
