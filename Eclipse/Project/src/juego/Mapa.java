@@ -52,20 +52,36 @@ public class Mapa{
 	}
 	
 	public void addEnemigo (Enemigo e, int fila, int columna) {
-		enemigos.add(e);
-		panelMapa.addEnte(e);
-		e.init(grilla[fila][columna]);
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			enemigos.add(e);
+			panelMapa.addEnte(e);
+			e.init(c);
+		}
 	}
 
+<<<<<<< HEAD
 	public void addAliado (Aliado a, Celda c) {
 		aliados.add(a);
 		panelMapa.addEnte(a);
 		a.init(c);
+=======
+	public void addAliado (Aliado a, int fila, int columna) {
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			aliados.add(a);
+			panelMapa.addEnte(a);
+			a.init(c);
+		}
+>>>>>>> f6f2d355f69c12985340b09f2c3cbe4713290c17
 	}
 
 	public void addObstaculo (Obstaculo o, int fila, int columna) {
-		panelMapa.addEnte(o);
-		o.init(grilla[fila][columna]);
+		Celda c = grilla[fila][columna];
+		if( c.getEnte() == null ){
+			panelMapa.addEnte(o);
+			o.init(c);
+		}
 	}
 	
 	public void mover() {
@@ -90,8 +106,10 @@ public class Mapa{
 			Aliado a = aliados.get(i);
 			if (a.getVida() <= 0) 
 				aliadosMuertos.add(i);
-			else 
+			else{ 
 				a.atacar();
+				a.actualizarPowerUp();
+			}
 		}
 		for (Integer i : aliadosMuertos) {
 			aliados.remove((int) i);
@@ -102,8 +120,10 @@ public class Mapa{
 			Enemigo e = enemigos.get(i);
 			if (e.getVida() <= 0) 
 				enemigosMuertos.add(i);
-			else
+			else {
 				e.atacar();
+				e.actualizarPowerUp();
+			}
 		}
 		for (Integer i : enemigosMuertos) {
 			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());

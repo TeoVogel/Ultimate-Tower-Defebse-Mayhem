@@ -12,6 +12,7 @@ public class DisparoEnemigo implements Visitor {
 	protected Enemigo enemigo;
 	protected int rango;
 	protected Celda celda;
+	protected boolean ataco;
 	
 	public DisparoEnemigo(Enemigo e) {
 		enemigo = e;
@@ -20,6 +21,7 @@ public class DisparoEnemigo implements Visitor {
 	public void reset() {
 		celda = enemigo.getCelda();
 		rango = enemigo.getRango();
+		ataco = false;
 	}
 	
 	public void visit(Enemigo e) {
@@ -29,13 +31,13 @@ public class DisparoEnemigo implements Visitor {
 	}
 	
 	public void visit(Aliado a) {
-		enemigo.setCad(0);
+		ataco = true;
 		a.quitarVida(enemigo.getAtaque());
 		new GraficoDisparo(a.getGrafico(), enemigo.getGrafico(), "izq");
 	}
 	
 	public void visit(Obstaculo o) {
-		enemigo.setCad(0);
+		ataco = true;
 		o.quitarVida(enemigo.getAtaque());
 		new GraficoDisparo(o.getGrafico(), enemigo.getGrafico(), "izq");
 	}
@@ -50,5 +52,9 @@ public class DisparoEnemigo implements Visitor {
 				e = celda.getEnte();
 		} while (rango > 0 && celda != null && e == null);
 		return e;
+	}
+	
+	public boolean ataco(){
+		return ataco;
 	}
 }
