@@ -31,4 +31,8 @@ public class Aliado extends Personaje implements Comprable {
 	public int getPrecio() {
 		return precio;
 	}
+	
+	public GraficoAliado getGrafico() {
+		return (GraficoAliado) grafica;
+	}
 }

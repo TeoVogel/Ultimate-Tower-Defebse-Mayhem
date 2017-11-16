@@ -1,30 +1,37 @@
-	package grafica;
+package grafica;
 
-import java.awt.Color;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
-import juego.ente.Aliado;
-import juego.ente.Celda;
-import juego.ente.Enemigo;
-import juego.ente.Ente;
-import juego.ente.EstadoEnte;
-import juego.ente.EstadoEnteParar;
-import juego.ente.Obstaculo;
 import juego.Constantes;
 import juego.Juego;
+import juego.ente.Ente;
+import juego.ente.EstadoEnte;
+import juego.ente.EstadoEnteAtacar;
+import juego.ente.EstadoEnteParar;
+import juego.ente.powerup.PowerUp;
 
 public class GraficoPersonaje extends GraficoEnte {
 
-	public GraficoPersonaje(Ente e, String n) {
+	protected GraficoDisparo disparo;
+	
+	public GraficoPersonaje(Ente e, String n , GraficoDisparo d) {
 		super(e, n);
-		// TODO Auto-generated constructor stub
+		disparo= d;
+	}
+	
+	public void setPowerUp (PowerUp p) {
+		if (!inicializado) {
+			return;
+		}
+		
+		powerUp.setIcon(p.getImg());
+		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 	}
 
-	
+	public void graficarDisparo(Ente e1, Ente e2) {
+		EstadoEnte estado = new EstadoEnteAtacar();
+		e1.setEstado(estado);
+		cambiarGrafico(estado);
+		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 10);
+		disparo.graficar(e1.getGrafico(), e2.getGrafico());
+//		cambiarGrafico(new EstadoEnteParar());
+	}
 }

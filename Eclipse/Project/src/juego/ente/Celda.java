@@ -3,12 +3,12 @@ package juego.ente;
 import juego.ente.EfectoCelda.EfectoCelda;
 
 public class Celda {
-	
+
 	public final int fila, columna;
 	
 	private EfectoCelda efecto;
 	private Ente ente;
-	private Celda izq, der;
+	private Celda izq, der, arriba, abajo;
 	
 	public Celda (int f, int c) {
 		fila = f;
@@ -24,12 +24,28 @@ public class Celda {
 		return der;
 	}
 	
+	public Celda getArriba() {
+		return arriba;
+	}
+	
+	public Celda getAbajo() {
+		return abajo;
+	}
+	
 	public void setIzq(Celda c) {
 		izq = c;
 	}
 	
 	public void setDer(Celda c) {
 		der = c;
+	}
+	
+	public void setArriba(Celda c) {
+		arriba = c;
+	}
+	
+	public void setAbajo(Celda c) {
+		abajo = c;
 	}
 	
 	public Ente getEnte() {

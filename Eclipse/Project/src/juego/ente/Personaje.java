@@ -1,10 +1,11 @@
 package juego.ente;
 import juego.visitor.*;
 import juego.ente.powerup.*;
+import grafica.GraficoPersonaje;
 
 public abstract class Personaje extends Ente{
 	
-	protected PowerUp estado;
+	protected PowerUp powerUp;
 	protected int ataque;
 	protected int rango;
 	protected int cadencia, cad;
@@ -13,6 +14,7 @@ public abstract class Personaje extends Ente{
 	
 	public Personaje(int vida, int ataque, int cadencia, int rango) {
 		super(vida);
+
 		this.ataque = ataque;
 		this.cadencia = cadencia;
 		cad = 0;
@@ -21,10 +23,10 @@ public abstract class Personaje extends Ente{
 	
 	public void init (Celda c) {
 		super.init(c);
-		if (estado == null) {
-			estado = new PowerUp();
+		if (powerUp == null) {
+			powerUp = new PowerUp();
 		}
-		grafica.setPowerUp(estado);
+		((GraficoPersonaje) grafica).setPowerUp(powerUp);
 	}
 	
 	public int getAtaque() {
@@ -48,9 +50,9 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void setPowerUp(PowerUp p) {
-		estado = p;
+		powerUp = p;
 		p.setPersonaje(this);
-		grafica.setPowerUp(p);
+		((GraficoPersonaje) grafica).setPowerUp(p);
 	}
 	
 	public void setVida(int v) {
@@ -62,6 +64,7 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void setCadencia(int c) {
+
 		cadencia = c;
 	} 
 	
@@ -70,9 +73,8 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void actualizarPowerUp() {
-		if (estado != null) {
-			estado.actualizar();
-		}
+		if (powerUp != null)
+			powerUp.actualizar();
 	}
 	
 	public void atacar() {
@@ -83,6 +85,7 @@ public abstract class Personaje extends Ente{
 			cad = (cad+1)%(cadencia);
 	}
 	
+	// Es para poder forzar un ataque sin modificar la cadencia
 	public boolean enviarVisitor() {
 		v.reset();
 		accept(v);

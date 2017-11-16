@@ -5,6 +5,7 @@ import java.util.List;
 
 import grafica.PanelMapa;
 import juego.ente.Aliado;
+import juego.ente.AliadoDosCeldas;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
@@ -31,20 +32,23 @@ public class Mapa{
 	// Crea grilla y setea todas las celdas con anterior y siguiente
 	protected void inicializarGrilla() {
 		grilla = new Celda[6][10];
+		
+		// Inicializa todas las celdas de la grilla
 		for (int i = 0; i < 6; i++)
-			for (int ii = 0; ii < 10; ii++)
-				grilla[i][ii] = new Celda(i, ii);
+			for (int j = 0; j < 10; j++)
+				grilla[i][j] = new Celda(i, j);
 		
 		for (int i = 0; i < 6; i++)
-			grilla[i][0].setDer(grilla[i][1]);
-		
-		for (int i = 0; i < 6; i++)
-			grilla[i][9].setIzq(grilla[i][8]);
-			
-		for (int i = 0; i < 6; i++)
-			for (int ii = 1; ii < 9; ii++) {
-				grilla[i][ii].setDer(grilla[i][ii+1]);
-				grilla[i][ii].setIzq(grilla[i][ii-1]);
+			for (int j = 0; j < 10; j++){			
+				
+				if(j != 0) // si no se encuentra en el extremo izquierdo
+					grilla[i][j].setIzq(grilla[i][j-1]);
+				if(j != 9)// si no se encuentra en el extremo derecho
+					grilla[i][j].setDer(grilla[i][j+1]);
+				if(i != 0)// si no se encuentra en el extremo superior
+					grilla[i][j].setArriba(grilla[i-1][j]);
+				if(i != 5)// si no se encuentra en el extremo inferior
+					grilla[i][j].setAbajo(grilla[i+1][j]);
 			}
 		
 	}
@@ -74,6 +78,25 @@ public class Mapa{
 		}
 		return false;
 	}
+	
+	public void addAliado (AliadoDosCeldas a, int fila, int columna) {
+		Celda c = grilla[fila][columna];
+		if (c.getEnte() != null) {
+			
+			if (c.getAbajo().getEnte() != null) {
+				aliados.add(a);
+				panelMapa.addEnte(a);
+				a.init(c);
+				return;
+			}
+			
+			if (c.getArriba().getEnte() != null) {
+				aliados.add(a);
+				panelMapa.addEnte(a);
+				a.init(c.getArriba());
+			}
+	}
+}
 
 	public boolean addObstaculo (Obstaculo o, int fila, int columna) {
 		Celda c = grilla[fila][columna];

@@ -33,13 +33,13 @@ public class DisparoEnemigo implements Visitor {
 	public void visit(Aliado a) {
 		ataco = true;
 		a.quitarVida(enemigo.getAtaque());
-		new GraficoDisparo(a.getGrafico(), enemigo.getGrafico(), "izq");
+		enemigo.getGrafico().graficarDisparo(a, enemigo);
 	}
 	
 	public void visit(Obstaculo o) {
 		ataco = true;
 		o.quitarVida(enemigo.getAtaque());
-		new GraficoDisparo(o.getGrafico(), enemigo.getGrafico(), "izq");
+		enemigo.getGrafico().graficarDisparo(o, enemigo);
 	}
 	
 	//Busca la primer celda (a la izquierda) que contenga un ente dentro del rango de ataque

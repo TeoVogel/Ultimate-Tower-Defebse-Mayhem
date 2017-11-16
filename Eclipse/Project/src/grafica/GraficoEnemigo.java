@@ -1,23 +1,18 @@
 package grafica;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Ente;
 import juego.ente.EstadoEnteMover;
 import juego.ente.EstadoEnteParar;
-import juego.Constantes;
 
-public class GraficoEnemigo extends GraficoEnte {
+public class GraficoEnemigo extends GraficoPersonaje {
 	
 	private float acumuladorPixeles;
 	
 	public GraficoEnemigo(Enemigo e, String name) {
-		super(e, name);
-	}
-	
+		super(e, name,  new RayoLaserEnemigo());
+	}	
 	
 	public void mover() {
 		Enemigo enemigo = (Enemigo) ente;

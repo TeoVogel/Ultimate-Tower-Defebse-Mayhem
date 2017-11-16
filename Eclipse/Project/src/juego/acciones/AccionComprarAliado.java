@@ -13,8 +13,8 @@ public class AccionComprarAliado implements AccionSobreMapa {
 		aliado = FactoryAliado.crearAliado(tipo);
 	}
 	
-	public void ejecutar (int fila, int columna){
-		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
+	public void ejecutar (Celda c){
+		Juego.getJuego().getMapa().addAliado(aliado, c.fila, c.columna);
 		Juego.getJuego().getMercado().quitarMonedas(getPrecio());
 	}
 	

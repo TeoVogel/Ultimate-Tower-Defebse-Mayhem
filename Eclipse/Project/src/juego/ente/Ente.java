@@ -54,6 +54,7 @@ public abstract class Ente {
 		grafica.actualizarVida();
 		if (vida <= 0) {
 			// TODO: Matar bien al chabon, probablemente haya que redefinir
+			estado = new EstadoEnteMorir();
 			grafica.morir();
 			celda.setEnte(null);
 			celda = null;
