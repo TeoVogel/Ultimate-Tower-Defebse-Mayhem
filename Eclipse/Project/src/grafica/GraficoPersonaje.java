@@ -1,7 +1,9 @@
 package grafica;
 
 import juego.Constantes;
+import juego.Juego;
 import juego.ente.Ente;
+import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteAtacar;
 import juego.ente.EstadoEnteParar;
 import juego.ente.powerup.PowerUp;
@@ -25,7 +27,10 @@ public class GraficoPersonaje extends GraficoEnte {
 	}
 
 	public void graficarDisparo(Ente e1, Ente e2) {
-		cambiarGrafico(new EstadoEnteAtacar());
+		EstadoEnte estado = new EstadoEnteAtacar();
+		e1.setEstado(estado);
+		cambiarGrafico(estado);
+		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 10);
 		disparo.graficar(e1.getGrafico(), e2.getGrafico());
 //		cambiarGrafico(new EstadoEnteParar());
 	}

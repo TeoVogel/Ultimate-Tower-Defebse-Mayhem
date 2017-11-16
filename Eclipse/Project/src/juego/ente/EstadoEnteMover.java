@@ -1,5 +1,7 @@
 package juego.ente;
 
+import grafica.GraficoEnte;
+
 public class EstadoEnteMover extends EstadoEnte {
 	
 	public EstadoEnteMover () {
@@ -9,5 +11,7 @@ public class EstadoEnteMover extends EstadoEnte {
 	public boolean enMovimiento () {
 		return true;
 	}
-
+	
+	public void doAction(GraficoEnte e) {}
+	
 }

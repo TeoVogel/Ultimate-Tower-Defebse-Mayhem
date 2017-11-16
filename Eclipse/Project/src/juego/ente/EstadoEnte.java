@@ -1,5 +1,7 @@
 package juego.ente;
 
+import grafica.GraficoEnte;
+
 public abstract class EstadoEnte {
 	
 	protected int index;
@@ -11,5 +13,7 @@ public abstract class EstadoEnte {
 	public int getIndex () {
 		return index;
 	}
+	
+	public abstract void doAction(GraficoEnte e);
 	
 }

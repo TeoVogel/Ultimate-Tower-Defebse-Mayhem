@@ -25,7 +25,7 @@ public class GraficoEnte extends JLabel implements Grafico {
 	protected Ente ente;
 	protected String name;
 	protected Icon image[];
-	protected static final String[] sufijosArchivos = {"_parar", "_morir", "_atacar", "_mover", "_frente"};
+	protected static final String[] sufijosArchivos = {"_parar", "muerte", "_atacar", "_mover", "_frente"};
 	
 	public static final int BARRA_VIDA_WIDTH = 80;
 	public static final int BARRA_VIDA_HIGHT = 4;
@@ -38,8 +38,7 @@ public class GraficoEnte extends JLabel implements Grafico {
 	protected boolean inicializado = false;
 	
 	public void action() {
-		// TODO: quizas haya que implementar algo como ente.getEstado().doAction()
-		cambiarGrafico(ente.getEstado());
+		ente.getEstado().doAction(this);
 	}
 	
 	public GraficoEnte(Ente e, String n) {
@@ -48,7 +47,7 @@ public class GraficoEnte extends JLabel implements Grafico {
 		
 		image = new Icon[5];
 		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
-		image[1] = new ImageIcon(Constantes.path + "muerte" + ".gif"); //_morir
+		image[1] = new ImageIcon(Constantes.path	 +    sufijosArchivos[1] + ".gif"); // muerte
 		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
 		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
 		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
@@ -79,7 +78,7 @@ public class GraficoEnte extends JLabel implements Grafico {
 		inicializado = true;
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
 		
 		barraVida = new JLabel();
 		barraVida.setBackground(Color.GREEN);
@@ -89,7 +88,7 @@ public class GraficoEnte extends JLabel implements Grafico {
 	    
 	    // TODO: no tendria que estar en grafico graficoPersonaje?
 		powerUp = new JLabel();
-		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		powerUp.setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
 		this.getParent().add(powerUp);
 	    
 		actualizarVida();
@@ -113,17 +112,18 @@ public class GraficoEnte extends JLabel implements Grafico {
 	@Deprecated
 	protected void cambiarGrafico(int dir) {
 		setIcon(image[dir]);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
 	}
 	
-	protected void cambiarGrafico(EstadoEnte estado) {
+	public void cambiarGrafico(EstadoEnte estado) {
 		if (!inicializado) {
 			return;
 		}
 		
 		setIcon(image[estado.getIndex()]);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
-		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
+		powerUp.setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
+		repaint();
 		actualizarVida();
 	}
 	
@@ -135,12 +135,12 @@ public class GraficoEnte extends JLabel implements Grafico {
 		int max = ente.getMaxVida();
 		int vida = ente.getVida();
 		
-		int barraLenght = Constantes.barraVidaWidth*vida/max;
+		int barraLenght = BARRA_VIDA_WIDTH*vida/max;
 		
-		int barraWidthOffset = (Constantes.width - barraLenght)/2;
-		int barraHeightOffset = Constantes.height - Constantes.barraVidaHeight/2;
+		int barraWidthOffset = (PanelMapa.TILE_WIDTH - barraLenght)/2;
+		int barraHeightOffset = PanelMapa.TILE_HIGHT - BARRA_VIDA_HIGHT/2;
 		
-		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, Constantes.barraVidaHeight);
+		barraVida.setBounds(pos.x + barraWidthOffset, pos.y + barraHeightOffset, barraLenght, BARRA_VIDA_HIGHT);
 	}
 	
 	
@@ -155,21 +155,22 @@ public class GraficoEnte extends JLabel implements Grafico {
 	// TODO: no tendria que estar en GraficoEnemigo?
 	public void centrar () {
 		Celda celda = ente.getCelda();
-		pos.setLocation(celda.columna*Constantes.width, 
-						celda.fila*Constantes.height);
-		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);	
-		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);		
+		pos.setLocation(celda.columna*PanelMapa.TILE_WIDTH, 
+						celda.fila*PanelMapa.TILE_HIGHT);
+		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);	
+		powerUp.setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);		
 	}
 	
 	public void morir () {
-		setIcon(image[1]);
-		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 7);
-
 		barraVida.setVisible(false);
 		this.getParent().remove(barraVida);
 		
 		powerUp.setVisible(false);
 		this.getParent().remove(powerUp);
+		
+		setIcon(image[1]);
+		repaint();
+		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 7);
 	}
 	
 }

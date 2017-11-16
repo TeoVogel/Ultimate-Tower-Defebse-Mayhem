@@ -5,7 +5,7 @@ import grafica.GraficoPersonaje;
 
 public abstract class Personaje extends Ente{
 	
-	protected PowerUp estado;
+	protected PowerUp powerUp;
 	protected int ataque;
 	protected int rango;
 	protected int cadencia, cad;
@@ -24,7 +24,7 @@ public abstract class Personaje extends Ente{
 	public void init (Celda c) {
 		super.init(c);
 		setPowerUp(new PowerUp());
-		((GraficoPersonaje) grafica).setPowerUp(estado);
+		((GraficoPersonaje) grafica).setPowerUp(powerUp);
 	}
 	
 	public int getAtaque() {
@@ -48,7 +48,7 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void setPowerUp(PowerUp p) {
-		estado = p;
+		powerUp = p;
 		p.setPersonaje(this);
 		((GraficoPersonaje) grafica).setPowerUp(p);
 	}
@@ -71,7 +71,7 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void actualizarPowerUp() {
-		estado.actualizar();
+		powerUp.actualizar();
 	}
 	
 	public void atacar() {

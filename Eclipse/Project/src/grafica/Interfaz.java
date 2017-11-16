@@ -19,8 +19,8 @@ public class Interfaz extends JFrame{
 		cont = getContentPane();		
 		cont.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1000, 746); // TODO: fix, 600 + 38 es por la tittle bar de windows
-		
+		setBounds(0, 0, 1006, 730); // TODO: fix, 600 + 38 es por la tittle bar de windows
+		setResizable(false);
 
 		panelMapa = new PanelMapa();
 		panelMenu = new PanelMenu();
