@@ -69,7 +69,10 @@ public abstract class Nivel extends Thread {
 			while (i < enemigos.size()) {
 				int fila = random.nextInt(6);
 				int columna = 8 + random.nextInt(2);
-				mapa.addEnemigo(enemigos.get(i++), fila, columna);
+				boolean insertado = mapa.addEnemigo(enemigos.get(i), fila, columna);
+				if (insertado) {
+					i++;
+				}
 				System.out.println("Spawneando enemigo, quedan " + enemigos.size() + ". Mi contador es " + i);
 				sleep(2000);
 			}

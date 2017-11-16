@@ -51,30 +51,36 @@ public class Mapa{
 		return enemigos;
 	}
 	
-	public void addEnemigo (Enemigo e, int fila, int columna) {
+	public boolean addEnemigo (Enemigo e, int fila, int columna) {
 		Celda c = grilla[fila][columna];
 		if( c.getEnte() == null ){
 			enemigos.add(e);
 			panelMapa.addEnte(e);
 			e.init(c);
+			return true;
 		}
+		return false;
 	}
 
-	public void addAliado (Aliado a, int fila, int columna) {
+	public boolean addAliado (Aliado a, int fila, int columna) {
 		Celda c = grilla[fila][columna];
 		if( c.getEnte() == null ){
 			aliados.add(a);
 			panelMapa.addEnte(a);
 			a.init(c);
+			return true;
 		}
+		return false;
 	}
 
-	public void addObstaculo (Obstaculo o, int fila, int columna) {
+	public boolean addObstaculo (Obstaculo o, int fila, int columna) {
 		Celda c = grilla[fila][columna];
 		if( c.getEnte() == null ){
 			panelMapa.addEnte(o);
 			o.init(c);
+			return true;
 		}
+		return false;
 	}
 	
 	public void mover() {
