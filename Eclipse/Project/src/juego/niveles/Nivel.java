@@ -70,16 +70,13 @@ public abstract class Nivel extends Thread {
 			// controlar cuando el nivel fue completado
 			List<Enemigo> muertos = new ArrayList<Enemigo>();			
 			while (enemigos.size() > 0) {
-				System.out.println("Hola?");
 				i = 0;
 				while (i < enemigos.size()) {
-					System.out.println("Hola2?");
 					if (enemigos.get(i).getVida() <= 0) {
 						muertos.add(enemigos.get(i));
 					}
 					i++;
 				}
-				System.out.println("Hola3?");
 				
 				for (Enemigo e : muertos) {
 					enemigos.remove(e);
