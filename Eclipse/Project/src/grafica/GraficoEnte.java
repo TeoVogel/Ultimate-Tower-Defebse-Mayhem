@@ -144,11 +144,11 @@ public class GraficoEnte extends JLabel implements Grafico {
 	}
 	
 	
-	private int calcularX (Celda c) {
+	protected int calcularX (Celda c) {
 		return c.columna * 100;
 	}
 	
-	private int calcularY (Celda c) {
+	protected int calcularY (Celda c) {
 		return c.fila * 100;
 	}
 	

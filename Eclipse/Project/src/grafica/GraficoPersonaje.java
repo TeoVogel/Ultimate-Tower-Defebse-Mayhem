@@ -14,7 +14,7 @@ public class GraficoPersonaje extends GraficoEnte {
 	
 	public GraficoPersonaje(Ente e, String n , GraficoDisparo d) {
 		super(e, n);
-		disparo= d;
+		disparo = d;
 	}
 	
 	public void setPowerUp (PowerUp p) {
@@ -23,7 +23,7 @@ public class GraficoPersonaje extends GraficoEnte {
 		}
 		
 		powerUp.setIcon(p.getImg());
-		powerUp.setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
+		powerUp.setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
 	}
 
 	public void graficarDisparo(Ente e1, Ente e2) {
@@ -32,6 +32,5 @@ public class GraficoPersonaje extends GraficoEnte {
 		cambiarGrafico(estado);
 		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 10);
 		disparo.graficar(e1.getGrafico(), e2.getGrafico());
-//		cambiarGrafico(new EstadoEnteParar());
 	}
 }
