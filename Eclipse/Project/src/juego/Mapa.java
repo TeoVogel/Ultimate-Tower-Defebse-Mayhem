@@ -8,6 +8,7 @@ import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
+import juego.ente.EfectoCelda.Acido;
 
 public class Mapa{
 
@@ -45,6 +46,7 @@ public class Mapa{
 				grilla[i][ii].setDer(grilla[i][ii+1]);
 				grilla[i][ii].setIzq(grilla[i][ii-1]);
 			}
+		
 	}
 	
 	public List<Enemigo> getEnemigos () {

@@ -45,6 +45,7 @@ public class Celda {
 	public boolean actualizarEfecto(){
 		int duracion=efecto.actualizar(ente);
 		if(duracion == 0) {
+			efecto.getGrafico().eliminar();
 			efecto= new EfectoCelda();
 			return true;
 		}
@@ -62,6 +63,7 @@ public class Celda {
 	
 	public void setEfecto(EfectoCelda efecto) {
 		this.efecto = efecto;
+		efecto.getGrafico().initGrafico(this);
 	}
 
 }

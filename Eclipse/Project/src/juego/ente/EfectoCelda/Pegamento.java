@@ -1,6 +1,7 @@
 package juego.ente.EfectoCelda;
 import juego.ente.Ente;
 import juego.ente.Obstaculo;
+import grafica.GraficoEfectoCelda;
 import juego.ente.Aliado;
 import juego.ente.Enemigo;
 
@@ -12,6 +13,7 @@ public class Pegamento extends EfectoCelda{
 		super();
 		duracion=40;
 		velocidad=0;
+		grafico = new GraficoEfectoCelda("efecto2.gif");
 	}
 	
 	public void afectar(Ente e) {

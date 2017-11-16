@@ -1,6 +1,7 @@
 package juego.ente.EfectoCelda;
 import juego.ente.Ente;
 import juego.ente.Obstaculo;
+import grafica.GraficoEfectoCelda;
 import juego.ente.Aliado;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
@@ -13,6 +14,7 @@ public class Acido extends EfectoCelda{
 		super();
 		duracion=40;
 		corrosion=3;
+		grafico = new GraficoEfectoCelda("efecto1.gif");
 	}
 	
 	public void afectar(Ente e) {}

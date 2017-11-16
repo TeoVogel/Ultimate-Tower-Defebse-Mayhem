@@ -1,12 +1,14 @@
 package juego.ente.EfectoCelda;
 import juego.ente.Ente;
 import juego.ente.Enemigo;
+import grafica.GraficoEfectoCelda;
 import juego.ente.Aliado;
 import juego.ente.Obstaculo;
 
 public class EfectoCelda {
 	
 	protected int duracion;
+	protected GraficoEfectoCelda grafico;
 	
 	public EfectoCelda(){
 		duracion= 0;
@@ -30,5 +32,9 @@ public class EfectoCelda {
 	public void desaplicar(Enemigo e){}
 	
 	public void desaplicar(Obstaculo o){}
+	
+	public GraficoEfectoCelda getGrafico () {
+		return grafico;
+	}
 	
 }
