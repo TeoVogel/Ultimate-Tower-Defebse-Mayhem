@@ -75,7 +75,6 @@ public class GraficoEnte extends JLabel implements Grafico {
 	
 
 	public void initGrafico (Celda c) {
-		inicializado = true;
 		pos = new Point(calcularX(c), calcularY(c));
 		setIcon(image[0]);
 		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
@@ -90,7 +89,9 @@ public class GraficoEnte extends JLabel implements Grafico {
 		powerUp = new JLabel();
 		powerUp.setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, PanelMapa.TILE_HIGHT);
 		this.getParent().add(powerUp);
-	    
+		
+
+		inicializado = true;	    
 		actualizarVida();
 		
 		/*
