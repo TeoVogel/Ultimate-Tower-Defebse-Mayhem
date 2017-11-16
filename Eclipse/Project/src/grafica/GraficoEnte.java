@@ -20,7 +20,7 @@ import juego.ente.powerup.PowerUp;
 import juego.Constantes;
 import juego.Juego;
 
-public class GraficoEnte extends JLabel {
+public class GraficoEnte extends JLabel implements Grafico {
 
 	protected Ente ente;
 	protected String name;
@@ -36,6 +36,11 @@ public class GraficoEnte extends JLabel {
 	protected Point pos;
 	
 	protected boolean inicializado = false;
+	
+	public void action() {
+		// TODO: quizas haya que implementar algo como ente.getEstado().doAction()
+		cambiarGrafico(ente.getEstado());
+	}
 	
 	public GraficoEnte(Ente e, String n) {
 		name = n;
@@ -80,10 +85,7 @@ public class GraficoEnte extends JLabel {
 		barraVida.setBackground(Color.GREEN);
 		barraVida.setOpaque(true);
 		
-		// TODO: cual es la diferencia entre las 2?
 	    this.getParent().add(barraVida);
-//	    add(barraVida);
-	    
 	    
 	    // TODO: no tendria que estar en grafico graficoPersonaje?
 		powerUp = new JLabel();

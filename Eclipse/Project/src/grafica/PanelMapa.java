@@ -16,13 +16,13 @@ import juego.ente.Ente;
 import juego.Pair;
 
 public class PanelMapa extends JLabel {
-	private List<Pair<JLabel, Integer>> graficosTemporales;
+	private List<Pair<Grafico, Integer>> graficosTemporales;
 	public final static int TILE_WIDTH = 100;
 	public final static int TILE_HIGHT = 100;
 	
 	public PanelMapa() {
 		super();
-		graficosTemporales = new ArrayList<Pair<JLabel, Integer>>();
+		graficosTemporales = new ArrayList<Pair<Grafico, Integer>>();
 		setBounds(0, 88, 1000, 638);
 		setLayout(null);
 		setIcon(new ImageIcon(Constantes.path + "fondo.png"));
@@ -52,25 +52,24 @@ public class PanelMapa extends JLabel {
 	
 	// Agrega graficos a una lista para que sean
 	// eliminados despues de un tiempo, no los agrega al panel
-	public void graficoTemporal(JLabel grafico, int tiempo) {
-		graficosTemporales.add(new Pair<JLabel, Integer>(grafico, tiempo));
+	public void graficoTemporal(Grafico grafico, int tiempo) {
+		graficosTemporales.add(new Pair<Grafico, Integer>(grafico, tiempo));
 	}
 	
 	public void actualizarGraficosTemporales() {
-		List<Pair<JLabel, Integer>> eliminar = new ArrayList<Pair<JLabel, Integer>>();
+		List<Pair<Grafico, Integer>> eliminar = new ArrayList<Pair<Grafico, Integer>>();
 		
-		for (Pair<JLabel, Integer> par : graficosTemporales) {
-			JLabel grafico = par.getLeft();
+		for (Pair<Grafico, Integer> par : graficosTemporales) {
+			Grafico grafico = par.getLeft();
 			int tiempo = par.getRight() - 1;
 			par.setRight(tiempo);
 			if (tiempo == 0) {
-				grafico.setVisible(false);
-				remove(grafico);
+				grafico.action();
 				eliminar.add(par);
 			}
 		}
 		
-		for (Pair<JLabel, Integer> par : eliminar)
+		for (Pair<Grafico, Integer> par : eliminar)
 			graficosTemporales.remove(par);
 	}
 }

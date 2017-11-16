@@ -9,14 +9,19 @@ import javax.swing.JLabel;
 import juego.Constantes;
 import juego.Juego;
 
-public abstract class GraficoDisparo {
+public abstract class GraficoDisparo implements Grafico {
 	protected int altoDisparo = 10;
 	protected int corrimiento;
 	
 	protected ImageIcon disparo;
 	protected JLabel grafico;
 	
-	public GraficoDisparo(){
+	public GraficoDisparo() {}
+	
+	public void action() {
+		grafico.setVisible(false);
+		grafico.repaint();
+		grafico.getParent().remove(grafico);
 	}
 	
 	public void graficar(GraficoEnte ataca, GraficoEnte recibe){
@@ -28,7 +33,7 @@ public abstract class GraficoDisparo {
 		
 		X = recibe.getX();									 							//la izquierda del que recibe
 		Y = recibe.getY()+ Constantes.height/2 - altoDisparo/2 + corrimiento;			// centra el disparo en el medio del qe recibe	
-		Point der = new Point( X , Y );						  							// -[r] der es donde el guion toca al corchete (r= recibir)
+		Point der = new Point(X, Y);						  							// -[r] der es donde el guion toca al corchete (r= recibir)
 		
 		largo=(int) (der.getX()-izq.getX() + 1);// largo del disparo= distancia desde izq hasta der
 		
@@ -38,10 +43,10 @@ public abstract class GraficoDisparo {
 		disparo = new ImageIcon(imagenAlargada);
 		grafico = new JLabel(disparo);
 		
-		grafico.setBounds( (int)izq.getX(), (int)izq.getY(), largo, altoDisparo );
+		grafico.setBounds((int)izq.getX(), (int)izq.getY(), largo, altoDisparo );
 		grafico.setVisible(true);
 		Juego.getJuego().getInterfaz().getPanelMapa().add(grafico);
-		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(grafico, 5);
+		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 3);
 		grafico.repaint();
 	}
 }

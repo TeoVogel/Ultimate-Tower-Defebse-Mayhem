@@ -23,8 +23,8 @@ public abstract class Personaje extends Ente{
 	
 	public void init (Celda c) {
 		super.init(c);
-		setPowerUp( new PowerUp() );
-		( (GraficoPersonaje) grafica).setPowerUp(estado);
+		setPowerUp(new PowerUp());
+		((GraficoPersonaje) grafica).setPowerUp(estado);
 	}
 	
 	public int getAtaque() {
@@ -50,7 +50,7 @@ public abstract class Personaje extends Ente{
 	public void setPowerUp(PowerUp p) {
 		estado = p;
 		p.setPersonaje(this);
-		( (GraficoPersonaje) grafica).setPowerUp(p);
+		((GraficoPersonaje) grafica).setPowerUp(p);
 	}
 	
 	public void setVida(int v) {
