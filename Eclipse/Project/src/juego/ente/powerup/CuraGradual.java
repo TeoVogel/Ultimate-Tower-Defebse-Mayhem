@@ -5,7 +5,7 @@ import juego.ente.Personaje;
 public class CuraGradual extends PowerUp{
 	 protected final static int cura = 25;
 
-		public CuraGradual(Personaje p){
+		public CuraGradual(){
 			super(50, 40);
 		}
 		

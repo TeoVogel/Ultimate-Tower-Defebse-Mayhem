@@ -14,10 +14,7 @@ public class FactoryAliado {
 	/** Quedo asi despues de un merge, es para testear**/
 	// VIDA: 100 | ATAQUE: 20 | CADENCIA: 20 | RANGO: 2 | PRECIO: 0 
 	public static Aliado crearSupport () {
-//		return new Aliado(100, 20, 20, 2, 20, "a1");
-		Aliado aliado = new Aliado(100, 20, 20, 2, 0, "a1");
-		aliado.setPowerUp(new Escudo());
-		return aliado;
+		return new Aliado(100, 20, 20, 2, 20, "a1");
 	}
 	
 	// VIDA: 80 | ATAQUE: 30 | CADENCIA: 35 | RANGO: 2 | PRECIO: 0

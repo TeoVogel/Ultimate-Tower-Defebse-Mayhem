@@ -18,6 +18,7 @@ import juego.acciones.AccionVenderAliado;
 import juego.ente.powerup.AumentoAtaque;
 import juego.ente.powerup.CuraInstantanea;
 import juego.ente.powerup.Escudo;
+import juego.ente.powerup.FactoryPowerUps;
 import juego.ente.powerup.TiroRapido;
 
 public class PanelTienda extends JLabel {
@@ -108,7 +109,8 @@ public class PanelTienda extends JLabel {
 		buttonPU1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreAliado(new AccionComprarPowerUp(new AumentoAtaque()));
+				Juego.getJuego().getMercado().addAccionSobreAliado(
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_AUMENTO_ATAQUE));
 			}			
 		});
 		JButton buttonPU2 = new JButton("P2");
@@ -117,7 +119,8 @@ public class PanelTienda extends JLabel {
 		buttonPU2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreAliado(new AccionComprarPowerUp(new CuraInstantanea()));
+				Juego.getJuego().getMercado().addAccionSobreAliado(
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_CURA_GRADUAL));
 			}			
 		});
 		JButton buttonPU3 = new JButton("P3");
@@ -126,7 +129,8 @@ public class PanelTienda extends JLabel {
 		buttonPU3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreAliado(new AccionComprarPowerUp(new Escudo()));
+				Juego.getJuego().getMercado().addAccionSobreAliado(
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_ESCUDO));
 			}			
 		});
 		JButton buttonPU4 = new JButton("P4");
@@ -135,7 +139,8 @@ public class PanelTienda extends JLabel {
 		buttonPU4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreAliado(new AccionComprarPowerUp(new TiroRapido()));
+				Juego.getJuego().getMercado().addAccionSobreAliado(
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_TIRO_RAPIDO));
 			}			
 		});
 		

@@ -10,6 +10,8 @@ import juego.Juego;
 import juego.Mapa;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
+import juego.ente.powerup.FactoryPowerUps;
+import juego.ente.powerup.PowerUp;
 
 public abstract class Nivel extends Thread {
 
@@ -28,7 +30,9 @@ public abstract class Nivel extends Thread {
 		int size = calcularCantEnemigos();
 		enemigos = new ArrayList<Enemigo>();
 		for (int i = 0; i < size; i++) {
-			enemigos.add(FactoryEnemigo.crearEnemigo(calcularTipoEnemigo()));
+			Enemigo e = FactoryEnemigo.crearEnemigo(calcularTipoEnemigo());
+			e.setPowerUp(calcularPowerUpRandom());
+			enemigos.add(e);
 			System.out.println("Creando " + size + " enemigos");
 		}
 		
@@ -36,17 +40,22 @@ public abstract class Nivel extends Thread {
 	
 	public abstract void init ();
 	
-	public int calcularCantEnemigos () {
+	private int calcularCantEnemigos () {
 		return 1 * 2^dificultad;
 	}
 	
-	public String calcularTipoEnemigo () {
+	private String calcularTipoEnemigo () {
 		int cantTipos = Constantes.enemigos.length;
 		Random random = new Random();
 		
 		int tipo = random.nextInt(dificultad)%cantTipos;
 		
 		return Constantes.enemigos[tipo];
+	}
+	
+	private PowerUp calcularPowerUpRandom () {
+		int tipo = random.nextInt(10);
+		return FactoryPowerUps.getPowerUp(tipo);		
 	}
 	
 	public void run () {
