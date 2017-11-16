@@ -15,7 +15,7 @@ public class AccionVenderAliado implements AccionSobreAliado {
 	}
 	
 	public int getPrecio () {
-		float porcentajeVida = ((float)aliado.getVida())/((float)aliado.getMaxVida());
+		float porcentajeVida = ((float)aliado.getVida())/((float)aliado.getMaxVida()+1);
 		return (int) (aliado.getPrecio()*porcentajeVida);
 	}
 
