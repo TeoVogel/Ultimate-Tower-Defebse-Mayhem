@@ -43,7 +43,7 @@ public abstract class GraficoDisparo implements Grafico {
 		disparo = new ImageIcon(imagenAlargada);
 		grafico = new JLabel(disparo);
 		
-		grafico.setBounds((int)izq.getX(), (int)izq.getY(), largo, altoDisparo );
+		grafico.setBounds((int)izq.getX(), (int)izq.getY(), largo, altoDisparo);
 		grafico.setVisible(true);
 		Juego.getJuego().getInterfaz().getPanelMapa().add(grafico);
 		Juego.getJuego().getInterfaz().getPanelMapa().graficoTemporal(this, 3);
