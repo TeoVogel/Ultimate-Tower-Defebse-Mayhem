@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import grafica.Interfaz;
 import juego.ente.Celda;
+import juego.ente.Ente;
 import juego.ente.Enemigo;
 import juego.niveles.Nivel;
 import juego.niveles.Nivel1;
@@ -59,6 +60,20 @@ public class Juego {
 	public Mapa getMapa () {
 		return mapa;
 	}
+	
+	public void detonarBomba(int fila, int columna) {
+		interfaz.getPanelMapa().graficarBomba(fila, columna);
+		Celda centro = mapa.getCelda(fila, columna);
+		Celda[] perimetro = {centro.getAbajo(), centro.getArriba(), centro.getIzq(), centro.getDer()};
+		
+		if (centro.getEnte() != null)
+			centro.getEnte().quitarVida(100);
+		
+		for (int i = 0; i < 4; i++)
+			if (perimetro[i] != null)
+				if (perimetro[i].getEnte() != null)
+					perimetro[i].getEnte().quitarVida(50);
+}
 
 	/* 
 	 * SISTEMA DE PUNTOS

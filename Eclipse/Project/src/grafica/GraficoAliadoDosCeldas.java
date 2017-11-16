@@ -15,12 +15,12 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
 import grafica.GraficoDisparo;
-import grafica.RayoLaserAliado;
+import grafica.RayoLaserAliadoDosCeldas;
 
 public class GraficoAliadoDosCeldas extends GraficoAliado {
 	
 	public GraficoAliadoDosCeldas(Ente e, String n) {
-		super(e, n);
+		super(e, n, new RayoLaserAliadoDosCeldas());
 	}
 	
 	@Override

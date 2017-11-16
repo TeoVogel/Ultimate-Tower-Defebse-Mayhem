@@ -71,4 +71,8 @@ public class PanelMapa extends JLabel {
 		for (Pair<Grafico, Integer> par : eliminar)
 			graficosTemporales.remove(par);
 	}
+	
+	public void graficarBomba(int fila, int columna) {
+		
+	}
 }

@@ -14,6 +14,10 @@ public class GraficoAliado extends GraficoPersonaje {
 		super(e, n , new RayoLaserAliado());
 	}
 	
+	public GraficoAliado(Ente e, String n, GraficoDisparo disparo) {
+		super(e, n , disparo);
+	}
+	
 	public void initGrafico (Celda c) {
 		super.initGrafico(c);
 	
