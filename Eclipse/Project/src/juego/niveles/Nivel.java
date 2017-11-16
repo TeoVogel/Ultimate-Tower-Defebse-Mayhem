@@ -20,25 +20,33 @@ public abstract class Nivel extends Thread {
 	protected ArrayList<Enemigo> enemigos;
 	private Random random;
 	
+	private final int NUM_TANDAS = 3;
+	private final int PAUSA_ENTRE_TANDAS = 3000; //en milis
+	
 	public Nivel (Mapa m, int d) {
 		mapa = m;
 		dificultad = d;
 		System.out.println("Nuevo nivel con dificultad: "+dificultad);
 		
 		random = new Random();
+	}
+	
+	
+	public abstract void init ();
+	
+	private ArrayList<Enemigo> crearListaEnemigos () {
+		ArrayList<Enemigo> lista = new ArrayList<Enemigo>();		
 		
 		int size = calcularCantEnemigos();
-		enemigos = new ArrayList<Enemigo>();
 		for (int i = 0; i < size; i++) {
 			Enemigo e = FactoryEnemigo.crearEnemigo(calcularTipoEnemigo());
 			e.setPowerUp(calcularPowerUpRandom());
-			enemigos.add(e);
+			lista.add(e);
 			System.out.println("Creando " + size + " enemigos");
 		}
 		
+		return lista;
 	}
-	
-	public abstract void init ();
 	
 	private int calcularCantEnemigos () {
 		return 1 * 2^dificultad;
@@ -58,45 +66,53 @@ public abstract class Nivel extends Thread {
 		return FactoryPowerUps.getPowerUp(tipo);		
 	}
 	
+	
 	public void run () {
 		Mapa mapa = Juego.getJuego().getMapa();
 
 		try {
-			sleep(3000);
 			
-			// spawnear enemigos
-			int i = 0;
-			while (i < enemigos.size()) {
-				int fila = random.nextInt(6);
-				int columna = 8 + random.nextInt(2);
-				boolean insertado = mapa.addEnemigo(enemigos.get(i), fila, columna);
-				if (insertado) {
-					i++;
-				}
-				System.out.println("Spawneando enemigo, quedan " + enemigos.size() + ". Mi contador es " + i);
-				sleep(2000);
-			}
+			int t = 0;
+			while (t < NUM_TANDAS) {
+				
 			
-			System.out.println("No hay más que spawnear");
-			
-			// controlar cuando el nivel fue completado
-			List<Enemigo> muertos = new ArrayList<Enemigo>();			
-			while (enemigos.size() > 0) {
-				i = 0;
+				sleep(PAUSA_ENTRE_TANDAS);
+				enemigos = crearListaEnemigos();
+				
+				/** spawnear enemigos **/
+				
+				int i = 0;
 				while (i < enemigos.size()) {
-					if (enemigos.get(i).getVida() <= 0) {
-						muertos.add(enemigos.get(i));
+					int fila = random.nextInt(6);
+					int columna = 8 + random.nextInt(2);
+					boolean insertado = mapa.addEnemigo(enemigos.get(i), fila, columna);
+					if (insertado) {
+						i++;
 					}
-					i++;
+					System.out.println("Spawneando enemigo, quedan " + enemigos.size() + ". Mi contador es " + i);
+					sleep(2000);
 				}
 				
-				for (Enemigo e : muertos) {
-					enemigos.remove(e);
-					System.out.println("Enemigo muerto, quedan " + enemigos.size());
+				/** controlar cuando el nivel fue completado **/
+				
+				List<Enemigo> muertos = new ArrayList<Enemigo>();			
+				while (enemigos.size() > 0) {
+					i = 0;
+					while (i < enemigos.size()) {
+						if (enemigos.get(i).getVida() <= 0) {
+							muertos.add(enemigos.get(i));
+						}
+						i++;
+					}
+					
+					for (Enemigo e : muertos) {
+						enemigos.remove(e);
+						System.out.println("Enemigo muerto, quedan " + enemigos.size());
+					}
+					sleep(3000);
 				}
-				sleep(3000);
+				
 			}
-
 			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
