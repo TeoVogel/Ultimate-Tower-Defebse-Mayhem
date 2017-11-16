@@ -10,8 +10,8 @@ public class Mercado {
 	private AccionSobreMapa accionSobreMapa;
 	private int monedas;
 	
-	public Mercado () {
-		monedas = 200;
+	public Mercado (int monedasInicials) {
+		monedas = monedasInicials;
 	}
 	
 	public int getMonedas () {

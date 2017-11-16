@@ -10,9 +10,9 @@ import juego.visitor.Visitor;
 
 public class Obstaculo extends Ente {
 	
-	public Obstaculo(int vida) {
+	public Obstaculo(int vida, String name) {
 		super(vida);
-		grafica = new GraficoEnte(this, "a2");
+		grafica = new GraficoEnte(this, name);
 	}
 	
 	public void afectar(EfectoCelda e){

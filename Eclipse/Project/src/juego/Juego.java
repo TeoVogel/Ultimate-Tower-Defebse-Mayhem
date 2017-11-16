@@ -12,6 +12,8 @@ import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.niveles.Nivel;
 import juego.niveles.Nivel1;
+import juego.niveles.Nivel2;
+import juego.niveles.Nivel3;
 
 public class Juego {
 
@@ -25,7 +27,8 @@ public class Juego {
 	private Mercado mercado;
 	private int puntos;
 	
-	private int dificultad = 4;
+	private final int DIFICULTAD = 2;
+	private final int MONEDAS_INICIALES = 1000;
 	private List<Nivel> niveles = new ArrayList<Nivel>();
 	
 	/**
@@ -34,7 +37,7 @@ public class Juego {
 	public static void main(String[] args) {}
 	
 	private Juego(){
-		mercado = new Mercado();
+		mercado = new Mercado(MONEDAS_INICIALES);
 		interfaz= new Interfaz(this);
 		mapa = new Mapa(interfaz.getPanelMapa());
 		int i = 0;		
@@ -42,8 +45,9 @@ public class Juego {
 		tiempo = new ContadorTiempo(this);
 		tiempo.start();
 		
-		niveles.add(new Nivel1(mapa, 1));
-		niveles.add(new Nivel1(mapa, 1));
+		niveles.add(new Nivel1(mapa, DIFICULTAD));
+		//niveles.add(new Nivel2(mapa, DIFICULTAD));
+		//niveles.add(new Nivel3(mapa, DIFICULTAD));
 		siguienteNivel();
 		
 	}

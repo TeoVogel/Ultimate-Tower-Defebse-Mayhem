@@ -49,7 +49,7 @@ public abstract class Nivel extends Thread {
 	}
 	
 	private int calcularCantEnemigos () {
-		return 1 * 2^dificultad;
+		return 5 * 2^dificultad;
 	}
 	
 	private String calcularTipoEnemigo () {
@@ -72,8 +72,8 @@ public abstract class Nivel extends Thread {
 
 		try {
 			
-			int t = 0;
-			while (t < NUM_TANDAS) {
+			int tandaActual = 0;
+			while (tandaActual < NUM_TANDAS) {
 				
 			
 				sleep(PAUSA_ENTRE_TANDAS);
@@ -111,6 +111,8 @@ public abstract class Nivel extends Thread {
 					}
 					sleep(3000);
 				}
+				
+				tandaActual++;
 				
 			}
 			
