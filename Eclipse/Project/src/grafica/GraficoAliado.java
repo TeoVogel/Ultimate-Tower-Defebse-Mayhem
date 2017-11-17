@@ -33,5 +33,4 @@ public class GraficoAliado extends GraficoPersonaje {
 		});
 	}
 
-	
 }

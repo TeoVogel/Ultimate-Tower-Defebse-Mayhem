@@ -30,10 +30,10 @@ public class GraficoAliadoDosCeldas extends GraficoAliado {
 		setIcon(image[0]);
 		setBounds(pos.x, pos.y, PanelMapa.TILE_WIDTH, 2*PanelMapa.TILE_HIGHT);
 		
+		
 		barraVida = new JLabel();
 		barraVida.setBackground(Color.GREEN);
 		barraVida.setOpaque(true);
-		
 	    this.getParent().add(barraVida);
 	    
 		powerUp = new JLabel();

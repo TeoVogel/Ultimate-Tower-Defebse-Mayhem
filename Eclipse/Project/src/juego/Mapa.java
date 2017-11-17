@@ -88,7 +88,7 @@ public class Mapa{
 				aliados.add(a);
 				panelMapa.addEnte(a);
 				a.init(c);
-				return;
+				return ;
 			}
 			
 			if (c.getArriba().getEnte() != null) {

@@ -78,7 +78,7 @@ public abstract class Personaje extends Ente{
 	}
 	
 	public void atacar() {
-		if (cad == cadencia-1) { 
+		if (cad == cadencia-1){ 
 			if( enviarVisitor() )
 				cad = 0;
 		} else 

@@ -52,27 +52,6 @@ public class GraficoEnte extends JLabel implements Grafico {
 		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
 		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
 	}
-	
-
-	/*public GraficoEnte(Aliado a, String name) {
-		this.name = name;
-		ente = a;
-		image = new Icon[4];
-		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
-		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
-		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif");
-		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".png");
-	}
-	
-	public GraficoEnte(Obstaculo o, String name) {
-		this.name = name;
-		ente = o;
-		image = new Icon[3];
-		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif");
-		image[1] = new ImageIcon(Constantes.path + name + sufijosArchivos[1] + ".gif");
-		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".png");
-	}*/
-	
 
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
@@ -93,17 +72,6 @@ public class GraficoEnte extends JLabel implements Grafico {
 
 		inicializado = true;	    
 		actualizarVida();
-		
-		/*
-		addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				setVisible(false);
-				getParent().remove(getThis());
-			}
-			
-		});*/
 	}
 	
 	public Point getPos() {
