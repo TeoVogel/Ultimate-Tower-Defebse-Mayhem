@@ -81,22 +81,29 @@ public class Mapa{
 	}
 	
 	public boolean addAliadoDosCeldas (AliadoDosCeldas a, int fila, int columna) {
+		if (fila == 5)
+			fila--;
 		Celda c = grilla[fila][columna];
-		if (c.getEnte() != null) {
 			
-			if (c.getAbajo().getEnte() != null) {
+		if (c.getEnte() == null) {
+			
+			// Se inserta la cabeza en la celda cliqueada y los pies abajo
+			if (c.getAbajo().getEnte() == null) {
 				aliados.add(a);
 				panelMapa.addEnte(a);
 				a.init(c);
-				return;
+				return true;
 			}
 			
-			if (c.getArriba().getEnte() != null) {
+			// Se insertan los pies en la celda cliqueado y la cabeza arriba
+			if (fila != 0  &&  c.getArriba().getEnte() == null) {
 				aliados.add(a);
 				panelMapa.addEnte(a);
 				a.init(c.getArriba());
+				return true;
 			}
-	}
+		}
+		return false;
 }
 
 	public boolean addObstaculo (Obstaculo o, int fila, int columna) {

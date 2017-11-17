@@ -7,7 +7,7 @@ public class AliadoDosCeldas extends Aliado {
 		super(vida, ataque, cadencia, rango, precio, name);		
 	}
 	
-	@Override
+	@Override // Siempre recibe la celda en la que se debe colocar la cabeza
 	public void init(Celda c) {
 		super.init(c);
 		celdaInferior = c.getAbajo();
