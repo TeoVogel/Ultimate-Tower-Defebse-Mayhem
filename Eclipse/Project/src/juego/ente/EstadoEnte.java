@@ -10,6 +10,10 @@ public abstract class EstadoEnte {
 		return false;
 	}
 	
+	public boolean esMorir() {
+		return false;
+	}
+	
 	public int getIndex () {
 		return index;
 	}

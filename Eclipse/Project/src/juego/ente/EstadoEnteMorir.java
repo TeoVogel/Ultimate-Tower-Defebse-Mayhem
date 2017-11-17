@@ -9,5 +9,11 @@ public class EstadoEnteMorir extends EstadoEnte {
 		g.setVisible(false);
 		g.repaint();
 		Juego.getJuego().getInterfaz().getPanelMapa().remove(g);
+		System.out.println("se murio un chabon");
+	}
+	
+	@Override
+	public boolean esMorir() {
+		return true;
 	}
 }

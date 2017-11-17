@@ -53,7 +53,6 @@ public abstract class Ente {
 		vida -= cant;
 		grafica.actualizarVida();
 		if (vida <= 0) {
-			// TODO: Matar bien al chabon, probablemente haya que redefinir
 			estado = new EstadoEnteMorir();
 			grafica.morir();
 			celda.setEnte(null);
@@ -70,7 +69,8 @@ public abstract class Ente {
 	public abstract void desafectar(EfectoCelda e);
 	
 	public void setEstado (EstadoEnte e) {
-		estado = e;
+		if (!estado.esMorir())
+			estado = e;
 	}
 	
 }

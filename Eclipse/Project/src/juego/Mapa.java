@@ -180,7 +180,6 @@ public class Mapa{
 	}
 	
 	
-	// TODO: elimnar esto, es solo para testear
 	public Celda getCelda(int f, int c) {
 		return grilla[f][c];
 	}
