@@ -28,13 +28,18 @@ public class AliadoDosCeldas extends Aliado {
 		}
 	}
 	
-	@Override
-	public void atacar() {
-		super.atacar();
-		if (v.ataco()){
-			celda = celdaInferior;
-			super.enviarVisitor();
-			celda = celdaInferior.getArriba();
-		}
+	public boolean enviarVisitor() {
+		boolean ataco= false;
+		v.reset();
+		accept(v);
+		ataco= v.ataco();
+		celda = celdaInferior;
+		v.reset();
+		accept(v);
+		if( !ataco)
+			ataco= v.ataco();
+		celda = celdaInferior.getArriba();
+		return ataco;
 	}
+	
 }

@@ -81,7 +81,7 @@ public abstract class Personaje extends Ente{
 		if (cad == cadencia-1){ 
 			if( enviarVisitor() )
 				cad = 0;
-		} else 
+		}else 
 			cad = (cad+1)%(cadencia);
 	}
 	
