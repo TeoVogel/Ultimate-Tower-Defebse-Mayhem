@@ -130,13 +130,23 @@ public class PanelTienda extends JLabel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreAliado(
-						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_ESCUDO));
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_CURA_INSTANTANEA));
 			}			
 		});
 		JButton buttonPU4 = new JButton("P4");
 		buttonPU4.setBounds(450, 0, 50, 50);
 		add(buttonPU4);
 		buttonPU4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addAccionSobreAliado(
+						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_ESCUDO));
+			}			
+		});
+		JButton buttonPU5 = new JButton("P5");
+		buttonPU5.setBounds(500, 0, 50, 50);
+		add(buttonPU5);
+		buttonPU5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreAliado(
