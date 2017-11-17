@@ -29,7 +29,7 @@ public class Juego {
 	private int puntos;
 	
 	private final int DIFICULTAD = 2;
-	private final int MONEDAS_INICIALES = 1000;
+	private final int MONEDAS_INICIALES = 200;
 	private List<Nivel> niveles = new ArrayList<Nivel>();
 	
 	/**
@@ -47,8 +47,8 @@ public class Juego {
 		tiempo.start();
 		
 		niveles.add(new Nivel1(mapa, DIFICULTAD));
-		//niveles.add(new Nivel2(mapa, DIFICULTAD));
-		//niveles.add(new Nivel3(mapa, DIFICULTAD));
+		niveles.add(new Nivel2(mapa, DIFICULTAD));
+		niveles.add(new Nivel3(mapa, DIFICULTAD));
 		siguienteNivel();
 		
 	}
