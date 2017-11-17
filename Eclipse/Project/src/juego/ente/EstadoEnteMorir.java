@@ -11,7 +11,6 @@ public class EstadoEnteMorir extends EstadoEnte {
 		Juego.getJuego().getInterfaz().getPanelMapa().remove(g);
 	}
 	
-	@Override
 	public boolean esMorir() {
 		return true;
 	}

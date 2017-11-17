@@ -98,6 +98,7 @@ public class PanelTienda extends JLabel {
 		
 
 		JButton buttonPU1 = new JButton("P1");
+		buttonPU1.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/damage.png"));
 		buttonPU1.setBounds(300, 0, 50, 50);
 		add(buttonPU1);
 		buttonPU1.addActionListener(new ActionListener() {
@@ -108,6 +109,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonPU2 = new JButton("P2");
+		buttonPU2.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/regen.png"));
 		buttonPU2.setBounds(350, 0, 50, 50);
 		add(buttonPU2);
 		buttonPU2.addActionListener(new ActionListener() {
@@ -118,6 +120,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonPU3 = new JButton("P3");
+		buttonPU3.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/heal.png"));
 		buttonPU3.setBounds(400, 0, 50, 50);
 		add(buttonPU3);
 		buttonPU3.addActionListener(new ActionListener() {
@@ -128,6 +131,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonPU4 = new JButton("P4");
+		buttonPU4.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/shield.png"));
 		buttonPU4.setBounds(450, 0, 50, 50);
 		add(buttonPU4);
 		buttonPU4.addActionListener(new ActionListener() {
@@ -138,6 +142,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonPU5 = new JButton("P5");
+		buttonPU5.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/attack_speed.png"));
 		buttonPU5.setBounds(500, 0, 50, 50);
 		add(buttonPU5);
 		buttonPU5.addActionListener(new ActionListener() {
@@ -150,6 +155,7 @@ public class PanelTienda extends JLabel {
 		
 
 		JButton buttonEC1 = new JButton("E1");
+		buttonEC1.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/acid.png"));
 		buttonEC1.setBounds(550, 0, 50, 50);
 		add(buttonEC1);
 		buttonEC1.addActionListener(new ActionListener() {
@@ -160,6 +166,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonEC2 = new JButton("E2");
+		buttonEC2.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/glue.png"));
 		buttonEC2.setBounds(600, 0, 50, 50);
 		add(buttonEC2);
 		buttonEC2.addActionListener(new ActionListener() {
