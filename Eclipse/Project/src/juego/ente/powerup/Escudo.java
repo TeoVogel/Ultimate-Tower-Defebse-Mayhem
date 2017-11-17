@@ -1,9 +1,9 @@
 package juego.ente.powerup;
 
-import juego.ente.Personaje;
 import javax.swing.ImageIcon;
 
-import juego.Constantes;
+import grafica.Interfaz;
+import juego.ente.Personaje;
 
 public class Escudo extends PowerUp{
 	protected int vidaOriginal;
@@ -17,9 +17,9 @@ public class Escudo extends PowerUp{
 	
 	public Escudo(){
 		super(30, 75);
-		img = new ImageIcon(Constantes.path + "powerup_shield_aliado" + ".png");
+		img = new ImageIcon(Interfaz.path + "powerup_shield_aliado" + ".png");
 	}
-		
+	
 	public void actualizar(){
 		boolean ataco = false;
 		

@@ -1,7 +1,7 @@
 package juego;
 
 public final class Constantes {
-	public final static String path = "src/assets/"; 
+//	public final static String path = "src/assets/"; 
 
 	public final static int width = 100;
 	public final static int height = 100;
