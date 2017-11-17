@@ -11,9 +11,9 @@ public class FactoryObstaculo {
 		return new Obstaculo(200, "o1");
 	}
 
-	// VIDA: 400
+	// VIDA: 300
 	public static Obstaculo crearPiedra () {
-		return new Obstaculo(200, "o2");
+		return new Obstaculo(300, "o2");
 	}
 
 }
