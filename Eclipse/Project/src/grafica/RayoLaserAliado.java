@@ -6,14 +6,13 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import juego.Constantes;
 import juego.Juego;
 
 public class RayoLaserAliado extends GraficoDisparo {
 	
 	public RayoLaserAliado() {
 		super();
-		disparo = new ImageIcon(Constantes.path+"atacks/disp_aliado.png");
+		disparo = new ImageIcon(Interfaz.path+"atacks/disp_aliado.png");
 		corrimiento = 10;
 	}	
 	

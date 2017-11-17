@@ -39,11 +39,11 @@ public class GraficoEnte extends JLabel implements Grafico {
 		ente = e;
 		
 		image = new Icon[5];
-		image[0] = new ImageIcon(Constantes.path + name + sufijosArchivos[0] + ".gif"); //_parar
-		image[1] = new ImageIcon(Constantes.path	 +    sufijosArchivos[1] + ".gif"); // muerte
-		image[2] = new ImageIcon(Constantes.path + name + sufijosArchivos[2] + ".gif"); //_atacar
-		image[3] = new ImageIcon(Constantes.path + name + sufijosArchivos[3] + ".gif"); //_mover
-		image[4] = new ImageIcon(Constantes.path + name + sufijosArchivos[4] + ".png"); //_frente
+		image[0] = new ImageIcon(Interfaz.path + name + sufijosArchivos[0] + ".gif"); //_parar
+		image[1] = new ImageIcon(Interfaz.path	  + 	sufijosArchivos[1] + ".gif"); // muerte
+		image[2] = new ImageIcon(Interfaz.path + name + sufijosArchivos[2] + ".gif"); //_atacar
+		image[3] = new ImageIcon(Interfaz.path + name + sufijosArchivos[3] + ".gif"); //_mover
+		image[4] = new ImageIcon(Interfaz.path + name + sufijosArchivos[4] + ".png"); //_frente
 	}
 
 	public void initGrafico (Celda c) {

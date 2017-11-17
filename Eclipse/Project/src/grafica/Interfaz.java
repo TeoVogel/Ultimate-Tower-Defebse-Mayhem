@@ -12,6 +12,7 @@ public class Interfaz extends JFrame{
 	private PanelMapa panelMapa;
 	private PanelMenu panelMenu;
 	private PanelTienda panelTienda;
+	public static final String path = "src/assets/";
 	
 	public Interfaz(Juego juego) {
 		super("juego");

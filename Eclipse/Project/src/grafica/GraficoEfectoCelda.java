@@ -31,7 +31,7 @@ public class GraficoEfectoCelda extends JLabel {
 	
 	public void initGrafico (Celda c) {
 		pos = new Point(calcularX(c), calcularY(c));
-		setIcon(new ImageIcon(Constantes.path + name));
+		setIcon(new ImageIcon(Interfaz.path + name));
 		setBounds(pos.x, pos.y, Constantes.width, Constantes.height);
 		Juego.getJuego().getInterfaz().getPanelMapa().add(this);
 		
