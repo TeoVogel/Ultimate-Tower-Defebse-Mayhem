@@ -20,7 +20,7 @@ import grafica.RayoLaserAliadoDosCeldas;
 public class GraficoAliadoDosCeldas extends GraficoAliado {
 	
 	public GraficoAliadoDosCeldas(Ente e, String n) {
-		super(e, n, new RayoLaserAliadoDosCeldas());
+		super(e, n);
 	}
 	
 	@Override

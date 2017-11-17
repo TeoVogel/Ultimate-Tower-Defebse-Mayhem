@@ -21,7 +21,7 @@ public abstract class GraficoDisparo implements Grafico {
 	public void action() {
 		grafico.setVisible(false);
 		grafico.repaint();
-		grafico.getParent().remove(grafico);
+		Juego.getJuego().getInterfaz().getPanelMapa().remove(grafico);
 	}
 	
 	public void graficar(GraficoEnte ataca, GraficoEnte recibe){}
