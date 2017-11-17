@@ -9,7 +9,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import juego.Constantes;
 import juego.Juego;
 import juego.Mercado;
 import juego.acciones.*;
@@ -25,7 +24,7 @@ public class PanelTienda extends JLabel {
 		super();
 		setBounds(0, 726, 1000, 50);
 		setLayout(null);
-		setIcon(new ImageIcon(Constantes.path + "fff.png"));
+		setIcon(new ImageIcon(Interfaz.path + "fff.png"));
 		setVisible(true);
 		
 		monedas = new JLabel("$" + mercado.getMonedas());
@@ -36,7 +35,7 @@ public class PanelTienda extends JLabel {
 		add(monedas);
 		
 		JButton buttonA1 = new JButton("Support");
-		buttonA1.setIcon(new ImageIcon(Constantes.path + "a1_frente.png"));
+		buttonA1.setIcon(new ImageIcon(Interfaz.path + "a1_frente.png"));
 		buttonA1.setBounds(0, 0, 50, 50);
 		add(buttonA1);
 		buttonA1.addActionListener(new ActionListener() {
@@ -46,7 +45,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA2 = new JButton("Commando");
-		buttonA2.setIcon(new ImageIcon(Constantes.path + "a2_frente.png"));
+		buttonA2.setIcon(new ImageIcon(Interfaz.path + "a2_frente.png"));
 		buttonA2.setBounds(50, 0, 50, 50);
 		add(buttonA2);
 		buttonA2.addActionListener(new ActionListener() {
@@ -56,7 +55,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA3 = new JButton("Sharpshooter");
-		buttonA3.setIcon(new ImageIcon(Constantes.path + "a3_frente.png"));
+		buttonA3.setIcon(new ImageIcon(Interfaz.path + "a3_frente.png"));
 		buttonA3.setBounds(100, 0, 50, 50);
 		add(buttonA3);
 		buttonA3.addActionListener(new ActionListener() {
@@ -66,7 +65,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA4 = new JButton("Mago");
-		buttonA4.setIcon(new ImageIcon(Constantes.path + "a4_frente.png"));
+		buttonA4.setIcon(new ImageIcon(Interfaz.path + "a4_frente.png"));
 		buttonA4.setBounds(150, 0, 50, 50);
 		add(buttonA4);
 		buttonA4.addActionListener(new ActionListener() {
@@ -76,7 +75,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA5 = new JButton("Tanque");
-		buttonA5.setIcon(new ImageIcon(Constantes.path + "a5_frente.png"));
+		buttonA5.setIcon(new ImageIcon(Interfaz.path + "a5_frente.png"));
 		buttonA5.setBounds(200, 0, 50, 50);
 		add(buttonA5);
 		buttonA5.addActionListener(new ActionListener() {

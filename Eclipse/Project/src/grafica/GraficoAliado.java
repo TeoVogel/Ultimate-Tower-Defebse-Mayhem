@@ -1,4 +1,4 @@
-	package grafica;
+package grafica;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

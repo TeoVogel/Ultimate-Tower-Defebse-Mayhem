@@ -2,18 +2,15 @@ package grafica;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import java.util.List;
-import java.util.ArrayList;
-
-import juego.Constantes;
 import juego.Juego;
-import juego.ente.Celda;
-import juego.ente.Ente;
 import juego.Pair;
+import juego.ente.Ente;
 
 public class PanelMapa extends JLabel {
 	private List<Pair<Grafico, Integer>> graficosTemporales;
@@ -25,7 +22,7 @@ public class PanelMapa extends JLabel {
 		graficosTemporales = new ArrayList<Pair<Grafico, Integer>>();
 		setBounds(0, 88, 1000, 638);
 		setLayout(null);
-		setIcon(new ImageIcon(Constantes.path + "fondo.png"));
+		setIcon(new ImageIcon(Interfaz.path + "fondo.png"));
 		setVisible(true);
 		addMouseListener(new MouseAdapter() {
 			@Override
