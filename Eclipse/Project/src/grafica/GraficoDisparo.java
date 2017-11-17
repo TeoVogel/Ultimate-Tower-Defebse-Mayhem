@@ -1,12 +1,8 @@
 package grafica;
 
-import java.awt.Image;
-import java.awt.Point;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import juego.Constantes;
 import juego.Juego;
 
 public abstract class GraficoDisparo implements Grafico {
