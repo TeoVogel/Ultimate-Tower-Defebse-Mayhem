@@ -1,8 +1,5 @@
 package juego;
 
-import juego.ente.Celda;
-import juego.ente.Enemigo;
-import juego.ente.powerup.Escudo;
 import juego.ente.Aliado;
 import juego.ente.AliadoDosCeldas;
 
@@ -32,21 +29,21 @@ public class FactoryAliado {
 	}
 	
 	// VIDA: 100 | ATAQUE: 15 | CADENCIA: 25 | RANGO: 8 | PRECIO: 0
-	public static Aliado crearTanque () {
+	public static AliadoDosCeldas crearTanque () {
 		return new AliadoDosCeldas(200, 30, 30, 4, 1, "a6");
 	}
 	
-	public static Aliado crearAliado (String tipo) {
+	/*public static Aliado crearAliado (String tipo) {
 		Aliado aliado;
 		switch(tipo) {
-			case("e1"): aliado = crearSupport(); break;
-			case("e2"): aliado = crearCommando(); break;
-			case("e3"): aliado = crearSharpshooter(); break;
-			case("e4"): aliado = crearMago(); break; //TODO: crear dos mas
-			case("e5"): aliado = crearTanque(); break;
+			case("a1"): aliado = crearSupport(); break;
+			case("a2"): aliado = crearCommando(); break;
+			case("a3"): aliado = crearSharpshooter(); break;
+			case("a4"): aliado = crearMago(); break; //TODO: crear dos mas
+			case("a5"): aliado = crearTanque(); break;
 			default: aliado = null;
 		}
 		return aliado;
-	}
+	}*/
 
 }

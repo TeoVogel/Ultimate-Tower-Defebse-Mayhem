@@ -1,20 +1,16 @@
 package juego.acciones;
 
 import juego.ente.Aliado;
-import juego.ente.Celda;
-import juego.FactoryAliado;
 import juego.Juego;
 
-public class AccionComprarAliado implements AccionSobreMapa {
+public abstract class AccionComprarAliado implements AccionSobreMapa {
 
-	private Aliado aliado;
+	protected Aliado aliado;
 	
-	public AccionComprarAliado (String tipo) {
-		aliado = FactoryAliado.crearAliado(tipo);
-	}
+	public AccionComprarAliado (){}
 	
 	public void ejecutar (int fila, int columna){
-		Juego.getJuego().getMapa().addAliado(aliado, fila, columna);
+		if(	Juego.getJuego().getMapa().addAliado(aliado, fila, columna) )
 		Juego.getJuego().getMercado().quitarMonedas(getPrecio());
 	}
 	

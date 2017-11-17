@@ -12,10 +12,7 @@ import javax.swing.JLabel;
 import juego.Constantes;
 import juego.Juego;
 import juego.Mercado;
-import juego.acciones.AccionComprarAliado;
-import juego.acciones.AccionComprarEfectoCelda;
-import juego.acciones.AccionComprarPowerUp;
-import juego.acciones.AccionVenderAliado;
+import juego.acciones.*;
 import juego.ente.EfectoCelda.FactoryEfectoCelda;
 import juego.ente.powerup.FactoryPowerUps;
 
@@ -45,7 +42,7 @@ public class PanelTienda extends JLabel {
 		buttonA1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[0]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarSupport());
 			}			
 		});
 		JButton buttonA2 = new JButton("Commando");
@@ -55,7 +52,7 @@ public class PanelTienda extends JLabel {
 		buttonA2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[1]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarCommando());
 			}			
 		});
 		JButton buttonA3 = new JButton("Sharpshooter");
@@ -65,7 +62,7 @@ public class PanelTienda extends JLabel {
 		buttonA3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[2]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarSharpshooter());
 			}			
 		});
 		JButton buttonA4 = new JButton("Mago");
@@ -75,7 +72,7 @@ public class PanelTienda extends JLabel {
 		buttonA4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[3]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarMago());
 			}			
 		});
 		JButton buttonA5 = new JButton("Tanque");
@@ -85,7 +82,7 @@ public class PanelTienda extends JLabel {
 		buttonA5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Juego.getJuego().getMercado().addAccionSobreMapa(new AccionComprarAliado(Constantes.aliados[4]));
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarAliadoDosCeldas() );
 			}			
 		});
 		
