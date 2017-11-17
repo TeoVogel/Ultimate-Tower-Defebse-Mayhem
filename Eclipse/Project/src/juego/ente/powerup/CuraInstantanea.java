@@ -9,7 +9,7 @@ public class CuraInstantanea extends PowerUp{
 	
 	public void actualizar(){
 		int vida=afectado.getVida();
-		int vidaTotal=afectado.getVidaTotal();
+		int vidaTotal=afectado.getMaxVida();
 		if(vida+cura>=vidaTotal){
 			afectado.setVida(vidaTotal);
 		}else {

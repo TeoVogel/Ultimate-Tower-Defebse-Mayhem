@@ -15,11 +15,7 @@ import juego.Mercado;
 import juego.acciones.AccionComprarAliado;
 import juego.acciones.AccionComprarPowerUp;
 import juego.acciones.AccionVenderAliado;
-import juego.ente.powerup.AumentoAtaque;
-import juego.ente.powerup.CuraInstantanea;
-import juego.ente.powerup.Escudo;
 import juego.ente.powerup.FactoryPowerUps;
-import juego.ente.powerup.TiroRapido;
 
 public class PanelTienda extends JLabel {
 	
