@@ -12,7 +12,7 @@ public class CuraGradual extends PowerUp{
 		public void actualizar(){
 			if(duracion%10==0) {
 				int vida=afectado.getVida();
-				int vidaTotal=afectado.getVidaTotal();
+				int vidaTotal=afectado.getMaxVida();
 				if(vida+cura>=vidaTotal){
 					afectado.setVida(vidaTotal);
 				}else {
