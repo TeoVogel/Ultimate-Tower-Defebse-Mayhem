@@ -13,8 +13,10 @@ import juego.Constantes;
 import juego.Juego;
 import juego.Mercado;
 import juego.acciones.AccionComprarAliado;
+import juego.acciones.AccionComprarEfectoCelda;
 import juego.acciones.AccionComprarPowerUp;
 import juego.acciones.AccionVenderAliado;
+import juego.ente.EfectoCelda.FactoryEfectoCelda;
 import juego.ente.powerup.FactoryPowerUps;
 
 public class PanelTienda extends JLabel {
@@ -147,6 +149,28 @@ public class PanelTienda extends JLabel {
 			public void actionPerformed(ActionEvent e) {
 				Juego.getJuego().getMercado().addAccionSobreAliado(
 						new AccionComprarPowerUp(FactoryPowerUps.POWERUP_TIPO_TIRO_RAPIDO));
+			}			
+		});
+		
+
+		JButton buttonEC1 = new JButton("E1");
+		buttonEC1.setBounds(550, 0, 50, 50);
+		add(buttonEC1);
+		buttonEC1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addAccionSobreMapa(
+						new AccionComprarEfectoCelda(FactoryEfectoCelda.EFECTO_CELDA_ACIDO));
+			}			
+		});
+		JButton buttonEC2 = new JButton("E2");
+		buttonEC2.setBounds(600, 0, 50, 50);
+		add(buttonEC2);
+		buttonEC2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addAccionSobreMapa(
+						new AccionComprarEfectoCelda(FactoryEfectoCelda.EFECTO_CELDA_PEGAMENTO));
 			}			
 		});
 		

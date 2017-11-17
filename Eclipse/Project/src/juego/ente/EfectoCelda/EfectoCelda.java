@@ -3,12 +3,14 @@ import juego.ente.Ente;
 import juego.ente.Enemigo;
 import grafica.GraficoEfectoCelda;
 import juego.ente.Aliado;
+import juego.ente.Comprable;
 import juego.ente.Obstaculo;
 
-public class EfectoCelda {
+public class EfectoCelda implements Comprable {
 	
 	protected int duracion;
 	protected GraficoEfectoCelda grafico;
+	protected int precio;
 	
 	public EfectoCelda(){
 		duracion= 0;
@@ -35,6 +37,10 @@ public class EfectoCelda {
 	
 	public GraficoEfectoCelda getGrafico () {
 		return grafico;
+	}
+
+	public int getPrecio() {
+		return precio;
 	}
 	
 }

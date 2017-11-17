@@ -10,6 +10,7 @@ import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
 import juego.ente.EfectoCelda.Acido;
+import juego.ente.EfectoCelda.EfectoCelda;
 
 public class Mapa{
 
@@ -106,6 +107,10 @@ public class Mapa{
 			return true;
 		}
 		return false;
+	}
+	
+	public void addEfectoCelda (EfectoCelda e, int fila, int columna) {
+		grilla[fila][columna].setEfecto(e);
 	}
 	
 	public void mover() {

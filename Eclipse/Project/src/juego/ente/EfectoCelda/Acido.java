@@ -4,16 +4,18 @@ import juego.ente.Obstaculo;
 import grafica.GraficoEfectoCelda;
 import juego.ente.Aliado;
 import juego.ente.Celda;
+import juego.ente.Comprable;
 import juego.ente.Enemigo;
 
-public class Acido extends EfectoCelda{
+public class Acido extends EfectoCelda {
 	
 	int corrosion;
 	
 	public Acido() {
 		super();
 		duracion=40;
-		corrosion=3;
+		corrosion=10;
+		precio = 75;
 		grafico = new GraficoEfectoCelda("efecto1.gif");
 	}
 	
