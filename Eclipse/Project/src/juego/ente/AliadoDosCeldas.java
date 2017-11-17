@@ -31,7 +31,7 @@ public class AliadoDosCeldas extends Aliado {
 	@Override
 	public void atacar() {
 		super.atacar();
-		if (v.ataco()) {
+		if (v.ataco()){
 			celda = celdaInferior;
 			super.enviarVisitor();
 			celda = celdaInferior.getArriba();

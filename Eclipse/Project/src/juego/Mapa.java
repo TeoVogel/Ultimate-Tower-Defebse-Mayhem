@@ -80,7 +80,7 @@ public class Mapa{
 		return false;
 	}
 	
-	public void addAliado (AliadoDosCeldas a, int fila, int columna) {
+	public boolean addAliadoDosCeldas (AliadoDosCeldas a, int fila, int columna) {
 		Celda c = grilla[fila][columna];
 		if (c.getEnte() != null) {
 			

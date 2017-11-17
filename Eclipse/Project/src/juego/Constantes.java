@@ -12,7 +12,7 @@ public final class Constantes {
 	public final static int barraVidaHeight = 4;
 	
 	public final static String[] enemigos = {"e1", "e2", "e3", "e4", "e5"};
-	public final static String[] aliados = {"e1", "e2", "e3", "e4", "e5"};
+	public final static String[] aliados = {"a1", "a2", "a3", "a4", "a5"};
 	
 
 }
