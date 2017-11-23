@@ -75,7 +75,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA5 = new JButton("Tanque");
-		buttonA5.setIcon(new ImageIcon(Interfaz.path + "a5_frente.png"));
+		buttonA5.setIcon(new ImageIcon(Interfaz.path + "a6_frente.gif"));
 		buttonA5.setBounds(200, 0, 50, 50);
 		add(buttonA5);
 		buttonA5.addActionListener(new ActionListener() {
