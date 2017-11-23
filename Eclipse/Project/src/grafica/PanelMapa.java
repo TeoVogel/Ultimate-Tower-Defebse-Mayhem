@@ -71,6 +71,6 @@ public class PanelMapa extends JLabel {
 	}
 	
 	public void graficarBomba(int fila, int columna) {
-		
+		graficoTemporal(new GraficoBomba(fila, columna), 25);
 	}
 }

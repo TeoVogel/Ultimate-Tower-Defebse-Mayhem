@@ -177,6 +177,17 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		
+		JButton buttonBomb = new JButton("B");
+		buttonBomb.setIcon(new ImageIcon(Interfaz.path + "icon_powerUp/bomb.png"));
+		buttonBomb.setBounds(650, 0, 50, 50);
+		add(buttonBomb);
+		buttonBomb.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Juego.getJuego().getMercado().addAccionSobreMapa(new ComprarBomba());
+			}			
+		});
+		
 	}
 	
 	public void setMonedas (int m) {

@@ -72,7 +72,7 @@ public class Juego {
 		for (int i = 0; i < 4; i++)
 			if (perimetro[i] != null)
 				if (perimetro[i].getEnte() != null)
-					perimetro[i].getEnte().quitarVida(50);
+					perimetro[i].getEnte().quitarVida(75);
 }
 
 	/* 
