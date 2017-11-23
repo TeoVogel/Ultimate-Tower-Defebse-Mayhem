@@ -16,7 +16,7 @@ public class ComprarBomba implements AccionSobreMapa {
 	}
 
 	public int getPrecio() {
-		return 50;
+		return 25;
 	}
 	
 }
