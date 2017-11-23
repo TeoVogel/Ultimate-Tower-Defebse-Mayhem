@@ -1,10 +1,13 @@
 package juego.ente;
 
+import grafica.GraficoAliadoDosCeldas;
+
 public class AliadoDosCeldas extends Aliado {
 	protected Celda celdaInferior;
 	
 	public AliadoDosCeldas (int vida, int ataque, int cadencia, int rango, int precio, String name) {
-		super(vida, ataque, cadencia, rango, precio, name);		
+		super(vida, ataque, cadencia, rango, precio, name);	
+		grafica = new GraficoAliadoDosCeldas(this, name);	
 	}
 	
 	@Override // Siempre recibe la celda en la que se debe colocar la cabeza

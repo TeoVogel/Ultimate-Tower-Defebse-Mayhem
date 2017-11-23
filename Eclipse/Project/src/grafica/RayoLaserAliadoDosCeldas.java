@@ -19,27 +19,18 @@ public class RayoLaserAliadoDosCeldas extends RayoLaserAliado {
 	
 	@Override
 	public void action() {
-		if(graficoBajo == null){		//si solo se disparo arriba
+		if(grafico != null){		//si solo se disparo arriba
 			grafico.setVisible(false);
 			grafico.repaint();
 			Juego.getJuego().getInterfaz().getPanelMapa().remove(grafico);
 			grafico= null;
-		}else if(grafico == null) {		//si solo se disparo abajo
+		}
+		if(graficoBajo != null) {		//si solo se disparo abajo
 			graficoBajo.setVisible(false);
 			graficoBajo.repaint();
 			Juego.getJuego().getInterfaz().getPanelMapa().remove(graficoBajo);
 			graficoBajo= null;
-		}else{							//si se dispararon los dos
-			grafico.setVisible(false);
-			grafico.repaint();
-			Juego.getJuego().getInterfaz().getPanelMapa().remove(grafico);
-			grafico= null;
-			
-			graficoBajo.setVisible(false);
-			graficoBajo.repaint();
-			Juego.getJuego().getInterfaz().getPanelMapa().remove(graficoBajo);
-			graficoBajo= null;
-		}		
+		}	
 	}
 	
 	@Override
