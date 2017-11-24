@@ -19,13 +19,21 @@ public class Mercado {
 	}
 	
 	public void agregarMonedas (int m) {
-		monedas += m;
-		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+		if(m < 0)
+			quitarMonedas(-m);
+		else {
+			monedas += m;
+			Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+		}
 	}
 	
 	public void quitarMonedas (int m) {
-		monedas -= m;
-		Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+		if(m < 0)
+			agregarMonedas(-m);
+		else {
+			monedas -= m;
+			Juego.getJuego().getInterfaz().getPanelTienda().setMonedas(monedas);
+		}
 	}
 
 	public void addAccionSobreAliado(AccionSobreAliado a) {
