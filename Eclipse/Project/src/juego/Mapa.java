@@ -29,7 +29,6 @@ public class Mapa{
 		inicializarGrilla();
 	}
 	
-	
 	// Crea grilla y setea todas las celdas con anterior y siguiente
 	protected void inicializarGrilla() {
 		grilla = new Celda[6][10];
@@ -130,8 +129,10 @@ public class Mapa{
 			}
 			e.mover();
 		}
-		for (Integer i : enemigosMuertos) 
-			enemigos.remove((int) i);	
+		for(Integer i : enemigosMuertos) {
+			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());
+			enemigos.remove((int) i);
+		}
 	}
 	
 	public void atacar () {
@@ -159,7 +160,7 @@ public class Mapa{
 				e.actualizarPowerUp();
 			}
 		}
-		for (Integer i : enemigosMuertos) {
+		for(Integer i : enemigosMuertos) {
 			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());
 			enemigos.remove((int) i);
 		}

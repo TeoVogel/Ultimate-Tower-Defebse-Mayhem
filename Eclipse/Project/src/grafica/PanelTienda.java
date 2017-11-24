@@ -19,7 +19,6 @@ public class PanelTienda extends JLabel {
 	
 	private JLabel monedas;
 	
-	
 	public PanelTienda(Mercado mercado) {
 		super();
 		setBounds(0, 726, 1000, 50);
