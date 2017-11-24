@@ -130,10 +130,8 @@ public class Mapa{
 			}
 			e.mover();
 		}
-		/*for (Integer i : enemigosMuertos) {
-			enemigos.remove((int) i);
-			System.out.println("Removido");
-		}*/
+		for (Integer i : enemigosMuertos) 
+			enemigos.remove((int) i);	
 	}
 	
 	public void atacar () {

@@ -62,7 +62,6 @@ public class Juego {
 	}
 	
 	public void detonarBomba(int fila, int columna) {
-		interfaz.getPanelMapa().graficarBomba(fila, columna);
 		Celda centro = mapa.getCelda(fila, columna);
 		Celda[] perimetro = {centro.getAbajo(), centro.getArriba(), centro.getIzq(), centro.getDer()};
 		
@@ -73,7 +72,7 @@ public class Juego {
 			if (perimetro[i] != null)
 				if (perimetro[i].getEnte() != null)
 					perimetro[i].getEnte().quitarVida(75);
-}
+	}
 
 	/* 
 	 * SISTEMA DE PUNTOS
