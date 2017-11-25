@@ -3,11 +3,14 @@ package juego;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 
 import grafica.Interfaz;
 import juego.ente.Celda;
+import juego.ente.Ente;
+import juego.ente.Enemigo;
 import juego.niveles.Nivel;
 import juego.niveles.Nivel1;
 import juego.niveles.Nivel2;
@@ -59,7 +62,6 @@ public class Juego {
 	}
 	
 	public void detonarBomba(int fila, int columna) {
-		interfaz.getPanelMapa().graficarBomba(fila, columna);
 		Celda centro = mapa.getCelda(fila, columna);
 		Celda[] perimetro = {centro.getAbajo(), centro.getArriba(), centro.getIzq(), centro.getDer()};
 		
@@ -70,7 +72,7 @@ public class Juego {
 			if (perimetro[i] != null)
 				if (perimetro[i].getEnte() != null)
 					perimetro[i].getEnte().quitarVida(75);
-}
+	}
 
 	/* 
 	 * SISTEMA DE PUNTOS
