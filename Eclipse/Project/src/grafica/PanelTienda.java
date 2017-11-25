@@ -74,7 +74,7 @@ public class PanelTienda extends JLabel {
 			}			
 		});
 		JButton buttonA5 = new JButton("Tanque");
-		buttonA5.setIcon(new ImageIcon(Interfaz.path + "a6_frente.gif"));
+		buttonA5.setIcon(new ImageIcon(Interfaz.path + "a6_frente.png"));
 		buttonA5.setBounds(200, 0, 50, 50);
 		add(buttonA5);
 		buttonA5.addActionListener(new ActionListener() {
@@ -86,7 +86,8 @@ public class PanelTienda extends JLabel {
 		
 		
 		JButton buttonV = new JButton("$");
-		buttonV.setBounds(250, 0, 50, 50);
+		buttonV.setIcon(new ImageIcon(Interfaz.path + "coin.png"));
+		buttonV.setBounds(255, 0, 50, 50);
 		add(buttonV);
 		buttonV.addActionListener(new ActionListener() {
 			@Override
