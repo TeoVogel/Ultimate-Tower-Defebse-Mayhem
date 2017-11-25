@@ -11,7 +11,7 @@ public class Pegamento extends EfectoCelda{
 	
 	public Pegamento() {
 		super();
-		duracion=40;
+		duracion=50;
 		velocidad=0;
 		precio = 50;
 		grafico = new GraficoEfectoCelda("efecto2.gif");

@@ -13,7 +13,7 @@ public class Acido extends EfectoCelda {
 	
 	public Acido() {
 		super();
-		duracion=40;
+		duracion=50;
 		corrosion=10;
 		precio = 75;
 		grafico = new GraficoEfectoCelda("efecto1.gif");
