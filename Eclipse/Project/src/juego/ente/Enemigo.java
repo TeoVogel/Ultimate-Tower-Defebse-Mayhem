@@ -36,7 +36,7 @@ public class Enemigo extends Personaje {
 				System.out.println("MISSION FAILED");
 				Juego.getJuego().perder();
 			} else {
-				if (izq.getEnte() == null) {
+				if (izq.getEnte() == null){
 					izq.setEnte(this);
 					celda.RemoveEnte();
 					celda = izq;

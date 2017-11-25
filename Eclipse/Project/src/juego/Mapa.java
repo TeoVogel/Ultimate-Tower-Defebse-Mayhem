@@ -114,7 +114,9 @@ public class Mapa{
 	}
 	
 	public void addEfectoCelda (EfectoCelda e, int fila, int columna) {
-		grilla[fila][columna].setEfecto(e);
+		Celda c= grilla[fila][columna];
+		c.setEfecto(e);
+		celdas.add( c );
 	}
 	
 	public void mover() {
@@ -124,8 +126,8 @@ public class Mapa{
 			if (e.getVida() <= 0) {
 				//juego.sumarPuntos(e.getPuntos());
 				enemigosMuertos.add(i);
-			}
-			e.mover();
+			}else
+				e.mover();
 		}
 		for(Integer i : enemigosMuertos) {
 			Enemigo malo= enemigos.get(i);
@@ -169,7 +171,7 @@ public class Mapa{
 		List<Integer> efectosTerminados = new ArrayList<Integer>();
 		for (int i=0; i<celdas.size(); i++) {
 			Celda c= celdas.get(i);
-			if(c.actualizarEfecto())
+			if( c.actualizarEfecto() )
 				efectosTerminados.add(i);
 		}
 		for(Integer i: efectosTerminados){

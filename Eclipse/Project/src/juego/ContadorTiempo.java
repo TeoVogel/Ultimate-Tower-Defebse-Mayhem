@@ -16,9 +16,8 @@ public class ContadorTiempo extends Thread {
 			}
 			juego.getMapa().atacar();
 			juego.getMapa().mover();
-			juego.getInterfaz().getPanelMapa().actualizarGraficosTemporales();
 			juego.getMapa().actualizarEfectos();
-
+			juego.getInterfaz().getPanelMapa().actualizarGraficosTemporales();
 		}
 	}
 }
