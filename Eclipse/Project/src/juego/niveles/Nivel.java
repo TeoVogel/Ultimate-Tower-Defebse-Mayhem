@@ -48,7 +48,7 @@ public abstract class Nivel extends Thread {
 	}
 	
 	private int calcularCantEnemigos () {
-		return 5 * 2^dificultad;
+		return 3 * 2^dificultad;
 	}
 	
 	private String calcularTipoEnemigo () {

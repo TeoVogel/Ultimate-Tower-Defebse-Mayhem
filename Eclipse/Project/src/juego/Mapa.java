@@ -117,24 +117,7 @@ public class Mapa{
 		grilla[fila][columna].setEfecto(e);
 	}
 	
-	public void mover() {
-		List<Integer> enemigosMuertos = new ArrayList<Integer>();
-		for (int i=0; i<enemigos.size(); i++) {
-			Enemigo e = enemigos.get(i);
-			if (e.getVida() <= 0) {
-				//juego.sumarPuntos(e.getPuntos());
-				enemigosMuertos.add(i);
-			}
-			e.mover();
-		}
-		for(Integer i : enemigosMuertos) {
-			Enemigo malo= enemigos.get(i);
-			Juego.getJuego().getMercado().agregarMonedas( malo.getMonedas() );
-			enemigos.remove((int) i);
-		}
-	}
-	
-	public void atacar () {
+	public void actualizarEntes() {
 		List<Integer> aliadosMuertos = new ArrayList<Integer>();
 		for (int i=0; i<aliados.size(); i++) {
 			Aliado a = aliados.get(i);
@@ -156,6 +139,7 @@ public class Mapa{
 				enemigosMuertos.add(i);
 			else {
 				e.atacar();
+				e.mover();
 				e.actualizarPowerUp();
 			}
 		}
