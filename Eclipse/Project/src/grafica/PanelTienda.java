@@ -87,7 +87,7 @@ public class PanelTienda extends JLabel {
 		
 		JButton buttonV = new JButton("$");
 		buttonV.setIcon(new ImageIcon(Interfaz.path + "coin.png"));
-		buttonV.setBounds(255, 0, 50, 50);
+		buttonV.setBounds(250, 0, 50, 50);
 		add(buttonV);
 		buttonV.addActionListener(new ActionListener() {
 			@Override

@@ -19,6 +19,7 @@ public class PanelMapa extends JLabel {
 	
 	public PanelMapa() {
 		super();
+		
 		graficosTemporales = new ArrayList<Pair<Grafico, Integer>>();
 		setBounds(0, 88, 1000, 638);
 		setLayout(null);
