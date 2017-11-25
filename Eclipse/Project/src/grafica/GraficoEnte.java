@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import juego.ente.Celda;
 import juego.ente.Ente;
 import juego.ente.EstadoEnte;
-import juego.Constantes;
 import juego.Juego;
 
 public class GraficoEnte extends JLabel implements Grafico {

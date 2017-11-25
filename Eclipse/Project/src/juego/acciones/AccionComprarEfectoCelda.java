@@ -1,10 +1,7 @@
 package juego.acciones;
 
-import juego.ente.Aliado;
-import juego.ente.Celda;
 import juego.ente.EfectoCelda.EfectoCelda;
 import juego.ente.EfectoCelda.FactoryEfectoCelda;
-import juego.FactoryAliado;
 import juego.Juego;
 
 public class AccionComprarEfectoCelda implements AccionSobreMapa {

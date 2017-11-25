@@ -8,7 +8,6 @@ import juego.Constantes;
 import juego.FactoryEnemigo;
 import juego.Juego;
 import juego.Mapa;
-import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.powerup.FactoryPowerUps;
 import juego.ente.powerup.PowerUp;

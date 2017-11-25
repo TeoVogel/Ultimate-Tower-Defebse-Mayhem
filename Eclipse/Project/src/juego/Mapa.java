@@ -9,12 +9,10 @@ import juego.ente.AliadoDosCeldas;
 import juego.ente.Celda;
 import juego.ente.Enemigo;
 import juego.ente.Obstaculo;
-import juego.ente.EfectoCelda.Acido;
 import juego.ente.EfectoCelda.EfectoCelda;
 
 public class Mapa{
 
-	
 	private Celda[][] grilla;
 	private List<Enemigo> enemigos;
 	private List<Aliado> aliados;
@@ -130,7 +128,8 @@ public class Mapa{
 			e.mover();
 		}
 		for(Integer i : enemigosMuertos) {
-			Juego.getJuego().getMercado().agregarMonedas(enemigos.get(i).getMonedas());
+			Enemigo malo= enemigos.get(i);
+			Juego.getJuego().getMercado().agregarMonedas( malo.getMonedas() );
 			enemigos.remove((int) i);
 		}
 	}

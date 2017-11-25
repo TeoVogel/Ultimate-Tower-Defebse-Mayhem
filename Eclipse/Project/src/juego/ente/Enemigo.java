@@ -4,6 +4,8 @@ import java.util.Random;
 
 import grafica.GraficoEnemigo;
 import juego.Juego;
+import juego.acciones.DropPowerUp;
+import juego.acciones.DropEfectoCelda;
 import juego.ente.EfectoCelda.EfectoCelda;
 import juego.visitor.DisparoEnemigo;
 import juego.visitor.Visitor;
@@ -61,6 +63,30 @@ public class Enemigo extends Personaje {
 	
 	public void setVelocidad(int v) {
 		velocidad = v;
+	}
+	
+	public void quitarVida(int cant) {
+		vida -= cant;
+		grafica.actualizarVida();
+		if (vida <= 0) {
+			estado = new EstadoEnteMorir();
+			grafica.morir();
+			dropea();
+			celda.setEnte(null);
+			celda = null;
+		}
+	}
+	
+	private void dropea(){
+		Random random= new Random();
+		int x= celda.fila * 100;
+		int y= celda.columna * 100;
+		int tipo= random.nextInt(7);
+		if(tipo < 5){
+			new DropPowerUp(x, y, tipo);
+		}else if(tipo < 7){
+			new DropEfectoCelda(x, y, tipo-5);
+		}
 	}
 	
 	public int getMonedas () {

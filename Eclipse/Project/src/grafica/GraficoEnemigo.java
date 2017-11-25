@@ -42,4 +42,7 @@ public class GraficoEnemigo extends GraficoPersonaje {
 
 	}
 	
+	
+	
+	
 }

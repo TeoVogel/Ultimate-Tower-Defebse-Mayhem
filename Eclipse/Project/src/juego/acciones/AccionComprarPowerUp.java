@@ -1,10 +1,8 @@
 package juego.acciones;
 
 import juego.ente.Aliado;
-import juego.ente.Celda;
 import juego.ente.powerup.FactoryPowerUps;
 import juego.ente.powerup.PowerUp;
-import juego.FactoryAliado;
 import juego.Juego;
 
 public class AccionComprarPowerUp implements AccionSobreAliado {

@@ -1,11 +1,9 @@
 package grafica;
 
-import juego.Constantes;
 import juego.Juego;
 import juego.ente.Ente;
 import juego.ente.EstadoEnte;
 import juego.ente.EstadoEnteAtacar;
-import juego.ente.EstadoEnteParar;
 import juego.ente.powerup.PowerUp;
 
 public class GraficoPersonaje extends GraficoEnte {
