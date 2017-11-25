@@ -38,7 +38,7 @@ public class Enemigo extends Personaje {
 			} else {
 				if (izq.getEnte() == null) {
 					izq.setEnte(this);
-					celda.setEnte(null);
+					celda.RemoveEnte();
 					celda = izq;
 					vel = 0;
 					grafica.centrar();

@@ -53,9 +53,12 @@ public class Celda {
 	}
 	
 	public void setEnte(Ente e) {
-		ente = e;
-		if(ente!=null)
+		if(e != null) {
+			ente = e;
 			efecto.afectar(ente);
+		}
+		else
+			RemoveEnte();
 	}
 	
 	public boolean actualizarEfecto(){

@@ -55,7 +55,7 @@ public abstract class Ente {
 		if (vida <= 0) {
 			estado = new EstadoEnteMorir();
 			grafica.morir();
-			celda.setEnte(null);
+			celda.RemoveEnte();
 			celda = null;
 		}
 	}
